@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { FaBed,FaToilet,FaCarAlt,FaEye } from 'react-icons/fa';
-import { heroImages } from '../../helpers/heroImages';
+import { inmuebleImages } from '../../helpers/inmuebleImages';
 
 export const InmuebleCard = ({         
     id,
@@ -22,7 +22,7 @@ export const InmuebleCard = ({
             <div className='row no-gutters'>
                 <div className='col-4'>
                     <Link to={`/inmueble/${id}`} >
-                        <img src={ heroImages(`./${id}.jpg`) }  className='card-img' alt={ nombre } />
+                        <img src={ inmuebleImages(`./${id}.jpg`) }  className='card-img' alt={ nombre } />
                     </Link>
                 </div>
                 <div className='col-8'>

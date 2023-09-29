@@ -17,7 +17,7 @@ export const DashboardRoutes = () => {
             <Route path="apartamentos" element={<ApartamentosScreen />} />
             <Route path="casas" element={<CasasScreen />} />
             <Route path="search" element={<SearchScreen />} />
-            <Route path="/" element={<ApartamentosScreen />} />
+            <Route path="/react-inmobiliaria" element={<ApartamentosScreen />} />
         </Routes>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { useParams, Navigate, useNavigate} from 'react-router-dom'
-import { heroImages } from '../../helpers/heroImages';
+import { inmuebleImages } from '../../helpers/inmuebleImages';
 import { getInmuebleById } from '../../selectors/getInmuebleById';
 
 export const InmuebleScreen = () => {
@@ -38,7 +38,7 @@ export const InmuebleScreen = () => {
     <div className='row mt-5'>
       <div className='col-4'>
         <img 
-          src={ heroImages(`./${id}.jpg`) } 
+          src={ inmuebleImages(`./${id}.jpg`) } 
           alt={ nombre }
           className='shadow img-thumbnail animate__animated animate__fadeInLeft'
         />

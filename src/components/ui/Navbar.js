@@ -23,7 +23,7 @@ export const Navbar = () => {
             &nbsp;
             <Link 
                 className="navbar-brand" 
-                to="/"
+                to="/react-inmobiliaria"
             >
                 Inmobiliaria
             </Link>
