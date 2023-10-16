@@ -44,12 +44,11 @@ export const SearchScreen = () => {
                   onChange={ handleInputChange }
                 />
                 <br/>
-                <button
-                  className='btn btn-outline-info mt-1'
-                  type='submit'
-                >
-                  Buscar...
-                </button>
+                <div class="d-grid gap-2 col-6 mx-md-0">
+                  <button className='btn-buscar btn btn-lg btn-outline-info mt-1' type='submit'>
+                    Buscar
+                  </button>
+                </div>
               </form>
 
             </div>
@@ -60,7 +59,7 @@ export const SearchScreen = () => {
 
               {
                   (q === '')
-                      ? <div className="alert alert-info"> Inmuebles </div>
+                      ? <div className="alert alert-warning"> Inmuebles </div>
                       : ( inmueblesFiltered.length === 0 ) 
                           && <div className="alert alert-danger"> No hay resultados: { q } </div>
               }

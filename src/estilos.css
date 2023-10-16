@@ -30,22 +30,22 @@ span {
     color: var(--main-color);
     font-weight: bold!important;
     border-color: var(--main-color);
-    text-shadow: 1px 1px 1px rgba(150,150,150,0.5);
+    text-shadow: 1px 1px 1px rgba(150,150,150,0.3);
     letter-spacing: 0.5px;
 }
 .btn-login:hover {
     color: var(--white-color);
     background-color: var(--main-color);
 }
-.btn-inmueble {
+.btn-inmueble, .btn-buscar {
     color: var(--main-color);
     font-weight: bold!important;
     background-color: var(--white-color);
     border-color: var(--main-color);
-    text-shadow: 1px 1px 1px rgba(150,150,150,0.5);
+    text-shadow: 1px 1px 1px rgba(150,150,150,0.3);
     letter-spacing: 0.5px;
 }
-.btn-inmueble:hover {
+.btn-inmueble:hover, .btn-buscar:hover {
     color: var(--dark-color);
     font-weight: bold!important;
     background-color: var(--main-color);
