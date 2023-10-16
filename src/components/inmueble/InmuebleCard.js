@@ -12,7 +12,8 @@ export const InmuebleCard = ({
     habitaciones,
     baños,
     parqueaderos,
-    valor
+    valor,
+    name
  }) => {
 
 
@@ -21,13 +22,13 @@ export const InmuebleCard = ({
         <div className='card shadow'>
             <div className='row no-gutters'>
                 <div className='col-4'>
-                    <Link to={`/inmueble/${id}`} >
+                    <Link to={name+`/${id}`} >
                         <img src={ inmuebleImages(`./${id}.jpg`) }  className='card-img' alt={ nombre } />
                     </Link>
                 </div>
                 <div className='col-8'>
                     <div className='card-body'>
-                        <Link to={`/inmueble/${id}`} >
+                        <Link to={`/${id}`} >
                             <h6 className='card-title'>{ nombre }</h6>
                         </Link>
                         <i className='card-text'>{ categoria }&nbsp;{ tipo }</i>
@@ -39,7 +40,7 @@ export const InmuebleCard = ({
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <small className='text-muted'><FaCarAlt />&nbsp;{ parqueaderos }</small>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <Link to={`/inmueble/${id}`} >
+                            <Link to={`/${id}`} >
                                 <FaEye />
                             </Link>
                         </p>

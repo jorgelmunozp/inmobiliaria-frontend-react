@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../auth/authContext';
 import { types } from '../../types/types';
 
-export const Navbar = () => {
+
+export const Navbar = ({name}) => {
 
     const { user, dispatch } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -25,11 +26,11 @@ export const Navbar = () => {
                 <div className="collapse navbar-collapse"  id="navbarContent">
                     <div className="navbar-nav">
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to="/apartamentos">Apartamentos</NavLink>
+                            to={name+"/apartamentos"}>Apartamentos</NavLink>
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to="/casas">Casas</NavLink>
+                            to={name+"/casas"}>Casas</NavLink>
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to="/search">Buscar</NavLink>
+                            to={name+"/search"}>Buscar</NavLink>
                     </div>
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                         <ul className="navbar-nav ml-auto">
@@ -38,8 +39,6 @@ export const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-
-
             </div>
         </nav>
     )

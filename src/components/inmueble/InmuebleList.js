@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { getInmueblesByCategoria } from '../../selectors/getInmueblesByCategoria'
 import { InmuebleCard } from './InmuebleCard';
 
-export const InmuebleList = ({ categoria }) => {
+export const InmuebleList = ({ categoria, name }) => {
 
   const inmuebles = useMemo( () => getInmueblesByCategoria(categoria),[ categoria ] );
 
@@ -13,6 +13,7 @@ export const InmuebleList = ({ categoria }) => {
                 <InmuebleCard 
                     key={ inmueble.id } 
                     { ...inmueble }
+                    name={name}
                 />
             ))
         }
