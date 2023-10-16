@@ -31,14 +31,15 @@ export const Navbar = () => {
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
                             to="/search">Buscar</NavLink>
                     </div>
+                    <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
+                        <ul className="navbar-nav ml-auto">
+                            <span className='nav-item nav-link text'>{user.name}</span>
+                            <button className="nav-item nav-link btn" onClick={ handleLogout }>Salir</button>
+                        </ul>
+                    </div>
                 </div>
 
-                <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
-                    <ul className="navbar-nav ml-auto">
-                        <span className='nav-item nav-link text'>{user.name}</span>
-                        <button className="nav-item nav-link btn" onClick={ handleLogout }>Salir</button>
-                    </ul>
-                </div>
+
             </div>
         </nav>
     )
