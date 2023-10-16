@@ -14,7 +14,7 @@ export const LoginScreen = () => {
 
       const action = {
         type: types.login,
-        payload: { name: 'Jorge' }
+        payload: { name: 'User' }
       }
 
       dispatch(action);
@@ -32,9 +32,11 @@ export const LoginScreen = () => {
         <hr />
         <h1><FaHouseUser /><FaBuilding /><FaStoreAlt /></h1>
         <br/>
-        <button className='btn btn-outline-info shadow-sm' onClick={ handleLogin }>
-          Inmuebles
-        </button>
+        <div class="d-grid gap-2 col-4 mx-auto">
+          <button className='btn-login btn btn-lg btn-outline-warning shadow-sm' onClick={ handleLogin }>
+            Inmuebles
+          </button>
+        </div>
     </div>
   )
 }
