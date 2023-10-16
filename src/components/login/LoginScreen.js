@@ -31,13 +31,9 @@ export const LoginScreen = () => {
         <h1>Inmobiliaria La Casa</h1>
         <hr />
         <h1><FaHouseUser /><FaBuilding /><FaStoreAlt /></h1>
-
         <br/>
-        <button
-          className='btn btn-outline-info shadow-sm'
-          onClick={ handleLogin }
-        >
-          Ingresar
+        <button className='btn btn-outline-info shadow-sm' onClick={ handleLogin }>
+          Inmuebles
         </button>
     </div>
   )

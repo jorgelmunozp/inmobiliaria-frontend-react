@@ -1,5 +1,4 @@
 :root {
-    /* --main-color: #ff6611; */
     --main-color: rgba(var(--bs-info-rgb))
 }
 
@@ -9,14 +8,14 @@ a {
 .active {
     color: var(--main-color)!important;
 }
-a svg  {
+a svg {
     color: var(--main-color)!important;
 }
 h1,h3 {
     color: var(--main-color)!important;
     text-shadow: 1px 1px 2px rgba(100,100,100,0.5);
 }
-h6  {
+h6 {
     color: var(--main-color)!important;
     text-shadow: 1px 1px 2px rgba(200,200,200,0.5);
 }
