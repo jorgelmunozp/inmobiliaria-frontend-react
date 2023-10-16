@@ -70,6 +70,7 @@ export const InmuebleScreen = () => {
           <li className='list-group-item'> <b>Ciudad:</b> { ciudad }</li>
           <li className='list-group-item'><b>Ubicación:</b>{ ubicacion }</li>
         </ul>
+        <br></br>
         <div class="d-grid gap-2 col-4 mx-md-0">
           <button className='btn-inmueble btn btn-md btn-warning' onClick={ handleReturn }>
             Regresar
