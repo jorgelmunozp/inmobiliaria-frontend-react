@@ -1,4 +1,4 @@
-<h1 align="center"> Inmobiliaria | React App </h1>
+<h1 align="center"> Facturación Frutería | React Frontend App </h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/JavaScript-f1e05a">
@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/status-close-ff3333">
 </p>
 
-* Demo: [Inmobiliaria](https://jorgelmunozp.github.io/react-inmobiliaria/)
+* Demo: [Facturación Frutería](https://jorgelmunozp.github.io/fruteria-inventario-frontend-react/)
 
 ***
 
@@ -19,7 +19,7 @@
 
 ## Description
 
-This project consists of the development of a application for trading of a real estate agency 
+This project consists of the development of a application for a fruit store 
 
 * It was developed with JavaScript, Html, and Css in React Js
 
@@ -32,6 +32,6 @@ This project consists of the development of a application for trading of a real 
 
 ## License
 
-Inmobiliaria is [MIT licensed](/docs/LICENSE.txt).
+Facturación Frutería is [MIT licensed](/docs/LICENSE.txt).
 
-The Inmobiliaria documentation (e.g., .md files in the /docs folder) is [Creative Commons licensed](/docs/LICENSE-docs.txt).
+The Facturación Frutería documentation (e.g., .md files in the /docs folder) is [Creative Commons licensed](/docs/LICENSE-docs.txt).

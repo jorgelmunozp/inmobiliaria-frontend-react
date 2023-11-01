@@ -8,6 +8,6 @@ export const PublicRoute = ({ children }) => {
 
 
     return user.logged
-        ? <Navigate to='/react-inmobiliaria' /> 
+        ? <Navigate to='/fruteria-inventario-frontend-react' /> 
         : children
 }
