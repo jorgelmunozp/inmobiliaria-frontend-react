@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { InmueblesApp } from './InmueblesApp';
-import './estilos.css';
+import { App } from './App';
+import './styles.css';
 
 ReactDOM.render(
-    <InmueblesApp />,
+    <App />,
   document.getElementById('root')
 );

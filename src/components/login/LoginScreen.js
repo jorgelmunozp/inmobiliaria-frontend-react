@@ -32,7 +32,7 @@ export const LoginScreen = () => {
         <hr />
         <h1><FaHouseUser /><FaBuilding /><FaStoreAlt /></h1>
         <br/>
-        <div class="d-grid gap-2 col-4 mx-auto">
+        <div className="d-grid gap-2 col-4 mx-auto">
           <button className='btn-login btn btn-lg btn-outline-warning shadow-sm rounded' onClick={ handleLogin }>
             Inmuebles
           </button>

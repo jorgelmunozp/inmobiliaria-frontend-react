@@ -44,7 +44,7 @@ export const SearchScreen = () => {
                   onChange={ handleInputChange }
                 />
                 <br/>
-                <div class="d-grid gap-2 col-6 mx-md-0">
+                <div className="d-grid gap-2 col-6 mx-md-0">
                   <button className='btn-buscar btn btn-lg btn-outline-info mt-1' type='submit'>
                     Buscar
                   </button>

@@ -7,7 +7,7 @@ const init = () => {
   return JSON.parse(localStorage.getItem('user') ) || { logged: false};
 }
 
-export const InmueblesApp = () => {
+export const App = () => {
   
   const [ user, dispatch ] = useReducer( authReducer, {}, init );
 

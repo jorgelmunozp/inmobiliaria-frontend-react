@@ -5,6 +5,10 @@
     /* --main-color: rgba(var(--bs-info-rgb)); */
 }
 
+*{
+    font: 2.5vmin 'Century Gothic', Helvetica, Arial, sans-serif;
+  }
+
 a {
     text-decoration: none;
 }

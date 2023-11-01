@@ -17,11 +17,11 @@ export const Navbar = ({name}) => {
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container-fluid">
+            <div className="container-fluid">
                 &nbsp;
                 <Link className="navbar-brand" to="/react-inmobiliaria">Inmobiliaria</Link>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse"  id="navbarContent">
                     <div className="navbar-nav">
