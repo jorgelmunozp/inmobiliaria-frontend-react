@@ -29,6 +29,9 @@ h6 {
 span {
     color: var(--main-color)!important;
 }
+.icon {
+    font-size: 10vmin;
+}
 
 .btn-login {
     color: var(--main-color);

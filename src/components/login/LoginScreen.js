@@ -30,7 +30,7 @@ export const LoginScreen = () => {
     <div className='container mt-5 text-center'>
         <h1>Inmobiliaria La Casa</h1>
         <hr />
-        <h1><FaHouseUser /><FaBuilding /><FaStoreAlt /></h1>
+        <h1><FaHouseUser className='icon'/><FaBuilding className='icon'/><FaStoreAlt className='icon'/></h1>
         <br/>
         <div className="d-grid gap-2 col-4 mx-auto">
           <button className='btn-login btn btn-lg btn-outline-warning shadow-sm rounded' onClick={ handleLogin }>
