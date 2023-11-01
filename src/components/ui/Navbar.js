@@ -19,18 +19,18 @@ export const Navbar = ({name}) => {
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             <div className="container-fluid">
                 &nbsp;
-                <Link className="navbar-brand" to="/fruteria-inventario-frontend-react">La Frutería</Link>
+                <Link className="navbar-brand" to="/react-inmobiliaria">Inmobiliaria</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse"  id="navbarContent">
                     <div className="navbar-nav">
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/Facturacion"}>Facturación</NavLink>
+                            to={name+"/apartamentos"}>Apartamentos</NavLink>
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/Carrito"}>Carrito</NavLink>
+                            to={name+"/casas"}>Casas</NavLink>
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/Inventario"}>Inventario</NavLink>
+                            to={name+"/search"}>Buscar</NavLink>
                     </div>
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                         <ul className="navbar-nav ml-auto">

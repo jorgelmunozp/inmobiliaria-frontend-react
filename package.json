@@ -1,6 +1,6 @@
 {
-  "name": "fruteria-inventario-frontend-react",
-  "homepage": "https://jorgelmunozp.github.io/fruteria-inventario-frontend-react/",
+  "name": "react-inmobiliaria",
+  "homepage": "https://jorgelmunozp.github.io/react-inmobiliaria/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
