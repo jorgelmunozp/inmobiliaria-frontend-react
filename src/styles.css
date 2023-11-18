@@ -5,12 +5,12 @@
     --white-color: #fff;
 }
 
-*{ font-family: 'CenturyGothic', 'Century Gothic', Arial, sans-serif; }
+*{ font: 2.5vmin 'CenturyGothic', 'Century Gothic', Arial, sans-serif; }
 @font-face {
     font-family: "CenturyGothic";
     font-style: normal;
     font-weight: normal;
-    src: url("./assets/fonts/LDF-ComicSans/CenturyGothic.ttf") format("truetype");
+    src: url("./assets/fonts/CenturyGothic.ttf") format("truetype");
   }
 
 a { text-decoration: none; }
