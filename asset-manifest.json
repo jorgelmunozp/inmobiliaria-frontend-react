@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/react-inmobiliaria/static/css/main.6d36ba59.css",
-    "main.js": "/react-inmobiliaria/static/js/main.64e07401.js",
+    "main.css": "/react-inmobiliaria/static/css/main.a6fb4322.css",
+    "main.js": "/react-inmobiliaria/static/js/main.135710c4.js",
+    "static/media/CenturyGothic.ttf": "/react-inmobiliaria/static/media/CenturyGothic.b1b792bab1bff8f27ba7.ttf",
     "static/media/casa-campamento.jpg": "/react-inmobiliaria/static/media/casa-campamento.a20ce66aa2468b5b351e.jpg",
     "static/media/apto-terrazas-del-campestre.jpg": "/react-inmobiliaria/static/media/apto-terrazas-del-campestre.b1e8ebea7312e61205d2.jpg",
     "static/media/apto-condominio-la-rivera.jpg": "/react-inmobiliaria/static/media/apto-condominio-la-rivera.33a223a2f9157557f475.jpg",
@@ -23,11 +24,11 @@
     "static/media/casa-conjunto-alcala.jpg": "/react-inmobiliaria/static/media/casa-conjunto-alcala.d74eee19c68fc5de5542.jpg",
     "static/media/casa-villa-mercedes.jpg": "/react-inmobiliaria/static/media/casa-villa-mercedes.65ada82b374a9528b95e.jpg",
     "index.html": "/react-inmobiliaria/index.html",
-    "main.6d36ba59.css.map": "/react-inmobiliaria/static/css/main.6d36ba59.css.map",
-    "main.64e07401.js.map": "/react-inmobiliaria/static/js/main.64e07401.js.map"
+    "main.a6fb4322.css.map": "/react-inmobiliaria/static/css/main.a6fb4322.css.map",
+    "main.135710c4.js.map": "/react-inmobiliaria/static/js/main.135710c4.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d36ba59.css",
-    "static/js/main.64e07401.js"
+    "static/css/main.a6fb4322.css",
+    "static/js/main.135710c4.js"
   ]
 }
