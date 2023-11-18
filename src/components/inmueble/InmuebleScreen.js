@@ -77,7 +77,6 @@ export const InmuebleScreen = () => {
           </button>
         </div>
       </div>
-
     </div>
   )
 }
