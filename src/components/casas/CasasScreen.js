@@ -4,7 +4,8 @@ import { InmuebleList } from '../inmueble/InmuebleList'
 export const CasasScreen = () => {
   return (
     <div>
-      <center><h1>Casas</h1></center>
+      <hr />
+      <center><h3>Casas</h3></center>
       <hr />
       <InmuebleList categoria={'Casa'} />
     </div>

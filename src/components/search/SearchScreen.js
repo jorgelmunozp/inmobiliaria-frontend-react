@@ -25,55 +25,56 @@ export const SearchScreen = () => {
 
   return (
     <>
-        <center><h1>Buscar Inmueble</h1></center> 
-        <hr />
+      <hr />
+      <center><h3>Buscar Inmueble</h3></center> 
+      <hr />
 
-        <div className='row'> 
-            <div className='col-5'>
-              <h4>Que tipo de inmueble buscas?</h4>
-              <hr />
+      <div className='row'> 
+          <div className='col-5'>
+            <h4>Que tipo de inmueble buscas?</h4>
+            <hr />
 
-              <form onSubmit={ handleSearch }>
-                <input 
-                  type='text'
-                  placeholder='Ingresa el nombre del inmueble'
-                  className='form-control'
-                  name='searchText'
-                  autoComplete='off'
-                  value={ searchText }
-                  onChange={ handleInputChange }
-                />
-                <br/>
-                <div className="d-grid gap-2 col-6 mx-md-0">
-                  <button className='btn-buscar btn btn-lg btn-outline-info mt-1' type='submit'>
-                    Buscar
-                  </button>
-                </div>
-              </form>
+            <form onSubmit={ handleSearch }>
+              <input 
+                type='text'
+                placeholder='Ingresa el nombre del inmueble'
+                className='form-control'
+                name='searchText'
+                autoComplete='off'
+                value={ searchText }
+                onChange={ handleInputChange }
+              />
+              <br/>
+              <div className="d-grid gap-2 col-6 mx-md-0">
+                <button className='btn-buscar btn btn-lg btn-outline-info mt-1' type='submit'>
+                  Buscar
+                </button>
+              </div>
+            </form>
 
-            </div>
+          </div>
 
-            <div className='col-7'>
-              <h4>Inmuebles disponibles</h4>
-              <hr />
+          <div className='col-7'>
+            <h4>Inmuebles disponibles</h4>
+            <hr />
 
-              {
-                  (q === '')
-                      ? <div className="alert alert-warning"> Inmuebles </div>
-                      : ( inmueblesFiltered.length === 0 ) 
-                          && <div className="alert alert-danger"> No hay resultados: { q } </div>
-              }
+            {
+                (q === '')
+                    ? <div className="alert alert-warning"> Inmuebles </div>
+                    : ( inmueblesFiltered.length === 0 ) 
+                        && <div className="alert alert-danger"> No hay resultados: { q } </div>
+            }
 
-              {
-                  inmueblesFiltered.map(inmueble => (
-                      <InmuebleCard
-                          key={ inmueble.id }
-                          { ...inmueble }
-                      />
-                  ))
-              }
-            </div>
-        </div>
+            {
+                inmueblesFiltered.map(inmueble => (
+                    <InmuebleCard
+                        key={ inmueble.id }
+                        { ...inmueble }
+                    />
+                ))
+            }
+          </div>
+      </div>
     </>
   )
 }

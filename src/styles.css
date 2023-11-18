@@ -1,8 +1,8 @@
 :root {
     --dark-color: #212529;
-    --main-color: #f38d3a;
+    --gray-color: #aaaaaa;
+    --main-color: #5285c5;
     --white-color: #fff;
-    /* --main-color: rgba(var(--bs-info-rgb)); */
 }
 
 *{
@@ -18,27 +18,21 @@ a {
 a svg {
     color: var(--main-color)!important;
 }
-h1,h3 {
+h1,h2,h3,h4,h5,h6 {
     color: var(--main-color)!important;
-    text-shadow: 1px 1px 2px rgba(100,100,100,0.5);
-}
-h6 {
-    color: var(--main-color)!important;
-    text-shadow: 1px 1px 2px rgba(200,200,200,0.5);
 }
 span {
     color: var(--main-color)!important;
 }
+
 .icon {
-    font-size: 10vmin;
+    font-size: 8vmin;
 }
 
 .btn-login {
     color: var(--main-color);
-    font-weight: bold!important;
     border-color: var(--main-color);
-    text-shadow: 1px 1px 1px rgba(150,150,150,0.3);
-    letter-spacing: 0.5px;
+    border: 1.5px solid;
 }
 .btn-login:hover {
     color: var(--white-color);
@@ -57,3 +51,29 @@ span {
     font-weight: bold!important;
     background-color: var(--main-color);
 }
+.btn-outline-warning:hover {
+    border-color: var(--gray-color);
+}
+
+input::placeholder {
+    color: var(--gray-color);
+}
+input[type=text]{
+    border: 1.5px solid var(--gray-color);
+    border-radius: 100vmax;
+    background-color: white;
+    color: var(--main-color);
+    padding: 15px 0 15px 0;
+    font-size: inherit;
+}
+input[type=password]{
+    border: 1.5px solid var(--gray-color);
+    border-radius: 100vmax;
+    background-color: white;
+    color: var(--main-color);
+    padding: 15px 0 15px 0;
+    font-size: inherit;
+}
+
+button { background-color:var(--dark-color); color:var(--white-color); }
+button:hover{ color:var(--dark-color); background-color:var(--gray-color); }

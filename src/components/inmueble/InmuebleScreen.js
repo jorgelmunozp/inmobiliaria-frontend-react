@@ -40,7 +40,7 @@ export const InmuebleScreen = () => {
         <img 
           src={ inmuebleImages(`./${id}.jpg`) } 
           alt={ nombre }
-          className='shadow img-thumbnail animate__animated animate__fadeInLeft'
+          className='shadow img-thumbnail animate__animated animate__fadeIn'
         />
       </div>
 
