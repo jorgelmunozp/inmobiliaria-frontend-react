@@ -5,34 +5,23 @@
     --white-color: #fff;
 }
 
-*{
-    font: 2.5vmin 'Century Gothic', Helvetica, Arial, sans-serif;
-  }
+*{ font: 2.5vmin 'Century Gothic', Helvetica, Arial, sans-serif; }
 
-a {
-    text-decoration: none;
-}
-.active {
-    color: var(--main-color)!important;
-}
-a svg {
-    color: var(--main-color)!important;
-}
-h1,h2,h3,h4,h5,h6 {
-    color: var(--main-color)!important;
-}
-span {
-    color: var(--main-color)!important;
-}
+a { text-decoration: none; }
 
-.icon {
-    font-size: 8vmin;
-}
+.active { color: var(--main-color)!important; }
+
+a svg { color: var(--main-color)!important; }
+
+h1,h2,h3,h4,h5,h6 { color: var(--main-color)!important; }
+
+span { color: var(--main-color)!important; }
+
+.icon { font-size: 8vmin; }
 
 .btn-login {
     color: var(--main-color);
-    border-color: var(--main-color);
-    border: 1.5px solid;
+    border-color: var(--main-color)!important;
 }
 .btn-login:hover {
     color: var(--white-color);
@@ -40,40 +29,27 @@ span {
 }
 .btn-inmueble, .btn-buscar {
     color: var(--main-color);
-    font-weight: bold!important;
     background-color: var(--white-color);
     border-color: var(--main-color);
-    text-shadow: 1px 1px 1px rgba(150,150,150,0.3);
-    letter-spacing: 0.5px;
 }
 .btn-inmueble:hover, .btn-buscar:hover {
     color: var(--dark-color);
-    font-weight: bold!important;
     background-color: var(--main-color);
 }
-.btn-outline-warning:hover {
-    border-color: var(--gray-color);
-}
 
-input::placeholder {
-    color: var(--gray-color);
-}
+input::placeholder { color: var(--gray-color); }
 input[type=text]{
-    border: 1.5px solid var(--gray-color);
-    border-radius: 100vmax;
     background-color: white;
     color: var(--main-color);
-    padding: 15px 0 15px 0;
-    font-size: inherit;
+    border-color: var(--gray-color)!important;
 }
 input[type=password]{
-    border: 1.5px solid var(--gray-color);
-    border-radius: 100vmax;
     background-color: white;
     color: var(--main-color);
-    padding: 15px 0 15px 0;
-    font-size: inherit;
+    border-color: var(--gray-color)!important;
 }
 
 button { background-color:var(--dark-color); color:var(--white-color); }
 button:hover{ color:var(--dark-color); background-color:var(--gray-color); }
+
+.alertMessage { color: var(--gray-color); }

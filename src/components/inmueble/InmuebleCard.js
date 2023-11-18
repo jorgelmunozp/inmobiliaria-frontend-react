@@ -19,37 +19,33 @@ export const InmuebleCard = ({
 
   return (
     <div className='col'>
-        <div className='card shadow'>
-            <div className='row no-gutters'>
-                <div className='col-4'>
-                    <Link to={name+`/${id}`} >
+        <Link to={`/${id}`} >
+            <div className='card shadow'>
+                <div className='row no-gutters'>
+                    <div className='col-4'>
                         <img src={ inmuebleImages(`./${id}.jpg`) }  className='card-img' alt={ nombre } />
-                    </Link>
-                </div>
-                <div className='col-8'>
-                    <div className='card-body'>
-                        <Link to={`/${id}`} >
+                    </div>
+                    <div className='col-8'>
+                        <div className='card-body'>
                             <h6 className='card-title'>{ nombre }</h6>
-                        </Link>
-                        <i className='card-text'>{ categoria }&nbsp;{ tipo }</i>
-                        <p className='text-muted'>{ valor }</p>
-                        <p className='card-text'>
-                            <small className='text-muted'><FaBed />&nbsp;{ habitaciones }</small>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <small className='text-muted'><FaToilet />&nbsp;{ baños }</small>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <small className='text-muted'><FaCarAlt />&nbsp;{ parqueaderos }</small>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <Link to={`/${id}`} >
+                            <i className='text-muted'>{ categoria }&nbsp;{ tipo }</i>
+                            <p className='text-muted lh-lg'>{ valor }</p>
+                            <p className='card-text'>
+                                <small className='text-muted'><FaBed />&nbsp;{ habitaciones }</small>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <small className='text-muted'><FaToilet />&nbsp;{ baños }</small>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <small className='text-muted'><FaCarAlt />&nbsp;{ parqueaderos }</small>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
                                 <FaEye />
-                            </Link>
-                        </p>
+                            </p>
 
-                        
+                            
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     </div>
 
   )

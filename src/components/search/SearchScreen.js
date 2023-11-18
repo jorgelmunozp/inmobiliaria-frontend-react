@@ -31,22 +31,23 @@ export const SearchScreen = () => {
 
       <div className='row'> 
           <div className='col-5'>
-            <h4>Que tipo de inmueble buscas?</h4>
+            <h5>Que tipo de inmueble buscas?</h5>
             <hr />
 
             <form onSubmit={ handleSearch }>
               <input 
                 type='text'
-                placeholder='Ingresa el nombre del inmueble'
-                className='form-control'
+                placeholder='Ingresa nombre de inmueble'
+                className='form-control px-2 py-2 rounded-pill text-center'
                 name='searchText'
                 autoComplete='off'
                 value={ searchText }
+                // onChange={ handleInputChange }
                 onChange={ handleInputChange }
               />
               <br/>
-              <div className="d-grid gap-2 col-6 mx-md-0">
-                <button className='btn-buscar btn btn-lg btn-outline-info mt-1' type='submit'>
+              <div className="">
+                <button className='btn-buscar btn btn-lg btn-outline-info mt-1 w-100 py-2 rounded-pill'>
                   Buscar
                 </button>
               </div>
@@ -55,12 +56,11 @@ export const SearchScreen = () => {
           </div>
 
           <div className='col-7'>
-            <h4>Inmuebles disponibles</h4>
+            <h5>Inmuebles disponibles</h5>
             <hr />
-
             {
                 (q === '')
-                    ? <div className="alert alert-warning"> Inmuebles </div>
+                    ? <div className="alert alert-primary"> Inmuebles </div>
                     : ( inmueblesFiltered.length === 0 ) 
                         && <div className="alert alert-danger"> No hay resultados: { q } </div>
             }
