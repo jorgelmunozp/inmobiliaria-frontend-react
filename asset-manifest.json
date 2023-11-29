@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-inmobiliaria/static/css/main.726817e6.css",
-    "main.js": "/react-inmobiliaria/static/js/main.867f6763.js",
+    "main.js": "/react-inmobiliaria/static/js/main.e4670f15.js",
     "static/media/CenturyGothic.ttf": "/react-inmobiliaria/static/media/CenturyGothic.b1b792bab1bff8f27ba7.ttf",
     "static/media/casa-campamento.jpg": "/react-inmobiliaria/static/media/casa-campamento.a20ce66aa2468b5b351e.jpg",
     "static/media/apto-terrazas-del-campestre.jpg": "/react-inmobiliaria/static/media/apto-terrazas-del-campestre.b1e8ebea7312e61205d2.jpg",
@@ -25,10 +25,10 @@
     "static/media/casa-villa-mercedes.jpg": "/react-inmobiliaria/static/media/casa-villa-mercedes.65ada82b374a9528b95e.jpg",
     "index.html": "/react-inmobiliaria/index.html",
     "main.726817e6.css.map": "/react-inmobiliaria/static/css/main.726817e6.css.map",
-    "main.867f6763.js.map": "/react-inmobiliaria/static/js/main.867f6763.js.map"
+    "main.e4670f15.js.map": "/react-inmobiliaria/static/js/main.e4670f15.js.map"
   },
   "entrypoints": [
     "static/css/main.726817e6.css",
-    "static/js/main.867f6763.js"
+    "static/js/main.e4670f15.js"
   ]
 }
