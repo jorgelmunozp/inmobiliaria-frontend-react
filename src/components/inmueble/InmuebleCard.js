@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { FaBed,FaToilet,FaCarAlt,FaEye } from 'react-icons/fa';
+import { PiToilet } from "react-icons/pi";
+import { IoHomeOutline, IoBedOutline, IoCarSportOutline } from "react-icons/io5";
 import { inmuebleImages } from '../../helpers/inmuebleImages';
 
 export const InmuebleCard = ({         
@@ -12,6 +13,7 @@ export const InmuebleCard = ({
     habitaciones,
     baños,
     parqueaderos,
+    area,
     valor,
     name
  }) => {
@@ -29,18 +31,19 @@ export const InmuebleCard = ({
                         <div className='card-body'>
                             <h6 className='card-title'>{ nombre }</h6>
                             <i className='text-muted'>{ categoria }&nbsp;{ tipo }</i>
-                            <p className='text-muted lh-lg'>{ valor }</p>
-                            <p className='card-text'>
-                                <small className='text-muted'><FaBed />&nbsp;{ habitaciones }</small>
+                            <div className='text-muted lh-lg'>{ valor }</div>
+                            <div className='card-text'>
+                                <small className='text-muted'><IoHomeOutline />&nbsp;{ area } m<sup>2</sup></small>
+                            </div>                            
+                            <div className='card-text'>
+                                <small className='text-muted'><IoBedOutline />&nbsp;{ habitaciones }</small>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <small className='text-muted'><FaToilet />&nbsp;{ baños }</small>
+                                <small className='text-muted'><PiToilet />&nbsp;{ baños }</small>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <small className='text-muted'><FaCarAlt />&nbsp;{ parqueaderos }</small>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <FaEye />
-                            </p>
-
-                            
+                                <small className='text-muted'><IoCarSportOutline />&nbsp;{ parqueaderos }</small>
+                                {/* &nbsp;&nbsp;&nbsp;&nbsp;
+                                <small className='text-muted'><IoEyeOutline /></small> */}
+                            </div>
                         </div>
                     </div>
                 </div>

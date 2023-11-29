@@ -7,7 +7,7 @@ export const InmuebleList = ({ categoria, name }) => {
   const inmuebles = useMemo( () => getInmueblesByCategoria(categoria),[ categoria ] );
 
   return (
-    <div className='row row-cols-1 row-cols-md-3 g-3 animate__animated animate__fadeIn'>
+    <div className='row row-cols-1 row-cols-md-3 g-1 animate__animated animate__fadeIn'>
         { 
             inmuebles.map( inmueble => (
                 <InmuebleCard 

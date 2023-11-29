@@ -7,6 +7,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'2',
+        'area':'95',
         'valor':'$ 120.000.000',
         'descripcion':'Se vende hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -19,6 +20,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'1',
+        'area':'75',
         'valor':'$ 950.000',
         'descripcion':'Se arrienda hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -31,6 +33,7 @@ export const inmuebles = [
         'habitaciones':'2',
         'baños':'1',
         'parqueaderos':'1',
+        'area':'102',
         'valor':'$ 145.000.000',
         'descripcion':'Se vende hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -43,6 +46,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'2',
+        'area':'78',
         'valor':'$ 125.000.000',
         'descripcion':'Se vende hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -55,6 +59,7 @@ export const inmuebles = [
         'habitaciones':'2',
         'baños':'1',
         'parqueaderos':'1',
+        'area':'75',
         'valor':'$ 105.000.000',
         'descripcion':'Se vende hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -67,6 +72,7 @@ export const inmuebles = [
         'habitaciones':'2',
         'baños':'1',
         'parqueaderos':'1',
+        'area':'85',
         'valor':'$ 850.000',
         'descripcion':'Se arrienda hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -79,6 +85,7 @@ export const inmuebles = [
         'habitaciones':'2',
         'baños':'2',
         'parqueaderos':'1',
+        'area':'70',
         'valor':'$ 1.200.000',
         'descripcion':'Se arrienda hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -91,6 +98,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'1',
+        'area':'95',
         'valor':'$ 1.000.000',
         'descripcion':'Se arrienda hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -103,6 +111,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'1',
+        'area':'82',
         'valor':'$ 160.000.000',
         'descripcion':'Se vende hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -115,6 +124,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'1',
+        'area':'75',
         'valor':'$ 90.000.000',
         'descripcion':'Se vende hermoso apartamento en un sector exclusivo de la ciudad',
         'ciudad':'Popayán'
@@ -127,6 +137,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'2',
+        'area':'130',
         'valor':'$ 240.000.000',
         'descripcion':'Se vende hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'
@@ -139,6 +150,7 @@ export const inmuebles = [
         'habitaciones':'2',
         'baños':'2',
         'parqueaderos':'2',
+        'area':'145',
         'valor':'$ 380.000.000',
         'descripcion':'Se vende hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'
@@ -151,6 +163,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'2',
+        'area':'128',
         'valor':'$ 220.000.000',
         'descripcion':'Se vende hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'
@@ -163,6 +176,7 @@ export const inmuebles = [
         'habitaciones':'4',
         'baños':'3',
         'parqueaderos':'3',
+        'area':'110',
         'valor':'$ 1.200.000',
         'descripcion':'Se arrienda hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'
@@ -175,6 +189,7 @@ export const inmuebles = [
         'habitaciones':'5',
         'baños':'3',
         'parqueaderos':'3',
+        'area':'135',
         'valor':'$ 1.500.000',
         'descripcion':'Se arrienda hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'
@@ -187,6 +202,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'2',
+        'area':'125',
         'valor':'$ 175.000.000',
         'descripcion':'Se vende hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'
@@ -199,6 +215,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'2',
+        'area':'150',
         'valor':'$ 1.100.000',
         'descripcion':'Se arrienda hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'
@@ -211,6 +228,7 @@ export const inmuebles = [
         'habitaciones':'4',
         'baños':'2',
         'parqueaderos':'2',
+        'area':'160',
         'valor':'$ 1.400.000',
         'descripcion':'Se arrienda hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'
@@ -223,6 +241,7 @@ export const inmuebles = [
         'habitaciones':'3',
         'baños':'2',
         'parqueaderos':'1',
+        'area':'140',
         'valor':'$ 1.100.000',
         'descripcion':'Se arrienda hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'
@@ -235,6 +254,7 @@ export const inmuebles = [
         'habitaciones':'4',
         'baños':'3',
         'parqueaderos':'2',
+        'area':'130',
         'valor':'$ 320.000.000',
         'descripcion':'Se vende hermosa casa para estrenar en exclusivo sector campestre',
         'ciudad':'Popayán'

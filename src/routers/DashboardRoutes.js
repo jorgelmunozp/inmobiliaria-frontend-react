@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import { Navbar } from "../components/ui/Navbar"
+import { HomeScreen } from "../components/home/HomeScreen";
 import { ApartamentosScreen } from "../components/apartamentos/ApartamentosScreen";
 import { CasasScreen } from "../components/casas/CasasScreen";
 import { SearchScreen } from "../components/search/SearchScreen";
@@ -19,7 +20,7 @@ export const DashboardRoutes = () => {
             <Route path={name + "/apartamentos"} element={<ApartamentosScreen name={name} />} />
             <Route path={name + "/casas"} element={<CasasScreen />} />
             <Route path={name + "/search"} element={<SearchScreen />} />
-            <Route path={"/" + name} element={<ApartamentosScreen />} />
+            <Route path={"/" + name} element={<HomeScreen />} />
         </Routes>
       </div>
     </>

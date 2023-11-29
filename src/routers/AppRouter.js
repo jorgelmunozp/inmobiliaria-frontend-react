@@ -13,7 +13,7 @@ export const AppRouter = () => {
             <PublicRoute>
                 <LoginScreen />
             </PublicRoute>
-          } 
+          }
         />
 
         <Route path="/*" element={
