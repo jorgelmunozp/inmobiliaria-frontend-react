@@ -46,7 +46,7 @@ export const HomeScreen = () => {
           </div>
 
           <nav aria-label="Page navigation" className='mt-3'>
-            <ul className="pagination justify-content-center">
+            <ul className="pagination pagination-sm justify-content-center">
               <li className="page-item rounded-circle"><button onClick={()=>{if(indexPage[0] >= 1){ setIndexPage([indexPage[0] - itemPerPage,indexPage[1] - itemPerPage])} }} value="arrowLeft" className="page-link rounded-circle page-arrow" aria-label="⬅">⬅️</button></li>
               {
                 (q === '')

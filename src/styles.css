@@ -68,7 +68,10 @@ button:hover{ color:var(--dark-color); background-color:var(--gray-color); }
 /* Pagination */
 .page-arrow {
     border: none;
-    padding: 0.75vmin 0.375vmin;
+    padding: 0.75vmin 0;
+}
+.page-arrow:hover {
+    background-color: var(--main-transparent-color) !important;
 }
 .page-link {
     margin-left: 0.375vmin !important;
