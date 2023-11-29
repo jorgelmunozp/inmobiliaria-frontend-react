@@ -5,7 +5,7 @@ export const CasasScreen = () => {
   return (
     <div>
       <hr />
-      <center><h3>Casas</h3></center>
+      <center><h4>Casas</h4></center>
       <hr />
       <InmuebleList categoria={'Casa'} />
     </div>

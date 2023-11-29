@@ -42,7 +42,7 @@ export const LoginScreen = () => {
 
   return (
     <div className='container mt-5 text-center'>
-        <h1>Inmobiliaria La Casa</h1>
+        <h2>La Inmobiliaria</h2>
         <hr />
         <h1><CiHome className='icon'/><CiBank className='icon'/><CiShop className='icon'/></h1>
         <br/>

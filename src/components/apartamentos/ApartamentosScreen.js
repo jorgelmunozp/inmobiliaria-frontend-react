@@ -5,7 +5,7 @@ export const ApartamentosScreen = ({name}) => {
   return (
     <div>
         <hr />
-        <center><h3>Apartamentos</h3></center>
+        <center><h4>Apartamentos</h4></center>
         <hr />
         <InmuebleList categoria={'Apartamento'} name={name} />
     </div>

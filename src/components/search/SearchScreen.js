@@ -26,7 +26,7 @@ export const SearchScreen = () => {
   return (
     <>
       <hr />
-      <center><h3>Buscar Inmueble</h3></center> 
+      <center><h4>Buscar Inmueble</h4></center> 
       <hr />
 
       <div className='row'> 
