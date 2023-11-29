@@ -23,7 +23,10 @@ h1,h2,h3,h4,h5,h6 { color: var(--main-color)!important; }
 
 span { color: var(--main-color)!important; }
 
-.icon { font-size: 8vmin; }
+.icon {
+    color: var(--main-color)!important;
+    font-size: 8vmin;
+}
 
 .btn-login {
     color: var(--main-color);

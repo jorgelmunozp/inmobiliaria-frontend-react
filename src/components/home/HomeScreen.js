@@ -57,9 +57,9 @@ export const HomeScreen = () => {
           </div>
 
           <div className=''>
-            <hr />
+            {/* <hr />
             <center><h5>Inmuebles disponibles</h5></center>
-            <hr />
+            <hr /> */}
             {
                 (q === '')
                     ? <div className='row row-cols-1 row-cols-md-3 g-1 animate__animated animate__fadeIn'>
