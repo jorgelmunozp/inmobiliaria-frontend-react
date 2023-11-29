@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string'
 import { useForm } from '../../hooks/useForm';
@@ -7,6 +7,7 @@ import { InmuebleCard } from '../inmueble/InmuebleCard';
 import { inmuebles } from '../../data/inmuebles';
 
 import { PiMagnifyingGlass } from "react-icons/pi";
+import { CiCircleChevLeft,CiCircleChevRight } from "react-icons/ci";
 
 export const HomeScreen = () => {
 
@@ -26,6 +27,17 @@ export const HomeScreen = () => {
     navigate(`?q=${ searchText }`);
   };
 
+  const itemPerPage = 9;
+  const [indexPage, setIndexPage ] = useState([0,itemPerPage]);
+  const [numPages, setNumPages] = useState(Math.floor(inmuebles.length/itemPerPage));
+
+  // setNumPages(Math.floor(inmueblesFiltered.length/itemPerPage));
+
+  let indexPages = [];
+  for(let i = 0; i <= numPages; i++) {
+    indexPages.push(i);
+  }
+
   return (
     <>
       <hr />
@@ -37,31 +49,47 @@ export const HomeScreen = () => {
             <form onSubmit={ handleSearch }>
               <input 
                 type='search'
-                placeholder='Que tipo de inmueble buscas?'
+                placeholder='🔎'
                 className='form-control px-2 py-2 rounded-pill text-center'
                 name='searchText'
                 autoComplete='off'
                 value={ searchText }
-                // onChange={ handleInputChange }
                 onChange={ handleInputChange }
                 onInput={ handleSearch }
               />
-              <br/>
-              {/* <div className="">
-                <button className='btn-buscar btn btn-lg btn-outline-info mt-1 w-100 py-2 rounded-pill'>
-                  Buscar <PiMagnifyingGlass />
-                </button>
-              </div> */}
             </form>
-
           </div>
+
+          <nav aria-label="Page navigation" className='mt-3'>
+            <ul className="pagination justify-content-center">
+              <li className="page-item rounded-circle">
+                <a className="page-link rounded-circle page-arrow" href="#" aria-label="Previous">
+                  <span aria-hidden="true">⬅️</span>
+                </a>
+              </li>
+              {
+                (q === '')
+                ? indexPages.map(i => (
+                    <li key={i} className="page-item"><button value={i} className="page-link rounded-circle" onClick={(event)=>setIndexPage([parseInt(event.target.value)*itemPerPage,(parseInt(event.target.value) + 1)*itemPerPage])}>{i+1}</button></li>
+                  ))
+                : indexPages.map(i => (
+                    <li key={i} className="page-item"><button value={i} className="page-link rounded-circle" onClick={(event)=>setIndexPage([parseInt(event.target.value)*itemPerPage,(parseInt(event.target.value) + 1)*itemPerPage])}>{i+1}</button></li>
+                  ))
+              }
+              <li className="page-item">
+                <a className="page-link rounded-circle page-arrow" href="#" aria-label="Next">
+                  <span aria-hidden="true">➡️</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
 
           <div className=''>
             {
                 (q === '')
                     ? <div className='row row-cols-1 row-cols-md-3 g-1 animate__animated animate__fadeIn'>
                         {
-                            inmuebles.map(inmueble => (
+                            inmuebles.slice(indexPage[0],indexPage[1]).map(inmueble => (
                                 <InmuebleCard
                                     key={ inmueble.id }
                                     { ...inmueble }
@@ -74,7 +102,7 @@ export const HomeScreen = () => {
             }
             <div className='row row-cols-1 row-cols-md-3 g-1 animate__animated animate__fadeIn'>
               {
-                  inmueblesFiltered.map(inmueble => (
+                  inmueblesFiltered.slice(indexPage[0],indexPage[1]).map(inmueble => (
                       <InmuebleCard
                           key={ inmueble.id }
                           { ...inmueble }

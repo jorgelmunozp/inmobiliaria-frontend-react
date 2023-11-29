@@ -2,6 +2,7 @@
     --dark-color: #212529;
     --gray-color: #aaaaaa;
     --main-color: #5285c5;
+    --main-transparent-color: rgba(82, 133, 197, 0.25);
     --white-color: #fff;
 }
 
@@ -22,6 +23,7 @@ a svg { color: var(--main-color)!important; }
 h1,h2,h3,h4,h5,h6 { color: var(--main-color)!important; }
 
 span { color: var(--main-color)!important; }
+hr { opacity: 0.1; }
 
 .icon {
     color: var(--main-color)!important;
@@ -62,3 +64,20 @@ button { background-color:var(--dark-color); color:var(--white-color); }
 button:hover{ color:var(--dark-color); background-color:var(--gray-color); }
 
 .alertMessage { color: var(--gray-color); }
+
+/* Pagination */
+.page-arrow {
+    border: none;
+    padding: 0.75vmin 0.375vmin;
+}
+.page-link {
+    margin-left: 0.375vmin !important;
+}
+.page-link:active {
+    background-color: var(--main-color);
+    color: var(--white-color);
+}
+.page-link:hover {
+    background-color: var(--main-color);
+    color: var(--white-color);
+}
