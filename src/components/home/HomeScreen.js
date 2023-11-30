@@ -5,6 +5,7 @@ import { useForm } from '../../hooks/useForm';
 import { getInmueblesByName } from '../../selectors/getInmueblesByName';
 import { InmuebleCard } from '../inmueble/InmuebleCard';
 import { inmuebles } from '../../data/inmuebles';
+import { act } from '@testing-library/react';
 
 export const HomeScreen = () => {
   const navigate = useNavigate();
@@ -23,9 +24,12 @@ export const HomeScreen = () => {
   const [itemPerPage, setItemPerPage ] = useState(9);
   const [indexPage, setIndexPage ] = useState([0,itemPerPage]);
   const [numPages, setNumPages] = useState(Math.floor(inmuebles.length/itemPerPage));
-  // setNumPages(Math.floor(inmueblesFiltered.length/itemPerPage));
+  // const [indexPages, setIndexPages] = useState([]);
   let indexPages = [];
+  let activePage = [true];
   for(let i = 0; i <= numPages; i++) { indexPages.push(i); }
+  for(let i = 1; i <= numPages; i++) { activePage.push(false); }
+  const [activePages, setActivePages] = useState(activePage);
 
   return (
     <>
@@ -47,17 +51,17 @@ export const HomeScreen = () => {
 
           <nav aria-label="Page navigation" className='mt-3'>
             <ul className="pagination pagination-sm justify-content-center">
-              <li className="page-item rounded-circle"><button onClick={()=>{if(indexPage[0] >= 1){ setIndexPage([indexPage[0] - itemPerPage,indexPage[1] - itemPerPage])} }} value="arrowLeft" className="page-link rounded-circle page-arrow" aria-label="⬅">⬅️</button></li>
+              <li className="page-item rounded-circle"><button onClick={(event)=>{if(indexPage[0] >= 1){ setIndexPage([indexPage[0] - itemPerPage,indexPage[1] - itemPerPage]);const indexCurrentPage = activePages.indexOf(true);activePages.fill(false);activePages[indexCurrentPage-1]=true;setActivePages(activePages);} }} value="arrowLeft" type='button' className="page-link rounded-circle page-arrow" aria-label="⬅">⬅️</button></li>
               {
                 (q === '')
                 ? indexPages.map(i => (
-                    <li key={i} className="page-item"><button value={i} onClick={(event)=>setIndexPage([parseInt(event.target.value)*itemPerPage,(parseInt(event.target.value) + 1)*itemPerPage])} className="page-link rounded-circle">{i+1}</button></li>
+                    <li key={i} className={activePages[i] ? "page-item active" : "page-item"}><button value={i} onClick={(event)=>{setIndexPage([parseInt(event.target.value)*itemPerPage,(parseInt(event.target.value) + 1)*itemPerPage]);activePages.fill(false);activePages[i]=true;setActivePages(activePages);}} type='button' className="page-link rounded-circle">{i+1}</button></li>
                   ))
                 : indexPages.map(i => (
-                    <li key={i} className="page-item"><button value={i} onClick={(event)=>setIndexPage([parseInt(event.target.value)*itemPerPage,(parseInt(event.target.value) + 1)*itemPerPage])} className="page-link rounded-circle">{i+1}</button></li>
+                    <li key={i} className="page-item"><a value={i} onClick={(event)=>setIndexPage([parseInt(event.target.value)*itemPerPage,(parseInt(event.target.value) + 1)*itemPerPage])} type='button' className="page-link rounded-circle">{i+1}</a></li>
                   ))  // Cambiar!!!!!!!!!!!!!!!!!!!!!
               }
-              <li className="page-item"><button onClick={()=>{if(indexPage[0] < inmuebles.length-itemPerPage){ setIndexPage([indexPage[0] + itemPerPage,indexPage[1] + itemPerPage])}}} value="arrowRight" className="page-link rounded-circle page-arrow" aria-label="➡">➡️</button></li>
+              <li className="page-item"><button onClick={()=>{if(indexPage[0] < inmuebles.length-itemPerPage){ setIndexPage([indexPage[0] + itemPerPage,indexPage[1] + itemPerPage]);const indexCurrentPage = activePages.indexOf(true);activePages.fill(false);activePages[indexCurrentPage+1]=true;setActivePages(activePages);}}} value="arrowRight" type='button' className="page-link rounded-circle page-arrow" aria-label="➡">➡️</button></li>
             </ul>
           </nav>
 

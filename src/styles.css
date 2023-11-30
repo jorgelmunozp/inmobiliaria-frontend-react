@@ -1,6 +1,7 @@
 :root {
     --dark-color: #212529;
-    --gray-color: #aaaaaa;
+    --gray-color: #aaaaaa;  
+    --lightgray-color: #dddddd;
     --main-color: #5285c5;
     --main-transparent-color: rgba(82, 133, 197, 0.25);
     --white-color: #fff;
@@ -50,12 +51,12 @@ hr { opacity: 0.1; }
 
 input::placeholder { color: var(--gray-color); }
 input[type=text]{
-    background-color: white;
+    background-color: var(--white-color);
     color: var(--main-color);
     border-color: var(--gray-color)!important;
 }
 input[type=password]{
-    background-color: white;
+    background-color: var(--white-color);
     color: var(--main-color);
     border-color: var(--gray-color)!important;
 }
@@ -67,25 +68,22 @@ button:hover{ color:var(--dark-color); background-color:var(--gray-color); }
 
 /* Pagination */
 .page-arrow {
-    border: none;
-    /* padding: 0.75vmin 0; */
     padding: .25rem .25rem !important;
 }
 .page-arrow:hover {
     background-color: var(--white-color) !important;
 }
 .page-link {
+    color: var(--main-color);
     margin-left: 0.175vmin !important;
-}
-.page-link:active {
-    background-color: var(--main-color);
-    color: var(--white-color);
+    border: none;
 }
 .page-link:hover {
-    background-color: var(--main-color);
+    background-color: var(--lightgray-color);
     color: var(--white-color);
 }
-
-/* .pagination-sm .page-link {
-    padding: .25rem .25rem;
-} */
+.page-item.active .page-link {
+    background-color: var(--main-color);
+    color: var(--white-color);
+    border-color: var(--main-color);
+}
