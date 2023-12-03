@@ -69,9 +69,11 @@ button:hover{ color:var(--dark-color); background-color:var(--gray-color); }
 /***** Pagination *****/
 .page-arrow {
     padding: .25rem .25rem !important;
+    border: none;
 }
-.page-arrow:hover {
+.page-arrow:active, .page-arrow:hover {
     background-color: var(--white-color) !important;
+    border: none;
 }
 .page-link {
     color: var(--main-color);
