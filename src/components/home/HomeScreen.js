@@ -59,7 +59,6 @@ export const HomeScreen = () => {
             placeholder='🔎' value={ searchText }
             type='search' id='searchText' name='searchText' autoComplete='off'
             className='form-control px-2 py-2 rounded-pill text-center'
-            // onInput={ handleInputChange } onChange={ handleSearch } onMouseLeave={ handleSearch }
             // onChange={ handleInputSearch }
             onInput={ handleInputSearch }
           />
