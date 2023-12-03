@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-inmobiliaria/static/css/main.ce86b945.css",
-    "main.js": "/react-inmobiliaria/static/js/main.f16942d2.js",
+    "main.css": "/react-inmobiliaria/static/css/main.c5a2eba6.css",
+    "main.js": "/react-inmobiliaria/static/js/main.eb837723.js",
     "static/media/CenturyGothic.ttf": "/react-inmobiliaria/static/media/CenturyGothic.b1b792bab1bff8f27ba7.ttf",
     "static/media/casa-campamento - copia.jpg": "/react-inmobiliaria/static/media/casa-campamento - copia.a20ce66aa2468b5b351e.jpg",
     "static/media/casa-campamento.jpg": "/react-inmobiliaria/static/media/casa-campamento.a20ce66aa2468b5b351e.jpg",
@@ -44,11 +44,11 @@
     "static/media/casa-villa-mercedes - copia.jpg": "/react-inmobiliaria/static/media/casa-villa-mercedes - copia.65ada82b374a9528b95e.jpg",
     "static/media/casa-villa-mercedes.jpg": "/react-inmobiliaria/static/media/casa-villa-mercedes.65ada82b374a9528b95e.jpg",
     "index.html": "/react-inmobiliaria/index.html",
-    "main.ce86b945.css.map": "/react-inmobiliaria/static/css/main.ce86b945.css.map",
-    "main.f16942d2.js.map": "/react-inmobiliaria/static/js/main.f16942d2.js.map"
+    "main.c5a2eba6.css.map": "/react-inmobiliaria/static/css/main.c5a2eba6.css.map",
+    "main.eb837723.js.map": "/react-inmobiliaria/static/js/main.eb837723.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce86b945.css",
-    "static/js/main.f16942d2.js"
+    "static/css/main.c5a2eba6.css",
+    "static/js/main.eb837723.js"
   ]
 }
