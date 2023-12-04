@@ -1,6 +1,4 @@
-import { inmuebles } from "../data/inmuebles"
-
-export const getInmueblesByCategoria = ( categoria ) => {
+export const getInmueblesByCategoria = ( categoria,inmuebles ) => {
     
     const InmueblesValidos = ['Apartamento','Casa'];
 
@@ -8,5 +6,5 @@ export const getInmueblesByCategoria = ( categoria ) => {
         throw new Error( `${ categoria } no es un categoria de inmueble válido` );
     }
 
-    return inmuebles.filter( inmueble => inmueble.categoria === categoria )
+    return inmuebles.filter( inmueble => inmueble.detalle.categoria === categoria )
 }

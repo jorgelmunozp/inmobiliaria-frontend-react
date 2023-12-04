@@ -1,4 +1,4 @@
-<h1 align="center"> Inmobiliaria | React App </h1>
+<h1 align="center"> La Inmobiliaria | React App </h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/JavaScript-f1e05a">
@@ -7,8 +7,8 @@
   <img src="https://img.shields.io/badge/status-close-ff3333">
 </p>
 
-* Demo: [Inmobiliaria](https://jorgelmunozp.github.io/react-inmobiliaria/)
-
+* Demo: [La Inmobiliaria FrontEnd](https://jorgelmunozp.github.io/inmobiliaria-frontend-react/)
+* Demo: [La Inmobiliaria Backend](https://jorgelmunozp.github.io/inmobiliaria-backend-node/)
 ***
 
 ### Preview
@@ -32,6 +32,6 @@ This project consists of the development of a application for trading of a real 
 
 ## License
 
-Inmobiliaria is [MIT licensed](/docs/LICENSE.txt).
+La Inmobiliaria is [MIT licensed](/docs/LICENSE.txt).
 
-The Inmobiliaria documentation (e.g., .md files in the /docs folder) is [Creative Commons licensed](/docs/LICENSE-docs.txt).
+La Inmobiliaria documentation (e.g., .md files in the /docs folder) is [Creative Commons licensed](/docs/LICENSE-docs.txt).

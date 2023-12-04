@@ -5,23 +5,26 @@ import { useForm } from '../../hooks/useForm';
 import { getInmueblesByName } from '../../selectors/getInmueblesByName';
 import { InmuebleCard } from '../inmueble/InmuebleCard';
 
-export const SearchScreen = () => {
+export const SearchScreen = ({ inmuebles }) => {
 
+  /* Query */
+  let query= '';
   const navigate = useNavigate();
-  const location = useLocation();
-  const { q = '' } = queryString.parse(location.search);
+  const [ formInputValues,handleInputChange ] = useForm({ searchText: query });
+  let { searchText } = formInputValues;
+  query = searchText;
+  const inmueblesFiltered = useMemo( () => getInmueblesByName(query,inmuebles), [query,inmuebles] );
 
-  const [ formValues,handleInputChange ] = useForm({
-    searchText: q,
-  });
+  const handleSearch = () => {
 
-  const { searchText } = formValues;
-  const inmueblesFiltered = useMemo( () => getInmueblesByName(q), [q] );
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    navigate(`?q=${ searchText }`);
+    
   };
+
+  const handleInputSearch = (target) => {
+    handleInputChange(target);
+    searchText = target.target.value
+    handleSearch();
+  }
 
   return (
     <>
@@ -34,7 +37,7 @@ export const SearchScreen = () => {
             <h5>Que tipo de inmueble buscas?</h5>
             <hr />
 
-            <form onSubmit={ handleSearch }>
+            {/* <form onSubmit={ handleSearch }> */}
               <input 
                 type='text'
                 placeholder='Ingresa nombre de inmueble'
@@ -43,15 +46,15 @@ export const SearchScreen = () => {
                 autoComplete='off'
                 value={ searchText }
                 // onChange={ handleInputChange }
-                onChange={ handleInputChange }
+                onChange={ handleInputSearch }
               />
               <br/>
-              <div className="">
+              {/* <div className="">
                 <button className='btn-buscar btn btn-lg btn-outline-info mt-1 w-100 py-2 rounded-pill'>
                   Buscar
                 </button>
-              </div>
-            </form>
+              </div> */}
+            {/* </form> */}
 
           </div>
 
@@ -59,10 +62,10 @@ export const SearchScreen = () => {
             <h5>Inmuebles disponibles</h5>
             <hr />
             {
-                (q === '')
+                (query === '')
                     ? <div className="alert alert-primary"> Inmuebles </div>
                     : ( inmueblesFiltered.length === 0 ) 
-                        && <div className="alert alert-danger"> No hay resultados: { q } </div>
+                        && <div className="alert alert-danger"> No hay resultados: { query } </div>
             }
 
             {

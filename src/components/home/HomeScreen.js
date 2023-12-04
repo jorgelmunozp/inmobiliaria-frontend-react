@@ -2,21 +2,15 @@ import React, { useMemo, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { getInmueblesByName } from '../../selectors/getInmueblesByName';
 import { InmuebleCard } from '../inmueble/InmuebleCard';
-// import { inmuebles } from '../../data/inmuebles';
 
-export const HomeScreen = ({ apartamentos,casas }) => {
-  console.log("apartamentos: ", apartamentos)
-  console.log("casas: ", casas)
-  let inmuebles = [ ...apartamentos, ...casas];
-  console.log("inmuebles: ",inmuebles)
-
+export const HomeScreen = ({ inmuebles }) => {
 
   /* Query */
   let query= '';
   const [ formInputValues,handleInputChange ] = useForm({ searchText: query });
   let { searchText } = formInputValues;
   query = searchText;
-  const inmueblesFiltered = useMemo( () => getInmueblesByName(query), [query] );
+  const inmueblesFiltered = useMemo( () => getInmueblesByName(query,inmuebles), [query,inmuebles] );
 
   /* Pagination */
   const [itemPerPage, setItemPerPage ] = useState(9);              // Se define el número de items por página
@@ -33,7 +27,7 @@ export const HomeScreen = ({ apartamentos,casas }) => {
 
   /* Search */
   const handleSearch = () => {
-    const inmueblesFiltered = getInmueblesByName(searchText);
+    const inmueblesFiltered = getInmueblesByName(searchText,inmuebles);
     if(inmueblesFiltered.length > 0) {
       setNumPages(Math.floor(inmueblesFiltered.length/itemPerPage));
       if (numPages > 0) {

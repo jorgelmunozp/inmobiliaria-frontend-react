@@ -1,7 +1,3 @@
-import { inmuebles } from "../data/inmuebles"
-
-
-export const getInmuebleById = ( id = '' ) => {
-
-    return inmuebles.find( inmueble => inmueble.id === id);
+export const getInmuebleById = ( id = '',inmuebles ) => {
+     return inmuebles.find( inmueble => inmueble.id === parseInt(id));
 }

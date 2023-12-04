@@ -9,29 +9,25 @@ import { InmuebleScreen } from "../components/inmueble/InmuebleScreen";
 
 import { useFetch } from "../hooks/useFetch";
 
-const name = "react-inmobiliaria";
+const name = process.env.REACT_APP_URL_BASE;
 
 export const DashboardRoutes = () => {
 
-  const urlApiApartamentos = process.env.REACT_APP_API_APARTAMENTOS;
-  const apartamentos = useFetch(urlApiApartamentos).data;
-  let [setApartamentos] = useState('');
-
-  const urlApiCasas = process.env.REACT_APP_API_CASAS;
-  const casas = useFetch(urlApiCasas).data;
-  let [setCasas] = useState('');
-
+  const urlApiInmuebles = process.env.REACT_APP_API_INMUEBLES;
+  const inmuebles = useFetch(urlApiInmuebles).data;
+  let [setInmuebles] = useState('');
+  
   return (
     <>
       <Navbar name={name} />
 
       <div className="container">
         <Routes>
-            <Route path={"/:inmuebleId"} element={<InmuebleScreen />} />
-            <Route path={name + "/apartamentos"} element={<ApartamentosScreen name={name} apartamentos={apartamentos} />} />
-            <Route path={name + "/casas"} element={<CasasScreen casas={casas} />} />
-            <Route path={name + "/search"} element={<SearchScreen apartamentos={apartamentos} casas={casas} />} />
-            <Route path={"/" + name} element={<HomeScreen apartamentos={apartamentos} casas={casas} />} />
+            <Route path={"/:inmuebleId"} element={<InmuebleScreen inmuebles={inmuebles} />} />
+            <Route path={name + "/apartamentos"} element={<ApartamentosScreen inmuebles={inmuebles} />} />
+            <Route path={name + "/casas"} element={<CasasScreen inmuebles={inmuebles} />} />
+            <Route path={name + "/search"} element={<SearchScreen inmuebles={inmuebles} />} />
+            <Route path={"/" + name} element={<HomeScreen inmuebles={inmuebles} />} />
         </Routes>
       </div>
     </>
