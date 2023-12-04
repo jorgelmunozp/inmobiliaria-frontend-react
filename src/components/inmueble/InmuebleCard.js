@@ -20,8 +20,7 @@ export const InmuebleCard = ({
     baños,
     parqueaderos,
     area,
-    valor,
-    name
+    valor
  }) => {
 
 

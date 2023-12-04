@@ -2,9 +2,15 @@ import React, { useMemo, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { getInmueblesByName } from '../../selectors/getInmueblesByName';
 import { InmuebleCard } from '../inmueble/InmuebleCard';
-import { inmuebles } from '../../data/inmuebles';
+// import { inmuebles } from '../../data/inmuebles';
 
-export const HomeScreen = () => {
+export const HomeScreen = ({ apartamentos,casas }) => {
+  console.log("apartamentos: ", apartamentos)
+  console.log("casas: ", casas)
+  let inmuebles = [ ...apartamentos, ...casas];
+  console.log("inmuebles: ",inmuebles)
+
+
   /* Query */
   let query= '';
   const [ formInputValues,handleInputChange ] = useForm({ searchText: query });

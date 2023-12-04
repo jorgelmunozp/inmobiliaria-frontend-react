@@ -30,18 +30,13 @@ export const InmuebleScreen = () => {
     descripcion,
     ciudad,
     ubicacion
-
   } = inmueble;
 
-
+console.log("categoria: ",categoria)
   return (
     <div className='row mt-5'>
       <div className='col-4'>
-        <img 
-          src={ inmuebleImages(`./${id}.jpg`) } 
-          alt={ nombre }
-          className='shadow img-thumbnail animate__animated animate__fadeIn'
-        />
+        <img src={ inmuebleImages(`./${id}.jpg`) } alt={ nombre } className='shadow img-thumbnail animate__animated animate__fadeIn' />
       </div>
 
       <div className='col-8 animate__animated animate__fadeIn'>
@@ -54,7 +49,6 @@ export const InmuebleScreen = () => {
                                            <b>Baños:</b> { baños } 
                                            &nbsp;&nbsp;&nbsp;&nbsp;
                                            <b>Parqueadero:</b> { parqueaderos }</li>
-
         </ul>
 
         <h5 className='mt-3'>Valor</h5>
