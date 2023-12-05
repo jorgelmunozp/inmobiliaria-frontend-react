@@ -63,10 +63,10 @@ export const HomeScreen = ({ inmuebles }) => {
       <hr />
       <div className='row'> 
         <div className=''>
-          <input 
+          <input
             placeholder='🔎' value={ searchText }
             type='search' id='searchText' name='searchText' autoComplete='off'
-            className='form-control border border-info rounded-pill px-2 py-2 text-center shadow-sm'
+            className='form-control border-muted rounded px-2 py-2 text-center shadow-sm'
             // onChange={ handleInputSearch }
             onInput={ handleInputSearch }
           />
