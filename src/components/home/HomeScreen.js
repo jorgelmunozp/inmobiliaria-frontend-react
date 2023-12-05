@@ -5,17 +5,22 @@ import { InmuebleCard } from '../inmueble/InmuebleCard';
 
 export const HomeScreen = ({ inmuebles }) => {
 
+  console.log("inmuebles: ",inmuebles)
   /* Query */
-  let query= '';
+  let query = '';
   const [ formInputValues,handleInputChange ] = useForm({ searchText: query });
   let { searchText } = formInputValues;
   query = searchText;
   const inmueblesFiltered = useMemo( () => getInmueblesByName(query,inmuebles), [query,inmuebles] );
+  console.log("query: ",query)
+  console.log("inmueblesFiltered: ",inmueblesFiltered)
 
   /* Pagination */
-  const [itemPerPage, setItemPerPage ] = useState(9);              // Se define el número de items por página
-  const [indexPage, setIndexPage ] = useState([0,itemPerPage]);    // Se calculan los indices de la paginación para el filtro Slice(x,y) que entrega un rango de los items de x a y
-  const [numPages, setNumPages] = useState(((query === '') ? Math.floor(inmuebles.length/itemPerPage) : Math.floor(inmueblesFiltered.length/itemPerPage))); // Se calcula la cantidad de páginas = cantidad de items/item por página
+  const [itemPerPage, setItemPerPage ] = useState(9);                   // Se define el número de items por página
+  const [indexPage, setIndexPage ] = useState([0,itemPerPage]);         // Se calculan los indices de la paginación para el filtro Slice(x,y) que entrega un rango de los items de x a y
+  // const [numPages, setNumPages] = useState(((query === '') ? Math.floor(inmuebles.length/itemPerPage) : Math.floor(inmueblesFiltered.length/itemPerPage)));  // Se calcula la cantidad de páginas = cantidad de items/item por página
+  const numPages = ((query === '') ? Math.floor(inmuebles.length/itemPerPage) : Math.floor(inmueblesFiltered.length/itemPerPage));                    // Se calcula la cantidad de páginas = cantidad de items/item por página
+  let [,setNumPages] = useState(((query === '') ? Math.floor(inmuebles.length/itemPerPage) : Math.floor(inmueblesFiltered.length/itemPerPage)));     // Se calcula la cantidad de páginas = cantidad de items/item por página
 
   let indexPages = [];
   let activePage = [true];                                        // [true]
@@ -33,7 +38,7 @@ export const HomeScreen = ({ inmuebles }) => {
       if (numPages > 0) {
         activePage = [true]
         for(let i = 0; i < numPages; i++) { 
-          if(i > 0) { activePage.push(false); }                 // [true,false,false,false]
+          if(i > 0) { activePage.push(false); }                   // [true,false,false,false]
         }
         setActivePages(activePage);     
       }
@@ -48,6 +53,9 @@ export const HomeScreen = ({ inmuebles }) => {
     handleSearch();
   }
 
+  console.log("inmuebles: ",inmuebles)
+  console.log("inmueblesFiltered: ",inmueblesFiltered)
+
   return (
     <>
       <hr />
@@ -58,7 +66,7 @@ export const HomeScreen = ({ inmuebles }) => {
           <input 
             placeholder='🔎' value={ searchText }
             type='search' id='searchText' name='searchText' autoComplete='off'
-            className='form-control px-2 py-2 rounded-pill text-center'
+            className='form-control border border-info rounded-pill px-2 py-2 text-center shadow-sm'
             // onChange={ handleInputSearch }
             onInput={ handleInputSearch }
           />
@@ -75,13 +83,13 @@ export const HomeScreen = ({ inmuebles }) => {
           </ul>
         </nav>
 
-        <div className=''>
+        <div>
           {
             (query === '')
               ? <div className='row row-cols-1 row-cols-md-3 g-1 animate__animated animate__fadeIn'>
                   {
                     inmuebles.slice(indexPage[0],indexPage[1]).map(inmueble => (
-                        <InmuebleCard key={ inmueble.id } { ...inmueble } />
+                      <InmuebleCard key={ inmueble.id } { ...inmueble } />
                     ))
                   }
                 </div>
@@ -90,11 +98,9 @@ export const HomeScreen = ({ inmuebles }) => {
           }
           <div className='row row-cols-1 row-cols-md-3 g-1 animate__animated animate__fadeIn'>
             {
-              (query === '')
-              ?  inmuebles.slice(indexPage[0],indexPage[1]).map(inmueble => (
-                <InmuebleCard key={ inmueble.id } { ...inmueble } />))
-               : inmueblesFiltered.slice(indexPage[0],indexPage[1]).map(inmueble => (
-                <InmuebleCard key={ inmueble.id } { ...inmueble } />))
+              inmueblesFiltered.slice(indexPage[0],indexPage[1]).map(inmueble => (
+                <InmuebleCard key={ inmueble.id } { ...inmueble } />
+              ))
             }
           </div>
         </div>

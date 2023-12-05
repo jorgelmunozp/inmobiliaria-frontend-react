@@ -27,8 +27,8 @@ console.log("inmueble: ",inmueble)
       <div className='col-8 animate__animated animate__fadeIn'>
         <h1>{ detalle.nombre }</h1>
         <ul className='list-group list-group-flush'>
-          <li className='list-group-item'> <b>Tipo:</b> { detalle.tipo }</li>
           <li className='list-group-item'> <b>Categoría:</b> { detalle.categoria }</li>
+          <li className='list-group-item'> <b>Tipo:</b> { detalle.tipo }</li>
           <li className='list-group-item'> <b>Habitaciones:</b> { detalle.habitaciones } 
                                            &nbsp;&nbsp;&nbsp;&nbsp;
                                            <b>Baños:</b> { detalle.baños } 
@@ -48,6 +48,7 @@ console.log("inmueble: ",inmueble)
         <ul className='list-group list-group-flush'>
           <li className='list-group-item'> <b>Ciudad:</b> { detalle.ciudad }</li>
           <li className='list-group-item'><b>Ubicación:</b>{ detalle.ubicacion }</li>
+          <li className='list-group-item'><b>Código: </b>{ id }</li>
         </ul>
         <br></br>
         <div className="d-grid gap-2 col-8 mx-md-0">
