@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import queryString from 'query-string'
+import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { getInmueblesByName } from '../../selectors/getInmueblesByName';
 import { InmuebleCard } from '../inmueble/InmuebleCard';
+import { TextField } from "@mui/material";
 
 export const SearchScreen = ({ inmuebles }) => {
 
@@ -17,7 +17,6 @@ export const SearchScreen = ({ inmuebles }) => {
 
   const handleSearch = () => {
 
-    
   };
 
   const handleInputSearch = (target) => {
@@ -37,25 +36,13 @@ export const SearchScreen = ({ inmuebles }) => {
             <h5>Que tipo de inmueble buscas?</h5>
             <hr />
 
-            {/* <form onSubmit={ handleSearch }> */}
-              <input 
-                type='text'
-                placeholder='Ingresa nombre de inmueble'
-                className='form-control px-2 py-2 rounded-pill text-center'
-                name='searchText'
-                autoComplete='off'
-                value={ searchText }
-                // onChange={ handleInputChange }
-                onChange={ handleInputSearch }
+              <TextField 
+                label='Nombre inmueble' type='text'
+                name='searchText' autoComplete='off' variant="outlined" margin="dense"
+                className='form-control rounded border-muted px-2 py-2 text-center'
+                value={ searchText } onChange={ handleInputSearch }
               />
               <br/>
-              {/* <div className="">
-                <button className='btn-buscar btn btn-lg btn-outline-info mt-1 w-100 py-2 rounded-pill'>
-                  Buscar
-                </button>
-              </div> */}
-            {/* </form> */}
-
           </div>
 
           <div className='col-7'>

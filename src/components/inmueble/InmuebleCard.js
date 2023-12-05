@@ -1,9 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { PiToilet } from "react-icons/pi";
 import { IoHomeOutline, IoBedOutline, IoCarSportOutline } from "react-icons/io5";
-import { inmuebleImages } from '../../helpers/inmuebleImages';
+import { PiToilet } from "react-icons/pi";
+import { SlShareAlt } from "react-icons/sl";
+import { MdOutlineShower } from "react-icons/md";
+
+import { BiBath } from "react-icons/bi";
+import { PiBathtubLight } from "react-icons/pi";
+
 
 import { IoBed,IoCarSportSharp } from "react-icons/io5";
 import { FaToilet } from "react-icons/fa";
@@ -20,25 +25,23 @@ export const InmuebleCard = ({ id,detalle }) => {
             <Link to={ linkInmueble } >
                 <div className='card shadow'>
                     <div className='row no-gutters'>
-                        <div className='col-4'>
+                        <div className=''>
                             <img src={ namePicInmueble }  className='card-img' alt={ detalle.nombre } />
-                        </div>
-                        <div className='col-8'>
                             <div className='card-body'>
                                 <h6 className='card-title'>{ detalle.nombre }</h6>
                                 <i className='text-muted'>{ detalle.categoria }&nbsp;{ detalle.tipo }</i>
                                 <div className='text-muted lh-lg'>
-                                    <span className='text-muted'>{ detalle.valor }</span>
+                                    <span className='text-muted'><b>{ detalle.valor }</b></span>
                                 </div>
                                 <div className='card-text lh-base'>
-                                    <span className='text-muted'><FcAreaChart className='iconCard' />&nbsp;{ detalle.area } m<sup>2</sup></span>
+                                    <span className='text-muted'><SlShareAlt className='iconCard' />&nbsp;{ detalle.area } m<sup>2</sup></span>
                                 </div>                            
                                 <div className='card-text lh-lg'>
-                                    <span className='text-muted'><FaBed className='iconCard' />&nbsp;{ detalle.habitaciones }</span>
+                                    <span className='text-muted'><IoBedOutline className='iconCard' />&nbsp;{ detalle.habitaciones }</span>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span className='text-muted'><FaBath className='iconCard' />&nbsp;{ detalle.baños }</span>
+                                    <span className='text-muted'><PiToilet className='iconCard' />&nbsp;{ detalle.baños }</span>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span className='text-muted'><IoCarSportSharp className='iconCard' />&nbsp;{ detalle.parqueaderos }</span>
+                                    <span className='text-muted'><IoCarSportOutline className='iconCard' />&nbsp;{ detalle.parqueaderos }</span>
                                 </div>
                             </div>
                         </div>
