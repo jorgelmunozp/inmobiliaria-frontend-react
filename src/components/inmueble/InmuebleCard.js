@@ -26,7 +26,8 @@ export const InmuebleCard = ({ id,detalle }) => {
                 <div className='card shadow'>
                     <div className='row no-gutters'>
                         <div className=''>
-                            <img src={ namePicInmueble }  className='card-img' alt={ detalle.nombre } />
+                            {/* <img src={ namePicInmueble }  className='card-img' alt={ detalle.nombre } /> */}
+                            <img src={ namePicInmueble }  className='card-img' alt='⌂' />
                             <div className='card-body'>
                                 <h6 className='card-title'>{ detalle.nombre }</h6>
                                 <i className='text-muted'>{ detalle.categoria }&nbsp;{ detalle.tipo }</i>
