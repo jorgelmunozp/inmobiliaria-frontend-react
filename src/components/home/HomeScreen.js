@@ -5,15 +5,12 @@ import { InmuebleCard } from '../inmueble/InmuebleCard';
 
 export const HomeScreen = ({ inmuebles }) => {
 
-  console.log("inmuebles: ",inmuebles)
   /* Query */
   let query = '';
   const [ formInputValues,handleInputChange ] = useForm({ searchText: query });
   let { searchText } = formInputValues;
   query = searchText;
   const inmueblesFiltered = useMemo( () => getInmueblesByName(query,inmuebles), [query,inmuebles] );
-  console.log("query: ",query)
-  console.log("inmueblesFiltered: ",inmueblesFiltered)
 
   /* Pagination */
   const [itemPerPage, setItemPerPage ] = useState(8);                   // Se define el número de items por página
@@ -53,9 +50,6 @@ export const HomeScreen = ({ inmuebles }) => {
     handleSearch();
   }
 
-  console.log("inmuebles: ",inmuebles)
-  console.log("inmueblesFiltered: ",inmueblesFiltered)
-
   return (
     <>
       <hr />
@@ -76,7 +70,7 @@ export const HomeScreen = ({ inmuebles }) => {
             <li className="page-item"><button onClick={()=>{if(indexPage[0] >= 1){ setIndexPage([indexPage[0] - itemPerPage,indexPage[1] - itemPerPage]);const indexCurrentPage = activePages.indexOf(true);activePages.fill(false);activePages[indexCurrentPage-1]=true;setActivePages(activePages);console.log("activePages LeftArrow:",activePages)} }} type='button' className="page-link rounded-circle page-arrow" aria-label="◃">◃</button></li>
             {
               indexPages.map(i => (
-                  <li key={i} className={activePages[i] ? "page-item active" : "page-item"}><button value={i} onClick={(event)=>{setIndexPage([parseInt(event.target.value)*itemPerPage,(parseInt(event.target.value) + 1)*itemPerPage]);activePages.fill(false);activePages[i]=true;setActivePages(activePages);}} type='button' className="page-link rounded-circle">{i+1}</button></li>
+                  <li key={i} className={activePages[i] ? "page-item active" : "page-item"}><button value={i} onClick={(event)=>{setIndexPage([parseInt(event.target.value)*itemPerPage,(parseInt(event.target.value) + 1)*itemPerPage]);activePages.fill(false);activePages[i]=true;setActivePages(activePages);}} type='button' className="page-link rounded-circle fw-bolder">{i+1}</button></li>
                 ))
             }
             <li className="page-item"><button onClick={()=>{if(indexPage[0] < ( (query === '') ? inmuebles.length-itemPerPage : inmueblesFiltered.length-itemPerPage) ){ setIndexPage([indexPage[0] + itemPerPage,indexPage[1] + itemPerPage]);const indexCurrentPage = activePages.indexOf(true);activePages.fill(false);activePages[indexCurrentPage+1]=true;setActivePages(activePages);console.log("activePages LeftRight:",activePages)}}} type='button' className="page-link rounded-circle page-arrow" aria-label="▹">▹</button></li>

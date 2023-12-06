@@ -40,16 +40,15 @@ export const InmuebleCard = ({ id,detalle }) => {
                             <div className='card-body'>
                                 <small className='text-muted fw-bolder'>{ detalle.categoria }</small>
                                 <h5 className='card-title'>{ detalle.nombre }</h5>
-                                <h6 className='text-muted fw-bolder'>{ detalle.valor }&nbsp;</h6>
-                                <h6 className='text-white badge background-main-color fw-bolder'><small>{ detalle.tipo }</small></h6>
+                                <h6 className='text-dark fw-bolder'>{ detalle.valor }&nbsp;</h6>
+                                <h6 className='text-white badge background-main-color position-absolute top-0 end-0 fw-bolder'><small>{ detalle.tipo }</small></h6>
                                 <div className='card-text lh-base'>
                                     <table>
                                         <tbody>
                                             <tr className=''>
                                                 <td><Area /></td>
-                                                {/* <td><span className=''>⌂</span></td> */}
                                                 <td>&nbsp;</td>
-                                                <td><span className='text-muted fw-bolder'>{ detalle.area }&nbsp;<small><b>m</b><sup style={{"font-size":"2px;"}}><b>2</b></sup></small></span></td>
+                                                <td><span className='text-muted fw-bolder'>{ detalle.area }&nbsp;<small>m<sup>2</sup></small></span></td>
                                                 <td>&nbsp;&nbsp;</td>
                                                 <td><Bed /></td>
                                                 <td>&nbsp;</td>
@@ -65,13 +64,6 @@ export const InmuebleCard = ({ id,detalle }) => {
                                             </tr>
                                         </tbody>
                                     </table>
-                                    {/* <span className='text-muted fw-bolder'><SlShareAlt className='iconCard' />&nbsp;&nbsp;{ detalle.area } m<sup>2</sup></span>
-                                    &nbsp;&nbsp;&nbsp;
-                                    <span className='text-muted fw-bolder'><IoBedOutline className='iconCard' />&nbsp;&nbsp;{ detalle.habitaciones }</span>
-                                    &nbsp;&nbsp;&nbsp;
-                                    <span className='text-muted fw-bolder'><PiToilet className='iconCard' />&nbsp;&nbsp;{ detalle.baños }</span>
-                                    &nbsp;&nbsp;&nbsp;
-                                    <span className='text-muted fw-bolder'><IoCarSportOutline className='iconCard' />&nbsp;&nbsp;{ detalle.parqueaderos }</span> */}
                                 </div>
                             </div>
                         </div>
