@@ -17,7 +17,10 @@ import { MdBedroomChild,MdBathroom } from "react-icons/md";
 import { FaBed,FaBath } from "react-icons/fa6";
 
 export const InmuebleCard = ({ id,detalle }) => {
-    const namePicInmueble = 'http://localhost:3000/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
+    const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
+    console.log("urlApiInmueblesBackend: ",urlBaseBackend)
+
+    const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
     const linkInmueble = '/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '/';
 console.log("namePicInmueble: ",namePicInmueble)
     return (

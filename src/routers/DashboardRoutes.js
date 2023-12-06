@@ -9,14 +9,14 @@ import { InmuebleScreen } from "../components/inmueble/InmuebleScreen";
 
 import { useFetch } from "../hooks/useFetch";
 
-const name = process.env.REACT_APP_URL_BASE;
+const name = process.env.REACT_APP_URL_BASE_FRONTEND;
 
 export const DashboardRoutes = () => {
 
   const urlApiInmuebles = process.env.REACT_APP_API_INMUEBLES;
   const inmuebles = useFetch(urlApiInmuebles).data;
   let [setInmuebles] = useState('');
-  
+
   return (
     <>
       <Navbar name={name} />
