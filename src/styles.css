@@ -7,7 +7,7 @@
     --white-color: #fff;
 }
 
-*{ font: 2.5vmin 'CenturyGothic', 'Century Gothic', Arial, sans-serif; }
+*{ font: 3vmin 'CenturyGothic', 'Century Gothic', Arial, sans-serif; }
 @font-face {
     font-family: "CenturyGothic";
     font-style: normal;
@@ -26,21 +26,34 @@ h1,h2,h3,h4,h5,h6 { color: var(--main-color)!important; font-weight: bold; }
 span { color: var(--main-color)!important; }
 hr { opacity: 0.1; }
 
+.main-color { color: var(--main-color)!important; }
+.background-main-color { background-color: var(--main-color)!important; }
+
+/****** InmuebleCard ******/
+.badge {
+    position: absolute;
+    right: 10px;
+    top: 352.5px;
+    z-index: 1;
+}
 .icon {
     color: var(--main-color)!important;
     font-size: 8vmin;
 }
-/****** Inmuebles card ******/
 .iconCard {
     /* background-color: var(--main-color);
     color: var(--white-color)!important; 
     border-radius: 100vmax; */
     color: var(--main-color)!important;
     font-size: 3.5vmin;
-    /* padding: 0.05vmin; */
-    /* stroke-width: 32; */
 }
+.stroke-16 { stroke-width: 16; }
+.stroke-32 { stroke-width: 32; }
+.stroke-48 { stroke-width: 48; }
+.stroke-64 { stroke-width: 64; }
+.stroke-128 { stroke-width: 128; }
 
+/****** Login ******/
 .btn-login {
     color: var(--main-color);
     border-color: var(--main-color)!important;

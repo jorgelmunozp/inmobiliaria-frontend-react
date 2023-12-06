@@ -17,7 +17,7 @@ import { MdBedroomChild,MdBathroom } from "react-icons/md";
 import { FaBed,FaBath } from "react-icons/fa6";
 
 export const InmuebleCard = ({ id,detalle }) => {
-    const namePicInmueble = 'http://localhost:3000/assets/inmuebles/' + id + '-' + detalle.categoria + '-' + detalle.nombre.split(' ').join('-') + '.jpg';
+    const namePicInmueble = 'http://localhost:3000/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
     const linkInmueble = '/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '/';
 
     return (
@@ -27,22 +27,41 @@ export const InmuebleCard = ({ id,detalle }) => {
                     <div className='row no-gutters'>
                         <div className=''>
                             {/* <img src={ namePicInmueble }  className='card-img' alt={ detalle.nombre } /> */}
-                            <img src={ namePicInmueble }  className='card-img' alt='⌂' />
+                            <img src={ namePicInmueble } className='card-img border-bottom border-secondary border-3' alt={ detalle.nombre } />
                             <div className='card-body'>
-                                <h6 className='card-title'>{ detalle.nombre }</h6>
-                                <i className='text-muted'>{ detalle.categoria }&nbsp;{ detalle.tipo }</i>
-                                <div className='text-muted lh-lg'>
-                                    <span className='text-muted'><b>{ detalle.valor }</b></span>
-                                </div>
+                                <small className='text-muted'>{ detalle.categoria }</small>
+                                <h5 className='card-title'>{ detalle.nombre }</h5>
+                                <h6 className='text-muted fw-bolder'>{ detalle.valor }&nbsp;</h6>
+                                <h6 className='text-white badge background-main-color'><small>{ detalle.tipo }</small></h6>
                                 <div className='card-text lh-base'>
-                                    <span className='text-muted'><SlShareAlt className='iconCard' />&nbsp;{ detalle.area } m<sup>2</sup></span>
-                                </div>                            
-                                <div className='card-text lh-lg'>
-                                    <span className='text-muted'><IoBedOutline className='iconCard' />&nbsp;{ detalle.habitaciones }</span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span className='text-muted'><PiToilet className='iconCard' />&nbsp;{ detalle.baños }</span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span className='text-muted'><IoCarSportOutline className='iconCard' />&nbsp;{ detalle.parqueaderos }</span>
+                                    <table>
+                                        <tbody>
+                                            <tr className=''>
+                                                <td><span className=''><SlShareAlt className='iconCard' /></span></td>
+                                                <td>&nbsp;</td>
+                                                <td><span className='text-muted fw-bolder'>{ detalle.area }&nbsp;<small>m<sup>2</sup></small></span></td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td><span className=''><IoBedOutline className='iconCard' /></span></td>
+                                                <td>&nbsp;</td>
+                                                <td><span className='text-muted fw-bolder'>{ detalle.habitaciones }</span></td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td><span className=''><PiToilet className='iconCard' /></span></td>
+                                                <td>&nbsp;</td>
+                                                <td><span className='text-muted fw-bolder'>{ detalle.baños }</span></td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td><span className=''><IoCarSportOutline className='iconCard' /></span></td>
+                                                <td>&nbsp;</td>
+                                                <td><span className='text-muted fw-bolder'> { detalle.parqueaderos }</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    {/* <span className='text-muted fw-bolder'><SlShareAlt className='iconCard' />&nbsp;&nbsp;{ detalle.area } m<sup>2</sup></span>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <span className='text-muted fw-bolder'><IoBedOutline className='iconCard' />&nbsp;&nbsp;{ detalle.habitaciones }</span>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <span className='text-muted fw-bolder'><PiToilet className='iconCard' />&nbsp;&nbsp;{ detalle.baños }</span>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <span className='text-muted fw-bolder'><IoCarSportOutline className='iconCard' />&nbsp;&nbsp;{ detalle.parqueaderos }</span> */}
                                 </div>
                             </div>
                         </div>
