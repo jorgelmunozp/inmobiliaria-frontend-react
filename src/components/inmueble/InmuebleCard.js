@@ -19,7 +19,7 @@ import { FaBed,FaBath } from "react-icons/fa6";
 export const InmuebleCard = ({ id,detalle }) => {
     const namePicInmueble = 'http://localhost:3000/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
     const linkInmueble = '/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '/';
-
+console.log("namePicInmueble: ",namePicInmueble)
     return (
         <div className='col'>
             <Link to={ linkInmueble } >
