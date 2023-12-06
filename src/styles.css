@@ -7,7 +7,8 @@
     --white-color: #fff;
 }
 
-*{ font: 3vmin 'CenturyGothic', 'Century Gothic', Arial, sans-serif; }
+/* *{ font: 2.5vmin 'CenturyGothic', 'Century Gothic', Arial, sans-serif; } */
+*{ font-family: 'CenturyGothic', 'Century Gothic', Arial, sans-serif; }
 @font-face {
     font-family: "CenturyGothic";
     font-style: normal;
@@ -33,7 +34,7 @@ hr { opacity: 0.1; }
 .badge {
     position: absolute;
     right: 10px;
-    top: 352.5px;
+    top: 263px;
     z-index: 1;
 }
 .icon {
@@ -45,6 +46,8 @@ hr { opacity: 0.1; }
     color: var(--white-color)!important; 
     border-radius: 100vmax; */
     color: var(--main-color)!important;
+    stroke: var(--main-color)!important;
+    fill: var(--main-color)!important;
     font-size: 3.5vmin;
 }
 .stroke-16 { stroke-width: 16; }
@@ -103,6 +106,7 @@ button:hover{ color:var(--dark-color); background-color:var(--gray-color); }
     border: none;
 }
 .page-link {
+    background-color: transparent;
     color: var(--main-color);
     margin-left: 0.175vmin !important;
     border: none;

@@ -16,7 +16,9 @@ console.log("inmueble: ",inmueble)
   if(!inmueble) { return <Navigate to='/' /> };
 
   const { id,detalle } = inmueble;
-  const namePicInmueble = 'http://localhost:3000/assets/inmuebles/' + id + '-' + detalle.categoria + '-' + detalle.nombre.split(' ').join('-') + '.jpg';
+  
+  const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
+  const namePicInmueble = urlBaseBackend + 'assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
 
   return (
     <div className='row mt-5'>
