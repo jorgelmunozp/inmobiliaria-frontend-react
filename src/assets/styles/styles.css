@@ -76,7 +76,7 @@ hr { opacity: 0.1; }
 /****** INMUEBLE SCREEN ******/
 .img-inmueble {
     width: 100%;
-    height: 80vmin;
+    height: 90vmin;
 }
 
 /***** SEARCH SCREEN *****/
@@ -94,14 +94,14 @@ hr { opacity: 0.1; }
     color: var(--white-color);
     background-color: var(--main-color);
 }
-.btn-inmueble, .btn-buscar {
+.btn-inmueble {
     color: var(--main-color);
     background-color: var(--white-color);
     border-color: var(--main-color);
     font-weight: bold;
 }
-.btn-inmueble:hover, .btn-buscar:hover {
-    color: var(--dark-color);
+.btn-inmueble:hover {
+    color: var(--white-color);
     background-color: var(--main-color);
 }
 

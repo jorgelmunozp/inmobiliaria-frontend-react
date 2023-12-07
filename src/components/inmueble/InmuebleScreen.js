@@ -62,13 +62,8 @@ export const InmuebleScreen = ({ inmuebles }) => {
         <ul className='list-group list-group-flush'>
           <li className='list-group-item'> <b>Categoría:</b> { detalle.categoria }</li>
           <li className='list-group-item'> <b>Tipo:</b> { detalle.tipo }</li>
-          <li className='list-group-item'> <b>Habitaciones:</b> { detalle.habitaciones } 
-                                           &nbsp;&nbsp;&nbsp;&nbsp;
-                                           <b>Baños:</b> { detalle.baños } 
-                                           &nbsp;&nbsp;&nbsp;&nbsp;
-                                           <b>Parqueadero:</b> { detalle.parqueaderos }</li>
+          <li className='list-group-item'><b>Código: </b>{ id }</li>
         </ul>
-
         <h5 className='mt-3'>Valor</h5>
         <ul className='list-group list-group-flush'>
           <li className='list-group-item'><p>{ detalle.valor }</p></li>
@@ -77,18 +72,24 @@ export const InmuebleScreen = ({ inmuebles }) => {
         <ul className='list-group list-group-flush'>
           <li className='list-group-item'><p>{ detalle.descripcion }</p></li>
         </ul>
+        <h5 className='mt-3'>Características</h5>
+        <ul className='list-group list-group-flush'>
+          <li className='list-group-item'><b>Habitaciones:</b> { detalle.habitaciones }</li>
+          <li className='list-group-item'><b>Baños:</b> { detalle.baños }</li>
+          <li className='list-group-item'><b>Parqueadero:</b> { detalle.parqueaderos }</li>
+        </ul>
         <h5 className='mt-3'>Localización</h5>
         <ul className='list-group list-group-flush'>
-          <li className='list-group-item'> <b>Ciudad:</b> { detalle.ciudad }</li>
+          <li className='list-group-item'><b>Ciudad:</b> { detalle.ciudad }</li>
           <li className='list-group-item'><b>Ubicación:</b>{ detalle.ubicacion }</li>
-          <li className='list-group-item'><b>Código: </b>{ id }</li>
         </ul>
         <br></br>
-        <div className="d-grid gap-2 col-8 mx-md-0">
+        <div className="d-grid gap-2 col mx-md-0">
           <button className='btn-inmueble btn btn-md btn-primary w-100' onClick={ handleReturn }>
             Regresar
           </button>
         </div>
+        <br></br>
       </div>
     </div>
   )
