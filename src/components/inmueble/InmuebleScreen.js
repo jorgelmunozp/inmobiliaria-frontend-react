@@ -15,7 +15,7 @@ export const InmuebleScreen = ({ inmuebles }) => {
   const { id,detalle } = inmueble;
   
   const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
-  const namePicInmueble = urlBaseBackend + 'assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
+  const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
 
   return (
     <div className='row mt-5'>
