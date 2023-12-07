@@ -1,5 +1,4 @@
 export const getData = async( urlApi ) => {
-    console.log("urlApi: ",urlApi)
     const response = await fetch( urlApi );
     const responseReturn = await response.json();
 
