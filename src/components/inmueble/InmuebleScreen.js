@@ -19,11 +19,45 @@ export const InmuebleScreen = ({ inmuebles }) => {
 
   return (
     <div className='row mt-5'>
-      <div className='col-4'>
-        <img src={ namePicInmueble } alt={ detalle.nombre } className='shadow img-thumbnail animate__animated animate__fadeIn' />
-      </div>
 
-      <div className='col-8 animate__animated animate__fadeIn'>
+      {/* <!-- Carousel --> */}
+<div id="demo" className="carousel slide" data-bs-ride="carousel">
+
+  {/* <!-- Indicators/dots --> */}
+  <div className="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" className="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+  
+  {/* <!-- The slideshow/carousel --> */}
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src="https://jorgelmunozp.github.io/inmobiliaria-backend-node/assets/inmuebles/3-apartamento-terrazas-del-campestre.jpg" alt="Los Angeles" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
+    </div>
+    <div className="carousel-item">
+      <img src="https://jorgelmunozp.github.io/inmobiliaria-backend-node/assets/inmuebles/3-apartamento-terrazas-del-campestre.jpg" alt="Chicago" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
+    </div>
+    <div className="carousel-item">
+      <img src="https://jorgelmunozp.github.io/inmobiliaria-backend-node/assets/inmuebles/3-apartamento-terrazas-del-campestre.jpg" alt="New York" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
+    </div>
+  </div>
+  
+  {/* <!-- Left and right controls/icons --> */}
+  <button className="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon"></span>
+  </button>
+  <button className="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span className="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+      {/* <div className='col-4'>
+        <img src={ namePicInmueble } alt={ detalle.nombre } className='shadow img-thumbnail animate__animated animate__fadeIn' />
+      </div> */}
+
+      {/* <div className='col-8 animate__animated animate__fadeIn'> */}
+      <div className='animate__animated animate__fadeIn'>
         <h1>{ detalle.nombre }</h1>
         <ul className='list-group list-group-flush'>
           <li className='list-group-item'> <b>Categoría:</b> { detalle.categoria }</li>

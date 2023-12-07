@@ -73,8 +73,13 @@ hr { opacity: 0.1; }
     border-color: var(--main-color);
 }
 
+/****** INMUEBLE SCREEN ******/
+.img-inmueble {
+    width: 100%;
+    height: 80vmin;
+}
 
-/***** SEARCH *****/
+/***** SEARCH SCREEN *****/
 .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
     color: var(--main-color) !important;
 }
