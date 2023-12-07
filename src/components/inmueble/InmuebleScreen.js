@@ -7,9 +7,6 @@ export const InmuebleScreen = ({ inmuebles }) => {
 
   const { inmuebleId } = useParams();
   const inmueble = useMemo( () => getInmuebleById(inmuebleId,inmuebles),[ inmuebleId,inmuebles ] );
-console.log("inmuebles: ",inmuebles)
-console.log("inmuebleId: ",inmuebleId)
-console.log("inmueble: ",inmueble)
 
   const navigate = useNavigate();
   const handleReturn = () => { navigate( -1 ); }

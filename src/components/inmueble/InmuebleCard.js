@@ -41,7 +41,7 @@ export const InmuebleCard = ({ id,detalle }) => {
                                 <small className='text-muted fw-bolder'>{ detalle.categoria }</small>
                                 <h5 className='card-title'>{ detalle.nombre }</h5>
                                 <h6 className='text-dark fw-bolder'>{ detalle.valor }&nbsp;</h6>
-                                <h6 className='text-white badge background-main-color position-absolute top-0 end-0 fw-bolder'><small>{ detalle.tipo }</small></h6>
+                                <h6 className='text-white badge background-main-color position-absolute top-0 translate-middle-x end-0 fw-bolder'><small>{ detalle.tipo }</small></h6>
                                 <div className='card-text lh-base'>
                                     <table>
                                         <tbody>
