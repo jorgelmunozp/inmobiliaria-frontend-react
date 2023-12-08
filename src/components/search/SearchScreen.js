@@ -45,7 +45,7 @@ export const SearchScreen = ({ inmuebles }) => {
               <br/>
           </div>
 
-          <div className='col-7'>
+          <div className=''>
             <h5>Inmuebles disponibles</h5>
             <hr />
             {
