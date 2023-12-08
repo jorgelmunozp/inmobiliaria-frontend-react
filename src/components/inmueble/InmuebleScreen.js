@@ -45,33 +45,38 @@ export const InmuebleScreen = ({ inmuebles }) => {
             <button type="button" data-bs-target="#slider" data-bs-slide-to="2"></button>
         </div>
       </div>
-      <br></br>
+      <p></p>
       {/* <div className='col-8 animate__animated animate__fadeIn'> */}
       <div className='animate__animated animate__fadeIn'>
         <h1>{ detalle.nombre }</h1>
-        <ul className='list-group list-group-flush'>
-          <li className='list-group-item fw-bolder'>Categoría: <span className='text-muted'>{ detalle.categoria }</span></li>
-          <li className='list-group-item fw-bolder'>Tipo: <span className='text-muted'>{ detalle.tipo }</span></li>
-          <li className='list-group-item fw-bolder'>Código: <span className='text-muted'>{ id }</span></li>
+        <hr></hr>
+        <ul className='list-group list-group-horizontal-sm'>
+          <li className='list-group-item fw-bolder border-white'>Categoría: <span className='text-muted'>{ detalle.categoria }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Tipo: <span className='text-muted'>{ detalle.tipo }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Código Inmueble: <span className='text-muted'>{ id }</span></li>
         </ul>
         <h5 className='mt-3'>Valor</h5>
         <ul className='list-group list-group-flush'>
           <li className='list-group-item fw-bolder'><span className='text-dark'>{ detalle.valor }</span> <span className='text-muted'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</span></li>
         </ul>
         <h5 className='mt-3'>Descripción</h5>
-        <ul className='list-group list-group-flush'>
+        <ul className='list-group list-group-horizontal-sm list-group-flush'>
           <li className='list-group-item fw-bolder'><span className='text-muted'>{ detalle.descripcion }</span></li>
         </ul>
         <h5 className='mt-3'>Características</h5>
-        <ul className='list-group list-group-flush'>
-          <li className='list-group-item fw-bolder'>Habitaciones: <span className='text-muted'>{ detalle.habitaciones }</span></li>
-          <li className='list-group-item fw-bolder'>Baños: <span className='text-muted'>{ detalle.baños }</span></li>
-          <li className='list-group-item fw-bolder'>Parqueadero: <span className='text-muted'>{ detalle.parqueaderos }</span></li>
+        <ul className='list-group list-group-horizontal-sm'>
+          <li className='list-group-item fw-bolder border-white'>Habitaciones: <span className='text-muted'>{ detalle.habitaciones }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Baños: <span className='text-muted'>{ detalle.baños }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Parqueadero: <span className='text-muted'>{ detalle.parqueaderos }</span></li>
         </ul>
         <h5 className='mt-3'>Localización</h5>
-        <ul className='list-group list-group-flush'>
-          <li className='list-group-item fw-bolder'>Ciudad: <span className='text-muted'>{ detalle.ciudad }</span></li>
-          <li className='list-group-item fw-bolder'>Ubicación: { detalle.ubicacion }</li>
+        <ul className='list-group list-group-horizontal-sm'>
+          <li className='list-group-item fw-bolder border-white'>Ciudad: <span className='text-muted'>{ detalle.ciudad }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Zona/Barrio: <span className='text-muted'>{ detalle.sector }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Estrato: <span className='text-muted'>{ detalle.estrato }</span></li>
+        </ul>
+        <ul className='list-group list-group-horizontal-sm'>
+           <li className='list-group-item fw-bolder border-white'>Ubicación: { detalle.ubicacion }</li>
         </ul>
         <br></br>
         <div className="d-grid gap-2 col mx-md-0">
