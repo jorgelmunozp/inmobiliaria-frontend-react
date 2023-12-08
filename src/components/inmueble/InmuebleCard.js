@@ -1,25 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { formatterPeso } from '../../helpers/formatterPeso';
 
-import { IoHomeOutline, IoBedOutline, IoCarSportOutline } from "react-icons/io5";
-import { PiToilet } from "react-icons/pi";
-import { SlShareAlt } from "react-icons/sl";
-import { MdOutlineShower } from "react-icons/md";
-
-import { BiBath } from "react-icons/bi";
-import { PiBathtubLight } from "react-icons/pi";
-
-
-import { IoBed,IoCarSportSharp } from "react-icons/io5";
-import { FaToilet } from "react-icons/fa";
-import { FcAreaChart } from "react-icons/fc";
-import { MdBedroomChild,MdBathroom } from "react-icons/md";
-import { FaBed,FaBath } from "react-icons/fa6";
-
-// import car from './car.svg';
-// import bed from './bed.svg';
-// import area from './area.svg';
-// import bath from './bath.svg';
 import { Car } from '../icons/car/Car';
 import { Bed } from '../icons/bed/Bed';
 import { Bath } from '../icons/bath/Bath';
@@ -40,7 +22,7 @@ export const InmuebleCard = ({ id,detalle }) => {
                             <div className='card-body'>
                                 <small className='text-muted fw-bolder'>{ detalle.categoria }</small>
                                 <h5 className='card-title'>{ detalle.nombre }</h5>
-                                <h6 className='text-dark fw-bolder'>{ detalle.valor }&nbsp;</h6>
+                                <h6 className='text-dark fw-bolder'>{ formatterPeso.format(detalle.valor) }&nbsp;</h6>
                                 <h6 className='text-white badge background-main-color position-absolute top-0 translate-middle-x end-0 fw-bolder'><small>{ detalle.tipo }</small></h6>
                                 <div className='card-text lh-base'>
                                     <table>

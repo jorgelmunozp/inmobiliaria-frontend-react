@@ -32,6 +32,8 @@ export const Navbar = ({name}) => {
                             to={name+"/casas"}>Casas</NavLink>
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
                             to={name+"/search"}>Buscar</NavLink>
+                        <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                            to={name+"/stock"}>Inventario</NavLink>
                     </div>
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                         <ul className="navbar-nav ml-auto">

@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { useParams, Navigate, useNavigate} from 'react-router-dom'
 import { getInmuebleById } from '../../selectors/getInmuebleById';
+import { formatterPeso } from '../../helpers/formatterPeso';
 
 export const InmuebleScreen = ({ inmuebles }) => {
 
@@ -57,7 +58,7 @@ export const InmuebleScreen = ({ inmuebles }) => {
         </ul>
         <h5 className='mt-3'>Valor</h5>
         <ul className='list-group list-group-flush'>
-          <li className='list-group-item fw-bolder'><span className='text-dark'>{ detalle.valor }</span> <span className='text-muted'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</span></li>
+          <li className='list-group-item fw-bolder'><span className='text-dark'>{ formatterPeso.format(detalle.valor) }</span> <span className='text-muted'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</span></li>
         </ul>
         <h5 className='mt-3'>Descripción</h5>
         <ul className='list-group list-group-horizontal-sm list-group-flush'>
