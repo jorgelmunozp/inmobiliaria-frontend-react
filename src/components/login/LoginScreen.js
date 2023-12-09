@@ -47,8 +47,8 @@ export const LoginScreen = () => {
         <h1><CiHome className='icon'/><CiBank className='icon'/><CiShop className='icon'/></h1>
         <br/>
         <div className="d-grid gap-2 col-6 mx-auto">
-          <input id="user" type='text' value={userInput} onChange={(e) => { setUserInput(e.target.value); setAlertMessage("") }} placeholder='Usuario' autoComplete='off' className='border border-2 text-center py-3 rounded-pill'></input>
-          <input id="password" type='password' value={passwordInput} onChange={(e) =>{ setPasswordInput(e.target.value); setAlertMessage("") }} placeholder='Contraseña' autoComplete='off' className='border border-2 text-center py-3 rounded-pill'></input>
+          <input id="user" type='text' value={userInput} onChange={(e) => { setUserInput(e.target.value); setAlertMessage("") }} placeholder='Usuario' autoComplete='off' className='input-login border border-2 text-center py-3 rounded-pill'></input>
+          <input id="password" type='password' value={passwordInput} onChange={(e) =>{ setPasswordInput(e.target.value); setAlertMessage("") }} placeholder='Contraseña' autoComplete='off' className='input-login border border-2 text-center py-3 rounded-pill'></input>
           <button className='btn-login btn btn-lg btn-outline-primary border border-2 py-3 rounded-pill' onClick={ handleLogin }>
             Inmuebles
           </button>

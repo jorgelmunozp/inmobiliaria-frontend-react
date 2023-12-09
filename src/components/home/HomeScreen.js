@@ -57,12 +57,10 @@ export const HomeScreen = ({ inmuebles }) => {
       <hr />
       <div className='row'> 
         <div className=''>
-          <input
-            placeholder='🔎' value={ searchText }
+          <input placeholder='🔎' value={ searchText }
             type='search' id='searchText' name='searchText' autoComplete='off'
-            className='input form-control border-muted rounded px-2 py-2 text-center shadow-sm'
-            // onChange={ handleInputSearch }
-            onInput={ handleInputSearch }
+            className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm'
+            onInput={ handleInputSearch } /* onChange={ handleInputSearch } */
           />
         </div>
         <nav aria-label="Page navigation" className='mt-3'>

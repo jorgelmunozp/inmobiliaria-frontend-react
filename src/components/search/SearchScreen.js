@@ -1,29 +1,41 @@
-import React, { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useMemo, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
-import { getInmueblesByName } from '../../selectors/getInmueblesByName';
+import { getInmuebles } from '../../selectors/getInmuebles';
+// import { getInmueblesByName } from '../../selectors/getInmueblesByName';
+// import { getInmueblesByCategory } from '../../selectors/getInmueblesByCategory';
+// import { getInmueblesByType } from '../../selectors/getInmueblesByType';
 import { InmuebleCard } from '../inmueble/InmuebleCard';
-import { TextField, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
-export const SearchScreen = ({ inmuebles }) => {
+import { Dropdown } from '../forms/dropdown/Dropdown';
+import { InputText } from '../forms/inputs/InputText'
+import { InputNumber } from '../forms/inputs/InputNumber'
+import { InputRange } from '../forms/inputs/InputRange';
 
-  /* Query */
-  let query= '';
-  const navigate = useNavigate();
-  const [ formInputValues,handleInputChange ] = useForm({ searchText: query });
+
+export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
+
+  /* Query's */
+  let queryName= '';
+  const [ formInputValues,handleInputChange ] = useForm({ searchText: queryName });
   let { searchText } = formInputValues;
-  query = searchText;
-  const inmueblesFiltered = useMemo( () => getInmueblesByName(query,inmuebles), [query,inmuebles] );
+  queryName = searchText;
+  
+  // let [ queryName, setQueryName ] = useState(searchText);
+  // const inmueblesByName = useMemo( () => getInmueblesByName(queryName,inmuebles), [queryName,inmuebles] );
 
-  const handleSearch = () => {
+  let [ queryCategory, setQueryCategory ] = useState('');
+  // const inmueblesByCategory = useMemo( () => getInmueblesByCategory(queryCategory,inmuebles,categorias), [queryCategory,inmuebles,categorias] );
+  
+  let [ queryType, setQueryType ] = useState('');
+  // const inmueblesByType = useMemo( () => getInmueblesByType(queryType,inmuebles,tipos), [queryType,inmuebles,tipos] );
 
-  };
-
-  const handleInputSearch = (target) => {
+   const handleInputSearch = (target) => {
     handleInputChange(target);
-    searchText = target.target.value
-    handleSearch();
+    searchText = target.target.value;
   }
+
+  const inmueblesFiltered = useMemo( () => getInmuebles(searchText,queryCategory,queryType,inmuebles,categorias,tipos), [searchText,queryCategory,queryType,inmuebles,categorias,tipos] );
+  // console.log("inmueblesFiltered: ",inmueblesFiltered)
 
   return (
     <>
@@ -33,77 +45,41 @@ export const SearchScreen = ({ inmuebles }) => {
       <h5>Que tipo de inmueble buscas?</h5>
       <hr />
       <div className='row'>
-        <h5 className='mt-3'>Características</h5>
-        <ul className='list-group list-group-horizontal-sm'>
-          <li className='list-group-item fw-bolder border-white'>Habitaciones: <span className='text-muted'>{ 1 }</span></li>
-          <li className='list-group-item fw-bolder border-white'>Baños: <span className='text-muted'>{ 2 }</span></li>
-          <li className='list-group-item fw-bolder border-white'>Parqueadero: <span className='text-muted'>{ 3 }</span></li>
-        </ul>
-
-          <div className='col-3'>
-              <TextField label='Nombre inmueble' type='text'
-                name='searchText' autoComplete='off' variant="outlined" margin="dense"
-                className='form-control rounded border-muted px-2 py-2 text-center'
-                value={ searchText } onChange={ handleInputSearch }/>
-          </div>
-          <div className='col-2'>
-            <FormControl fullWidth margin="dense">
-              <InputLabel id="tipoInmueble-label" className="select">
-                Tipo Inmueble
-              </InputLabel>
-              <Select id="tipoInmueble" label="tipoInmueble" labelId="tipoInmueble-label"
-                // value={tipo} onChange={handleChangeTipoInmueble}
-              >
-                { inmuebles.map((inmuebles) => {
-                  return (<MenuItem value={inmuebles.id} key={'cat' + inmuebles.id} className="select-item">{ inmuebles.detalle.categoria }</MenuItem>);
-                })}
-              </Select>
-            </FormControl>
-          </div>
-          <div className='col-2'>
-            <FormControl fullWidth margin="dense">
-              <InputLabel id="tipoNegocio-label" className="select">
-                Tipo Negocio
-              </InputLabel>
-              <Select id="tipoNegocio" label="tipoNegocio" labelId="tipoNegocio-label"
-                // value={tipo} onChange={handleChangeTipoInmueble}
-              >
-                { inmuebles.map((inmuebles) => {
-                  return (<MenuItem value={inmuebles.id} key={'tip' + inmuebles.id} className="select-item">{ inmuebles.detalle.tipo } </MenuItem>);
-                })}
-              </Select>
-            </FormControl>
-          </div>
-          <div className='col-2'>
-              <TextField label='Habitaciones' type='number'
-                name='numHabitaciones' autoComplete='off' variant="outlined" margin="dense"
-                className='form-control rounded border-muted px-2 py-2 text-center'
-                value={ searchText } onChange={ handleInputSearch }/>
-          </div>
-          <div className='col-2'>
-              <TextField label='Baños' type='number'
-                name='numHabitaciones' autoComplete='off' variant="outlined" margin="dense"
-                className='form-control rounded border-muted px-2 py-2 text-center'
-                value={ searchText } onChange={ handleInputSearch }/>
-          </div>
+        <ul className='list-group list-group-horizontal-lg'>
+          <li className='list-group-item border-white'>
+            <InputText searchText={ searchText} handleInputSearch={ handleInputSearch } />
+          </li>
+          <li className='list-group-item border-white '>
+            <Dropdown value={'Tipo inmueble'} query={queryCategory} parameters={categorias} setQuery={setQueryCategory} />
+          </li>
+          <li className='list-group-item border-white'>
+            <Dropdown value={'Tipo negocio'} query={queryType} parameters={tipos} setQuery={setQueryType} />
+          </li>
+          <li className='list-group-item border-white'>
+            <InputNumber limit={'desde'} />
+          </li>
+          <li className='list-group-item border-white'>
+            <InputNumber limit={'hasta'}/>
+          </li>
+        </ul>    
+      </div>
+      <br></br>
+      <div className=''>
+        <h5>Inmuebles disponibles</h5>
+        <hr />
+        {
+            (queryName === '' && queryCategory === '' && queryType === '')
+                ? <div className="alert alert-primary"> Inmuebles </div>
+                : ( inmueblesFiltered.length === 0) 
+                    && <div className="alert alert-danger"> No hay resultados: { queryName || queryCategory || queryType  } </div>
+        }
+        <div className='row row-cols-1 row-cols-md-3 g-1 animate__animated animate__fadeIn'>
+          {/* { inmueblesByName.map(inmueble => ( <InmuebleCard key={ inmueble.id } { ...inmueble } /> )) }
+          { inmueblesByCategory.map(inmueble => ( <InmuebleCard key={ inmueble.id } { ...inmueble } /> )) }
+          { inmueblesByType.map(inmueble => ( <InmuebleCard key={ inmueble.id } { ...inmueble } /> )) } */}
+          { inmueblesFiltered.map(inmueble => ( <InmuebleCard key={ inmueble.id } { ...inmueble } /> )) }
         </div>
-        <br></br>
-        <div className=''>
-          <h5>Inmuebles disponibles</h5>
-          <hr />
-          {
-              (query === '')
-                  ? <div className="alert alert-primary"> Inmuebles </div>
-                  : ( inmueblesFiltered.length === 0 ) 
-                      && <div className="alert alert-danger"> No hay resultados: { query } </div>
-          }
-
-          {
-              inmueblesFiltered.map(inmueble => (
-                  <InmuebleCard key={ inmueble.id } { ...inmueble } />
-              ))
-          }
-        </div>
+      </div>
     </>
   )
 }

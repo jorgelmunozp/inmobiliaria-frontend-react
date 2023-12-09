@@ -18,6 +18,11 @@ export const DashboardRoutes = () => {
   const inmuebles = useFetch(urlApiInmuebles).data;
   let [setInmuebles] = useState('');
 
+  const urlApiCategorias = process.env.REACT_APP_API_CATEGORIAS;
+  const categorias = useFetch(urlApiCategorias).data;
+  const urlApiTipos = process.env.REACT_APP_API_TIPOS;
+  const tipos = useFetch(urlApiTipos).data;
+
   return (
     <>
       <Navbar name={name} />
@@ -27,7 +32,7 @@ export const DashboardRoutes = () => {
             <Route path={"/:inmuebleId"} element={<InmuebleScreen inmuebles={inmuebles} />} />
             <Route path={name + "/apartamentos"} element={<ApartamentosScreen inmuebles={inmuebles} />} />
             <Route path={name + "/casas"} element={<CasasScreen inmuebles={inmuebles} />} />
-            <Route path={name + "/search"} element={<SearchScreen inmuebles={inmuebles} />} />
+            <Route path={name + "/search"} element={<SearchScreen inmuebles={inmuebles} categorias={categorias} tipos={tipos}/>} />
             <Route path={name + "/stock"} element={<StockScreen inmuebles={inmuebles} />} />
             <Route path={"/" + name} element={<HomeScreen inmuebles={inmuebles} />} />
         </Routes>

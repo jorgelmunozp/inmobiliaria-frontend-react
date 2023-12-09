@@ -73,27 +73,15 @@ hr { opacity: 0.1; }
     border-color: var(--main-color);
 }
 
+/****** HOME SCREEN ******/
+.input:focus { border-color: var(--main-color); border-width: 1.25px;}
+
 /****** INMUEBLE SCREEN ******/
 .img-inmueble {
     width: 100%;
     height: 90vmin;
 }
 
-/***** SEARCH SCREEN *****/
-.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
-    color: var(--main-color) !important;
-}
-
-
-/****** LOGIN ******/
-.btn-login {
-    color: var(--main-color);
-    border-color: var(--main-color)!important;
-}
-.btn-login:hover {
-    color: var(--white-color);
-    background-color: var(--main-color);
-}
 .btn-inmueble {
     color: var(--main-color);
     background-color: var(--white-color);
@@ -105,19 +93,43 @@ hr { opacity: 0.1; }
     background-color: var(--main-color);
 }
 
-input::placeholder { color: var(--gray-color); }
-.input:focus { border-color: var(--main-color); border-width: 1.25px;}
+/***** SEARCH SCREEN *****/
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: var(--main-color) !important;
+}
+.btn-main {
+    background-color: var(--main-color);
+}
 
-input[type=text]{
+/***** STOCK SCREEN *****/
+/* .inputImage { width: 8vmin;} */
+.stock {
+    font-size: 1.75vmin;
+}
+.image-upload > input { display: none; }
+.image-upload img { width: 5vmin; cursor: pointer; }
+/* .numberStock { opacity: 1; } */
+
+/****** LOGIN ******/
+.input-login {
     background-color: var(--white-color);
     color: var(--main-color);
     border-color: var(--gray-color)!important;
 }
-input[type=password]{
-    background-color: var(--white-color);
+
+.btn-login {
     color: var(--main-color);
-    border-color: var(--gray-color)!important;
+    border-color: var(--main-color)!important;
 }
+.btn-login:hover {
+    color: var(--white-color);
+    background-color: var(--main-color);
+}
+
+
+input::placeholder { color: var(--gray-color); }
+
+
 
 button { background-color:var(--dark-color); color:var(--white-color); }
 button:hover{ color:var(--dark-color); background-color:var(--gray-color); }
