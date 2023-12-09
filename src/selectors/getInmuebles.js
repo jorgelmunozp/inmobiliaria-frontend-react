@@ -1,5 +1,6 @@
-export const getInmuebles = ( name = '',categoria,tipo,inmuebles,categorias,tipos ) => {
+export const getInmuebles = ( name = '',category,type,valueMin,valueMax,inmuebles,categorias,tipos ) => {
 
+    console.log("min,max: ",valueMin,valueMax)
     // if ( name.length === 0 ) { return []; }
     name = name.toLowerCase();
 
@@ -9,29 +10,29 @@ export const getInmuebles = ( name = '',categoria,tipo,inmuebles,categorias,tipo
     let tiposValidos = [''];
     if( tipos.length !== 0 ){ for(let i in tipos) { tiposValidos.push(tipos[i].tipo); } }
     
-    if( name !== '' && categoria === '' && tipo === '' ) {
+    if( name !== '' && category === '' && type === '' ) {
         return inmuebles.filter( inmueble => inmueble.detalle.nombre.toLowerCase().includes(name));
-    } else if( categoria !== '' && tipo === '' ) {
-        if( categoria === 'Todos' ){
+    } else if( category !== '' && type === '' ) {
+        if( category === 'Todos' ){
             return inmuebles.filter( inmueble => inmueble.detalle.nombre.toLowerCase().includes(name));
         } else {
-            return inmuebles.filter( inmueble => inmueble.detalle.categoria === categoria && inmueble.detalle.nombre.toLowerCase().includes(name) )
+            return inmuebles.filter( inmueble => inmueble.detalle.categoria === category && inmueble.detalle.nombre.toLowerCase().includes(name) )
         }
-    } else if( tipo !== '' && categoria === ''  ) {
-        if( tipo === 'Todos' ){
+    } else if( type !== '' && category === ''  ) {
+        if( type === 'Todos' ){
             return inmuebles.filter( inmueble => inmueble.detalle.nombre.toLowerCase().includes(name));
         } else {            
-            return inmuebles.filter( inmueble => inmueble.detalle.tipo === tipo && inmueble.detalle.nombre.toLowerCase().includes(name) )
+            return inmuebles.filter( inmueble => inmueble.detalle.tipo === type && inmueble.detalle.nombre.toLowerCase().includes(name) )
         }
-    } else if( tipo !== '' && categoria !== '' ) {
-        if( categoria === 'Todos' && tipo !== 'Todos'){
-            return inmuebles.filter( inmueble => inmueble.detalle.tipo === tipo && inmueble.detalle.nombre.toLowerCase().includes(name) )
-        } else if( tipo === 'Todos' && categoria !== 'Todos'){
-            return inmuebles.filter( inmueble => inmueble.detalle.categoria === categoria && inmueble.detalle.nombre.toLowerCase().includes(name) )
-        } else if( categoria === 'Todos' && tipo === 'Todos'){
+    } else if( type !== '' && category !== '' ) {
+        if( category === 'Todos' && type !== 'Todos'){
+            return inmuebles.filter( inmueble => inmueble.detalle.tipo === type && inmueble.detalle.nombre.toLowerCase().includes(name) )
+        } else if( type === 'Todos' && category !== 'Todos'){
+            return inmuebles.filter( inmueble => inmueble.detalle.categoria === category && inmueble.detalle.nombre.toLowerCase().includes(name) )
+        } else if( category === 'Todos' && type === 'Todos'){
             return inmuebles.filter( inmueble => inmueble.detalle.nombre.toLowerCase().includes(name));
         } else {
-            return inmuebles.filter( inmueble => inmueble.detalle.categoria === categoria && inmueble.detalle.tipo === tipo && inmueble.detalle.nombre.toLowerCase().includes(name) )
+            return inmuebles.filter( inmueble => inmueble.detalle.categoria === category && inmueble.detalle.tipo === type && inmueble.detalle.nombre.toLowerCase().includes(name) )
         }
     } else {
         return [];

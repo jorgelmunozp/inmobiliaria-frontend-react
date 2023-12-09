@@ -19,14 +19,14 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
   const [ formInputValues,handleInputChange ] = useForm({ searchText: queryName });
   let { searchText } = formInputValues;
   queryName = searchText;
-  
-  // let [ queryName, setQueryName ] = useState(searchText);
-  // const inmueblesByName = useMemo( () => getInmueblesByName(queryName,inmuebles), [queryName,inmuebles] );
-
-  let [ queryCategory, setQueryCategory ] = useState('');
-  // const inmueblesByCategory = useMemo( () => getInmueblesByCategory(queryCategory,inmuebles,categorias), [queryCategory,inmuebles,categorias] );
-  
+    // let [ queryName, setQueryName ] = useState(searchText);
+  let [ queryCategory, setQueryCategory ] = useState(''); 
   let [ queryType, setQueryType ] = useState('');
+  let [ queryValueMin, setQueryValueMin] = useState(null);
+  let [ queryValueMax, setQueryValueMax] = useState(null);
+
+  // const inmueblesByName = useMemo( () => getInmueblesByName(queryName,inmuebles), [queryName,inmuebles] );
+  // const inmueblesByCategory = useMemo( () => getInmueblesByCategory(queryCategory,inmuebles,categorias), [queryCategory,inmuebles,categorias] );
   // const inmueblesByType = useMemo( () => getInmueblesByType(queryType,inmuebles,tipos), [queryType,inmuebles,tipos] );
 
    const handleInputSearch = (target) => {
@@ -34,7 +34,7 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
     searchText = target.target.value;
   }
 
-  const inmueblesFiltered = useMemo( () => getInmuebles(searchText,queryCategory,queryType,inmuebles,categorias,tipos), [searchText,queryCategory,queryType,inmuebles,categorias,tipos] );
+  const inmueblesFiltered = useMemo( () => getInmuebles(searchText,queryCategory,queryType,queryValueMin,queryValueMax,inmuebles,categorias,tipos), [searchText,queryCategory,queryType,inmuebles,categorias,tipos] );
   // console.log("inmueblesFiltered: ",inmueblesFiltered)
 
   return (
@@ -56,10 +56,10 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
             <Dropdown value={'Tipo negocio'} query={queryType} parameters={tipos} setQuery={setQueryType} />
           </li>
           <li className='list-group-item border-white'>
-            <InputNumber limit={'desde'} />
+            <InputNumber limit={'desde'} value={queryValueMin} setQuery={setQueryValueMin} />
           </li>
           <li className='list-group-item border-white'>
-            <InputNumber limit={'hasta'}/>
+            <InputNumber limit={'hasta'} value={queryValueMax} setQuery={setQueryValueMax}/>
           </li>
         </ul>    
       </div>
@@ -68,10 +68,10 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
         <h5>Inmuebles disponibles</h5>
         <hr />
         {
-            (queryName === '' && queryCategory === '' && queryType === '')
+            (queryName === '' && queryCategory === '' && queryType === '' && queryValueMin === null && queryValueMax === null)
                 ? <div className="alert alert-primary"> Inmuebles </div>
                 : ( inmueblesFiltered.length === 0) 
-                    && <div className="alert alert-danger"> No hay resultados: { queryName || queryCategory || queryType  } </div>
+                    && <div className="alert alert-danger"> No hay resultados: { queryName + ' ' + queryCategory + ' ' + queryType + ' ' + (queryValueMin !== null ? queryValueMin : '') + ' ' + (queryValueMax !== null ? queryValueMax : '') } </div>
         }
         <div className='row row-cols-1 row-cols-md-3 g-1 animate__animated animate__fadeIn'>
           {/* { inmueblesByName.map(inmueble => ( <InmuebleCard key={ inmueble.id } { ...inmueble } /> )) }
