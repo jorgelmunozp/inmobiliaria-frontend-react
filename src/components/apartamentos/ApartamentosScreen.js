@@ -1,5 +1,5 @@
-import React from 'react'
-import { InmuebleList } from '../inmueble/InmuebleList'
+import React from 'react';
+import { InmuebleList } from '../inmueble/InmuebleList';
 
 export const ApartamentosScreen = ({ inmuebles }) => {
 
