@@ -47,7 +47,6 @@ export const InmuebleScreen = ({ inmuebles }) => {
         </div>
       </div>
       <p></p>
-      {/* <div className='col-8 animate__animated animate__fadeIn'> */}
       <div className='animate__animated animate__fadeIn'>
         <h1>{ detalle.nombre }</h1>
         <hr></hr>
@@ -55,6 +54,7 @@ export const InmuebleScreen = ({ inmuebles }) => {
           <li className='list-group-item fw-bolder border-white'>Categoría: <span className='text-muted'>{ detalle.categoria }</span></li>
           <li className='list-group-item fw-bolder border-white'>Tipo: <span className='text-muted'>{ detalle.tipo }</span></li>
           <li className='list-group-item fw-bolder border-white'>Código Inmueble: <span className='text-muted'>{ id }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Estado: <span className='text-muted'>{ detalle.estado }</span></li>
         </ul>
         <h5 className='mt-3'>Valor</h5>
         <ul className='list-group list-group-flush'>

@@ -52,7 +52,7 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
       <hr />
       <center><h4>Buscar Inmueble</h4></center> 
       <hr />
-      <h5>Que tipo de inmueble buscas?</h5>
+      <h6>Que tipo de inmueble buscas?</h6>
       <hr />
       <div className=''>
         <SearchBar searchText={ searchText} queryCategory={queryCategory} queryType={queryType} 
@@ -64,7 +64,7 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
       </div>
       <br></br>
       <div className=''>
-        <h5>Inmuebles disponibles</h5>
+        <h6>Inmuebles disponibles</h6>
         <hr />
         {
             (queryName === '' && queryCategory === '' && queryType === '' && queryValueMin === '' && queryValueMax === '')
