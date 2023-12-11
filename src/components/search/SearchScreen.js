@@ -72,8 +72,8 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
                 : ( inmueblesFiltered.length === 0) 
                     && <div className="alert alert-danger"> 
                           <p>🔎 No hay resultados</p>
-                          <li>{ queryName ? 'No hay inmuebles llamados ' + queryName : '' }</li>
-                          <li>{ (queryValueMin || queryValueMax) ? 'No hay inmuebles en el rango de precios desde ' + formatterPeso.format(queryValueMin) + ' hasta ' + formatterPeso.format(queryValueMax) : '' }</li>
+                          <p><span color='#ff0000'><b>✗</b></span>{ queryName ? ' No hay inmuebles llamados ' + queryName : '' }</p>
+                          <p><span color='#ff0000'><b>✗</b></span>{ (queryValueMin || queryValueMax) ? ' No hay inmuebles en el rango de precios desde ' + formatterPeso.format(queryValueMin) + ' hasta ' + formatterPeso.format(queryValueMax) : '' }</p>
                           <br></br>
                           <ul className='list-group list-group-horizontal-lg'>
                             <li className='list-group-item fw-bolder border-white w-100'><span className='text-dark'>{ queryName ? 'Inmueble' : '' }</span> <span className='text-muted'>{ queryName ? queryName : '' }</span></li>
