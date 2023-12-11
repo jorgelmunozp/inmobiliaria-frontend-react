@@ -3,6 +3,7 @@ import { useForm } from '../../hooks/useForm';
 import { getInmuebles } from '../../selectors/getInmuebles';
 import { SearchBar } from '../search/SearchBar';
 import { InmuebleCard } from '../inmueble/InmuebleCard';
+import { Equis } from '../icons/equis/Equis';
 
 import { formatterPeso } from '../../helpers/formatterPeso';
 
@@ -45,12 +46,12 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
   }
 
   const inmueblesFiltered = useMemo( () => getInmuebles(searchText,queryCategory,queryType,queryValueMin,queryValueMax,inmuebles,categorias,tipos), [searchText,queryCategory,queryType,queryValueMin,queryValueMax,inmuebles,categorias,tipos] );
-  console.log("inmueblesFiltered: ",inmueblesFiltered)
+  // console.log("inmueblesFiltered: ",inmueblesFiltered)
 
   return (
     <>
       <hr />
-      <center><h4>Buscar Inmueble</h4></center> 
+      <center><h5>Buscar Inmueble</h5></center> 
       <hr />
       <h6>Que tipo de inmueble buscas?</h6>
       <hr />
@@ -72,16 +73,11 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
                 : ( inmueblesFiltered.length === 0) 
                     && <div className="alert alert-danger"> 
                           <p>🔎 No hay resultados</p>
-                          <p><span color='#ff0000'><b>✗</b></span>{ queryName ? ' No hay inmuebles llamados ' + queryName : '' }</p>
-                          <p><span color='#ff0000'><b>✗</b></span>{ (queryValueMin || queryValueMax) ? ' No hay inmuebles en el rango de precios desde ' + formatterPeso.format(queryValueMin) + ' hasta ' + formatterPeso.format(queryValueMax) : '' }</p>
+                          <div className='bg-white rounded pt-3 pb-1 px-3'>
+                            <p className='text-justify'>{ queryName ? <Equis /> : '' }{ queryName ? ' No hay inmuebles llamados ' : '' }<b>{ queryName ? queryName : '' }</b></p>
+                            <p className='text-justify'>{ (queryValueMin || queryValueMax) ? <Equis /> : '' }{ (queryValueMin || queryValueMax) ? ' No hay inmuebles en el rango de precios desde ' : '' }<b>{ (queryValueMin || queryValueMax) ? formatterPeso.format(queryValueMin) : '' }</b>{ (queryValueMin || queryValueMax) ? ' hasta ' : '' }<b>{ (queryValueMin || queryValueMax) ? formatterPeso.format(queryValueMax) : '' }</b></p>
+                          </div>
                           <br></br>
-                          <ul className='list-group list-group-horizontal-lg'>
-                            <li className='list-group-item fw-bolder border-white w-100'><span className='text-dark'>{ queryName ? 'Inmueble' : '' }</span> <span className='text-muted'>{ queryName ? queryName : '' }</span></li>
-                            <li className='list-group-item fw-bolder border-white w-100'><span className='text-dark'>{ queryCategory ? 'Tipo inmueble' : '' }</span> <span className='text-muted'>{ queryCategory ? queryCategory : '' }</span></li>
-                            <li className='list-group-item fw-bolder border-white w-100'><span className='text-dark'>{ queryType ? 'Tipo negocio' : '' }</span> <span className='text-muted'>{ queryType ? queryType : '' }</span></li>
-                            <li className='list-group-item fw-bolder border-white w-100'><span className='text-dark'>{ queryValueMin ? 'Precio mínimo' : '' }</span> <span className='text-muted'>{ queryValueMin ? formatterPeso.format(queryValueMin) : '' }</span></li>
-                            <li className='list-group-item fw-bolder border-white w-100'><span className='text-dark'>{ queryValueMax ? 'Precio máximo' : '' }</span> <span className='text-muted'>{ queryValueMax ? formatterPeso.format(queryValueMax) : '' }</span></li>
-                          </ul>
                        </div>
         }
         <div className='row row-cols-1 row-cols-md-3 g-1 animate__animated animate__fadeIn'>

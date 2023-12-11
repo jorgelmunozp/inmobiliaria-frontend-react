@@ -28,7 +28,7 @@ export const StockScreen = ({ inmuebles }) => {
   return (
     <>
       <hr />
-      <center><h4>Inventario Inmuebles</h4></center> 
+      <center><h5>Inventario Inmuebles</h5></center> 
       <hr />
       <div className='stock'>
         <div className='row'>

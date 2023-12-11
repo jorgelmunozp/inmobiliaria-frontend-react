@@ -13,7 +13,7 @@ export const ApartamentosScreen = ({ inmuebles }) => {
   return (
     <div>
       <hr />
-      <center><h4>Apartamentos</h4></center>
+      <center><h5>Apartamentos</h5></center>
       <hr />
       <InmuebleList inmuebles={apartamentos} />
     </div>

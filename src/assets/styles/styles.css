@@ -4,6 +4,7 @@
     --lightgray-color: #dddddd;
     --main-color: #5285c5;
     --main-transparent-color: rgba(82, 133, 197, 0.25);
+    --red-color: #f00;
     --white-color: #fff;
 }
 
@@ -28,6 +29,7 @@ hr { opacity: 0.1; }
 
 .main-color { color: var(--main-color)!important; }
 .background-main-color { background-color: var(--main-color)!important; }
+.red-color { color: var(--red-color)!important; }
 
 /****** InmuebleCard ******/
 .badge {
@@ -53,25 +55,31 @@ hr { opacity: 0.1; }
     background-color: transparent !important;
     padding: 0 .25rem !important;
     border: none !important;
+    box-shadow: none !important;
 }
 .page-arrow:active, .page-arrow:hover {
     background-color: transparent !important;
     border: none !important;
+    box-shadow: none !important;
 }
 .page-link {
     background-color: transparent !important;
     color: var(--gray-color);
     padding: 0 .25rem !important;
     border: none !important;
+    box-shadow: none !important;
 }
 .page-link:hover {
     background-color: transparent !important;
     color: var(--dark-color);
+    border: none !important;
+    box-shadow: none !important;
 }
 .page-item.active .page-link {
     background-color: transparent !important;
     color: var(--main-color);
-    border-color: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 /****** HOME SCREEN ******/
