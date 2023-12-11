@@ -26,7 +26,7 @@ export const InmuebleCard = ({ id,detalle }) => {
                                 <h6 className='text-white badge background-main-color position-absolute top-50 end-0 fw-bolder mt-5'><small>{ detalle.tipo }</small></h6>
                                 <h6 className={ detalle.estado === 'Disponible' ? 'text-white badge bg-success position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Vendido' ? 'text-white badge bg-danger position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Arrendado' ? 'text-white badge bg-warning position-absolute top-0 end-0 fw-bolder' : '') ) }><small>{ detalle.estado }</small></h6>
                                 <div className='card-text lh-base'>
-                                    <ul className='list-group list-group-horizontal-lg justify-content-between'>
+                                    <ul className='list-group list-group-horizontal-sm justify-content-between'>
                                         <li className='list-group-item fw-bolder border-white p-0'><Area /> <span className='text-muted fw-bolder'>{ detalle.area }&nbsp;<small>m<sup>2</sup></small></span></li>
                                         <li className='list-group-item fw-bolder border-white p-0'><Bed /> <span className='text-muted fw-bolder'>{ detalle.habitaciones }</span></li>
                                         <li className='list-group-item fw-bolder border-white p-0'><Bath /> <span className='text-muted fw-bolder'>{ detalle.baños }</span></li>
