@@ -3,11 +3,11 @@ import { InputText } from '../forms/inputs/InputText'
 import { InputNumber } from '../forms/inputs/InputNumber'
 import { formatterPeso } from '../../helpers/formatterPeso'
 
-export const SearchBar = ({ searchText,queryCategory,queryType,queryValueMin,queryValueMax,handleInputText,setQueryCategory,setQueryType,handleInputNumberMin,handleInputNumberMax,categorias,tipos }) => {
+export const SearchBar = ({ inputText,queryCategory,queryType,queryValueMin,queryValueMax,handleInputText,setQueryCategory,setQueryType,handleInputNumberMin,handleInputNumberMax,categorias,tipos }) => {
   return (
     <ul className='list-group list-group-horizontal-lg border justify-content-between'>
       <li className='list-group-item border-white'>
-        <InputText placeholder={'Nombre inmueble'} inputText={searchText} handleInput={handleInputText} />
+        <InputText placeholder={'Nombre inmueble'} inputText={inputText} handleInput={handleInputText} />
       </li>
       <li className='list-group-item border-white '>
         <Dropdown value={'Tipo inmueble'} query={queryCategory} parameters={categorias} setQuery={setQueryCategory} />

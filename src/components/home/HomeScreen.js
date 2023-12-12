@@ -8,9 +8,9 @@ export const HomeScreen = ({ inmuebles }) => {
 
   /* Query */
   let query = '';
-  const [ formInputValues,handleInputChange ] = useForm({ searchText: query });
-  let { searchText } = formInputValues;
-  query = searchText;
+  const [ formInputValues,handleInputChange ] = useForm({ inputText: query });
+  let { inputText } = formInputValues;
+  query = inputText;
   const inmueblesFiltered = useMemo( () => getInmueblesByName(query,inmuebles), [query,inmuebles] );
 
   return (
@@ -20,11 +20,11 @@ export const HomeScreen = ({ inmuebles }) => {
       <hr />
       <div className='row'>
         <div>
-          <input placeholder='🔎' value={ searchText } onInput={ handleInputChange }
-            type='search' id='searchText' name='searchText' autoComplete='off'
+          {/* <input placeholder='🔎' value={ inputText } onInput={ handleInputChange }
+            type='search' id='inputText' name='inputText' autoComplete='off'
             className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' 
-          />
-          {/* <InputText placeholder={'🔎'} handleInput={handleInputChange} className='shadow-sm' /> */}
+          /> */}
+          <InputText placeholder={'🔎'} value={inputText} handleInput={handleInputChange} className='shadow-sm' />
         </div>
         <div>&nbsp;</div>
         <div>
