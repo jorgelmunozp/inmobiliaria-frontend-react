@@ -17,33 +17,35 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
 
   let [ queryCategory, setQueryCategory ] = useState(''); 
   let [ queryType, setQueryType ] = useState('');
-  
-  let queryValueMin = '';
-  const [ inputNumberValueMin,handleInputNumberMinChange ] = useForm({ searchValueMin: queryValueMin });
-  let { searchValueMin } = inputNumberValueMin;
-  queryValueMin = searchValueMin;
+  let [ queryValueMin, setQueryValueMin ] = useState(''); 
+  let [ queryValueMax, setQueryValueMax ] = useState(''); 
 
-  let queryValueMax = '';
-  const [ inputNumberValueMax,handleInputNumberMaxChange ] = useForm({ searchValueMax: queryValueMax });
-  let { searchValueMax } = inputNumberValueMax;
-  queryValueMax = searchValueMax;
+  // let queryValueMin = '';
+  // const [ inputNumberValueMin,handleInputNumberMinChange ] = useForm({ searchValueMin: queryValueMin });
+  // let { searchValueMin } = inputNumberValueMin;
+  // queryValueMin = searchValueMin;
+
+  // let queryValueMax = '';
+  // const [ inputNumberValueMax,handleInputNumberMaxChange ] = useForm({ searchValueMax: queryValueMax });
+  // let { searchValueMax } = inputNumberValueMax;
+  // queryValueMax = searchValueMax;
 
    const handleInputText = (target) => {
     handleInputTextChange(target);
     inputText = target.target.value;
   }
 
-  const handleInputNumberMin = (target) => {
-    handleInputNumberMinChange(target);
-    searchValueMin = target.target.value;
-    queryValueMin = searchValueMin;
-  }
+  // const handleInputNumberMin = (target) => {
+  //   handleInputNumberMinChange(target);
+  //   searchValueMin = target.target.value;
+  //   queryValueMin = searchValueMin;
+  // }
 
-  const handleInputNumberMax = (target) => {
-    handleInputNumberMaxChange(target);
-    searchValueMax = target.target.value;
-    queryValueMax = searchValueMax;
-  }
+  // const handleInputNumberMax = (target) => {
+  //   handleInputNumberMaxChange(target);
+  //   searchValueMax = target.target.value;
+  //   queryValueMax = searchValueMax;
+  // }
 
   const inmueblesFiltered = useMemo( () => getInmuebles(inputText,queryCategory,queryType,queryValueMin,queryValueMax,inmuebles,categorias,tipos), [inputText,queryCategory,queryType,queryValueMin,queryValueMax,inmuebles,categorias,tipos] );
 
@@ -57,8 +59,9 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
       <div>
         <SearchBar inputText={inputText} queryCategory={queryCategory} queryType={queryType} 
                    queryValueMin={queryValueMin} queryValueMax={queryValueMax}
-                   handleInputText={ handleInputText } setQueryCategory={setQueryCategory} setQueryType={setQueryType} 
-                   handleInputNumberMin={handleInputNumberMin} handleInputNumberMax={handleInputNumberMax} 
+                   handleInputText={ handleInputText } setQueryCategory={setQueryCategory} setQueryType={setQueryType}
+                   setQueryValueMin={setQueryValueMin} setQueryValueMax={setQueryValueMax} 
+                  //  handleInputNumberMin={handleInputNumberMin} handleInputNumberMax={handleInputNumberMax} 
                    categorias={categorias} tipos={tipos}
                    />
       </div>
@@ -73,7 +76,8 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
                                                         <p>🔎 No hay resultados</p>
                                                         <div className='bg-white rounded pt-3 pb-1 px-3'>
                                                           <p className='text-justify'>{ queryName ? <Equis /> : '' }{ queryName ? ' No hay inmuebles llamados ' : '' }<b>{ queryName ? queryName : '' }</b></p>
-                                                          <p className='text-justify'>{ (queryValueMin || queryValueMax) ? <Equis /> : '' }{ (queryValueMin || queryValueMax) ? ' No hay inmuebles en el rango de precios desde ' : '' }<b>{ (queryValueMin || queryValueMax) ? formatterPeso.format(queryValueMin) : '' }</b>{ (queryValueMin || queryValueMax) ? ' hasta ' : '' }<b>{ (queryValueMin || queryValueMax) ? formatterPeso.format(queryValueMax) : '' }</b></p>
+                                                          {/* <p className='text-justify'>{ (queryValueMin || queryValueMax) ? <Equis /> : '' }{ (queryValueMin || queryValueMax) ? ' No hay inmuebles en el rango de precios desde ' : '' }<b>{ (queryValueMin || queryValueMax) ? queryValueMin : '' }</b>{ (queryValueMin || queryValueMax) ? ' hasta ' : '' }<b>{ (queryValueMin || queryValueMax) ? queryValueMax : '' }</b></p> */}
+                                                          <p className='text-justify'>{ (queryValueMin || queryValueMax) ? <Equis /> : '' }{ (queryValueMin || queryValueMax) ? ' No hay inmuebles en el rango de precios' : '' }{ queryValueMin ? ' desde ' : '' }<b>{ queryValueMin ? queryValueMin.replaceAll(',','.') : '' }</b>{ queryValueMax ? ' hasta ' : '' }<b>{ queryValueMax ? queryValueMax.replaceAll(',','.') : '' }</b></p>
                                                         </div>
                                                         <br></br>
                                                     </div>

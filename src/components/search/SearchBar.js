@@ -1,9 +1,9 @@
 import { Dropdown } from '../forms/dropdown/Dropdown';
 import { InputText } from '../forms/inputs/InputText'
 import { InputNumber } from '../forms/inputs/InputNumber'
-import { formatterPeso } from '../../helpers/formatterPeso'
 
-export const SearchBar = ({ inputText,queryCategory,queryType,queryValueMin,queryValueMax,handleInputText,setQueryCategory,setQueryType,handleInputNumberMin,handleInputNumberMax,categorias,tipos }) => {
+// export const SearchBar = ({ inputText,queryCategory,queryType,queryValueMin,queryValueMax,handleInputText,setQueryCategory,setQueryType,setQueryValueMin,setQueryValueMax,handleInputNumberMin,handleInputNumberMax,categorias,tipos }) => {
+  export const SearchBar = ({ inputText,queryCategory,queryType,queryValueMin,queryValueMax,handleInputText,setQueryCategory,setQueryType,setQueryValueMin,setQueryValueMax,categorias,tipos }) => {
   return (
     <ul className='list-group list-group-horizontal-lg border justify-content-between'>
       <li className='list-group-item border-white'>
@@ -16,10 +16,10 @@ export const SearchBar = ({ inputText,queryCategory,queryType,queryValueMin,quer
         <Dropdown value={'Tipo negocio'} query={queryType} parameters={tipos} setQuery={setQueryType} />
       </li>
       <li className='list-group-item border-white'>
-        <InputNumber limit={'desde'} value={queryValueMin} name={'searchValueMin'} handleInputChange={handleInputNumberMin} />
+        <InputNumber limit={'desde'} value={queryValueMin} name={'searchValueMin'} handleInputChange={(values) => setQueryValueMin(values.formattedValue.replace('$ ','').split(',').join(''))}  />
       </li>
       <li className='list-group-item border-white'>
-        <InputNumber limit={'hasta'} value={queryValueMax} name={'searchValueMax'} handleInputChange={handleInputNumberMax}/>
+        <InputNumber limit={'hasta'} value={queryValueMax} name={'searchValueMax'} handleInputChange={(values) => setQueryValueMax(values.formattedValue.replace('$ ','').split(',').join(''))}/>
       </li>
     </ul> 
   )

@@ -1,5 +1,7 @@
 export const getInmuebles = ( name = '',category,type,valueMin,valueMax,inmuebles,categorias,tipos ) => {
     name = name.toLowerCase();
+    // valueMin = valueMin.replace('$ ','').split(',').join('');
+    // valueMax = valueMax.replace('$ ','').split(',').join('');
 
     let categoriasValidas = [''];
     if( categorias.length !== 0 ){ for(let i in categorias) { categoriasValidas.push(categorias[i].categoria); } }
