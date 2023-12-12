@@ -1,15 +1,7 @@
-import React from 'react'
-import { InmuebleList } from '../inmueble/InmuebleList'
+import { InmuebleList } from '../inmueble/InmuebleList';
 
 export const CasasScreen = ({ inmuebles }) => {
-  
-  let casas = [];
-  for (const [i] of inmuebles.entries()) {
-    if(inmuebles[i].detalle.categoria === 'Casa') {
-      casas.push(inmuebles[i]);
-    }
-  }
-
+  const casas = inmuebles.filter(inmuebles => inmuebles.detalle.categoria === 'Casa' );
   return (
     <div>
       <hr />
