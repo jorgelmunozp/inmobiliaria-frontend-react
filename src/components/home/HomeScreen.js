@@ -20,11 +20,7 @@ export const HomeScreen = ({ inmuebles }) => {
       <hr />
       <div className='row'>
         <div>
-          {/* <input placeholder='🔎' value={ inputText } onInput={ handleInputChange }
-            type='search' id='inputText' name='inputText' autoComplete='off'
-            className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' 
-          /> */}
-          <InputText placeholder={'🔎'} value={inputText} handleInput={handleInputChange} className='shadow-sm' />
+          <InputText placeholder={'🔎'} value={inputText} handleInput={handleInputChange} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' />
         </div>
         <div>&nbsp;</div>
         <div>

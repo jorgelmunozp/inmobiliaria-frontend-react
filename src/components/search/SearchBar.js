@@ -7,7 +7,7 @@ export const SearchBar = ({ inputText,queryCategory,queryType,queryValueMin,quer
   return (
     <ul className='list-group list-group-horizontal-lg border justify-content-between'>
       <li className='list-group-item border-white'>
-        <InputText placeholder={'Nombre inmueble'} inputText={inputText} handleInput={handleInputText} />
+        <InputText placeholder={'Nombre inmueble'} inputText={inputText} handleInput={handleInputText} className='input form-control rounded border-secondary text-muted text-center py-1' />
       </li>
       <li className='list-group-item border-white '>
         <Dropdown value={'Tipo inmueble'} query={queryCategory} parameters={categorias} setQuery={setQueryCategory} />
