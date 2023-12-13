@@ -11,15 +11,15 @@ export const InmuebleCard = ({ id,detalle }) => {
     const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
     const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
     const linkInmueble = '/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '/';
-
+    
     return (
         <div className='col'>
             <Link to={ linkInmueble } >
                 <div className='card shadow'>
                     <div className='row no-gutters'>
-                        <div className=''>
+                        <div>
                             <img src={ namePicInmueble }  className='card-img' alt={ detalle.nombre } />
-                            <div className='card-body px-4'>
+                            <div className='card-body px-3'>
                                 <small className='text-muted fw-bolder'>{ detalle.categoria }</small>
                                 <h6 className='card-title text-truncate'>{ detalle.nombre }</h6>
                                 <h6 className='text-dark fw-bolder'>{ formatterPeso.format(detalle.valor) }&nbsp;<small className='text-muted'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</small></h6>
@@ -27,10 +27,10 @@ export const InmuebleCard = ({ id,detalle }) => {
                                 <h6 className={ detalle.estado === 'Disponible' ? 'text-white badge bg-success position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Vendido' ? 'text-white badge bg-danger position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Arrendado' ? 'text-white badge bg-warning position-absolute top-0 end-0 fw-bolder' : '') ) }><small>{ detalle.estado }</small></h6>
                                 <div className='card-text lh-base'>
                                     <ul className='list-group list-group-horizontal justify-content-between'>
-                                        <li className='list-group-item fw-bolder border-white text-center p-0'><Area /> <span className='text-muted fw-bolder px-2'>{ detalle.area }&nbsp;<small>m<sup>2</sup></small></span></li>
-                                        <li className='list-group-item fw-bolder border-white text-center p-0'><Bed /> <span className='text-muted fw-bolder px-2'>{ detalle.habitaciones }</span></li>
-                                        <li className='list-group-item fw-bolder border-white text-center p-0'><Bath /> <span className='text-muted fw-bolder px-2'>{ detalle.baños }</span></li>
-                                        <li className='list-group-item fw-bolder border-white text-center p-0'><Car /> <span className='text-muted fw-bolder px-2'> { detalle.parqueaderos }</span></li>
+                                        <li className='list-group-item fw-bolder border-white text-center p-0'><Area strokeWidth={80} width={'1.3em'} height={'1.3em'} /> <span className='text-muted fw-bolder px-2'>{ detalle.area }&nbsp;<small>m<sup>2</sup></small></span></li>
+                                        <li className='list-group-item fw-bolder border-white text-center p-0'><Bed strokeWidth={48} width={'1.5em'} height={'1.5em'} /> <span className='text-muted fw-bolder px-2'>{ detalle.habitaciones }</span></li>
+                                        <li className='list-group-item fw-bolder border-white text-center p-0'><Bath strokeWidth={0.75} width={'1.3em'} height={'1.5em'} /> <span className='text-muted fw-bolder px-2'>{ detalle.baños }</span></li>
+                                        <li className='list-group-item fw-bolder border-white text-center p-0'><Car strokeWidth={48} width={'1.5em'} height={'1.5em'} /> <span className='text-muted fw-bolder px-2'> { detalle.parqueaderos }</span></li>
                                     </ul>
                                 </div>
                             </div>

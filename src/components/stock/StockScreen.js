@@ -2,6 +2,11 @@ import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { getInmueblesByName } from '../../selectors/getInmueblesByName';
+import { Area } from '../icons/area/Area';
+import { Bath } from '../icons/bath/Bath';
+import { Bed } from '../icons/bed/Bed';
+import { Camera } from '../icons/camera/Camera';
+import { Car } from '../icons/car/Car';
 
 export const StockScreen = ({ inmuebles }) => {
 
@@ -33,15 +38,15 @@ export const StockScreen = ({ inmuebles }) => {
       <div className='stock'>
         <div className='row flex-nowrap'>
           <span className='col-1 text-center'>Código</span>
-          <span className='col-auto text-center'>📷📸</span>
+          <span className='col-auto text-center'>&nbsp;&nbsp;&nbsp;<Camera strokeWidth={32} width={'1.5em'} height={'1.5em'}/>&nbsp;</span>
           <span className='col-2 text-center'>Nombre&nbsp;Inmueble</span>
           <span className='col-2 text-center'>Categoría</span>
           <span className='col-1 text-center'>Tipo&nbsp;negocio</span>
-          <span className='col-1 text-center'>Habitaciones</span>
-          <span className='col-1 text-center'>Baños</span>
-          <span className='col-1 text-center'>Parqueadero</span>
-          <span className='col-1 text-center'>Área</span>
-          <span className='col-1 text-center'>Valor</span>
+          <span className='col-1 text-center'><Bed strokeWidth={32} width={'1.5em'} height={'1.5em'}/></span>
+          <span className='col-1 text-center'><Car strokeWidth={32} width={'1.5em'} height={'1.5em'}/></span>
+          <span className='col-1 text-center'><Bath strokeWidth={0} width={'1.3em'} height={'1.3em'}/></span>
+          <span className='col-1 text-center'><Area strokeWidth={32} width={'1em'} height={'1em'}/></span>
+          <span className='col-2 text-center'>Valor</span>
           <span className='col-3 text-center'>Descripción</span>
           <span className='col-1 text-center'>Ciudad</span>
           <span className='col-2 text-center'>Zona/Barrio</span>
@@ -67,7 +72,7 @@ export const StockScreen = ({ inmuebles }) => {
               <input value={ inmueble.detalle.baños } /* onChange={ handleInputBaños} */ type='number' id='bañosInmueble' className='col-1 py-1 text-center' />
               <input value={ inmueble.detalle.parqueaderos } /* onChange={ handleInputParqueaderos } */ type='number' id='parqueaderosInmueble' className='col-1 py-1 text-center' />
               <input value={ inmueble.detalle.area } /* onChange={ handleInputArea } */ type='number' id='areaInmueble' className='col-1 py-1 text-center' />
-              <input value={ inmueble.detalle.valor } /* onChange={ handleInputValor } */ type='number' id='valorInmueble' className='col-1 py-1 text-center' />
+              <input value={ inmueble.detalle.valor } /* onChange={ handleInputValor } */ type='number' id='valorInmueble' className='col-2 py-1 text-center' />
               <input value={ inmueble.detalle.descripcion } /* onChange={ handleDescripcion } */ type='textarea' id='descripcionInmueble' autoComplete='off' className='col-3 py-1 text-center' />
               <input value={ inmueble.detalle.ciudad } /* onChange={ handleInputCiudad } */ type='text' id='ciudadInmueble' autoComplete='off' className='col-1 py-1 text-center' />
               <input value={ inmueble.detalle.sector } /* onChange={ handleInputSector } */ type='text' id='sectorInmueble'  autoComplete='off' className='col-2 py-1 text-center' />

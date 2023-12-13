@@ -1,3 +1,3 @@
-export const Equis = () => {
-    return ( <span className='red-color'><b>✗</b></span> );
+export const Equis = ({ className='red-color' }) => {
+    return ( <span className={className}><b>✗</b></span> );
 }
