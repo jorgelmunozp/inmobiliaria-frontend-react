@@ -31,9 +31,9 @@ export const StockScreen = ({ inmuebles }) => {
       <center><h5>Inventario Inmuebles</h5></center> 
       <hr />
       <div className='stock'>
-        <div className='row'>
+        <div className='row flex-nowrap'>
           <span className='col-1 text-center'>Código</span>
-          <span className='col-1 text-center'>Portada</span>
+          <span className='col-auto text-center'>📷📸</span>
           <span className='col-2 text-center'>Nombre&nbsp;Inmueble</span>
           <span className='col-2 text-center'>Categoría</span>
           <span className='col-1 text-center'>Tipo&nbsp;negocio</span>
@@ -44,16 +44,16 @@ export const StockScreen = ({ inmuebles }) => {
           <span className='col-1 text-center'>Valor</span>
           <span className='col-3 text-center'>Descripción</span>
           <span className='col-1 text-center'>Ciudad</span>
-          <span className='col-1 text-center'>Zona/Barrio</span>
+          <span className='col-2 text-center'>Zona/Barrio</span>
           <span className='col-1 text-center'>Estrato</span>
         </div>
         {
           inmuebles.map(inmueble => (
-            <div className='row'>
+            <div className='row flex-nowrap'>
               {/* <span> { inmueble.id } </span> */}
               <input value={ inmueble.id } type='text' id='nameInmueble' className='col-1 py-1 text-center' disabled />
 
-              <div className="image-upload col-1">
+              <div className="image-upload col-auto">
                   <label htmlFor="file-input"> <img src={ urlBaseBackend + '/assets/inmuebles/' + inmueble.detalle.imagen } alt ="Subir foto" title ="Subir foto" /> </label>
                   <input id="file-input" type="file"/>
               </div>
