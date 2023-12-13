@@ -7,6 +7,15 @@ import { Bath } from '../icons/bath/Bath';
 import { Bed } from '../icons/bed/Bed';
 import { Camera } from '../icons/camera/Camera';
 import { Car } from '../icons/car/Car';
+import { Category } from '../icons/category/Category';
+import { City } from '../icons/city/City';
+import { Id } from '../icons/id/Id';
+import { Description } from '../icons/description/Description';
+import { Home } from '../icons/home/Home';
+import { Location } from '../icons/location/Location';
+import { Type } from '../icons/type/Type';
+import { Stratum } from '../icons/stratum/Stratum';
+import { Dollar } from '../icons/dollar/Dollar';
 
 export const StockScreen = ({ inmuebles }) => {
 
@@ -37,46 +46,46 @@ export const StockScreen = ({ inmuebles }) => {
       <hr />
       <div className='stock'>
         <div className='row flex-nowrap'>
-          <span className='col-1 text-center'>Código</span>
-          <span className='col-auto text-center'>&nbsp;&nbsp;&nbsp;<Camera strokeWidth={32} width={'1.5em'} height={'1.5em'}/>&nbsp;</span>
-          <span className='col-2 text-center'>Nombre&nbsp;Inmueble</span>
-          <span className='col-2 text-center'>Categoría</span>
-          <span className='col-1 text-center'>Tipo&nbsp;negocio</span>
-          <span className='col-1 text-center'><Bed strokeWidth={32} width={'1.5em'} height={'1.5em'}/></span>
-          <span className='col-1 text-center'><Car strokeWidth={32} width={'1.5em'} height={'1.5em'}/></span>
-          <span className='col-1 text-center'><Bath strokeWidth={0} width={'1.3em'} height={'1.3em'}/></span>
-          <span className='col-1 text-center'><Area strokeWidth={32} width={'1em'} height={'1em'}/></span>
-          <span className='col-2 text-center'>Valor</span>
-          <span className='col-3 text-center'>Descripción</span>
-          <span className='col-1 text-center'>Ciudad</span>
-          <span className='col-2 text-center'>Zona/Barrio</span>
-          <span className='col-1 text-center'>Estrato</span>
+          <span className='col-1 border text-center bg-main-transparent-color'><Id strokeWidth={2} width={'1.8em'} height={'1.8em'}/></span>
+          <span className='col-auto px-2 border border-light text-center bg-main-transparent-color'><Camera strokeWidth={40} width={'1.75em'} height={'1.75em'}/></span>
+          <span className='col-2 border border-light text-center bg-main-transparent-color'><Home strokeWidth={1} width={'1.8em'} height={'1.7em'}/></span>
+          <span className='col-2 border border-light text-center bg-main-transparent-color'><Category strokeWidth={0.25} width={'1.5em'} height={'1.5em'}/></span>
+          <span className='col-1 border border-light text-center bg-main-transparent-color'><Type strokeWidth={0.5} width={'1.4em'} height={'1.4em'}/></span>
+          <span className='col-1 border border-light text-center bg-main-transparent-color'><Bed strokeWidth={40} width={'1.7em'} height={'1.7em'}/></span>
+          <span className='col-1 border border-light text-center bg-main-transparent-color'><Car strokeWidth={40} width={'1.7em'} height={'1.7em'}/></span>
+          <span className='col-1 border border-light text-center bg-main-transparent-color'><Bath strokeWidth={0.25} width={'1.6em'} height={'1.6em'}/></span>
+          <span className='col-1 border border-light text-center bg-main-transparent-color'><Area strokeWidth={48} width={'1.4em'} height={'1.4em'}/></span>
+          <span className='col-2 border border-light text-center bg-main-transparent-color'><Dollar strokeWidth={8} width={'1.5em'} height={'1.5em'}/></span>
+          <span className='col-3 border border-light text-center bg-main-transparent-color'><Description strokeWidth={2} width={'1.6em'} height={'1.6em'}/></span>
+          <span className='col-1 border border-light text-center bg-main-transparent-color'><City strokeWidth={0.25} width={'1.7em'} height={'1.7em'}/></span>
+          <span className='col-2 border border-light text-center bg-main-transparent-color'><Location strokeWidth={2.5} width={'1.4em'} height={'1.4em'}/></span>
+          <span className='col-1 border border-light text-center bg-main-transparent-color'><Stratum strokeWidth={1} width={'1.5em'} height={'1.5em'}/></span>
         </div>
         {
           inmuebles.map(inmueble => (
             <div className='row flex-nowrap'>
               {/* <span> { inmueble.id } </span> */}
-              <input value={ inmueble.id } type='text' id='nameInmueble' className='col-1 py-1 text-center' disabled />
+              <input value={inmueble.id } key={ 'id' + inmueble.id } type='text' id={ 'id' + inmueble.id } className='col-1 py-1 text-center' disabled />
 
-              <div className="image-upload col-auto">
+              <div className='image-upload col-auto px-1 border text-center'>
                   <label htmlFor="file-input"> <img src={ urlBaseBackend + '/assets/inmuebles/' + inmueble.detalle.imagen } alt ="Subir foto" title ="Subir foto" /> </label>
-                  <input id="file-input" type="file"/>
+                  <input key={ 'img' + inmueble.id } id={'pic' + inmueble.id } type="file"/>
               </div>
               {/* <input src={ urlBaseBackend + '/assets/inmuebles/' + inmueble.detalle.imagen } onChange={ handleInputImagen } type='image' id='imgInmueble' autoComplete='off' className='inputImage col-1 py-1 text-center' alt='img' />
               <input type="file" id="picInmueble" name="picInmueble" accept="image/*" className='col-1'></input>
               <input type="file" id="picInmueble" name="picInmueble" accept="image/*" multiple className='col-1'></input> */}
-              <input value={ inmueble.detalle.nombre } /* onChange={ handleInputNombre} */ type='text' id='nameInmueble' autoComplete='off' className='col-2 py-1 text-center' />
-              <input value={ inmueble.detalle.categoria } /* onChange={ handleInputTipo } */ type='text' id='tipoInmueble' autoComplete='off' className='col-2 py-1 text-center' />
-              <input value={ inmueble.detalle.tipo } /* onChange={ handleInputTipo } */ type='text' id='tipoInmueble' autoComplete='off' className='col-1 py-1 text-center' />
-              <input value={ inmueble.detalle.habitaciones } /* onChange={ handleInputHabitaciones } */ type='number' id='habitacionesInmueble' className='col-1 py-1 text-center' />
-              <input value={ inmueble.detalle.baños } /* onChange={ handleInputBaños} */ type='number' id='bañosInmueble' className='col-1 py-1 text-center' />
-              <input value={ inmueble.detalle.parqueaderos } /* onChange={ handleInputParqueaderos } */ type='number' id='parqueaderosInmueble' className='col-1 py-1 text-center' />
-              <input value={ inmueble.detalle.area } /* onChange={ handleInputArea } */ type='number' id='areaInmueble' className='col-1 py-1 text-center' />
-              <input value={ inmueble.detalle.valor } /* onChange={ handleInputValor } */ type='number' id='valorInmueble' className='col-2 py-1 text-center' />
-              <input value={ inmueble.detalle.descripcion } /* onChange={ handleDescripcion } */ type='textarea' id='descripcionInmueble' autoComplete='off' className='col-3 py-1 text-center' />
-              <input value={ inmueble.detalle.ciudad } /* onChange={ handleInputCiudad } */ type='text' id='ciudadInmueble' autoComplete='off' className='col-1 py-1 text-center' />
-              <input value={ inmueble.detalle.sector } /* onChange={ handleInputSector } */ type='text' id='sectorInmueble'  autoComplete='off' className='col-2 py-1 text-center' />
-              <input value={ inmueble.detalle.estrato } /* onChange={ handleInputWEstrato } */ type='number' id='estratoInmueble' className='col-1 py-1 text-center' />
+              <input value={ inmueble.detalle.nombre } key={ 'name' + inmueble.id } /* onChange={ handleInputNombre} */ type='text' id='nameInmueble' autoComplete='off' className='col-2 py-1 border text-center' />
+              <input value={ inmueble.detalle.categoria } key={ 'cat' + inmueble.id } /* onChange={ handleInputTipo } */ type='text' id='tipoInmueble' autoComplete='off' className='col-2 py-1 border text-center' />
+              <input value={ inmueble.detalle.tipo } key={ 'type' + inmueble.id } /* onChange={ handleInputTipo } */ type='text' id='tipoInmueble' autoComplete='off' className='col-1 py-1 border text-center' />
+              <input value={ inmueble.detalle.habitaciones } key={ 'room' + inmueble.id } /* onChange={ handleInputHabitaciones } */ type='number' id='habitacionesInmueble' className='col-1 py-1 border text-center' />
+              <input value={ inmueble.detalle.baños } key={ 'bath' + inmueble.id } /* onChange={ handleInputBaños} */ type='number' id='bañosInmueble' className='col-1 py-1 border text-center' />
+              <input value={ inmueble.detalle.parqueaderos } key={ 'car' + inmueble.id } /* onChange={ handleInputParqueaderos } */ type='number' id='parqueaderosInmueble' className='col-1 py-1 border text-center' />
+              <input value={ inmueble.detalle.area } key={ 'area' + inmueble.id } /* onChange={ handleInputArea } */ type='number' id='areaInmueble' className='col-1 py-1 border text-center' />
+              <input value={ inmueble.detalle.valor } key={ 'val' + inmueble.id } /* onChange={ handleInputValor } */ type='number' id='valorInmueble' className='col-2 py-1 border text-center' />
+              <input value={ inmueble.detalle.descripcion } key={ 'desc' + inmueble.id } /* onChange={ handleDescripcion } */ type='textarea' id='descripcionInmueble' autoComplete='off' className='col-3 py-1 border text-center' />
+              <input value={ inmueble.detalle.ciudad } key={ 'city' + inmueble.id } /* onChange={ handleInputCiudad } */ type='text' id='ciudadInmueble' autoComplete='off' className='col-1 py-1 border text-center' />
+              <input value={ inmueble.detalle.sector } key={ 'zone' + inmueble.id } /* onChange={ handleInputSector } */ type='text' id='sectorInmueble'  autoComplete='off' className='col-2 py-1 border text-center' />
+              <input value={ inmueble.detalle.estrato } key={ 'stra' + inmueble.id } /* onChange={ handleInputWEstrato } */ type='number' id='estratoInmueble' className='col-1 py-1 border text-center' />
             </div>
           ))
         }
