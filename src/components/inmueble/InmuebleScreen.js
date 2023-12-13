@@ -14,36 +14,43 @@ export const InmuebleScreen = ({ inmuebles }) => {
 
   const { id,detalle } = inmueble;
   
+  console.log('detalle.images: ',detalle.images)
+  console.log('detalle.images[0]: ',detalle.images[0])
+  console.log('detalle.images.length ',detalle.images.length)
+
   const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
-  const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
+  // const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
+  const picInmueble = id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '-0.jpg';
 
   return (
     <div className='row mt-5'>
 
-      {/* <!-- Carousel --> */}
-      <div id="slider" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner">          {/* <!-- The slideshow/carousel --> */}
+      <div id="slider" className="carousel slide" data-bs-ride="carousel">        {/* <!-- Carousel --> */}
+        <div className="carousel-inner">                                          {/* <!-- The slideshow/carousel --> */}
           <div className="carousel-item active">
-            <img src="https://jorgelmunozp.github.io/inmobiliaria-backend-node/assets/inmuebles/3-apartamento-terrazas-del-campestre.jpg" alt="Los Angeles" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
+            <img src={ urlBaseBackend + "/assets/inmuebles/" + picInmueble } alt="Los Angeles" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
           </div>
-          <div className="carousel-item">
-            <img src="https://jorgelmunozp.github.io/inmobiliaria-backend-node/assets/inmuebles/3-apartamento-terrazas-del-campestre.jpg" alt="Chicago" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
-          </div>
-          <div className="carousel-item">
-            <img src="https://jorgelmunozp.github.io/inmobiliaria-backend-node/assets/inmuebles/3-apartamento-terrazas-del-campestre.jpg" alt="New York" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
-          </div>
+        {
+          detalle.images.map(inmueble => (
+            <div className="carousel-item">
+              <img src={ urlBaseBackend + "/assets/inmuebles/" + inmueble } key={inmueble} alt={inmueble} className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
+            </div>            
+          ))
+        }
         </div>
-        {/* <!-- Left and right controls/icons --> */}
-        <button className="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
+        <button className="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">      {/* <!-- Left and right controls/icons --> */}
           <span className="carousel-control-prev-icon"></span>
         </button>
         <button className="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
           <span className="carousel-control-next-icon"></span>
         </button>
-        <div className="carousel-indicators">     {/* <!-- Indicators/dots --> */}
-            <button type="button" data-bs-target="#slider" data-bs-slide-to="0" className="active"></button>
-            <button type="button" data-bs-target="#slider" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#slider" data-bs-slide-to="2"></button>
+        <div className="carousel-indicators">       {/* <!-- Indicators/dots --> */}
+          <button type="button" data-bs-target="#slider" data-bs-slide-to={0} key={0} className="active"></button>
+          {
+            detalle.images.map(i => (
+              <button type="button" data-bs-target="#slider" data-bs-slide-to={i.split('.')[0].split('-')[4]} key={i.split('.')[0].split('-')[4]}></button>
+            ))
+          }
         </div>
       </div>
       <p></p>

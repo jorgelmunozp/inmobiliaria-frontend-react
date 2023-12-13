@@ -9,7 +9,7 @@ import { Area } from '../icons/area/Area';
 
 export const InmuebleCard = ({ id,detalle }) => {
     const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
-    const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
+    const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '-0.jpg';
     const linkInmueble = '/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '/';
     
     return (
