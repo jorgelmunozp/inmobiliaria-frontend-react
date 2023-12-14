@@ -2,8 +2,7 @@ import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../auth/authContext';
 import { types } from '../../types/types';
-
-import { CiHome, CiBank, CiShop } from 'react-icons/ci';
+import { HomeSmile } from '../icons/home/HomeSmile';
 
 const user = process.env.REACT_APP_USER;
 const password = process.env.REACT_APP_PASSWORD;
@@ -43,13 +42,12 @@ export const LoginScreen = () => {
   return (
     <div className='container mt-5 text-center'>
         <h2>La Inmobiliaria</h2>
-        <hr />
-        <h1><CiHome className='icon'/><CiBank className='icon'/><CiShop className='icon'/></h1>
+        <h1><HomeSmile strokeWidth={1.5} width={'1.5em'} height={'1.5em'} className='icon fs-4'/></h1>
         <br/>
-        <div className="d-grid gap-2 col-6 mx-auto">
-          <input id="user" type='text' value={userInput} onChange={(e) => { setUserInput(e.target.value); setAlertMessage("") }} placeholder='Usuario' autoComplete='off' className='input-login border border-2 text-center py-3 rounded-pill'></input>
-          <input id="password" type='password' value={passwordInput} onChange={(e) =>{ setPasswordInput(e.target.value); setAlertMessage("") }} placeholder='Contraseña' autoComplete='off' className='input-login border border-2 text-center py-3 rounded-pill'></input>
-          <button className='btn-login btn btn-lg btn-outline-primary border border-2 py-3 rounded-pill' onClick={ handleLogin }>
+        <div className="d-grid gap-2 col-5 mx-auto">
+          <input id="user" type='text' value={userInput} onChange={(e) => { setUserInput(e.target.value); setAlertMessage("") }} placeholder='Usuario' autoComplete='off' className='input-login border border-3 text-center py-2 rounded-pill fw-bolder'></input>
+          <input id="password" type='password' value={passwordInput} onChange={(e) =>{ setPasswordInput(e.target.value); setAlertMessage("") }} placeholder='Contraseña' autoComplete='off' className='input-login border border-3 text-center py-2 rounded-pill fw-bolder'></input>
+          <button className='btn-login btn btn-md btn-outline-primary border border-3 py-2 rounded-pill fw-bolder' onClick={ handleLogin }>
             Inmuebles
           </button>
           <p className='alertMessage'>{ alertMessage }</p>

@@ -108,7 +108,7 @@ hr { opacity: 0.1; }
 
 /***** STOCK SCREEN *****/
 /* .inputImage { width: 8vmin;} */
-.stock { font-size: 2.25vmin; }
+.stock { font-size: 2.5vmin; }
 .image-upload > input { display: none; }
 .image-upload img { width: 5vmin; cursor: pointer; }
 /* .numberStock { opacity: 1; } */

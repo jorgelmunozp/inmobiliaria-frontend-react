@@ -1,8 +1,8 @@
 export const Type = ({ strokeWidth='0', width='1em', height='1em'}) => {
     return (
         <span>
-            <svg stroke="currentColor" fill="currentColor" strokeWidth={strokeWidth} viewBox="0 0 16 16" height={height} width={width} xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.5 12h-1.793L10 10.293V6.5L9.5 6H8V4h.5l.5-.5v-2L8.5 1h-2l-.5.5v2l.5.5H7v2H5.5l-.5.5v3.793L3.293 12H1.5l-.5.5v2l.5.5h2l.5-.5v-1.793L5.707 11h3.586L11 12.707V14.5l.5.5h2l.5-.5v-2l-.5-.5zM7 2h1v1H7V2zM6 7h3v3H6V7zm-3 7H2v-1h1v1zm10 0h-1v-1h1v1z"></path>
+            <svg stroke="currentColor" fill="currentColor" strokeWidth={strokeWidth} viewBox="0 0 24 24" height={height} width={width} xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7a2.5 2.5 0 010-5 2.5 2.5 0 010 5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"></path>
             </svg>
         </span>
     );
