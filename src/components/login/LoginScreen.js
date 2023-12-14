@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../auth/authContext';
 import { types } from '../../types/types';
-import { HomeSmile } from '../icons/home/HomeSmile';
+import { Logo } from '../icons/logo/Logo';
 
 const user = process.env.REACT_APP_USER;
 const password = process.env.REACT_APP_PASSWORD;
@@ -42,7 +42,7 @@ export const LoginScreen = () => {
   return (
     <div className='container mt-5 text-center user-select-none'>
         <h2>La Inmobiliaria</h2>
-        <h1><HomeSmile strokeWidth={1.5} width={'1.5em'} height={'1.5em'} className='icon fs-4'/></h1>
+        <h1><Logo strokeWidth={1.25} width={1.5} height={1.5} className='icon fs-4'/></h1>
         <br/>
         <div className="d-grid gap-2 col-5 mx-auto">
           <input id="user" type='text' value={userInput} onChange={(e) => { setUserInput(e.target.value); setAlertMessage("") }} placeholder='Usuario' autoComplete='off' className='input-login border border-3 text-center py-2 rounded-pill fw-bolder'></input>

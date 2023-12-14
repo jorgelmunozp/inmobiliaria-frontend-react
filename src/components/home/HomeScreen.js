@@ -3,7 +3,9 @@ import { getInmueblesByName } from '../../selectors/getInmueblesByName';
 import { InmuebleList } from '../inmueble/InmuebleList';
 import { InputText } from '../forms/inputs/InputText';
 import { Equis } from '../icons/equis/Equis';
-import { FaSortAmountDown } from "react-icons/fa";
+import { WhiteLine } from '../forms/whiteline/WhiteLine';
+
+import { Logo } from '../icons/logo/Logo';
 
 export const HomeScreen = ({ inmuebles }) => {
   let [ queryName, setQueryName ] = useState('');                     // Query
@@ -12,6 +14,8 @@ export const HomeScreen = ({ inmuebles }) => {
 
   return (
     <>
+      <WhiteLine />
+      <center><Logo strokeWidth={1.25} height={6} width={6} /></center>
       <hr />
       <center><h5>Inmuebles</h5></center> 
       <hr />
