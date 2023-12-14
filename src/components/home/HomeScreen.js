@@ -3,6 +3,7 @@ import { getInmueblesByName } from '../../selectors/getInmueblesByName';
 import { InmuebleList } from '../inmueble/InmuebleList';
 import { InputText } from '../forms/inputs/InputText';
 import { Equis } from '../icons/equis/Equis';
+import { FaSortAmountDown } from "react-icons/fa";
 
 export const HomeScreen = ({ inmuebles }) => {
   let [ queryName, setQueryName ] = useState('');                     // Query
@@ -16,21 +17,32 @@ export const HomeScreen = ({ inmuebles }) => {
       <hr />
       <div className='row'>
         <p>
-        <a className="form-control border border-muted text-center shadow-sm w-100" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <a className="form-control border border-muted text-center shadow-sm w-100" data-bs-toggle="collapse" href="#collapseContent" role="button" aria-expanded="false" aria-controls="collapseContent">
           🔎
+
         </a>
-          {/* <button class="form-control btn btn-light border border-muted shadow-sm w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        {/* <a className="form-control border border-muted text-center shadow-sm w-100" data-bs-toggle="collapse" href="#collapseContent2" role="button" aria-expanded="false" aria-controls="collapseContent2">
+          <FaSortAmountDown />
+        </a> */}
+          {/* <button class="form-control btn btn-light border border-muted shadow-sm w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContent" aria-expanded="false" aria-controls="collapseContent">
             🔎
           </button> */}
         </p>
-        <div className="collapse" id="collapseExample">
+        <div className="collapse" id="collapseContent">
           <div className="card card-body">
             <div>
               <InputText placeholder={'Buscar inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' />
             </div>
           </div>
         </div>
-        <div>&nbsp;</div>
+        {/* <div className="collapse" id="collapseContent2">
+          <div className="card card-body">
+            <div>
+              <p>Hi</p>
+            </div>
+          </div>
+        </div> */}
+
         <div>
           {
             (queryName === '')

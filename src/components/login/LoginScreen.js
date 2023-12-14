@@ -40,7 +40,7 @@ export const LoginScreen = () => {
   }
 
   return (
-    <div className='container mt-5 text-center'>
+    <div className='container mt-5 text-center user-select-none'>
         <h2>La Inmobiliaria</h2>
         <h1><HomeSmile strokeWidth={1.5} width={'1.5em'} height={'1.5em'} className='icon fs-4'/></h1>
         <br/>

@@ -108,7 +108,7 @@ hr { opacity: 0.1; }
 
 /***** STOCK SCREEN *****/
 /* .inputImage { width: 8vmin;} */
-.stock { font-size: 2.5vmin; }
+/* .stock { font-size: 2.5vmin; } */
 .image-upload > input { display: none; }
 .image-upload img { width: 5vmin; cursor: pointer; }
 /* .numberStock { opacity: 1; } */
@@ -131,7 +131,6 @@ hr { opacity: 0.1; }
 
 input::placeholder { color: var(--gray-color); }
 
-button { background-color:var(--dark-color); color:var(--white-color); }
-button:hover{ color:var(--dark-color); background-color:var(--gray-color); }
+.button:hover{ color:var(--dark-color) !important; background-color:var(--lightgray-color); }
 
 .alertMessage { color: var(--gray-color); }

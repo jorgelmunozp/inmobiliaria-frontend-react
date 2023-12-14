@@ -16,7 +16,7 @@ export const Navbar = ({name}) => {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-dark user-select-none">
             <div className="container-fluid">
                 &nbsp;
                 <HomeSmile strokeWidth={1.5} width={'1.5em'} height={'1.5em'} className='icon fs-4'/>&nbsp;

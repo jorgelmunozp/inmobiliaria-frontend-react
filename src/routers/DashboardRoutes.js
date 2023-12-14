@@ -27,7 +27,7 @@ export const DashboardRoutes = () => {
     <>
       <Navbar name={name} />
 
-      <div className="container">
+      <div className="container user-select-none">
         <Routes>
             <Route path={"/:inmuebleId"} element={<InmuebleScreen inmuebles={inmuebles} />} />
             <Route path={name + "/apartamentos"} element={<ApartamentosScreen inmuebles={inmuebles} />} />
