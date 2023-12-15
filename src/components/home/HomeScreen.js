@@ -15,7 +15,7 @@ export const HomeScreen = ({ inmuebles }) => {
   return (
     <>
       <WhiteLine />
-      <center><Logo strokeWidth={1.25} height={6} width={6} /></center>
+      <center><Logo strokeWidth={1} height={6} width={6} /></center>
       <hr />
       <center><h5>Inmuebles</h5></center> 
       <hr />

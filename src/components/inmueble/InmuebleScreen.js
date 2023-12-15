@@ -14,12 +14,7 @@ export const InmuebleScreen = ({ inmuebles }) => {
 
   const { id,detalle } = inmueble;
   
-  console.log('detalle.images: ',detalle.images)
-  console.log('detalle.images[0]: ',detalle.images[0])
-  console.log('detalle.images.length ',detalle.images.length)
-
   const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
-  // const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '.jpg';
   const picInmueble = id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '-0.jpg';
 
   return (
