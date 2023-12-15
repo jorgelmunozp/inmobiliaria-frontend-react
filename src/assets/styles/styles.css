@@ -34,6 +34,9 @@ hr { opacity: 0.1; }
 .bg-main-transparent-color { background-color: var(--main-transparent-color)!important; }
 .red-color { color: var(--red-color)!important; }
 
+/****** Header ******/ 
+.header { background: url("../../background.svg") repeat;}
+
 /****** InmuebleCard ******/
 .badge {
     /* top: 220px; */

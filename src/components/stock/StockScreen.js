@@ -1,29 +1,37 @@
-import React, { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useForm } from '../../hooks/useForm';
-import { getInmueblesByName } from '../../selectors/getInmueblesByName';
+import React, { useState } from 'react';
 import { Area } from '../icons/area/Area';
 import { Bath } from '../icons/bath/Bath';
 import { Bed } from '../icons/bed/Bed';
 import { Camera } from '../icons/camera/Camera';
 import { Car } from '../icons/car/Car';
 import { Category } from '../icons/category/Category';
-import { City } from '../icons/city/City';
 import { HomeWarehouse } from '../icons/home/HomeWarehouse';
 import { Description } from '../icons/description/Description';
 import { Home } from '../icons/home/Home';
 import { HomeDollar } from '../icons/home/HomeDollar';
 import { LocationArrow } from '../icons/location/LocationArrow'
-import { LocationSight } from '../icons/location/LocationSight';
 import { MapLocation } from '../icons/map/MapLocation';
 import { MapPin } from '../icons/map/MapPin';
 import { Type } from '../icons/type/Type';
-import { Stratum } from '../icons/stratum/Stratum';
-import { Dollar } from '../icons/dollar/Dollar';
 
 export const StockScreen = ({ inmuebles }) => {
   const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
   const iconSize = 1.5;
+
+  const [ name, setName ] = useState("");
+  const [ category, setCategory ] = useState("");
+  const [ type, setType ] = useState("");
+  const [ rooms, setRooms ] = useState("");
+  const [ garage , setGarage ] = useState("");
+  const [ area, setArea ] = useState("");
+  const [ description, setDescription ] = useState("");
+  const [ city, setCity ] = useState(""); 
+  const [ neighborhood, setNeighborhood ] = useState("");
+  const [ stratum, setStratum ] = useState("");
+
+  const handleChangeName = (event) => { setName(event.target.value); };
+  const handleChangeCategory = (event) => { setCategory(event.target.value); };
+
 
   const handleStock = () => {
 
@@ -58,9 +66,8 @@ export const StockScreen = ({ inmuebles }) => {
         </div>
         {
           inmuebles.map(inmueble => (
-            <div className='row flex-nowrap'>
-              {/* <span> { inmueble.id } </span> */}
-              <input value={ inmueble.id } key={ 'id' + inmueble.id } type='text' id={ 'id' + inmueble.id } className='col-sm-1 py-1 text-center' disabled />
+            <div className='row flex-nowrap' key={inmueble.id}>
+              <span className='col-sm-1 py-1 border text-center'> { inmueble.id } </span>
               <div className='image-upload col-auto px-1 border text-center'>
                   <label htmlFor="file-input"><img src={ urlBaseBackend + '/assets/inmuebles/' + inmueble.detalle.imagen } alt ="Subir foto" title ="Subir foto" /> </label>
                   <input id={'img' + inmueble.id } type="file"/>

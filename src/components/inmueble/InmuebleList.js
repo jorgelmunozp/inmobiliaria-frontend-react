@@ -4,17 +4,13 @@ import { PaginationBar } from '../pagination/PaginationBar';
 import { SortingBar } from '../sort/SortingBar';
 import { WhiteLine } from '../forms/whiteline/WhiteLine';
 
-import { HomeStar } from "../icons/home/HomeStar";
-import { SortUpNum } from '../icons/sort/SortUpNum';
-import { SortDownNum } from '../icons/sort/SortDownNum';
-
 export const InmuebleList = ({ inmuebles }) => {
   /* Query */
   let query = '';
   const inmueblesFiltered = [];
 
   /* Pagination */
-  const [itemPerPage, setItemPerPage ] = useState(9);                 // Se define el número de items por página
+  const [itemPerPage, setItemPerPage ] = useState(8);                 // Se define el número de items por página
   const [indexPage, setIndexPage ] = useState([0,itemPerPage]);       // Se calculan los indices de la paginación para el filtro Slice(x,y) que entrega un rango de los items de x a y
   const numPages = ((query === '') ? Math.floor(inmuebles.length/itemPerPage) : Math.floor(inmueblesFiltered.length/itemPerPage));                   // Se calcula la cantidad de páginas = cantidad de items/item por página
   const resPages = ((query === '') ? inmuebles.length%itemPerPage : inmueblesFiltered.length%itemPerPage);                   // Se calcula la cantidad de páginas = cantidad de items/item por página
@@ -37,7 +33,6 @@ export const InmuebleList = ({ inmuebles }) => {
 
   /* Sort */
   const [sortBy, setSortBy] = useState(0);
-  // function sortByName(a, b) { return a.detalle.nombre - b.detalle.nombre; }
   function sortByName(a, b) { return a.detalle.nombre.localeCompare(b.detalle.nombre); }
   function sortByValueUp(a, b) { return a.detalle.valor - b.detalle.valor; }
   function sortByValueDown(a, b) { return b.detalle.valor - a.detalle.valor; }
@@ -47,7 +42,7 @@ export const InmuebleList = ({ inmuebles }) => {
     <>
       <SortingBar setSortBy={ setSortBy } />
       <WhiteLine />
-      <div className='row row-cols-1 row-cols-md-3 g-3 animate__animated animate__fadeIn'>
+      <div className='row row-cols-1 row-cols-md-4 g-3 animate__animated animate__fadeIn'>
         { 
           inmuebles.sort(sortBy === 1 ? sortByName : ( sortBy === 2 ? sortByValueUp : ( sortBy === 3 ? sortByValueDown : sortByShuffle ) )).slice(indexPage[0],indexPage[1]).map( 
             inmueble => ( <InmuebleCard key={ inmueble.id } { ...inmueble } /> ))

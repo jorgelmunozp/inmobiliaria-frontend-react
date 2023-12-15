@@ -4,7 +4,7 @@ import { InputNumber } from '../forms/inputs/InputNumber';
 
 export const SearchBar = ({ queryName,queryCategory,queryType,queryValueMin,queryValueMax,setQueryName,setQueryCategory,setQueryType,setQueryValueMin,setQueryValueMax,categorias,tipos }) => {
   return (
-    <ul className='list-group list-group-horizontal-lg border justify-content-between'>
+    <ul className='list-group list-group-horizontal-lg border justify-content-between' >
       <li className='list-group-item border-white'>
         <InputText placeholder={'Nombre inmueble'} inputText={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-secondary text-muted text-center py-1' />
       </li>
