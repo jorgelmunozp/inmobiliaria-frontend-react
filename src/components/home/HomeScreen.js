@@ -16,7 +16,7 @@ export const HomeScreen = ({ inmuebles }) => {
     <>
       <WhiteLine />
       <center>
-        <div className='header'>
+        <div className='header flex-nowrap'>
           <Logo strokeWidth={1} height={6} width={6} /><h1>La Inmobiliaria</h1>
           <WhiteLine />
         </div>
