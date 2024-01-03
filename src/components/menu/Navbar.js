@@ -16,11 +16,11 @@ export const Navbar = ({urlBaseFrontend}) => {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark user-select-none">
+        <nav className="navbar navbar-expand-sm navbar-light bg-white shadow-lg user-select-none">
             <div className="container-fluid">
                 &nbsp;
                 <HomeSmile strokeWidth={1.5} width={1.5} height={1.5} className='icon fs-4'/>&nbsp;
-                <Link className="navbar-brand" to="/react-inmobiliaria">La Inmobiliaria</Link>
+                <Link className="navbar-brand main-color" to="/react-inmobiliaria">La Inmobiliaria</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -44,8 +44,9 @@ export const Navbar = ({urlBaseFrontend}) => {
                     </div>
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                         <ul className="navbar-nav ml-auto">
-                            <span className='nav-item nav-link text'>{user.urlBaseFrontend}</span>
-                            <button className="nav-item nav-link btn" onClick={ handleLogout }>{ user.logged ? 'Salir' : 'Ingresar'}</button>
+                            <span className='nav-item nav-link main-text'>{user.logged ? user.name : ''}</span>
+                            <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                onClick={ handleLogout } to={urlBaseFrontend+"/login"}>{ user.logged ? 'Salir' : 'Ingresar' }</NavLink>
                         </ul>
                     </div>
                 </div>
