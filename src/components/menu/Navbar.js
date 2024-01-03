@@ -5,14 +5,14 @@ import { AuthContext } from '../../auth/authContext';
 import { types } from '../../types/types';
 import { HomeSmile } from '../icons/home/HomeSmile';
 
-export const Navbar = ({name}) => {
+export const Navbar = ({urlBaseFrontend}) => {
 
     const { user, dispatch } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
         dispatch({ type: types.logout });
-        navigate('/login', { replace: true });
+        navigate('/index', { replace: true });
     }
 
     return (
@@ -26,19 +26,26 @@ export const Navbar = ({name}) => {
                 </button>
                 <div className="collapse navbar-collapse"  id="navbarContent">
                     <div className="navbar-nav">
-                        <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/apartamentos"}>Apartamentos</NavLink>
-                        <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/casas"}>Casas</NavLink>
-                        <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/search"}>Buscar</NavLink>
-                        <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/stock"}>Inventario</NavLink>
+                        {
+                        (user.logged)
+                        ?   <>
+                                <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                    to={urlBaseFrontend+"/stock"}>Inventario</NavLink>
+                            </>
+                        :   <>
+                                <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                    to={urlBaseFrontend+"/apartamentos"}>Apartamentos</NavLink>
+                                <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                    to={urlBaseFrontend+"/casas"}>Casas</NavLink>
+                                <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                    to={urlBaseFrontend+"/search"}>Buscar</NavLink>
+                            </>
+                        }
                     </div>
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                         <ul className="navbar-nav ml-auto">
-                            <span className='nav-item nav-link text'>{user.name}</span>
-                            <button className="nav-item nav-link btn" onClick={ handleLogout }>Ingresar</button>
+                            <span className='nav-item nav-link text'>{user.urlBaseFrontend}</span>
+                            <button className="nav-item nav-link btn" onClick={ handleLogout }>{ user.logged ? 'Salir' : 'Ingresar'}</button>
                         </ul>
                     </div>
                 </div>

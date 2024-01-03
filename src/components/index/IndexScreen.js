@@ -7,7 +7,7 @@ import { WhiteLine } from '../forms/whiteline/WhiteLine';
 
 import { Logo } from '../icons/logo/Logo';
 
-export const HomeScreen = ({ inmuebles }) => {
+export const IndexScreen = ({ inmuebles }) => {
   let [ queryName, setQueryName ] = useState('');                     // Query
 
   const inmueblesFiltered = useMemo( () => getInmueblesByName(queryName,inmuebles), [queryName,inmuebles] );
