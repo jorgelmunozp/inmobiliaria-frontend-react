@@ -11,6 +11,7 @@ import { SearchScreen } from "../components/search/SearchScreen";
 import { InmuebleScreen } from "../components/inmueble/InmuebleScreen";
 
 import { useFetch } from '../hooks/useFetch';
+import { myColor, myTitle } from "../global";
 
 export const AppRouter = () => {
   const urlApiInmuebles = process.env.REACT_APP_API_INMUEBLES;
@@ -25,57 +26,55 @@ export const AppRouter = () => {
 
   return (
     <BrowserRouter>
-      <Navbar urlBaseFrontend={urlBaseFrontend} />
+      <Navbar urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
 
-<div className="container user-select-none">
-
-      <Routes>
-        <Route path={"/index"} element={
-          <PublicRoute>
-            <IndexScreen inmuebles={inmuebles} />
-          </PublicRoute>
-        } />
-
-        <Route path={urlBaseFrontend + "/apartamentos"} element={
-          <PublicRoute>
-            <ApartamentosScreen inmuebles={inmuebles} />
-            </PublicRoute>
-        } />
-
-        <Route path={urlBaseFrontend + "/casas"} element={
-          <PublicRoute>
-            <CasasScreen inmuebles={inmuebles} />
-            </PublicRoute>
-        } />
-
-        <Route path={urlBaseFrontend + "/search"} element={
-          <PublicRoute>
-            <SearchScreen inmuebles={inmuebles} categorias={categorias} tipos={tipos}/>
-          </PublicRoute>
-        } />
-
-        <Route path={"/:inmuebleId"} element={
-          <PublicRoute>
-            <InmuebleScreen inmuebles={inmuebles} />
-          </PublicRoute>
-        } />
-
-
-        <Route path={urlBaseFrontend + "/login"} element={
+      <div className="container user-select-none">
+        <Routes>
+          <Route path={"/index"} element={
             <PublicRoute>
-                <LoginScreen />
+              <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
-        } />
+          } />
 
-        <Route path="/*" element={
-            <PrivateRoute>
-                <DashboardRoutes />
-            </PrivateRoute>
-        } />
+          <Route path={urlBaseFrontend + "/apartamentos"} element={
+            <PublicRoute>
+              <ApartamentosScreen inmuebles={inmuebles} />
+              </PublicRoute>
+          } />
 
-      </Routes>
+          <Route path={urlBaseFrontend + "/casas"} element={
+            <PublicRoute>
+              <CasasScreen inmuebles={inmuebles} />
+              </PublicRoute>
+          } />
 
-            </div>
+          <Route path={urlBaseFrontend + "/search"} element={
+            <PublicRoute>
+              <SearchScreen inmuebles={inmuebles} categorias={categorias} tipos={tipos}/>
+            </PublicRoute>
+          } />
+
+          <Route path={"/:inmuebleId"} element={
+            <PublicRoute>
+              <InmuebleScreen inmuebles={inmuebles} />
+            </PublicRoute>
+          } />
+
+
+          <Route path={urlBaseFrontend + "/login"} element={
+              <PublicRoute>
+                  <LoginScreen />
+              </PublicRoute>
+          } />
+
+          <Route path="/*" element={
+              <PrivateRoute>
+                  <DashboardRoutes />
+              </PrivateRoute>
+          } />
+
+        </Routes>
+      </div>
     </BrowserRouter>
   )
 }

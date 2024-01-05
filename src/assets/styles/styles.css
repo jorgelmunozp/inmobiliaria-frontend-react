@@ -37,6 +37,8 @@ hr { opacity: 0.1; }
 /****** Header ******/ 
 .header { background: url("../../background.svg") repeat;}
 
+/****** NavBar ******/
+.navbar-toggler-icon { color: var(--main-color) !important; }
 /****** InmuebleCard ******/
 .badge {
     /* top: 220px; */

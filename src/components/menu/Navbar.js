@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth/authContext';
 import { types } from '../../types/types';
 import { HomeSmile } from '../icons/home/HomeSmile';
+import { HomeMenu } from '../icons/home/HomeMenu';
 
-export const Navbar = ({urlBaseFrontend}) => {
+export const Navbar = ({ urlBaseFrontend, myColor, myTitle }) => {
 
     const { user, dispatch } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -18,11 +19,10 @@ export const Navbar = ({urlBaseFrontend}) => {
     return (
         <nav className="navbar navbar-expand-sm navbar-light bg-white shadow-lg user-select-none">
             <div className="container-fluid">
-                &nbsp;
-                <HomeSmile strokeWidth={1.5} width={1.5} height={1.5} className='icon fs-4'/>&nbsp;
-                <Link className="navbar-brand main-color" to="/react-inmobiliaria">La Inmobiliaria</Link>
+                <HomeSmile color={myColor} width={1.6} height={1.6} strokeWidth={1.5} className='navbar-brand ms-3'/>
+                <Link className="navbar-brand main-color ms-0" to={"/" + urlBaseFrontend}>{ myTitle }</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                    <HomeMenu color={myColor} height={1.05} width={1.05} strokeWidth={10}/>
                 </button>
                 <div className="collapse navbar-collapse"  id="navbarContent">
                     <div className="navbar-nav">
