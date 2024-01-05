@@ -67,6 +67,12 @@ export const AppRouter = () => {
               </PublicRoute>
           } />
 
+<Route path={"/" + urlBaseFrontend + "/*"} element={
+            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+              <IndexScreen inmuebles={inmuebles} />
+            </PublicRoute>
+          } />
+
           <Route path="/*" element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <DashboardRoutes />
