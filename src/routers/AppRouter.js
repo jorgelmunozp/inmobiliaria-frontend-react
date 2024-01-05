@@ -92,7 +92,12 @@ export const AppRouter = () => {
               </PrivateRoute>
           } />
 
-          <Route path={urlBaseFrontend} element={
+          <Route path={"/" + urlBaseFrontend} element={
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+                  <HomeScreen inmuebles={inmuebles}/>
+              </PrivateRoute>
+          } />
+          <Route path={"/"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <HomeScreen inmuebles={inmuebles}/>
               </PrivateRoute>

@@ -12,6 +12,8 @@ export const DashboardRoutes = ({ urlBaseFrontend,urlApiInmuebles }) => {
           <Route path={urlBaseFrontend + "/home"} element={<HomeScreen inmuebles={inmuebles} />} />
           <Route path={urlBaseFrontend + "/stock"} element={<StockScreen inmuebles={inmuebles} />} />
           <Route path={"/" + urlBaseFrontend} element={<HomeScreen inmuebles={inmuebles} />} />
+          <Route path={"/"} element={<HomeScreen inmuebles={inmuebles} />} />
+          <Route path={"/*"} element={<HomeScreen inmuebles={inmuebles} />} />
       </Routes>
     </div>
   )

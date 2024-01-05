@@ -33,8 +33,7 @@ export const IndexScreen = ({ inmuebles }) => {
         <div className="collapse" id="collapseContent">
           <div className="card card-body">
             <div>
-              {/* <TextField value={queryName} onChange={(target) => setQueryName(target.target.value)} id="queryName" label="Buscar inmueble" type="search" variant="outlined" fullWidth margin="dense" autoComplete="off" className='century-gothic text-center shadow-sm'/> */}
-              <InputText placeholder={'Buscar inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted border-1 text-center px-2 py-2 shadow-sm' />
+              <InputText placeholder={'Buscar inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted border-1 text-center shadow-sm' />
             </div>
           </div>
         </div>
