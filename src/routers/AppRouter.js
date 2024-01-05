@@ -34,13 +34,13 @@ export const AppRouter = () => {
             </PublicRoute>
           } />
 
-          <Route path={"/" + urlBaseFrontend + "/apartamentos"} element={
+          <Route path={urlBaseFrontend + "/apartamentos"} element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <ApartamentosScreen inmuebles={inmuebles} />
               </PublicRoute>
           } />
 
-          <Route path={urlBaseFrontend + "/casas"} element={
+          <Route path={urlBaseFrontend + "/casas" || "/" + urlBaseFrontend + "/casas"} element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <CasasScreen inmuebles={inmuebles} />
               </PublicRoute>
