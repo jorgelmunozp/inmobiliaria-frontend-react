@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-inmobiliaria/static/css/main.d6f82f26.css",
-    "main.js": "/react-inmobiliaria/static/js/main.94f84b19.js",
+    "main.js": "/react-inmobiliaria/static/js/main.5ae3bc23.js",
     "static/media/CenturyGothic.ttf": "/react-inmobiliaria/static/media/CenturyGothic.b1b792bab1bff8f27ba7.ttf",
     "index.html": "/react-inmobiliaria/index.html",
     "static/media/background.svg": "/react-inmobiliaria/static/media/background.b60febe40da2e7071fdf.svg",
     "main.d6f82f26.css.map": "/react-inmobiliaria/static/css/main.d6f82f26.css.map",
-    "main.94f84b19.js.map": "/react-inmobiliaria/static/js/main.94f84b19.js.map"
+    "main.5ae3bc23.js.map": "/react-inmobiliaria/static/js/main.5ae3bc23.js.map"
   },
   "entrypoints": [
     "static/css/main.d6f82f26.css",
-    "static/js/main.94f84b19.js"
+    "static/js/main.5ae3bc23.js"
   ]
 }
