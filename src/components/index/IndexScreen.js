@@ -11,7 +11,6 @@ export const IndexScreen = ({ inmuebles }) => {
   let [ queryName, setQueryName ] = useState('');                     // Query
 
   const inmueblesFiltered = useMemo( () => getInmueblesByName(queryName,inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible'))), [queryName,inmuebles] );
-  console.log("inmuebles: ", inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible')))
 
   return (
     <>
