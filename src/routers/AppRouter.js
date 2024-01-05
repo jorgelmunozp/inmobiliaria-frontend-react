@@ -31,44 +31,44 @@ export const AppRouter = () => {
       <div className="container user-select-none">
         <Routes>
           <Route path={"/" + urlBaseFrontend + "/index"} element={
-            <PublicRoute>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
           } />
 
           <Route path={urlBaseFrontend + "/apartamentos"} element={
-            <PublicRoute>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
               <ApartamentosScreen inmuebles={inmuebles} />
               </PublicRoute>
           } />
 
           <Route path={urlBaseFrontend + "/casas"} element={
-            <PublicRoute>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
               <CasasScreen inmuebles={inmuebles} />
               </PublicRoute>
           } />
 
           <Route path={urlBaseFrontend + "/search"} element={
-            <PublicRoute>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
               <SearchScreen inmuebles={inmuebles} categorias={categorias} tipos={tipos}/>
             </PublicRoute>
           } />
 
           <Route path={"/:inmuebleId"} element={
-            <PublicRoute>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
               <InmuebleScreen inmuebles={inmuebles} />
             </PublicRoute>
           } />
 
 
           <Route path={urlBaseFrontend + "/login"} element={
-              <PublicRoute>
+              <PublicRoute urlBaseFrontend={urlBaseFrontend}>
                   <LoginScreen />
               </PublicRoute>
           } />
 
           <Route path="/*" element={
-              <PrivateRoute>
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <DashboardRoutes />
               </PrivateRoute>
           } />
