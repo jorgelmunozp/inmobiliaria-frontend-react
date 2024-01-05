@@ -34,7 +34,7 @@ export const AppRouter = () => {
             </PublicRoute>
           } />
 
-          <Route path={urlBaseFrontend + "/apartamentos"} element={
+          <Route path={"/" + urlBaseFrontend + "/apartamentos"} element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <ApartamentosScreen inmuebles={inmuebles} />
               </PublicRoute>
