@@ -10,6 +10,7 @@ import { ApartamentosScreen } from "../components/views/apartamentos/Apartamento
 import { CasasScreen } from "../components/views/casas/CasasScreen";
 import { SearchScreen } from "../components/views/search/SearchScreen";
 import { InmuebleScreen } from "../components/views/inmueble/InmuebleScreen";
+import { NotFound } from '../components/views/404/NotFound';
 import { myColor, myTitle } from "../global";
 
 export const AppRouter = () => {
@@ -40,7 +41,7 @@ export const AppRouter = () => {
               </PublicRoute>
           } />
 
-          <Route path={urlBaseFrontend + "/casas" || "/" + urlBaseFrontend + "/casas"} element={
+          <Route path={urlBaseFrontend + "/casas"} element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <CasasScreen inmuebles={inmuebles} />
               </PublicRoute>
@@ -70,6 +71,12 @@ export const AppRouter = () => {
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
           } /> */}
+
+          <Route path='*' element={
+            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+              <NotFound urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
+            </PublicRoute>
+          }/>
 
           <Route path={"/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
