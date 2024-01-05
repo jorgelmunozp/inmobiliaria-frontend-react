@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AuthContext } from '../auth/authContext'
+import { AuthContext } from '../auth/authContext';
 
 export const PrivateRoute = ({ children,urlBaseFrontend }) => {
   const { user } = useContext(AuthContext);
@@ -8,5 +8,5 @@ export const PrivateRoute = ({ children,urlBaseFrontend }) => {
 
   localStorage.setItem( 'lastPath', pathname + search );
 
-  return user.logged ? children : <Navigate to={"/" + urlBaseFrontend + "/index"} /> 
+  return user.logged ? children : <Navigate to={"/" + urlBaseFrontend + "/index"}/> 
 }

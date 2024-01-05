@@ -1,4 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { useFetch } from '../hooks/useFetch';
 import { DashboardRoutes } from "./DashboardRoutes";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
@@ -9,16 +10,13 @@ import { ApartamentosScreen } from "../components/views/apartamentos/Apartamento
 import { CasasScreen } from "../components/views/casas/CasasScreen";
 import { SearchScreen } from "../components/views/search/SearchScreen";
 import { InmuebleScreen } from "../components/views/inmueble/InmuebleScreen";
-
-import { useFetch } from '../hooks/useFetch';
 import { myColor, myTitle } from "../global";
 
 export const AppRouter = () => {
-  const urlApiInmuebles = process.env.REACT_APP_API_INMUEBLES;
-  const inmuebles = useFetch(urlApiInmuebles).data;
-
   const urlBaseFrontend = process.env.REACT_APP_URL_BASE_FRONTEND;
 
+  const urlApiInmuebles = process.env.REACT_APP_API_INMUEBLES;
+  const inmuebles = useFetch(urlApiInmuebles).data;
   const urlApiCategorias = process.env.REACT_APP_API_CATEGORIAS;
   const categorias = useFetch(urlApiCategorias).data;
   const urlApiTipos = process.env.REACT_APP_API_TIPOS;
@@ -31,47 +29,47 @@ export const AppRouter = () => {
       <div className="container user-select-none">
         <Routes>
           <Route path={"/" + urlBaseFrontend + "/index"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
           } />
 
           <Route path={urlBaseFrontend + "/apartamentos"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <ApartamentosScreen inmuebles={inmuebles} />
               </PublicRoute>
           } />
 
           <Route path={urlBaseFrontend + "/casas"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <CasasScreen inmuebles={inmuebles} />
               </PublicRoute>
           } />
 
           <Route path={urlBaseFrontend + "/search"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <SearchScreen inmuebles={inmuebles} categorias={categorias} tipos={tipos}/>
             </PublicRoute>
           } />
 
           <Route path={urlBaseFrontend + "/:inmuebleId"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <InmuebleScreen inmuebles={inmuebles} />
             </PublicRoute>
           } />
 
 
           <Route path={urlBaseFrontend + "/login"} element={
-              <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+              <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
                   <LoginScreen />
               </PublicRoute>
           } />
 
-          <Route path={"/" + urlBaseFrontend} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+          {/* <Route path={"/" + urlBaseFrontend} element={
+            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
-          } />
+          } /> */}
 
           <Route path={"/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>

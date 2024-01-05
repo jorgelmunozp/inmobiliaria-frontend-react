@@ -1,7 +1,7 @@
 import { InmuebleList } from '../inmueble/InmuebleList';
 
 export const ApartamentosScreen = ({ inmuebles }) => {
-  const apartamentos = inmuebles.filter(inmuebles => inmuebles.detalle.categoria === 'Apartamento' );
+  const apartamentos = inmuebles.filter(inmueble => inmueble.detalle.categoria.toLowerCase() === 'apartamento' && inmueble.detalle.estado.toLowerCase().includes('disponible') );
   return (
     <div>
       <hr />

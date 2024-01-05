@@ -40,7 +40,7 @@ export const IndexScreen = ({ inmuebles }) => {
         <div>
           {
             (queryName === '')
-              ? <InmuebleList inmuebles={inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible'))} /> 
+              ? <InmuebleList inmuebles={inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible') )} /> 
               : inmueblesFiltered.length === 0 ? <div className="alert alert-danger"> 
                                                     <p>🔎 No hay resultados</p>
                                                     <div className='bg-white rounded pt-3 pb-1 px-3'>
