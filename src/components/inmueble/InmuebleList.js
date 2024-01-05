@@ -5,6 +5,9 @@ import { SortingBar } from '../sort/SortingBar';
 import { WhiteLine } from '../forms/whiteline/WhiteLine';
 
 export const InmuebleList = ({ inmuebles }) => {
+  const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
+  const urlBaseFrontend = process.env.REACT_APP_URL_BASE_FRONTEND;
+
   /* Query */
   let query = '';
   const inmueblesFiltered = [];
@@ -45,7 +48,7 @@ export const InmuebleList = ({ inmuebles }) => {
       <div className='row row-cols-1 row-cols-md-4 g-3 animate__animated animate__fadeIn'>
         { 
           inmuebles.sort(sortBy === 1 ? sortByName : ( sortBy === 2 ? sortByValueUp : ( sortBy === 3 ? sortByValueDown : sortByShuffle ) )).slice(indexPage[0],indexPage[1]).map( 
-            inmueble => ( <InmuebleCard key={ inmueble.id } { ...inmueble } /> ))
+            inmueble => ( <InmuebleCard key={ inmueble.id } urlBaseBackend={urlBaseBackend} urlBaseFrontend={urlBaseFrontend} { ...inmueble } /> ))
         }
       </div>
       <PaginationBar query={query} inmuebles={inmuebles} inmueblesFiltered={inmueblesFiltered} itemPerPage={itemPerPage} indexPage={indexPage} activePages={activePages} indexPages={indexPages} setIndexPage={setIndexPage} setActivePages={setActivePages} /> 

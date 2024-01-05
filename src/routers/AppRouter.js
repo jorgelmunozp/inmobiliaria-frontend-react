@@ -54,7 +54,7 @@ export const AppRouter = () => {
             </PublicRoute>
           } />
 
-          <Route path={"/:inmuebleId"} element={
+          <Route path={urlBaseFrontend + "/:inmuebleId"} element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend}>
               <InmuebleScreen inmuebles={inmuebles} />
             </PublicRoute>
