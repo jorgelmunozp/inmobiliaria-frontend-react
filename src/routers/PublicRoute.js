@@ -7,6 +7,5 @@ import { DashboardRoutes } from './DashboardRoutes';
 export const PublicRoute = ({ children,urlBaseFrontend,urlApiInmuebles }) => {
     const { user } = useContext(AuthContext);
 
-    // return user.logged ? <Navigate to={"/" + urlBaseFrontend} /> : children
     return user.logged ? <DashboardRoutes urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}/> : children
 } 

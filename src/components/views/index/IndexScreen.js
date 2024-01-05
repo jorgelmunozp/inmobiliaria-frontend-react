@@ -4,7 +4,6 @@ import { InmuebleList } from '../inmueble/InmuebleList';
 import { InputText } from '../../forms/inputs/InputText';
 import { Equis } from '../../icons/equis/Equis';
 import { WhiteLine } from '../../forms/whiteline/WhiteLine';
-import { TextField } from "@mui/material";
 
 import { Logo } from '../../icons/logo/Logo';
 
@@ -35,7 +34,7 @@ export const IndexScreen = ({ inmuebles }) => {
           <div className="card card-body">
             <div>
               {/* <TextField value={queryName} onChange={(target) => setQueryName(target.target.value)} id="queryName" label="Buscar inmueble" type="search" variant="outlined" fullWidth margin="dense" autoComplete="off" className='century-gothic text-center shadow-sm'/> */}
-              <InputText placeholder={'Buscar inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted border-1 px-2 py-2 text-center shadow-sm' />
+              <InputText placeholder={'Buscar inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted border-1 text-center px-2 py-2 shadow-sm' />
             </div>
           </div>
         </div>

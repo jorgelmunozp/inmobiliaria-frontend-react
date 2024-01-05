@@ -1,12 +1,16 @@
 import { NumericFormat } from 'react-number-format';
+import '../forms.css';
 
-export const InputNumber = ({ limit,value,name,onInputChange }) => { 
+export const InputNumber = ({ value,name,onInputChange,placeholder,className }) => { 
     return (
         <>
-            <NumericFormat value={ value } name={ name } placeholder={ 'Precio ' + limit } 
-                           onValueChange={ (values)=> onInputChange(values) } 
-                           prefix={ '$ ' } thousandSeparator={ true } autoComplete='off'
-                           className='form-control border-secondary text-muted text-center py-1 w-100' />         
+            <div className="form-floating text-center" data-mdb-input-init>
+                <NumericFormat value={ value } name={ name } placeholder={ placeholder } type='search' 
+                    onValueChange={ (values)=> onInputChange(values) } id='inputNumber'
+                    prefix={ '$ ' } thousandSeparator={ true } autoComplete='off'
+                    className={className + ' pt-4'} />         
+                <label htmlFor="inputNumber" className="form-label text-muted text-nowrap text-truncate" >{ placeholder} </label>
+            </div>
         </>
     )
 }

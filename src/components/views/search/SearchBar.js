@@ -6,19 +6,19 @@ export const SearchBar = ({ queryName,queryCategory,queryType,queryValueMin,quer
   return (
     <ul className='list-group list-group-horizontal-lg border justify-content-between' >
       <li className='list-group-item border-white'>
-        <InputText placeholder={'Nombre inmueble'} inputText={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-secondary text-muted text-center py-1' />
+        <InputText placeholder={'Nombre inmueble'} inputText={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted border-1 text-muted text-center shadow-sm' />
       </li>
       <li className='list-group-item border-white '>
-        <Dropdown value={'Tipo inmueble'} query={queryCategory} parameters={categorias} setQuery={setQueryCategory} />
+        <Dropdown value={'Tipo inmueble'} query={queryCategory} parameters={categorias} setQuery={setQueryCategory} className={"dropdown-toggle input form-control rounded border-muted border-1 text-muted shadow-sm"} />
       </li>
       <li className='list-group-item border-white'>
-        <Dropdown value={'Tipo negocio'} query={queryType} parameters={tipos} setQuery={setQueryType} />
+        <Dropdown value={'Tipo negocio'} query={queryType} parameters={tipos} setQuery={setQueryType} className={"dropdown-toggle input form-control rounded border-muted border-1 text-muted shadow-sm"} />
       </li>
       <li className='list-group-item border-white'>
-        <InputNumber limit={'desde'} value={queryValueMin} name={'searchValueMin'} onInputChange={(values) => setQueryValueMin(values.formattedValue.replace('$ ','').split(',').join(''))}  />
+        <InputNumber placeholder={'Precio desde'} value={queryValueMin} name={'searchValueMin'} onInputChange={(values) => setQueryValueMin(values.formattedValue.replace('$ ','').split(',').join(''))} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'} />
       </li>
       <li className='list-group-item border-white'>
-        <InputNumber limit={'hasta'} value={queryValueMax} name={'searchValueMax'} onInputChange={(values) => setQueryValueMax(values.formattedValue.replace('$ ','').split(',').join(''))}/>
+        <InputNumber placeholder={'Precio hasta'} value={queryValueMax} name={'searchValueMax'} onInputChange={(values) => setQueryValueMax(values.formattedValue.replace('$ ','').split(',').join(''))} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'} />
       </li>
     </ul> 
   )

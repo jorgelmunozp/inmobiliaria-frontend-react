@@ -36,19 +36,6 @@ hr { opacity: 0.1; }
 .bg-main-transparent-color { background-color: var(--main-transparent-color)!important; }
 .red-color { color: var(--red-color)!important; }
 
-/* Mui Forms*/ 
-.MuiInputBase-input, .MuiOutlinedInput-input { font-family: 'CenturyGothic', 'Century Gothic' !important; }
-.MuiInputLabel-root, .MuiOutlinedInput-root { font-family: 'CenturyGothic', 'Century Gothic' !important; }
-
-/* Bootstarp Forms*/ 
-.form-floating>label {
-    /* left: 40%; */
-    /* right: auto; */
-}
-
-/****** Forms ******/
-/* InputText */ 
-.input:focus { border-width: 2px !important; }
 /****** Header ******/ 
 .header { background: url("../../background.svg") repeat;}
 

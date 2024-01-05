@@ -1,0 +1,8 @@
+/****** Forms ******/
+/* InputText */ 
+.input:focus { border-width: 2px !important; }
+/* All forms */
+/* .form-floating>.form-control { padding-top: 1.825rem !important; } */
+
+/* Bootstarp Forms*/ 
+/* .form-floating>label { left: 20%; } */
