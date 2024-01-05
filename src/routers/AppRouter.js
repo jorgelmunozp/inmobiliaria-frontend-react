@@ -13,6 +13,9 @@ import { InmuebleScreen } from "../components/views/inmueble/InmuebleScreen";
 import { NotFound } from '../components/views/404/NotFound';
 import { myColor, myTitle } from "../global";
 
+import { HomeScreen } from "../components/views/home/HomeScreen";
+import { StockScreen } from "../components/views/stock/StockScreen";
+
 export const AppRouter = () => {
   const urlBaseFrontend = process.env.REACT_APP_URL_BASE_FRONTEND;
 
@@ -72,10 +75,28 @@ export const AppRouter = () => {
           } />
 
           <Route path='*' element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend}>
+            // <PublicRoute urlBaseFrontend={urlBaseFrontend}>
               <NotFound urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
-            </PublicRoute>
+            // </PublicRoute>
           }/>
+
+          <Route path={urlBaseFrontend + "/home"} element={
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+                  <HomeScreen inmuebles={inmuebles}/>
+              </PrivateRoute>
+          } />
+
+          <Route path={urlBaseFrontend + "/stock"} element={
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+                  <StockScreen inmuebles={inmuebles}/>
+              </PrivateRoute>
+          } />
+
+          <Route path={urlBaseFrontend} element={
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+                  <HomeScreen inmuebles={inmuebles}/>
+              </PrivateRoute>
+          } />
 
           <Route path={"/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
