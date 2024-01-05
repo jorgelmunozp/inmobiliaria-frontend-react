@@ -11,7 +11,7 @@ export const HomeScreen = ({ inmuebles }) => {
   let [ queryName, setQueryName ] = useState('');                     // Query
 
   const inmueblesFiltered = useMemo( () => getInmueblesByName(queryName,inmuebles), [queryName,inmuebles] );
-
+  
   return (
     <>
       <WhiteLine />
@@ -38,7 +38,7 @@ export const HomeScreen = ({ inmuebles }) => {
           </div>
         </div>
         <div>
-          {
+          { 
             (queryName === '')
               ? <InmuebleList inmuebles={inmuebles} /> 
               : inmueblesFiltered.length === 0 ? <div className="alert alert-danger"> 

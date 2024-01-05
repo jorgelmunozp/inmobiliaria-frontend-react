@@ -10,7 +10,8 @@ import { Logo } from '../icons/logo/Logo';
 export const IndexScreen = ({ inmuebles }) => {
   let [ queryName, setQueryName ] = useState('');                     // Query
 
-  const inmueblesFiltered = useMemo( () => getInmueblesByName(queryName,inmuebles), [queryName,inmuebles] );
+  const inmueblesFiltered = useMemo( () => getInmueblesByName(queryName,inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible'))), [queryName,inmuebles] );
+  console.log("inmuebles: ", inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible')))
 
   return (
     <>
@@ -40,7 +41,7 @@ export const IndexScreen = ({ inmuebles }) => {
         <div>
           {
             (queryName === '')
-              ? <InmuebleList inmuebles={inmuebles} /> 
+              ? <InmuebleList inmuebles={inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible'))} /> 
               : inmueblesFiltered.length === 0 ? <div className="alert alert-danger"> 
                                                     <p>🔎 No hay resultados</p>
                                                     <div className='bg-white rounded pt-3 pb-1 px-3'>
