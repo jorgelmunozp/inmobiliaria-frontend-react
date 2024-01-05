@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { formatterPeso } from '../../helpers/formatterPeso';
+import { formatterPeso } from '../../../helpers/formatterPeso';
 
-import { Car } from '../icons/car/Car';
-import { Bed } from '../icons/bed/Bed';
-import { Bath } from '../icons/bath/Bath';
-import { Area } from '../icons/area/Area';
+import { Car } from '../../icons/car/Car';
+import { Bed } from '../../icons/bed/Bed';
+import { Bath } from '../../icons/bath/Bath';
+import { Area } from '../../icons/area/Area';
 
 export const InmuebleCard = ({ id,detalle,urlBaseBackend,urlBaseFrontend }) => {
     const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '-0.jpg';

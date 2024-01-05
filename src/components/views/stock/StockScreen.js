@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { Area } from '../icons/area/Area';
-import { Bath } from '../icons/bath/Bath';
-import { Bed } from '../icons/bed/Bed';
-import { Camera } from '../icons/camera/Camera';
-import { Car } from '../icons/car/Car';
-import { Category } from '../icons/category/Category';
-import { HomeWarehouse } from '../icons/home/HomeWarehouse';
-import { Description } from '../icons/description/Description';
-import { Home } from '../icons/home/Home';
-import { HomeDollar } from '../icons/home/HomeDollar';
-import { LocationArrow } from '../icons/location/LocationArrow'
-import { MapLocation } from '../icons/map/MapLocation';
-import { MapPin } from '../icons/map/MapPin';
-import { Type } from '../icons/type/Type';
+import { Area } from '../../icons/area/Area';
+import { Bath } from '../../icons/bath/Bath';
+import { Bed } from '../../icons/bed/Bed';
+import { Camera } from '../../icons/camera/Camera';
+import { Car } from '../../icons/car/Car';
+import { Category } from '../../icons/category/Category';
+import { HomeWarehouse } from '../../icons/home/HomeWarehouse';
+import { Description } from '../../icons/description/Description';
+import { Home } from '../../icons/home/Home';
+import { HomeDollar } from '../../icons/home/HomeDollar';
+import { LocationArrow } from '../../icons/location/LocationArrow'
+import { MapLocation } from '../../icons/map/MapLocation';
+import { MapPin } from '../../icons/map/MapPin';
+import { Type } from '../../icons/type/Type';
 
 export const StockScreen = ({ inmuebles }) => {
   const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;

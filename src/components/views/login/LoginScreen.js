@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../auth/authContext';
-import { types } from '../../types/types';
-import { Logo } from '../icons/logo/Logo';
+import { AuthContext } from '../../../auth/authContext';
+import { types } from '../../../types/types';
+import { Logo } from '../../icons/logo/Logo';
 
 const user = process.env.REACT_APP_USER;
 const password = process.env.REACT_APP_PASSWORD;

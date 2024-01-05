@@ -1,6 +1,6 @@
-import { Dropdown } from '../forms/dropdown/Dropdown';
-import { InputText } from '../forms/inputs/InputText';
-import { InputNumber } from '../forms/inputs/InputNumber';
+import { Dropdown } from '../../forms/dropdown/Dropdown';
+import { InputText } from '../../forms/inputs/InputText';
+import { InputNumber } from '../../forms/inputs/InputNumber';
 
 export const SearchBar = ({ queryName,queryCategory,queryType,queryValueMin,queryValueMax,setQueryName,setQueryCategory,setQueryType,setQueryValueMin,setQueryValueMax,categorias,tipos }) => {
   return (

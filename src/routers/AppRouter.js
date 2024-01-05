@@ -3,12 +3,12 @@ import { DashboardRoutes } from "./DashboardRoutes";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 import { Navbar } from "../components/menu/Navbar";
-import { IndexScreen } from '../components/index/IndexScreen';
-import { LoginScreen } from "../components/login/LoginScreen";
-import { ApartamentosScreen } from "../components/apartamentos/ApartamentosScreen";
-import { CasasScreen } from "../components/casas/CasasScreen";
-import { SearchScreen } from "../components/search/SearchScreen";
-import { InmuebleScreen } from "../components/inmueble/InmuebleScreen";
+import { IndexScreen } from '../components/views/index/IndexScreen';
+import { LoginScreen } from "../components/views/login/LoginScreen";
+import { ApartamentosScreen } from "../components/views/apartamentos/ApartamentosScreen";
+import { CasasScreen } from "../components/views/casas/CasasScreen";
+import { SearchScreen } from "../components/views/search/SearchScreen";
+import { InmuebleScreen } from "../components/views/inmueble/InmuebleScreen";
 
 import { useFetch } from '../hooks/useFetch';
 import { myColor, myTitle } from "../global";
@@ -67,15 +67,15 @@ export const AppRouter = () => {
               </PublicRoute>
           } />
 
-<Route path={"/" + urlBaseFrontend + "/*"} element={
+          <Route path={"/" + urlBaseFrontend} element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
           } />
 
-          <Route path="/*" element={
+          <Route path={"/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <DashboardRoutes />
+                  <DashboardRoutes urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}/>
               </PrivateRoute>
           } />
 

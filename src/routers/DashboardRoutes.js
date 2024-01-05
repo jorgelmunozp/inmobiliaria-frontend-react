@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
-import { Navbar } from "../components/menu/Navbar"
-import { HomeScreen } from "../components/home/HomeScreen";
-import { StockScreen } from "../components/stock/StockScreen";
+import { HomeScreen } from "../components/views/home/HomeScreen";
+import { StockScreen } from "../components/views/stock/StockScreen";
 
 import { useFetch } from "../hooks/useFetch";
 
-export const DashboardRoutes = () => {
-
-  const urlBaseFrontend = process.env.REACT_APP_URL_BASE_FRONTEND;
-
-  const urlApiInmuebles = process.env.REACT_APP_API_INMUEBLES;
+export const DashboardRoutes = ({ urlBaseFrontend,urlApiInmuebles }) => {
   const inmuebles = useFetch(urlApiInmuebles).data;
 
   return (
@@ -18,7 +12,7 @@ export const DashboardRoutes = () => {
       <Routes>
           <Route path={urlBaseFrontend + "/stock"} element={<StockScreen inmuebles={inmuebles} />} />
           <Route path={urlBaseFrontend + "/home" + urlBaseFrontend} element={<HomeScreen inmuebles={inmuebles} />} />
-          <Route path={"/" + urlBaseFrontend} element={<HomeScreen inmuebles={inmuebles} />} />
+          <Route path={"/"} element={<HomeScreen inmuebles={inmuebles} />} />
       </Routes>
     </div>
   )

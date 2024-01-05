@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { InmuebleCard } from './InmuebleCard';
-import { PaginationBar } from '../pagination/PaginationBar';
-import { SortingBar } from '../sort/SortingBar';
-import { WhiteLine } from '../forms/whiteline/WhiteLine';
+import { PaginationBar } from '../../pagination/PaginationBar';
+import { SortingBar } from '../../sort/SortingBar';
+import { WhiteLine } from '../../forms/whiteline/WhiteLine';
 
 export const InmuebleList = ({ inmuebles }) => {
   const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;

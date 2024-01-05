@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useParams, Navigate, useNavigate} from 'react-router-dom'
-import { getInmuebleById } from '../../selectors/getInmuebleById';
-import { formatterPeso } from '../../helpers/formatterPeso';
+import { getInmuebleById } from '../../../selectors/getInmuebleById';
+import { formatterPeso } from '../../../helpers/formatterPeso';
 
 export const InmuebleScreen = ({ inmuebles }) => {
 

@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
-import { getInmuebles } from '../../selectors/getInmuebles';
-import { SearchBar } from '../search/SearchBar';
+import { getInmuebles } from '../../../selectors/getInmuebles';
+import { SearchBar } from './SearchBar';
 import { InmuebleList } from '../inmueble/InmuebleList';
-import { Equis } from '../icons/equis/Equis';
+import { Equis } from '../../icons/equis/Equis';
 
-import { formatterPeso } from '../../helpers/formatterPeso';
+import { formatterPeso } from '../../../helpers/formatterPeso';
 
 export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
   let [ queryName, setQueryName ] = useState('');                               // Query's
