@@ -10,7 +10,7 @@
     --white-color: #fff;
 }
 
-*{ font-family: 'CenturyGothic', 'Century Gothic', Arial, sans-serif; }
+*{ font-family: 'CenturyGothic', 'Century Gothic'; scroll-behavior: smooth; }
 @font-face {
     font-family: "CenturyGothic";
     font-style: normal;
@@ -29,11 +29,26 @@ h1,h2,h3,h4,h5,h6 { color: var(--main-color)!important; font-weight: bold; }
 span { color: var(--main-color)!important; }
 hr { opacity: 0.1; }
 
+.century-gothic { font-family: 'CenturyGothic', 'Century Gothic' !important; }
+
 .main-color { color: var(--main-color)!important; }
 .background-main-color { background-color: var(--main-color)!important; }
 .bg-main-transparent-color { background-color: var(--main-transparent-color)!important; }
 .red-color { color: var(--red-color)!important; }
 
+/* Mui Forms*/ 
+.MuiInputBase-input, .MuiOutlinedInput-input { font-family: 'CenturyGothic', 'Century Gothic' !important; }
+.MuiInputLabel-root, .MuiOutlinedInput-root { font-family: 'CenturyGothic', 'Century Gothic' !important; }
+
+/* Bootstarp Forms*/ 
+.form-floating>label {
+    /* left: 40%; */
+    /* right: auto; */
+}
+
+/****** Forms ******/
+/* InputText */ 
+.input:focus { border-width: 2px !important; }
 /****** Header ******/ 
 .header { background: url("../../background.svg") repeat;}
 
