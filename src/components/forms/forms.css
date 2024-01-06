@@ -2,7 +2,7 @@
 /* InputText */ 
 .input:focus { border-width: 2px !important; }
 /* All forms */
-/* .form-floating>.form-control { padding-left: 0.75rem !important; } */
+.form-floating>.form-control { padding-left: 0.75rem !important; }
 
 .dropdown-toggle::after { 
     position: absolute;
