@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth/authContext';
 import { types } from '../../types/types';
@@ -19,12 +19,12 @@ export const Navbar = ({ urlBaseFrontend, myColor, myTitle }) => {
     return (
         <nav className="navbar navbar-expand-sm navbar-light bg-white shadow-lg user-select-none">
             <div className="container-fluid">
-                <Link to={"/" + urlBaseFrontend}>
+                <NavLink to={"/" + urlBaseFrontend}>
                     <Logo color={myColor} width={1.6} height={1.6} strokeWidth={1.5} className='navbar-brand ms-3 me-0'/>
-                </Link>
-                <Link className="navbar-brand" to={"/" + urlBaseFrontend}>
+                </NavLink>
+                <NavLink className="navbar-brand" to={"/" + urlBaseFrontend}>
                     <span className='main-color'>{ myTitle }</span>
-                </Link>
+                </NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <HomeMenu color={myColor} height={1.05} width={1.05} strokeWidth={10}/>
                 </button>
