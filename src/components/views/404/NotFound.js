@@ -6,11 +6,14 @@ import { Warning } from "../../icons/warning/Warning";
 export const NotFound = ({ urlBaseFrontend,myColor,myTitle }) => {
   return (
     <div className="App w-100 user-select-none">
-      <header className="fixed-top shadow-lg text-center py-2">
-        <nav className="navbar navbar-expand-sm navbar-light bg-white fixed-top shadow-lg user-select-none">
+      <header className="fixed-top text-center py-2">
+        <nav className="navbar navbar-expand-sm navbar-light bg-white fixed-top user-select-none">
           <div className="container-fluid justify-content-center">
-            <Link className="navbar-brand main-color" to={"/" + urlBaseFrontend + "/index"} >
-              <Logo color={myColor} height={1.4} width={1.4} />
+            <Link to={"/" + urlBaseFrontend}>
+                <Logo color={myColor} width={1.6} height={1.6} strokeWidth={1.5} className='navbar-brand ms-3 me-0'/>
+            </Link>
+            <Link className="navbar-brand" to={"/" + urlBaseFrontend}>
+                <span className='navbar-brand main-color ms-0'>{ myTitle }</span>
             </Link>
           </div>
         </nav>

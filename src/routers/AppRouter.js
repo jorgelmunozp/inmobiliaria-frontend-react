@@ -80,15 +80,15 @@ export const AppRouter = () => {
             // </PublicRoute>
           }/>
 
-          <Route path={urlBaseFrontend + "/stock"} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <StockScreen inmuebles={inmuebles}/>
-              </PrivateRoute>
-          } />
-                                        {/** Debe ir despues de /stock para que aterrice en ella, aterriza en la última */}
           <Route path={urlBaseFrontend + "/home"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <HomeScreen inmuebles={inmuebles}/>
+              </PrivateRoute>
+          } />
+
+          <Route path={urlBaseFrontend + "/stock"} element={
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+                  <StockScreen inmuebles={inmuebles}/>
               </PrivateRoute>
           } />
 
