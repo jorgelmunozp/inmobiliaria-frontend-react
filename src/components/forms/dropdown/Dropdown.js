@@ -3,7 +3,7 @@ export const Dropdown = ({ placeholder,query,parameters,setQuery,className }) =>
     const class2 = ' dropdown-toggle text-center pt-4 ps-2 ps-sm-3 pe-5 w-100';
 
     return(
-      <div className="dropdown form-floating w-100">
+      <div className="dropdown form-floating w-100 min-width-10">
         <button className={className + (query === '' ? class1 : class2)} type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
           { query === '' ? placeholder : query }
         </button>
