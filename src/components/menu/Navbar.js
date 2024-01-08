@@ -13,7 +13,7 @@ export const Navbar = ({ urlBaseFrontend, myColor, myTitle }) => {
 
     const handleLogout = () => {
         dispatch({ type: types.logout });
-        navigate( (urlBaseFrontend + '/index'), { replace: true });
+        navigate((urlBaseFrontend + '/index'), { replace: true });
     }
 
     return (
