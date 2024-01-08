@@ -9,7 +9,7 @@ const superuser = process.env.REACT_APP_USER;
 const password = process.env.REACT_APP_PASSWORD;
 const username = process.env.REACT_APP_USERNAME;
 
-export const LoginScreen = () => {
+export const LoginScreen = ({ myTitle }) => {
 
   const [ userInput,setUserInput ] = useState("");
   const [ passwordInput,setPasswordInput ] = useState("");
@@ -40,7 +40,7 @@ export const LoginScreen = () => {
 
   return (
     <div className='container-fluid mt-5 text-center user-select-none'>
-        <h2>La Inmobiliaria</h2>
+        <h2>{myTitle}</h2>
         <h1><Logo strokeWidth={1.25} width={1.5} height={1.5} className='icon fs-4'/></h1>
         <br/>
         <LoginForm userInput={userInput} setUserInput={setUserInput}
