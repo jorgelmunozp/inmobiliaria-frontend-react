@@ -31,21 +31,21 @@ export const Navbar = ({ urlBaseFrontend, myColor, myTitle }) => {
                 <div className="collapse navbar-collapse"  id="navbarContent">
                     <div className="navbar-nav">
                         {
-                        (user.logged)
-                        ?   <>
-                                <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                    to={urlBaseFrontend + "/home"}>Inicio</NavLink>
-                                <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                    to={urlBaseFrontend + "/stock"}>Inventario</NavLink>
-                            </>
-                        :   <>
-                                <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                    to={urlBaseFrontend + "/apartamentos"}>Apartamentos</NavLink>
-                                <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                    to={urlBaseFrontend + "/casas"}>Casas</NavLink>
-                                <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                    to={urlBaseFrontend + "/search"}>Buscar</NavLink>
-                            </>
+                            (user.logged)
+                            ?   <>
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                        to={urlBaseFrontend + "/home"}>Inicio</NavLink>
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                        to={urlBaseFrontend + "/stock"}>Inventario</NavLink>
+                                </>
+                            :   <>
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                        to={urlBaseFrontend + "/apartamentos"}>Apartamentos</NavLink>
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                        to={urlBaseFrontend + "/casas"}>Casas</NavLink>
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                        to={urlBaseFrontend + "/search"}>Buscar</NavLink>
+                                </>
                         }
                     </div>
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
