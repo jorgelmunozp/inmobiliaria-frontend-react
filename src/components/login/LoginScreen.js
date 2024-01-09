@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../auth/authContext';
-import { types } from '../../../types/types';
-import { Logo } from '../../icons/logo/Logo';
+import { AuthContext } from '../../auth/authContext';
+import { types } from '../../types/types';
+import { Logo } from '../icons/logo/Logo';
 import { LoginForm } from './LoginForm';
 import './login.css';
 
-const superuser = process.env.REACT_APP_USER;
+const superuser = process.env.REACT_APP_SUPERUSER;
 const password = process.env.REACT_APP_PASSWORD;
 const username = process.env.REACT_APP_USERNAME;
 

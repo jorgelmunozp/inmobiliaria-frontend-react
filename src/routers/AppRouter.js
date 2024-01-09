@@ -5,7 +5,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 import { Navbar } from "../components/menu/Navbar";
 import { IndexScreen } from '../components/views/index/IndexScreen';
-import { LoginScreen } from "../components/views/login/LoginScreen";
+import { LoginScreen } from "../components/login/LoginScreen";
 import { ApartamentosScreen } from "../components/views/apartamentos/ApartamentosScreen";
 import { CasasScreen } from "../components/views/casas/CasasScreen";
 import { SearchScreen } from "../components/views/search/SearchScreen";

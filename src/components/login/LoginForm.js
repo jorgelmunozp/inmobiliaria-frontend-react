@@ -1,5 +1,5 @@
-import { InputText } from '../../forms/inputs/InputText';
-import { InputPassword } from '../../forms/inputs/InputPassword';
+import { InputText } from '../forms/inputs/InputText';
+import { InputPassword } from '../forms/inputs/InputPassword';
 
 export const LoginForm = ({ userInput,passwordInput,alertMessage,setUserInput,setPasswordInput,setAlertMessage,handleLogin,placeholderUser,placeholderPassword,buttonTitle }) => {
   return (

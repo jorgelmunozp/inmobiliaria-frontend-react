@@ -45,9 +45,7 @@ hr { opacity: 0.1; }
 .badge {
     /* top: 220px; */
 }
-.icon {
-    font-size: 8vmin;
-}
+.icon { font-size: 8vmin; }
 
 .card-img, .card-img-bottom {
     border-bottom-right-radius: 0;
