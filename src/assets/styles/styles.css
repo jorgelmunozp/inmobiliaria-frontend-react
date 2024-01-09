@@ -46,7 +46,6 @@ hr { opacity: 0.1; }
     /* top: 220px; */
 }
 .icon {
-    color: var(--main-color)!important;
     font-size: 8vmin;
 }
 

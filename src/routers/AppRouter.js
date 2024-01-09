@@ -64,7 +64,7 @@ export const AppRouter = () => {
 
           <Route path={urlBaseFrontend + "/login"} element={
               <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
-                  <LoginScreen myTitle={myTitle} />
+                  <LoginScreen myTitle={myTitle} myColor={myColor} />
               </PublicRoute>
           } />
 
