@@ -5,12 +5,13 @@ import { types } from '../../../types/types';
 import { Logo } from '../../icons/logo/Logo';
 import { LoginForm } from './LoginForm';
 
+import './login.css';
+
 const superuser = process.env.REACT_APP_USER;
 const password = process.env.REACT_APP_PASSWORD;
 const username = process.env.REACT_APP_USERNAME;
 
 export const LoginScreen = ({ myTitle,myColor }) => {
-
   const [ userInput,setUserInput ] = useState("");
   const [ passwordInput,setPasswordInput ] = useState("");
   const [ alertMessage,setAlertMessage ] = useState("");

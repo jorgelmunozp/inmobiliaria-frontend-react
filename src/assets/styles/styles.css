@@ -118,24 +118,3 @@ hr { opacity: 0.1; }
 .image-upload > input { display: none; }
 .image-upload img { width: 5vmin; cursor: pointer; }
 /* .numberStock { opacity: 1; } */
-
-/****** LOGIN ******/
-.input-login {
-    background-color: var(--white-color);
-    border-color: var(--gray-color)!important;
-}
-
-.btn-login {
-    color: var(--main-color);
-    border-color: var(--main-color)!important;
-}
-.btn-login:hover {
-    color: var(--white-color);
-    background-color: var(--main-color);
-}
-
-input::placeholder { color: var(--gray-color); }
-
-.button:hover{ color:var(--dark-color) !important; background-color:var(--lightgray-color); }
-
-.alertMessage { color: var(--gray-color); }
