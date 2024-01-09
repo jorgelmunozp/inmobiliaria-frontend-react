@@ -40,7 +40,7 @@ export const LoginScreen = ({ myTitle,myColor }) => {
 
   return (
     <div className='container-fluid mt-5 text-center user-select-none'>
-        <h3>{myTitle}</h3>
+        <h3 className='main-color'>{myTitle}</h3>
         <h1><Logo color={myColor} strokeWidth={1.25} width={1.5} height={1.5} className='fs-4'/></h1>
         <br/>
         <LoginForm userInput={userInput} setUserInput={setUserInput}
