@@ -4,7 +4,6 @@ import { AuthContext } from '../../../auth/authContext';
 import { types } from '../../../types/types';
 import { Logo } from '../../icons/logo/Logo';
 import { LoginForm } from './LoginForm';
-
 import './login.css';
 
 const superuser = process.env.REACT_APP_USER;
