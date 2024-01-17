@@ -32,8 +32,9 @@ hr { opacity: 0.1; }
 .century-gothic { font-family: 'CenturyGothic', 'Century Gothic' !important; }
 
 .main-color { color: var(--main-color)!important; }
-.background-main-color { background-color: var(--main-color)!important; }
+.bg-main-color { background-color: var(--main-color) !important; }
 .bg-main-transparent-color { background-color: var(--main-transparent-color)!important; }
+.dark-color-hover:hover { color: var(--dark-color) !important; }
 .red-color { color: var(--red-color)!important; }
 
 /****** Header ******/ 
@@ -112,7 +113,6 @@ hr { opacity: 0.1; }
 
 /***** STOCK SCREEN *****/
 /* .inputImage { width: 8vmin;} */
-/* .stock { font-size: 2.5vmin; } */
 .image-upload > input { display: none; }
 .image-upload img { width: 5vmin; cursor: pointer; }
 /* .numberStock { opacity: 1; } */

@@ -51,7 +51,7 @@ export const InmuebleList = ({ inmuebles }) => {
             inmueble => ( <InmuebleCard key={ inmueble.id } urlBaseBackend={urlBaseBackend} urlBaseFrontend={urlBaseFrontend} { ...inmueble } /> ))
         }
       </div>
-      <PaginationBar query={query} inmuebles={inmuebles} inmueblesFiltered={inmueblesFiltered} itemPerPage={itemPerPage} indexPage={indexPage} activePages={activePages} indexPages={indexPages} setIndexPage={setIndexPage} setActivePages={setActivePages} /> 
+      <PaginationBar query={query} array={inmuebles} arrayFiltered={inmueblesFiltered} itemPerPage={itemPerPage} indexPage={indexPage} activePages={activePages} indexPages={indexPages} setIndexPage={setIndexPage} setActivePages={setActivePages} /> 
     </>
   )
 }

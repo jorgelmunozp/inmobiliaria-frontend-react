@@ -10,7 +10,7 @@ export const DashboardRoutes = ({ urlBaseFrontend,urlApiInmuebles }) => {
     <div className="container user-select-none">
       <Routes>
           <Route path={urlBaseFrontend + "/home"} element={<HomeScreen inmuebles={inmuebles} />} />
-          <Route path={urlBaseFrontend + "/stock"} element={<StockScreen inmuebles={inmuebles} />} />
+          <Route path={urlBaseFrontend + "/stock"} element={<StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} />} />
           <Route path={"/" + urlBaseFrontend} element={<HomeScreen inmuebles={inmuebles} />} />
           <Route path={"/"} element={<HomeScreen inmuebles={inmuebles} />} />
           <Route path={"/*"} element={<HomeScreen inmuebles={inmuebles} />} />

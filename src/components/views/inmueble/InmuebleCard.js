@@ -22,7 +22,7 @@ export const InmuebleCard = ({ id,detalle,urlBaseBackend,urlBaseFrontend }) => {
                                 <small className='text-muted fw-bolder'>{ detalle.categoria }</small>
                                 <h6 className='card-title text-truncate'>{ detalle.nombre }</h6>
                                 <h6 className='text-dark fw-bolder'>{ formatterPeso.format(detalle.valor) }&nbsp;<small className='text-muted'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</small></h6>
-                                <h6 className='text-white badge background-main-color position-absolute top-50 end-0 fw-bolder mt-5'><small>{ detalle.tipo }</small></h6>
+                                <h6 className='text-white badge bg-main-color position-absolute top-50 end-0 fw-bolder mt-5'><small>{ detalle.tipo }</small></h6>
                                 <h6 className={ detalle.estado === 'Disponible' ? 'text-white badge bg-success position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Vendido' ? 'text-white badge bg-danger position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Arrendado' ? 'text-white badge bg-warning position-absolute top-0 end-0 fw-bolder' : '') ) }><small>{ detalle.estado }</small></h6>
                                 <div className='card-text lh-base'>
                                     <ul className='list-group list-group-horizontal justify-content-between'>

@@ -88,16 +88,21 @@ export const AppRouter = () => {
 
           <Route path={urlBaseFrontend + "/stock"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <StockScreen inmuebles={inmuebles}/>
+                  <StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles}/>
               </PrivateRoute>
           } />
 
+          <Route path={urlBaseFrontend} element={
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+                  <HomeScreen inmuebles={inmuebles}/>
+              </PrivateRoute>
+          } />
           <Route path={"/" + urlBaseFrontend} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <HomeScreen inmuebles={inmuebles}/>
               </PrivateRoute>
           } />
-          <Route path={"/"} element={
+          <Route path={"/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <HomeScreen inmuebles={inmuebles}/>
               </PrivateRoute>

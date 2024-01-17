@@ -6,7 +6,7 @@ export const SearchBar = ({ queryName,queryCategory,queryType,queryValueMin,quer
   return (
     <ul className='list-group list-group-horizontal-lg border justify-content-between' >
       <li className='list-group-item border-white'>
-        <InputText placeholder={'Nombre inmueble'} inputText={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted border-1 text-muted text-center shadow-sm' />
+        <InputText id={'nonbre-inmueble'} placeholder={'Nombre inmueble'} inputText={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted border-1 text-muted text-center shadow-sm' />
       </li>
       <li className='list-group-item border-white '>
         <Dropdown placeholder={'Tipo inmueble'} query={queryCategory} parameters={categorias} setQuery={setQueryCategory} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"} />

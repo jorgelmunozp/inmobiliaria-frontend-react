@@ -33,7 +33,7 @@ export const HomeScreen = ({ inmuebles }) => {
         <div className="collapse" id="collapseContent">
           <div className="card card-body">
             <div>
-              <InputText placeholder={'Buscar inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' />
+              <InputText id={'buscar-inmueble'} placeholder={'Buscar inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' />
             </div>
           </div>
         </div>
