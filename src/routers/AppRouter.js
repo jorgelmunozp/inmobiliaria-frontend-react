@@ -10,6 +10,7 @@ import { ApartamentosScreen } from "../components/views/apartamentos/Apartamento
 import { CasasScreen } from "../components/views/casas/CasasScreen";
 import { SearchScreen } from "../components/views/search/SearchScreen";
 import { InmuebleScreen } from "../components/views/inmueble/InmuebleScreen";
+import { InmuebleUpload } from "../components/views/inmueble/InmuebleUpload";
 import { NotFound } from '../components/views/404/NotFound';
 import { myColor, myTitle } from "../global";
 
@@ -25,6 +26,8 @@ export const AppRouter = () => {
   const categorias = useFetch(urlApiCategorias).data;
   const urlApiTipos = process.env.REACT_APP_API_TIPOS;
   const tipos = useFetch(urlApiTipos).data;
+  const urlApiEstados = process.env.REACT_APP_API_ESTADOS;
+  const estados = useFetch(urlApiEstados).data;
 
   return (
     <BrowserRouter>
@@ -68,7 +71,7 @@ export const AppRouter = () => {
               </PublicRoute>
           } />
 
-          <Route path={"/" + urlBaseFrontend} element={
+          <Route path={"/" + urlBaseFrontend + "/*" } element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
@@ -86,18 +89,35 @@ export const AppRouter = () => {
               </PrivateRoute>
           } />
 
+            <Route path={urlBaseFrontend + "/upload"} element={
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+                  <InmuebleUpload inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} urlBaseFrontend={urlBaseFrontend} categorias={categorias} tipos={tipos} estados={estados}/>
+              </PrivateRoute>
+          } />
+
           <Route path={urlBaseFrontend + "/stock"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles}/>
               </PrivateRoute>
           } />
 
-          <Route path={urlBaseFrontend} element={
+          <Route path={urlBaseFrontend + "/inventario"} element={
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+                  <StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles}/>
+              </PrivateRoute>
+          } />
+
+          <Route path={urlBaseFrontend + "/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <HomeScreen inmuebles={inmuebles}/>
               </PrivateRoute>
           } />
-          <Route path={"/" + urlBaseFrontend} element={
+          {/* <Route path={"/" + urlBaseFrontend} element={
+              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+                  <HomeScreen inmuebles={inmuebles}/>
+              </PrivateRoute>
+          } /> */}
+                    <Route path={"/" + urlBaseFrontend + "/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <HomeScreen inmuebles={inmuebles}/>
               </PrivateRoute>
@@ -110,7 +130,7 @@ export const AppRouter = () => {
 
           <Route path={"/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <DashboardRoutes urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}/>
+                  <DashboardRoutes urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados}/>
               </PrivateRoute>
           } />
 

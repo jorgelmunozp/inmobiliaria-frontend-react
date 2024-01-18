@@ -4,7 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth/authContext';
 import { types } from '../../types/types';
 import { Logo } from '../icons/logo/Logo';
+import { Category } from '../icons/category/Category';
 import { HomeMenu } from '../icons/home/HomeMenu';
+import { HomePlus } from '../icons/home/HomePlus';
+import { HomeSimple } from '../icons/home/HomeSimple';
+import { HomeWarehouse } from '../icons/home/HomeWarehouse';
 
 export const Navbar = ({ urlBaseFrontend, myColor, myTitle }) => {
 
@@ -34,9 +38,11 @@ export const Navbar = ({ urlBaseFrontend, myColor, myTitle }) => {
                             (user.logged)
                             ?   <>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                        to={urlBaseFrontend + "/home"}>Inicio</NavLink>
+                                        to={urlBaseFrontend + "/home"}><HomeSimple strokeWidth={0} height={1.2} width={1.2}/></NavLink>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                        to={urlBaseFrontend + "/stock"}>Inventario</NavLink>
+                                        to={urlBaseFrontend + "/upload"}><HomePlus strokeWidth={0} height={1.2} width={1.2}/></NavLink>
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                        to={urlBaseFrontend + "/stock"}><Category strokeWidth={1.9} height={1.2} width={1.2}/></NavLink>
                                 </>
                             :   <>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }

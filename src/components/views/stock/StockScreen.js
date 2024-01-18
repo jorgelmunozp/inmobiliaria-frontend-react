@@ -14,6 +14,7 @@ import { MapLocation } from '../../icons/map/MapLocation';
 import { MapPin } from '../../icons/map/MapPin';
 import { Type } from '../../icons/type/Type';
 import { HomeQuestion } from '../../icons/home/HomeQuestion';
+import { Image } from '../../icons/image/Image';
 
 import { fetchUpdate } from '../../../helpers/fetchUpdate';
 import { InputText } from '../../forms/inputs/InputText';
@@ -61,7 +62,7 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   const [ type, setType ] = useState("");
   const [ rooms, setRooms ] = useState("");
   const [ bathrooms, setBathooms ] = useState("");
-  const [ garage , setGarage ] = useState("");
+  const [ garages , setGarages ] = useState("");
   const [ area, setArea ] = useState("");
   const [ value, setValue ] = useState("");
   const [ description, setDescription ] = useState("");
@@ -75,7 +76,7 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   const handleChangeType = (event) => { setType(event.target.value); handleStock(event.target.id.split('-')[1],event.target.value); }
   const handleChangeRooms = (event) => { setRooms(event.target.value); handleStock(event.target.id.split('-')[1],event.target.value); }
   const handleChangeBathrooms = (event) => { setBathooms(event.target.value); handleStock(event.target.id.split('-')[1],event.target.value); }
-  const handleChangeGarage = (event) => { setGarage(event.target.value); handleStock(event.target.id.split('-')[1],event.target.value); }
+  const handleChangeGarage = (event) => { setGarages(event.target.value); handleStock(event.target.id.split('-')[1],event.target.value); }
   const handleChangeArea = (event) => { setArea(event.target.value); handleStock(event.target.id.split('-')[1],event.target.value); }
   const handleChangeValue = (event) => { setValue(event.target.value); handleStock(event.target.id.split('-')[1],event.target.value); }
   const handleChangeDescription = (event) => { setDescription(event.target.value); handleStock(event.target.id.split('-')[1],event.target.value); }
@@ -161,10 +162,10 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
           <div className="card card-body">
             <div className='row d-block d-sm-flex'>
               <div className='col'>
-                <InputText id={'query-id'} placeholder={'Id'} value={queryId} onInputChange={(target) => setQueryId(target.target.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' fullWidth margin="dense" />
+                <InputText id={'query-id'} placeholder={'Código Inmueble'} value={queryId} onInputChange={(target) => setQueryId(target.target.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' fullWidth margin="dense" />
               </div>
               <div className='col'>
-                <InputText id={'query-name'} placeholder={'Nombre'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' fullWidth margin="dense" />
+                <InputText id={'query-name'} placeholder={'Nombre Inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' fullWidth margin="dense" />
               </div>
             </div>
           </div>
@@ -173,20 +174,21 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
       <div className='stock overflow-scroll'>
         <div className='row flex-nowrap'>
           <span className='col-4 col-sm-2 border text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><HomeWarehouse strokeWidth={2} width={iconSize - 0.15} height={iconSize - 0.15}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(1)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(2)}><Arrows direction={"down"}/></button></div></div></div></span>
-          <span className='col-auto px-2 border border-light text-center bg-main-transparent-color align-self-center'><Camera strokeWidth={40} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-2 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><Home strokeWidth={1} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(3)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(4)}><Arrows direction={"down"}/></button></div></div></div></span>
-          <span className='col-sm-2 border border-light text-center bg-main-transparent-color'><Category strokeWidth={2} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-1 border border-light text-center bg-main-transparent-color'><Type strokeWidth={0} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-1 border border-light text-center bg-main-transparent-color'><Bed strokeWidth={40} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-1 border border-light text-center bg-main-transparent-color'><Car strokeWidth={40} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-1 border border-light text-center bg-main-transparent-color'><Bath strokeWidth={0.25} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-1 border border-light text-center bg-main-transparent-color'><Area strokeWidth={1} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-2 border border-light text-center bg-main-transparent-color'><HomeDollar strokeWidth={2} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-3 border border-light text-center bg-main-transparent-color'><Description strokeWidth={2} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-2 border border-light text-center bg-main-transparent-color'><MapLocation strokeWidth={2.25} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-2 border border-light text-center bg-main-transparent-color'><MapPin strokeWidth={0.25} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-1 border border-light text-center bg-main-transparent-color'><LocationArrow strokeWidth={0.25} width={iconSize} height={iconSize}/></span>
-          <span className='col-sm-2 border border-light text-center bg-main-transparent-color'><HomeQuestion strokeWidth={2} width={iconSize} height={iconSize}/></span>
+          <span className='col-auto px-2 border border-light text-center bg-main-transparent-color align-self-center py-2'><Image strokeWidth={2} width={iconSize + 0.2} height={iconSize + 0.2}/></span>
+          <span className='col-7 col-sm-2 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><Home strokeWidth={1} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(3)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(4)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-2 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><Category strokeWidth={2} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(5)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(6)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-1 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><Type strokeWidth={0} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(7)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(8)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-1 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><Bed strokeWidth={40} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(9)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(10)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-1 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><Bath strokeWidth={0.25} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(11)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(12)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-1 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><Car strokeWidth={40} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(13)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(14)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-1 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><Area strokeWidth={1} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(15)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(16)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-2 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><HomeDollar strokeWidth={2} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(17)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(18)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-sm-3 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><Description strokeWidth={2} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(19)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(20)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-2 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><MapLocation strokeWidth={2.25} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(21)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(22)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-6 col-sm-2 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><MapPin strokeWidth={0.25} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(23)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(24)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-1 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><LocationArrow strokeWidth={0.25} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(25)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(26)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-5 col-sm-2 border border-light text-center bg-main-transparent-color'><div className='row justify-content-center'><div className='col-3 col-sm-1 align-self-center'><HomeQuestion strokeWidth={2} width={iconSize} height={iconSize}/></div><div className='col-2'><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(27)}><Arrows direction={"up"}/></button></div><div className='row lh-1'><button className='border-0 bg-transparent dark-color-hover main-color fs-5 pt-0 pb-0 px-0 ms-2 ms-sm-3' onClick={()=>setSortBy(28)}><Arrows direction={"down"}/></button></div></div></div></span>
+          <span className='col-12 col-sm-6 border border-light text-center bg-main-transparent-color align-self-center py-2'><Camera strokeWidth={40} width={iconSize + 0.1} height={iconSize + 0.1}/></span>
         </div>
         {
           ((queryId === '' && queryName === '') ? inmuebles : inmueblesFiltered).sort(
@@ -216,31 +218,38 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
                                                             : ( sortBy === 24 ? sortByNeighborhoodDown 
                                                               : ( sortBy === 25 ? sortByStratumUp 
                                                                 : ( sortBy === 26 ? sortByStratumDown
-                                                                  : ( sortBy === 25 ? sortByStatusUp 
-                                                                    : ( sortBy === 26 ? sortByStatusDown
+                                                                  : ( sortBy === 27 ? sortByStatusUp 
+                                                                    : ( sortBy === 28 ? sortByStatusDown
                                                                       : sortByIdUp
             )))))))))))))))))))))))))))).slice(indexPage[0],indexPage[1]).map(inmueble => (
             <div className='row flex-nowrap' key={inmueble.id}>
               <span className='col-4 col-sm-2 py-1 border text-center'> { inmueble.id } </span>
               <div className='image-upload col-auto px-1 border text-center'>
-                  <label htmlFor="file-input"><img src={ urlBaseBackend + '/assets/inmuebles/' + inmueble.detalle.imagen } alt ="Subir foto" title ="Subir foto" /> </label>
-                  <input id={'img' + inmueble.id } type="file"/>
+                  <label htmlFor={'img' + inmueble.id }><img src={ urlBaseBackend + '/assets/inmuebles/' + inmueble.detalle.imagen } alt ="Subir foto" title ="Subir foto" /> </label>
+                  <input type="file" id={'img' + inmueble.id } accept="image/*"/>
               </div>
-              {/* <input type="file" id="picInmueble" name="picInmueble" accept="image/*" className='col-sm-1'></input>
-              <input type="file" id="picInmueble" name="picInmueble" accept="image/*" multiple className='col-sm-1'></input> */}
-              <input defaultValue={ inmueble.detalle.nombre } id={ 'name-' + inmueble.id } onChange={handleChangeName} type='text' autoComplete='off' className='col-sm-2 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.categoria } id={ 'cat-' + inmueble.id } onChange={ handleChangeCategory } type='text' autoComplete='off' className='col-sm-2 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.tipo } id={ 'type-' + inmueble.id } onChange={ handleChangeType } type='text' autoComplete='off' className='col-sm-1 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.habitaciones } id={ 'room-' + inmueble.id } onChange={ handleChangeRooms } type='number' className='col-sm-1 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.baños } id={ 'bath-' + inmueble.id } onChange={ handleChangeBathrooms} type='number' className='col-sm-1 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.parqueaderos } id={ 'car-' + inmueble.id } onChange={ handleChangeGarage } type='number' className='col-sm-1 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.area } id={ 'area-' + inmueble.id } onChange={ handleChangeArea } type='number' className='col-sm-1 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.valor } id={ 'val-' + inmueble.id } onChange={ handleChangeValue } type='number' className='col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.nombre } id={ 'name-' + inmueble.id } onChange={handleChangeName} type='text' autoComplete='off' className='col-7 col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.categoria } id={ 'cat-' + inmueble.id } onChange={ handleChangeCategory } type='text' autoComplete='off' className='col-5 col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.tipo } id={ 'type-' + inmueble.id } onChange={ handleChangeType } type='text' autoComplete='off' className='col-5 col-sm-1 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.habitaciones } id={ 'room-' + inmueble.id } onChange={ handleChangeRooms } type='number' className='col-5 col-sm-1 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.baños } id={ 'bath-' + inmueble.id } onChange={ handleChangeBathrooms} type='number' className='col-5 col-sm-1 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.parqueaderos } id={ 'car-' + inmueble.id } onChange={ handleChangeGarage } type='number' className='col-5 col-sm-1 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.area } id={ 'area-' + inmueble.id } onChange={ handleChangeArea } type='number' className='col-5 col-sm-1 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.valor } id={ 'val-' + inmueble.id } onChange={ handleChangeValue } type='number' className='col-5 col-sm-2 py-1 border text-center' />
               <input defaultValue={ inmueble.detalle.descripcion } id={ 'desc-' + inmueble.id } onChange={ handleChangeDescription } type='textarea' autoComplete='off' className='col-sm-3 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.ciudad } id={ 'city-' + inmueble.id } onChange={ handleChangeCity } type='text' autoComplete='off' className='col-sm-2 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.sector } id={ 'zone-' + inmueble.id } onChange={ handleChangeNeighborhood } type='text' autoComplete='off' className='col-sm-2 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.estrato } id={ 'stra-' + inmueble.id } onChange={ handleChangeStratum } type='number' className='col-sm-1 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.estado } id={ 'stat-' + inmueble.id } onChange={ handleChangeStatus } type='text' className='col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.ciudad } id={ 'city-' + inmueble.id } onChange={ handleChangeCity } type='text' autoComplete='off' className='col-5 col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.sector } id={ 'zone-' + inmueble.id } onChange={ handleChangeNeighborhood } type='text' autoComplete='off' className='col-6 col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.estrato } id={ 'stra-' + inmueble.id } onChange={ handleChangeStratum } type='number' className='col-5 col-sm-1 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.estado } id={ 'stat-' + inmueble.id } onChange={ handleChangeStatus } type='text' className='col-5 col-sm-2 py-1 border text-center' />
+              {
+                inmueble.detalle.images.map((image) => { return(
+                  <div key={image} className='image-upload col-auto px-1 border text-center'>
+                    <label htmlFor={'img' + inmueble.id }><img src={ urlBaseBackend + '/assets/inmuebles/' + image } alt ="Subir foto" title ="Subir foto" /> </label>
+                    <input type="file" id={'img' + inmueble.id } accept="image/*" />
+                  </div>
+                )})
+              }
+              {/* <input type="file" id="picInmueble" accept="image/*" className='col-sm-1' multiple></input> */}
             </div>
           ))
         }

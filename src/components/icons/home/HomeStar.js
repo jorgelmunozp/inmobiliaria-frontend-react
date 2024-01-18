@@ -1,7 +1,7 @@
-export const HomeStar = ({ strokeWidth='2', width='1', height='1'}) => {
+export const HomeStar = ({ color="currentColor", strokeWidth='2', width='1', height='1'}) => {
     return (
         <span>
-            <svg stroke="currentColor" fill="none" strokeWidth={strokeWidth} viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height={height + 'em'} width={width + 'em'} xmlns="http://www.w3.org/2000/svg">
+            <svg stroke={color} fill="none" strokeWidth={strokeWidth} viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height={height + 'em'} width={width + 'em'} xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.258 10.258l-7.258 -7.258l-9 9h2v7a2 2 0 0 0 2 2h4"></path>
                 <path d="M9 21v-6a2 2 0 0 1 2 -2h1.5"></path>
                 <g stroke="#546E7A" fill="#546E7A">

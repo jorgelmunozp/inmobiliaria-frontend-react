@@ -1,7 +1,7 @@
-export const SortUpNum = ({ strokeWidth='0', width='1', height='1'}) => {
+export const SortUpNum = ({ color="currentColor", strokeWidth='0', width='1', height='1'}) => {
     return(
         <span>
-            <svg stroke="currentColor" fill="currentColor" strokeWidth={strokeWidth} version="1" viewBox="0 0 48 48" enableBackground="new 0 0 48 48" height={height + 'em'} width={width + 'em'} xmlns="http://www.w3.org/2000/svg">
+            <svg stroke={color} fill={color} strokeWidth={strokeWidth} version="1" viewBox="0 0 48 48" enableBackground="new 0 0 48 48" height={height + 'em'} width={width + 'em'} xmlns="http://www.w3.org/2000/svg">
                 <polygon fill="#546E7A" points="38,33 38,5 34,5 34,33 28,33 36,43 44,33"></polygon>
                 <g fill="#5285c5">
                     <path d="M16.4,20h-3V8.6L9.9,9.7V7.3L16,5.1h0.3V20z"></path>

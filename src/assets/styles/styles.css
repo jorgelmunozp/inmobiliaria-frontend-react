@@ -112,7 +112,5 @@ hr { opacity: 0.1; }
 .btn-main { background-color: var(--main-color); }
 
 /***** STOCK SCREEN *****/
-/* .inputImage { width: 8vmin;} */
 .image-upload > input { display: none; }
-.image-upload img { width: 5vmin; cursor: pointer; }
-/* .numberStock { opacity: 1; } */
+.image-upload img { width: 2rem; cursor: pointer; }

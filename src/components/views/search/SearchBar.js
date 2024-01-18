@@ -15,10 +15,10 @@ export const SearchBar = ({ queryName,queryCategory,queryType,queryValueMin,quer
         <Dropdown placeholder={'Tipo negocio'} query={queryType} parameters={tipos} setQuery={setQueryType} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"} />
       </li>
       <li className='list-group-item border-white'>
-        <InputNumber placeholder={'Precio desde'} value={queryValueMin} name={'searchValueMin'} onInputChange={(values) => setQueryValueMin(values.formattedValue.replace('$ ','').split(',').join(''))} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'} />
+        <InputNumber prefix={ '$ ' } id={'Precio desde'} placeholder={'Precio desde'} value={queryValueMin} name={'searchValueMin'} onInputChange={(values) => setQueryValueMin(values.formattedValue.replace('$ ','').split(',').join(''))} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'} />
       </li>
       <li className='list-group-item border-white'>
-        <InputNumber placeholder={'Precio hasta'} value={queryValueMax} name={'searchValueMax'} onInputChange={(values) => setQueryValueMax(values.formattedValue.replace('$ ','').split(',').join(''))} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'} />
+        <InputNumber prefix={ '$ ' } id={'Precio hasta'} placeholder={'Precio hasta'} value={queryValueMax} name={'searchValueMax'} onInputChange={(values) => setQueryValueMax(values.formattedValue.replace('$ ','').split(',').join(''))} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'} />
       </li>
     </ul> 
   )
