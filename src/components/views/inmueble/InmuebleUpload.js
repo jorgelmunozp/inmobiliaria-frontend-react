@@ -21,6 +21,7 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
   const [ neighborhood, setNeighborhood ] = useState("");
   const [ stratum, setStratum ] = useState("");
   const [ status, setStatus ] = useState("");
+  const [ images, setImages ] = useState([]); 
 
   console.log("code: ",code)
   console.log("image: ",image)
@@ -38,22 +39,12 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
   console.log("stratum: ",stratum)
   console.log("status: ",status)
 
-  const HandleChangeImage = (event) => { 
-    const imageInput = document.getElementById('formImage').files[0];
-    console.log("imageInput: ", imageInput)
-  };
-
   return (
     <>
       <hr />
       <center><h5>Subir Inmueble</h5></center> 
       <hr />
       <div className="container">
-      {/* <div className='image-upload img-thumbnail text-center'>
-          <label htmlFor='img'><HomeThumbnail color={'#aaaaaa'} height={4} width={4} /> </label>
-          <input type="file" id='img' accept="image/*"/>
-      </div> */}
-
         <div className='row'>
           <div className='col'>
             <InputNumber placeholder={'Código'} id={'codigo'} value={code} disabled onInputChange={(values) => setCode(values.value)} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'}/>
@@ -62,8 +53,7 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
 
         <div className='row'>
           <div className="col">
-            {/* <input className="form-control" type="file" id="formImage" accept="image/*" onChange={() => setImage(document.getElementById('formImage').files[0]) }/> */}
-            <InputFile id={'input-image'} placeholder={'Imagen'} acceptFiles={"image/*"} setFile={setImage} className="input form-control border-muted text-muted shadow-sm"/>
+            <InputFile id={'input-image'} placeholder={'Imagen'} acceptFiles={"image/*"} file={image} setFile={setImage} className="input form-control border-muted text-muted shadow-sm"/>
           </div>
         </div>
         <div className='row'>
@@ -124,6 +114,11 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
         <div className='row'>
           <div className='col'>
             <InputNumber placeholder={'Estrato'} id={'estrato'} value={stratum} onInputChange={(values) => setStratum(values.value)} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'}/>
+          </div>
+        </div>
+        <div className='row'>
+          <div className="col">
+            <InputFile id={'input-image'} placeholder={'Imagenes'} acceptFiles={"image/*"} file={images} setFile={setImages} className="input form-control border-muted text-muted shadow-sm"/>
           </div>
         </div>
 
