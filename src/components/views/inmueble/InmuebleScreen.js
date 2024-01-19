@@ -74,9 +74,10 @@ export const InmuebleScreen = ({ inmuebles }) => {
         </ul>
         <h5 className='mt-3'>Localización</h5>
         <ul className='list-group list-group-horizontal-sm'>
-          <li className='list-group-item fw-bolder border-white'>Ciudad: <span className='text-muted'>{ detalle.ciudad }</span></li>
           <li className='list-group-item fw-bolder border-white'>Zona/Barrio: <span className='text-muted'>{ detalle.sector }</span></li>
           <li className='list-group-item fw-bolder border-white'>Estrato: <span className='text-muted'>{ detalle.estrato }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Ciudad: <span className='text-muted'>{ detalle.ciudad }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Departamento: <span className='text-muted'>{ detalle.departamento }</span></li>
         </ul>
         <ul className='list-group list-group-horizontal-sm'>
            <li className='list-group-item fw-bolder border-white'>Ubicación: { detalle.ubicacion }</li>

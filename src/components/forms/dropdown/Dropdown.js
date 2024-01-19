@@ -1,6 +1,8 @@
-export const Dropdown = ({ placeholder,query,parameters,setQuery,className }) => {
+export const Dropdown = ({ placeholder,query,parameters,setQuery,defaultSelect='',className }) => {
     const class1 = ' dropdown-toggle text-start pt-2 ps-2 ps-sm-3 pe-5 w-100';
     const class2 = ' dropdown-toggle text-center pt-4 ps-2 ps-sm-3 pe-5 w-100';
+
+    if( defaultSelect && !query ) { query = defaultSelect; setQuery(defaultSelect) }
 
     return(
       <div className="dropdown form-floating w-100 min-width-10">

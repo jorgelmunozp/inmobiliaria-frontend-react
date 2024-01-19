@@ -28,6 +28,8 @@ export const AppRouter = () => {
   const tipos = useFetch(urlApiTipos).data;
   const urlApiEstados = process.env.REACT_APP_API_ESTADOS;
   const estados = useFetch(urlApiEstados).data;
+  const urlApiCaracteristicas = process.env.REACT_APP_API_CARACTERISTICAS;
+  const caracteristicas = useFetch(urlApiCaracteristicas).data;
 
   return (
     <BrowserRouter>
@@ -91,7 +93,7 @@ export const AppRouter = () => {
 
             <Route path={urlBaseFrontend + "/upload"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <InmuebleUpload inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} urlBaseFrontend={urlBaseFrontend} categorias={categorias} tipos={tipos} estados={estados}/>
+                  <InmuebleUpload inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} urlBaseFrontend={urlBaseFrontend} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas}/>
               </PrivateRoute>
           } />
 
@@ -130,7 +132,7 @@ export const AppRouter = () => {
 
           <Route path={"/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <DashboardRoutes urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados}/>
+                  <DashboardRoutes urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas}/>
               </PrivateRoute>
           } />
 
