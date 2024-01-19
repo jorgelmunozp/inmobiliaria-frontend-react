@@ -179,7 +179,7 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
         </div>
         <div className='row'>
           <div className='col my-2'>
-            <InputTextArea id={'descripcion'} placeholder={'Descripción'} inputText={description} onInputChange={(values) => setDescription(values.target.value)} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 pt-4 pb-5 shadow-sm w-100'}/>
+            <InputTextArea id={'descripcion'} placeholder={'Descripción'} inputText={description} onInputChange={(values) => setDescription(values.target.value)} rows={3} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 pt-4 pb-5 h-auto shadow-sm w-100'}/>
           </div>
         </div>
         <div className='row'>
