@@ -1,6 +1,6 @@
-import { SortUpAlpha } from "../icons/sort/SortUpAlpha";
-import { SortUpNum } from '../icons/sort/SortUpNum';
-import { SortDownNum } from '../icons/sort/SortDownNum';
+import { SortUpAlpha } from "../../icons/sort/SortUpAlpha";
+import { SortUpNum } from '../../icons/sort/SortUpNum';
+import { SortDownNum } from '../../icons/sort/SortDownNum';
 
 export const SortingBar = ({ setSortBy }) => {
   return (

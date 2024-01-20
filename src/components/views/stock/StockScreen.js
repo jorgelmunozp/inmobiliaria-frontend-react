@@ -20,7 +20,7 @@ import { fetchUpdate } from '../../../helpers/fetchUpdate';
 import { InputText } from '../../forms/inputs/InputText';
 import { getInmuebleById } from '../../../selectors/getInmuebleById';
 import { getInmueblesByName} from '../../../selectors/getInmueblesByName';
-import { PaginationBar } from '../../pagination/PaginationBar';
+import { PaginationBar } from '../../bars/pagination/PaginationBar';
 import { Arrows } from '../../forms/arrows/Arrows';
 
 export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {

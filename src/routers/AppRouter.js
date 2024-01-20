@@ -3,7 +3,7 @@ import { useFetch } from '../hooks/useFetch';
 import { DashboardRoutes } from "./DashboardRoutes";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
-import { Navbar } from "../components/menu/Navbar";
+import { NavBar } from "../components/bars/menu/NavBar";
 import { IndexScreen } from '../components/views/index/IndexScreen';
 import { LoginScreen } from "../components/login/LoginScreen";
 import { ApartamentosScreen } from "../components/views/apartamentos/ApartamentosScreen";
@@ -30,10 +30,12 @@ export const AppRouter = () => {
   const estados = useFetch(urlApiEstados).data;
   const urlApiCaracteristicas = process.env.REACT_APP_API_CARACTERISTICAS;
   const caracteristicas = useFetch(urlApiCaracteristicas).data;
-
+  const urlApiCountries = process.env.REACT_APP_API_COUNTRIES;
+  const countries = useFetch(urlApiCountries).data;
+ 
   return (
     <BrowserRouter>
-      <Navbar urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
+      <NavBar urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
 
       <div className="container user-select-none">
         <Routes>
@@ -93,7 +95,7 @@ export const AppRouter = () => {
 
             <Route path={urlBaseFrontend + "/upload"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <InmuebleUpload inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} urlBaseFrontend={urlBaseFrontend} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas}/>
+                  <InmuebleUpload inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} urlBaseFrontend={urlBaseFrontend} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/>
               </PrivateRoute>
           } />
 
@@ -132,7 +134,7 @@ export const AppRouter = () => {
 
           <Route path={"/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <DashboardRoutes urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas}/>
+                  <DashboardRoutes urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/>
               </PrivateRoute>
           } />
 

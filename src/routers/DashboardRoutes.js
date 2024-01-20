@@ -4,14 +4,14 @@ import { HomeScreen } from "../components/views/home/HomeScreen";
 import { InmuebleUpload } from '../components/views/inmueble/InmuebleUpload';
 import { StockScreen } from "../components/views/stock/StockScreen";
 
-export const DashboardRoutes = ({ urlBaseFrontend, urlApiInmuebles, categorias, tipos, estados, caracteristicas }) => {
+export const DashboardRoutes = ({ urlBaseFrontend, urlApiInmuebles, categorias, tipos, estados, caracteristicas, paises }) => {
   const inmuebles = useFetch(urlApiInmuebles).data;
 
   return (
     <div className="container user-select-none">
       <Routes>
           <Route path={urlBaseFrontend + "/home"} element={<HomeScreen inmuebles={inmuebles} />} />
-          <Route path={urlBaseFrontend + "/upload"} element={<InmuebleUpload inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} urlBaseFrontend={urlBaseFrontend} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas}/>} />
+          <Route path={urlBaseFrontend + "/upload"} element={<InmuebleUpload inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} urlBaseFrontend={urlBaseFrontend} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={paises}/>} />
           <Route path={urlBaseFrontend + "/stock"} element={<StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} />} />
           <Route path={urlBaseFrontend + "/inventario"} element={<StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} />} />
           {/* <Route path={"/" + urlBaseFrontend} element={<HomeScreen inmuebles={inmuebles} />} /> */}

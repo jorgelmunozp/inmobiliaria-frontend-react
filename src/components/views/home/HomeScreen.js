@@ -3,26 +3,15 @@ import { getInmueblesByName } from '../../../selectors/getInmueblesByName';
 import { InmuebleList } from '../inmueble/InmuebleList';
 import { InputText } from '../../forms/inputs/InputText';
 import { Equis } from '../../icons/equis/Equis';
-import { WhiteLine } from '../../forms/whiteline/WhiteLine';
-
-import { Logo } from '../../icons/logo/Logo';
 
 export const HomeScreen = ({ inmuebles }) => {
   let [ queryName, setQueryName ] = useState('');                     // Query
-
   const inmueblesFiltered = useMemo( () => getInmueblesByName(queryName,inmuebles), [queryName,inmuebles] );
   
   return (
     <>
-      <WhiteLine />
-      <center>
-        <div className='header flex-nowrap'>
-          <Logo strokeWidth={1} height={6} width={6} /><h1>La Inmobiliaria</h1>
-          <WhiteLine />
-        </div>
-      </center>
       <hr />
-      <center><h5>Inmuebles</h5></center> 
+      <center><h5>Todos los Inmuebles</h5></center> 
       <hr />
       <div className='row'>
         <p>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { InmuebleCard } from './InmuebleCard';
-import { PaginationBar } from '../../pagination/PaginationBar';
-import { SortingBar } from '../../sort/SortingBar';
+import { PaginationBar } from '../../bars/pagination/PaginationBar';
+import { SortingBar } from '../../bars/sort/SortingBar';
 import { WhiteLine } from '../../forms/whiteline/WhiteLine';
 
 export const InmuebleList = ({ inmuebles }) => {

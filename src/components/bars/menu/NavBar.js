@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../auth/authContext';
-import { types } from '../../types/types';
-import { Logo } from '../icons/logo/Logo';
-import { Category } from '../icons/category/Category';
-import { HomeMenu } from '../icons/home/HomeMenu';
-import { HomePlus } from '../icons/home/HomePlus';
-import { HomeSimple } from '../icons/home/HomeSimple';
-import { HomeWarehouse } from '../icons/home/HomeWarehouse';
+import { AuthContext } from '../../../auth/authContext';
+import { types } from '../../../types/types';
+import { Logo } from '../../icons/logo/Logo';
+import { Category } from '../../icons/category/Category';
+import { HomeMenu } from '../../icons/home/HomeMenu';
+import { HomePlus } from '../../icons/home/HomePlus';
+import { HomeSimple } from '../../icons/home/HomeSimple';
+import { HomeWarehouse } from '../../icons/home/HomeWarehouse';
 
-export const Navbar = ({ urlBaseFrontend, myColor, myTitle }) => {
+export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
 
     const { user, dispatch } = useContext(AuthContext);
     const navigate = useNavigate();

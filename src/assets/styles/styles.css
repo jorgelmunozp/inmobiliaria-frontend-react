@@ -33,6 +33,7 @@ hr { opacity: 0.1; }
 
 .main-color { color: var(--main-color)!important; }
 .bg-main-color { background-color: var(--main-color) !important; }
+.bg-main-color:hover { background-color: var(--dark-color) !important; }
 .bg-main-transparent-color { background-color: var(--main-transparent-color)!important; }
 .dark-color-hover:hover { color: var(--dark-color) !important; }
 .red-color { color: var(--red-color)!important; }

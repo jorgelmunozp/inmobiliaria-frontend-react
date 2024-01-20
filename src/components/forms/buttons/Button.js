@@ -1,4 +1,4 @@
-export const Button = ({ className, icon='', title='Button', type, onClick, style }) => {
+export const Button = ({ icon='',title='Button',type,onClick,style,className }) => {
     return (
       <button
         className={

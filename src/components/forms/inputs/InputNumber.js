@@ -8,7 +8,7 @@ export const InputNumber = ({ prefix='',id,value,name,onInputChange,placeholder,
                 <NumericFormat value={ value } name={ name } placeholder={ placeholder } type='search' 
                     onValueChange={ (values)=> onInputChange(values) } id={ id }
                     prefix={ prefix } thousandSeparator={ true } autoComplete='off'
-                    className={className + ' pt-4'} disabled={ disabled } />         
+                    className={className + ' pt-4'} disabled={ disabled } allowNegative={false} />         
                 <label htmlFor={ id } className="form-label text-muted text-nowrap text-truncate" >{ placeholder} </label>
             </div>
         </>
