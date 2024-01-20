@@ -90,33 +90,33 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
   console.log("image: ", image)
   console.log("image.name: ", image.name)
 
-  const [imageData, setImageData] = useState({
-    base64textString: '',
-    imageName: '',
-    showImage: false,
-  });
+  // const [imageData, setImageData] = useState({
+  //   base64textString: '',
+  //   imageName: '',
+  //   showImage: false,
+  // });
 
-  const reader = new FileReader();
-  useCallback((image) => {
-    if (image) {
-      reader.readAsDataURL(image)
-    }
-  })
-  reader.onload = () => {
-    setImageData({
-      base64textString: reader.result,
-      imageName: image.name,
-      showImage: true,
-    });
-  };
+  // const reader = new FileReader();
+  // useCallback((image) => {
+  //   if (image) {
+  //     reader.readAsDataURL(image)
+  //   }
+  // })
+  // reader.onload = () => {
+  //   setImageData({
+  //     base64textString: reader.result,
+  //     imageName: image.name,
+  //     showImage: true,
+  //   });
+  // };
 
-  reader.onerror = (error) => {
-    console.log('Error: ', error);
-  };
+  // reader.onerror = (error) => {
+  //   console.log('Error: ', error);
+  // };
 
-  console.log("reader: ", reader)
-  console.log("reader.readyState: ", reader.readyState)
-  console.log("reader.result: ", reader.result)
+  // console.log("reader: ", reader)
+  // console.log("reader.readyState: ", reader.readyState)
+  // console.log("reader.result: ", reader.result)
 
 
   if(name!=="" && image!=="" && category!=="" && type!=="" && rooms!=="" && bathrooms!=="" && garages!=="" && area!=="" && value!=="" && description!=="" && city!=="" && neighborhood!=="" && stratum!=="" && status!=="") { 
