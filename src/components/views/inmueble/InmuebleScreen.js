@@ -1,34 +1,31 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { useParams, Navigate, useNavigate} from 'react-router-dom'
 import { getInmuebleById } from '../../../selectors/getInmuebleById';
 import { formatterPeso } from '../../../helpers/formatterPeso';
 
 export const InmuebleScreen = ({ inmuebles }) => {
-
   const { inmuebleId } = useParams();
   const inmueble = useMemo( () => getInmuebleById(inmuebleId,inmuebles),[ inmuebleId,inmuebles ] );
 
   const navigate = useNavigate();
   const handleReturn = () => { navigate( -1 ); }
-  if(!inmueble) { return <Navigate to='/' /> };
 
+  if(!inmueble) { return <Navigate to='/' /> };
   const { id,detalle } = inmueble;
   
-  const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
-  const picInmueble = id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '-0.jpg';
-
   return (
     <div className='row mt-5'>
 
       <div id="slider" className="carousel slide" data-bs-ride="carousel">        {/* <!-- Carousel --> */}
         <div className="carousel-inner">                                          {/* <!-- The slideshow/carousel --> */}
           <div className="carousel-item active">
-            <img src={ urlBaseBackend + "/assets/inmuebles/" + picInmueble } alt="Los Angeles" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
+            {/* <img src={ urlBaseBackend + "/assets/inmuebles/" + picInmueble } alt="Los Angeles" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" /> */}
+            <img src={ detalle.imagen.data } alt="Foto" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
           </div>
         {
-          detalle.images.map(inmueble => (
+          detalle.images.map(image => (
             <div className="carousel-item">
-              <img src={ urlBaseBackend + "/assets/inmuebles/" + inmueble } key={inmueble} alt={inmueble} className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
+              <img src={ image.data } key={image} alt={image} className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
             </div>            
           ))
         }

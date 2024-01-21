@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { formatterPeso } from '../../../helpers/formatterPeso';
 
@@ -7,8 +6,7 @@ import { Bed } from '../../icons/bed/Bed';
 import { Bath } from '../../icons/bath/Bath';
 import { Area } from '../../icons/area/Area';
 
-export const InmuebleCard = ({ id,detalle,urlBaseBackend,urlBaseFrontend }) => {
-    const namePicInmueble = urlBaseBackend + '/assets/inmuebles/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '-0.jpg';
+export const InmuebleCard = ({ id,detalle,urlBaseFrontend }) => {
     const linkInmueble = '/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '/';
     
     return (
@@ -17,7 +15,7 @@ export const InmuebleCard = ({ id,detalle,urlBaseBackend,urlBaseFrontend }) => {
                 <div className='card shadow'>
                     <div className='row no-gutters'>
                         <div>
-                            <img src={ namePicInmueble }  className='card-img' alt={ detalle.nombre } />
+                            <img src={ detalle.imagen.data }  className='card-img' alt={ detalle.nombre } />
                             <div className='card-body px-3'>
                                 <small className='text-muted fw-bolder'>{ detalle.categoria }</small>
                                 <h6 className='card-title text-truncate'>{ detalle.nombre }</h6>

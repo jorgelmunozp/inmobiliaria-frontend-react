@@ -24,7 +24,6 @@ import { PaginationBar } from '../../bars/pagination/PaginationBar';
 import { Arrows } from '../../forms/arrows/Arrows';
 
 export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
-  const urlBaseBackend = process.env.REACT_APP_URL_BASE_BACKEND;
   const iconSize = 1.5;
 
   /* Query */
@@ -56,6 +55,22 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   }
   const [activePages, setActivePages] = useState(activePage);         // [true,false,false,false]
   
+    // Convert image -> image base 64
+    const [ image, setImage ] = useState('');
+    const [imageData, setImageData] = useState({
+      data: '',
+      name: ''
+    });
+    const reader = new FileReader();
+    if (image) { reader.readAsDataURL(image) }
+    reader.onload = () => {
+      setImageData({
+        data: reader.result,
+        name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-0." + image.name.split('.')[1]
+      });
+    };
+    reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
+    
   /* Update Stock */
   const [ name, setName ] = useState("");
   const [ category, setCategory ] = useState("");
@@ -225,7 +240,7 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
             <div className='row flex-nowrap' key={inmueble.id}>
               <span className='col-4 col-sm-2 py-1 border text-center'> { inmueble.id } </span>
               <div className='image-upload col-auto px-1 border text-center'>
-                  <label htmlFor={'img' + inmueble.id }><img src={ urlBaseBackend + '/assets/inmuebles/' + inmueble.detalle.imagen } alt ="Subir foto" title ="Subir foto" /> </label>
+                  <label htmlFor={'img' + inmueble.id }><img src={ inmueble.detalle.imagen.data } alt ="Subir foto" title ="Subir foto" /> </label>
                   <input type="file" id={'img' + inmueble.id } accept="image/*"/>
               </div>
               <input defaultValue={ inmueble.detalle.nombre } id={ 'name-' + inmueble.id } onChange={handleChangeName} type='text' autoComplete='off' className='col-7 col-sm-2 py-1 border text-center' />
@@ -244,7 +259,7 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
               {
                 inmueble.detalle.images.map((image) => { return(
                   <div key={image} className='image-upload col-auto px-1 border text-center'>
-                    <label htmlFor={'img' + inmueble.id }><img src={ urlBaseBackend + '/assets/inmuebles/' + image } alt ="Subir foto" title ="Subir foto" /> </label>
+                    <label htmlFor={'img' + inmueble.id }><img src={ image.data } alt ="Foto" title ="Foto" /> </label>
                     <input type="file" id={'img' + inmueble.id } accept="image/*" />
                   </div>
                 )})

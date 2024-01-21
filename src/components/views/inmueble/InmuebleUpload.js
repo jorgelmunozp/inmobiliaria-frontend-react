@@ -15,7 +15,7 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
   let createFlag = false;
   const [responseStatus, setResponseStatus] = useState(0);
 
-  const [ image, setImage ] = useState(''); 
+  const [ image, setImage ] = useState('');
   const [ status, setStatus ] = useState("");
   const [ type, setType ] = useState(''); 
   const [ category, setCategory ] = useState(''); 
@@ -35,6 +35,7 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
   const [ description, setDescription ] = useState("");
   const [ characteristic, setCharacteristic ] = useState("");
 
+  // Inmueble description
   let descriptionInmueble = myTitle 
              + ( type.toLocaleLowerCase() === "arriendo" ? " arrienda " : (type.toLocaleLowerCase() === "venta" ? " vende " : "")  )
              + ( characteristic.toLocaleLowerCase() )
@@ -52,6 +53,7 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
              + ( value ? "Su valor es " + formatterPeso.format(value) + (type.toLocaleLowerCase() === "arriendo" ? " mensual. " : ". ") : "" )
             ;
 
+  // Change last character @ from the characteristics
   useEffect(() => {
     if( characteristics.lastIndexOf('@') !== -1 ) {
       if( category.toLocaleLowerCase() === "apartamento" ) {
@@ -65,10 +67,28 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
     setDescription(descriptionInmueble);
   });
 
+  // Convert image -> image base 64
+  const [imageData, setImageData] = useState({
+    data: '',
+    name: ''
+  });
+  const reader = new FileReader();
+  if (image) { reader.readAsDataURL(image) }
+  reader.onload = () => {
+    setImageData({
+      data: reader.result,
+      name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-0." + image.name.split('.')[1]
+    });
+  };
+  reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
+
+  console.log("imagen: ",imageData)
+
+  // Query body for POST
   const dataInmueble = `{
     "detalle": {
       "nombre": "${name}",
-      "imagen": "${image}",
+      "imagen": ${JSON.stringify(imageData)},
       "categoria": "${category}",
       "tipo": "${type}",
       "habitaciones": "${rooms}",
@@ -83,46 +103,16 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
       "sector": "${neighborhood}",
       "estrato": "${stratum}",
       "estado": "${status}",
-      "images": "${images}"
+      "images": [${images}]
     }
   }`
-
-  console.log("image: ", image)
-  console.log("image.name: ", image.name)
-
-  // const [imageData, setImageData] = useState({
-  //   base64textString: '',
-  //   imageName: '',
-  //   showImage: false,
-  // });
-
-  // const reader = new FileReader();
-  // useCallback((image) => {
-  //   if (image) {
-  //     reader.readAsDataURL(image)
-  //   }
-  // })
-  // reader.onload = () => {
-  //   setImageData({
-  //     base64textString: reader.result,
-  //     imageName: image.name,
-  //     showImage: true,
-  //   });
-  // };
-
-  // reader.onerror = (error) => {
-  //   console.log('Error: ', error);
-  // };
-
-  // console.log("reader: ", reader)
-  // console.log("reader.readyState: ", reader.readyState)
-  // console.log("reader.result: ", reader.result)
-
-
+  
+  // Create flag for POST
   if(name!=="" && image!=="" && category!=="" && type!=="" && rooms!=="" && bathrooms!=="" && garages!=="" && area!=="" && value!=="" && description!=="" && city!=="" && neighborhood!=="" && stratum!=="" && status!=="") { 
     createFlag = true; 
   }
 
+  // POST response
   if(200 <= responseStatus && responseStatus <= 299){
     setResponseStatus(0);
     Swal.fire({
@@ -170,7 +160,7 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
   return (
     <>
       <hr />
-      <center><h5>Subir Inmueble</h5></center> 
+      <center><h5>Subir Inmueble</h5></center>
       <hr />
       <center><HomeThumbnail color={'#aaaaaa'} height={2} width={2} /></center>
       <div className="container mt-3">
