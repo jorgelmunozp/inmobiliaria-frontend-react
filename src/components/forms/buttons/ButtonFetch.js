@@ -11,7 +11,7 @@ export const ButtonFetch = ({ color,icon,title,urlApi,contenidoApi,setResponseSt
                                 ? fetchCreate(urlApi,contenidoApi,setResponseStatus,createFlag)
                                 : Swal.fire({
                                   title: "Aún no",
-                                  text: "Debes llenar primero todos los campos",
+                                  text: "Debes completar primero todos los campos",
                                   icon: "warning",
                                   confirmButtonColor: myColor,
                                 })

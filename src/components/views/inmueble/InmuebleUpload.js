@@ -127,8 +127,8 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
       "estado": "${status}",
       "images": ${JSON.stringify(imagesData)}
     }
-  }`
-  
+  }`;
+
   // Create flag for POST
   if(name!=="" && image!=="" && category!=="" && type!=="" && rooms!=="" && bathrooms!=="" && garages!=="" && area!=="" && value!=="" && description!=="" && city!=="" && neighborhood!=="" && stratum!=="" && status!=="") { 
     createFlag = true; 
