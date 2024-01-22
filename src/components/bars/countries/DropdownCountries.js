@@ -17,10 +17,10 @@ export const DropdownCountries = ({ placeholder,query,setQuery,parameters,defaul
         { query.length === 0 ? '' : placeholder }
       </label>
 
-      <ul className={"dropdown-menu text-center shadow-sm w-100 overflow-scroll" + (query.length === 0 ? ' visible' : ' hidden')} aria-labelledby="dropdownMenuButton">
+      <ul className={"dropdown-menu text-center shadow-sm w-100 overflow-auto " + (query.length === 0 ? "visible" : " hidden")} style={ parameters.length === 0 ? {"maxHeight":"0rem"} : {"maxHeight":"12rem"} } aria-labelledby="dropdownMenuButton">
         {
-          parameters.map((parameters) => {
-            return (<li key={ JSON.stringify(parameters) }><button className="dropdown-item" value={ parameters.name } onClick={ (e) => setQuery(e.target.value) }>{ parameters.name }</button></li>);
+          parameters.map((parameter) => {
+            return (<li key={ JSON.stringify(parameter) }><button className="dropdown-item" value={ parameter.name } onClick={ (e) => setQuery(e.target.value) }>{ parameter.name }</button></li>);
           })
         }
       </ul>

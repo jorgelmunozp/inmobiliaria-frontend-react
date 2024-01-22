@@ -17,9 +17,9 @@ export const Dropdown = ({ placeholder,query,parameters,setQuery,defaultSelect='
         { query.length === 0 ? '' : placeholder }
       </label>
 
-      <ul className={"dropdown-menu text-center shadow-sm w-100" + (query.length === 0 ? ' visible' : ' hidden')} aria-labelledby="dropdownMenuButton">
-        { parameters.map((parameters) => {
-          return (<li key={ JSON.stringify(parameters) }><button className="dropdown-item" value={ parameters.parameter } onClick={ (e) => setQuery(e.target.value) }>{ parameters.parameter }</button></li>);
+      <ul className={"dropdown-menu text-center shadow-sm w-100 overflow-auto " + (query.length === 0 ? " visible" : " hidden")} style={ parameters.length === 0 ? {"maxHeight":"0rem"} : {"maxHeight":"12rem"} } aria-labelledby="dropdownMenuButton">
+        { parameters.map((parameter) => {
+          return (<li key={ JSON.stringify(parameter) }><button className="dropdown-item" value={ parameter.parameter } onClick={ (e) => setQuery(e.target.value) }>{ parameter.parameter }</button></li>);
         })}
       </ul>
     </div>

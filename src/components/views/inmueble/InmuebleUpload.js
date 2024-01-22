@@ -69,15 +69,15 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
 
   // Convert image -> image base 64
   const [imageData, setImageData] = useState({
-    data: '',
-    name: ''
+    name: '',
+    data: ''
   });
   const reader = new FileReader();
   if (image) { reader.readAsDataURL(image) }
   reader.onload = () => {
     setImageData({
-      data: reader.result,
-      name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-0." + image.name.split('.')[1]
+      name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-0." + image.name.split('.')[1],
+      data: reader.result
     });
   };
   reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
@@ -164,7 +164,7 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
       <div className="container border mt-3 mb-2 shadow-sm">
         <div className='row d-block d-sm-flex'>
           <div className="col col-sm-4 my-2">
-            <InputFile id={'image-primary'} placeholder={'Imagen'} iconSize={7.5} iconStrokeWidth={0.75} multiple={false} acceptFiles={"image/*"} file={image} setFile={setImage} className="input form-control border-muted text-muted shadow-sm"/>
+            <InputFile id={'image-primary'} placeholder={'Imagen'} iconSize={7.5} iconStrokeWidth={0.5} multiple={false} acceptFiles={"image/*"} file={image} setFile={setImage} className="input form-control border-muted text-muted shadow-sm"/>
           </div>
           <div className='col'>
             <div className='row d-block d-sm-flex'>
@@ -225,7 +225,7 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
         </div>
         <div className='row'>
           <div className="col my-2">
-            <InputFile id={'images-secondary'} placeholder={'Imágenes'} iconSize={2.5} iconStrokeWidth={1.5} multiple={true} acceptFiles={"image/*"} file={images} setFile={setImages} className="input form-control border-muted text-muted shadow-sm"/>
+            <InputFile id={'images-secondary'} placeholder={'Imágenes'} iconSize={2.5} iconStrokeWidth={1.25} multiple={true} acceptFiles={"image/*"} file={images} setFile={setImages} className="input form-control border-muted text-muted shadow-sm"/>
           </div>
         </div>
         <div className='row'>
