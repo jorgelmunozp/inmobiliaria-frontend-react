@@ -95,7 +95,7 @@ export const AppRouter = () => {
 
             <Route path={urlBaseFrontend + "/upload"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <InmuebleUpload inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} urlBaseFrontend={urlBaseFrontend} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/>
+                  <InmuebleUpload urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/>
               </PrivateRoute>
           } />
 
@@ -109,6 +109,12 @@ export const AppRouter = () => {
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles}/>
               </PrivateRoute>
+          } />
+
+          <Route path={urlBaseFrontend + "/:inmuebleId"} element={
+            <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
+              <InmuebleScreen inmuebles={inmuebles} />
+            </PrivateRoute>
           } />
 
           <Route path={urlBaseFrontend + "/*"} element={

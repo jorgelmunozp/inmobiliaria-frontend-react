@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { CountriesBar } from '../../bars/countries/CountriesBar';
 import { ButtonFetch } from '../../forms/buttons/ButtonFetch';
 import { Dropdown } from '../../forms/dropdown/Dropdown';
@@ -11,8 +11,8 @@ import { myTitle, myColor } from '../../../global';
 import { formatterPeso } from '../../../helpers/formatterPeso';
 import Swal from 'sweetalert2';
 
-export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, categorias, tipos, estados, caracteristicas, paises }) => {
-  let createFlag = false;
+export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, caracteristicas, paises }) => {
+    let createFlag = false;
   const [responseStatus, setResponseStatus] = useState(0);
 
   const [ image, setImage ] = useState('');
@@ -81,8 +81,6 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
     });
   };
   reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
-
-  console.log("imagen: ",imageData)
 
   // Query body for POST
   const dataInmueble = `{
@@ -163,35 +161,41 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
       <center><h5>Subir Inmueble</h5></center>
       <hr />
       <center><HomeThumbnail color={'#aaaaaa'} height={2} width={2} /></center>
-      <div className="container mt-3">
+      <div className="container border mt-3 mb-2 shadow-sm">
         <div className='row d-block d-sm-flex'>
-          <div className="col my-2">
-            <InputFile id={'image-primary'} placeholder={'Imagen'} multiple={false} acceptFiles={"image/*"} file={image} setFile={setImage} className="input form-control border-muted text-muted shadow-sm"/>
+          <div className="col col-sm-4 my-2">
+            <InputFile id={'image-primary'} placeholder={'Imagen'} iconSize={7.5} iconStrokeWidth={0.75} multiple={false} acceptFiles={"image/*"} file={image} setFile={setImage} className="input form-control border-muted text-muted shadow-sm"/>
           </div>
-          <div className='col my-2'>
-            <Dropdown placeholder={'Estado'} query={status} defaultSelect={'Disponible'} parameters={estados} setQuery={setStatus} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
-          </div>
-          <div className='col my-2'>
-            <Dropdown placeholder={'Tipo negocio'} query={type} parameters={tipos.slice(1,tipos.length)} setQuery={setType} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
-          </div>
-          <div className='col my-2'>
-            <Dropdown placeholder={'Categoría'} query={category} parameters={categorias.slice(1,categorias.length)} setQuery={setCategory} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
-          </div>
-          <div className='col my-2'>
-            <Dropdown placeholder={'Características'} query={characteristic} parameters={caracteristicas} setQuery={setCharacteristics} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
+          <div className='col'>
+            <div className='row d-block d-sm-flex'>
+              <div className='col my-2'>
+                <Dropdown placeholder={'Estado'} query={status} defaultSelect={'Disponible'} parameters={estados} setQuery={setStatus} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
+              </div>
+              <div className='col my-2'>
+                <Dropdown placeholder={'Tipo negocio'} query={type} parameters={tipos.slice(1,tipos.length)} setQuery={setType} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
+              </div>
+            </div>
+            <div className='row d-block d-sm-flex'>
+              <div className='col my-2'>
+                <Dropdown placeholder={'Categoría'} query={category} parameters={categorias.slice(1,categorias.length)} setQuery={setCategory} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
+              </div>
+              <div className='col my-2'>
+                <Dropdown placeholder={'Características'} query={characteristic} parameters={caracteristicas} setQuery={setCharacteristics} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
+              </div>
+            </div>
           </div>
         </div>
         <div className='row d-block d-sm-flex'>
           <div className='col my-2'>
             <InputText id={'nombre'} placeholder={'Nombre'} inputText={name} onInputChange={(values) => setName(values.target.value)} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'}/>
           </div>
-          <div className='col col-sm-3 my-2'>
+          <div className='col col-sm-4 my-2'>
             <InputText id={'sector'} placeholder={'Sector'} inputText={neighborhood} onInputChange={(values) => setNeighborhood(values.target.value)} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'}/>
           </div>
         </div>
         <div className='row d-block d-sm-flex'>
           <div className='col my-2'>
-            <CountriesBar parameters={paises} country={country} setCountry={setCountry} state={state} setState={setState} city={city} setCity={setCity} />
+            <CountriesBar countries={paises} country={country} setCountry={setCountry} state={state} setState={setState} city={city} setCity={setCity} />
           </div>
         </div>
         <div className='row d-block d-sm-flex'>
@@ -221,7 +225,7 @@ export const InmuebleUpload = ({ inmuebles, urlApiInmuebles, urlBaseFrontend, ca
         </div>
         <div className='row'>
           <div className="col my-2">
-            <InputFile id={'images-secondary'} placeholder={'Imágenes'} multiple={true} acceptFiles={"image/*"} file={images} setFile={setImages} className="input form-control border-muted text-muted shadow-sm"/>
+            <InputFile id={'images-secondary'} placeholder={'Imágenes'} iconSize={2.5} iconStrokeWidth={1.5} multiple={true} acceptFiles={"image/*"} file={images} setFile={setImages} className="input form-control border-muted text-muted shadow-sm"/>
           </div>
         </div>
         <div className='row'>

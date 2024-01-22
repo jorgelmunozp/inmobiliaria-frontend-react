@@ -12,23 +12,21 @@ export const InmuebleScreen = ({ inmuebles }) => {
 
   if(!inmueble) { return <Navigate to='/' /> };
   const { id,detalle } = inmueble;
-  
+
   return (
     <div className='row mt-5'>
-
       <div id="slider" className="carousel slide" data-bs-ride="carousel">        {/* <!-- Carousel --> */}
         <div className="carousel-inner">                                          {/* <!-- The slideshow/carousel --> */}
           <div className="carousel-item active">
-            {/* <img src={ urlBaseBackend + "/assets/inmuebles/" + picInmueble } alt="Los Angeles" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" /> */}
             <img src={ detalle.imagen.data } alt="Foto" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
           </div>
-        {
-          detalle.images.map(image => (
-            <div className="carousel-item">
-              <img src={ image.data } key={image} alt={image} className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
-            </div>            
-          ))
-        }
+          {
+            detalle.images.map(image => (
+              <div className="carousel-item" key={image.name}>
+                <img src={ image.data } id={image.name} key={image.name} alt={image.name} className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn" />
+              </div>            
+            ))
+          }
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">      {/* <!-- Left and right controls/icons --> */}
           <span className="carousel-control-prev-icon"></span>
@@ -39,8 +37,8 @@ export const InmuebleScreen = ({ inmuebles }) => {
         <div className="carousel-indicators">       {/* <!-- Indicators/dots --> */}
           <button type="button" data-bs-target="#slider" data-bs-slide-to={0} key={0} className="active"></button>
           {
-            detalle.images.map(i => (
-              <button type="button" data-bs-target="#slider" data-bs-slide-to={i.split('.')[0].split('-')[4]} key={i.split('.')[0].split('-')[4]}></button>
+            detalle.images.map((image,index) => (
+              <button type="button" data-bs-target="#slider" data-bs-slide-to={index + 1} key={index + 1}></button>
             ))
           }
         </div>
@@ -75,6 +73,7 @@ export const InmuebleScreen = ({ inmuebles }) => {
           <li className='list-group-item fw-bolder border-white'>Estrato: <span className='text-muted'>{ detalle.estrato }</span></li>
           <li className='list-group-item fw-bolder border-white'>Ciudad: <span className='text-muted'>{ detalle.ciudad }</span></li>
           <li className='list-group-item fw-bolder border-white'>Departamento: <span className='text-muted'>{ detalle.departamento }</span></li>
+          <li className='list-group-item fw-bolder border-white'>País: <span className='text-muted'>{ detalle.pais }</span></li>
         </ul>
         <ul className='list-group list-group-horizontal-sm'>
            <li className='list-group-item fw-bolder border-white'>Ubicación: { detalle.ubicacion }</li>

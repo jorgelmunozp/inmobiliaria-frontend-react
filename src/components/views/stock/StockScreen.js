@@ -17,6 +17,7 @@ import { HomeQuestion } from '../../icons/home/HomeQuestion';
 import { Image } from '../../icons/image/Image';
 
 import { fetchUpdate } from '../../../helpers/fetchUpdate';
+import { InputNumber} from '../../forms/inputs/InputNumber';
 import { InputText } from '../../forms/inputs/InputText';
 import { getInmuebleById } from '../../../selectors/getInmuebleById';
 import { getInmueblesByName} from '../../../selectors/getInmueblesByName';
@@ -177,7 +178,7 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
           <div className="card card-body">
             <div className='row d-block d-sm-flex'>
               <div className='col'>
-                <InputText id={'query-id'} placeholder={'Código Inmueble'} value={queryId} onInputChange={(target) => setQueryId(target.target.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' fullWidth margin="dense" />
+                <InputNumber id={'query-id'} placeholder={'Código Inmueble'} value={queryId} onInputChange={(values) => setQueryId(values.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' fullWidth margin="dense" />
               </div>
               <div className='col'>
                 <InputText id={'query-name'} placeholder={'Nombre Inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted px-2 py-2 text-center shadow-sm' fullWidth margin="dense" />

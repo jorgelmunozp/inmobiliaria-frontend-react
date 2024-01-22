@@ -7,7 +7,7 @@ export const PaginationBar = ({ query,array,arrayFiltered,itemPerPage,indexPage,
         { indexPages.map(i => (
               <li key={i} className={activePages[i] ? "page-item active fw-bolder" : "page-item"}><button value={i} onClick={(event)=>{setIndexPage([parseInt(event.target.value)*itemPerPage,(parseInt(event.target.value) + 1)*itemPerPage]);activePages.fill(false);activePages[i]=true;setActivePages(activePages);}} type='button' className="page-link rounded-circle fw-bolder">{ i + 1 }</button></li>
             )) }
-        <li className="page-item"><button onClick={()=>{if(indexPage[0] < ( (query === '') ? array.length-itemPerPage : arrayFiltered.length-itemPerPage) ){ setIndexPage([indexPage[0] + itemPerPage,indexPage[1] + itemPerPage]);const indexCurrentPage = activePages.indexOf(true);activePages.fill(false);activePages[indexCurrentPage+1]=true;setActivePages(activePages);console.log("activePages LeftRight:",activePages)}}} type='button' className="page-link rounded-circle page-arrow" aria-label="▸">▸</button></li>
+        <li className="page-item"><button onClick={()=>{if(indexPage[0] < ( (query.length === 0) ? array.length-itemPerPage : arrayFiltered.length-itemPerPage) ){ setIndexPage([indexPage[0] + itemPerPage,indexPage[1] + itemPerPage]);const indexCurrentPage = activePages.indexOf(true);activePages.fill(false);activePages[indexCurrentPage+1]=true;setActivePages(activePages);console.log("activePages LeftRight:",activePages)}}} type='button' className="page-link rounded-circle page-arrow" aria-label="▸">▸</button></li>
       </ul>
     </nav>
   )
