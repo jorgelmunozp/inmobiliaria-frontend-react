@@ -12,7 +12,7 @@ import { formatterPeso } from '../../../helpers/formatterPeso';
 import Swal from 'sweetalert2';
 
 export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, caracteristicas, paises }) => {
-    let createFlag = false;
+  let createFlag = false;
   const [responseStatus, setResponseStatus] = useState(0);
 
   const [ image, setImage ] = useState('');
@@ -80,7 +80,31 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
       data: reader.result
     });
   };
-  reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
+  // reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
+
+  // Convert images -> images base 64
+  const [imagesData, setImagesData] = useState([{
+    name: '',
+    data: ''
+  }]);
+  useEffect(() => { 
+    if (images) {
+      const arrayImages = [{ name: '', data: '' }];
+      for(let i = 0; i < images.length; i++) {
+        const readerMultiple = new FileReader();
+        readerMultiple.readAsDataURL(images[i]);
+        readerMultiple.onload = () => {
+          arrayImages[i] = { 
+            name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-" + i + "." + images[i].name.split('.')[1],
+            data: readerMultiple.result 
+          };
+          setImagesData(arrayImages);
+        };
+      }
+    }
+  },[images]);
+
+  // readerMultiple.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
 
   // Query body for POST
   const dataInmueble = `{
@@ -101,7 +125,7 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
       "sector": "${neighborhood}",
       "estrato": "${stratum}",
       "estado": "${status}",
-      "images": [${images}]
+      "images": ${JSON.stringify(imagesData)}
     }
   }`
   
@@ -220,12 +244,12 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
         </div>
         <div className='row'>
           <div className='col my-0 my-sm-2'>
-            <InputTextArea id={'descripcion'} placeholder={'Descripción'} inputText={description} onInputChange={(values) => setDescription(values.target.value)} rows={3} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 pt-4 pb-5 h-auto shadow-sm w-100'}/>
+            <InputTextArea id={'descripcion'} placeholder={'Descripción'} inputText={description} onInputChange={(values) => setDescription(values.target.value)} rows={3} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-justify px-3 pt-5 pb-4 h-auto shadow-sm w-100'}/>
           </div>
         </div>
         <div className='row'>
           <div className="col my-2">
-            <InputFile id={'images-secondary'} placeholder={'Imágenes'} iconSize={2.5} iconStrokeWidth={1.25} multiple={true} acceptFiles={"image/*"} file={images} setFile={setImages} className="input form-control border-muted text-muted shadow-sm"/>
+            <InputFile id={'images-secondary'} placeholder={'Imágenes'} iconSize={3.5} iconStrokeWidth={1} multiple={true} acceptFiles={"image/*"} file={images} setFile={setImages} className="input form-control border-muted text-muted pt-4 pb-3 shadow-sm"/>
           </div>
         </div>
         <div className='row'>

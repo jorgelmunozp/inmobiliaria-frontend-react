@@ -59,7 +59,7 @@ export const InmuebleScreen = ({ inmuebles }) => {
         </ul>
         <h5 className='mt-3'>Descripción</h5>
         <ul className='list-group list-group-horizontal-sm list-group-flush'>
-          <li className='list-group-item fw-bolder'><span className='text-muted'>{ detalle.descripcion }</span></li>
+          <li className='list-group-item fw-bolder text-justify'><span className='text-muted'>{ detalle.descripcion }</span></li>
         </ul>
         <h5 className='mt-3'>Características</h5>
         <ul className='list-group list-group-horizontal-sm'>
