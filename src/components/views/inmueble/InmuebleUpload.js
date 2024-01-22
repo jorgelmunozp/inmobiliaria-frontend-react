@@ -138,7 +138,7 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
   if(200 <= responseStatus && responseStatus <= 299){
     setResponseStatus(0);
     Swal.fire({
-      title: "La Inmobiliaria",
+      title: "Nuevo Inmueble",
       text: "Inmueble creado con éxito",
       icon: "success",
       confirmButtonColor: myColor,
@@ -164,16 +164,16 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
   } else if(400 <= responseStatus && responseStatus <= 499){
     setResponseStatus(0);
     Swal.fire({
-      title: "La Inmobiliaria",
-      text: "Inmueble no creado",
+      title: "Lo sentimos",
+      text: "El inmueble no pudo ser creado",
       icon: "error",
       confirmButtonColor: myColor,
     });
   } else if(500 <= responseStatus && responseStatus <= 599){
     setResponseStatus(0);
     Swal.fire({
-      title: "La Inmobiliaria",
-      text: "Inmueble no creado",
+      title: "Lo sentimos",
+      text: "El inmueble no pudo ser creado",
       icon: "error",
       confirmButtonColor: myColor,
     });
@@ -185,14 +185,14 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
       <center><h5>Subir Inmueble</h5></center>
       <hr />
       <center><HomeThumbnail color={'#aaaaaa'} height={2} width={2} /></center>
-      <div className="container border mt-3 mb-2 shadow-sm">
+      <div className="container border mt-3 mb-2 pt-1 shadow-sm">
         <div className='row d-block d-sm-flex'>
           <div className="col col-sm-4 my-2">
             <InputFile id={'image-primary'} placeholder={'Imagen'} iconSize={7.5} iconStrokeWidth={0.5} multiple={false} acceptFiles={"image/*"} file={image} setFile={setImage} className="input form-control border-muted text-muted shadow-sm"/>
           </div>
           <div className='col'>
             <div className='row d-block d-sm-flex'>
-              <div className='col my-2'>
+              <div className='col my-2 my-md-2 my-sm-1'>
                 <Dropdown placeholder={'Estado'} query={status} defaultSelect={'Disponible'} parameters={estados} setQuery={setStatus} className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
               </div>
               <div className='col my-2'>
@@ -210,10 +210,10 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
           </div>
         </div>
         <div className='row d-block d-sm-flex'>
-          <div className='col my-2'>
+          <div className='col my-2 my-md-2 my-sm-1'>
             <InputText id={'nombre'} placeholder={'Nombre'} inputText={name} onInputChange={(values) => setName(values.target.value)} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'}/>
           </div>
-          <div className='col col-sm-4 my-2'>
+          <div className='col col-sm-4 my-2 my-md-2 my-sm-1'>
             <InputText id={'sector'} placeholder={'Sector'} inputText={neighborhood} onInputChange={(values) => setNeighborhood(values.target.value)} className={'input form-control rounded border-muted border-1 align-bottom text-muted text-center px-2 shadow-sm w-100'}/>
           </div>
         </div>

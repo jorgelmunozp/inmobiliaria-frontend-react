@@ -25,8 +25,8 @@ export const InputFile = ({ id,placeholder,acceptFiles='*',file,setFile,iconSize
     },[file.length]);
 
     return (
-        <div className={"form-floating text-center"} data-mdb-input-init>
-            <div id='inputFile' className={className + ' image-upload img-thumbnail py-1 h-100'}>
+        <div className="form-floating text-center text-nowrap text-truncate shadow-sm" data-mdb-input-init>
+            <div id='inputFile' className={className + ' image-upload img-thumbnail py-1 py-md-1 py-sm-5 h-100'}>
                 <label htmlFor={ id } style={{"cursor":"pointer"}} >
                     { 
                         ( file.size > 0 ) 
@@ -35,7 +35,7 @@ export const InputFile = ({ id,placeholder,acceptFiles='*',file,setFile,iconSize
                                     ?   imagesData.map((image) => { 
                                             return(<img src={image.data} key={image.name} className='img-thumbnail shadow-sm' style={{"height": size + "rem","width": size + "rem"}}/>)
                                         })
-                                    :  <ImageSearch color={'#aaaaaa'} strokeWidth={iconStrokeWidth} height={size} width={size} />
+                                    :  <ImageSearch color={'#aaaaaa'} strokeWidth={iconStrokeWidth} height={size} width={size} className='mt-1 mt-md-1 mt-sm-5 mb-md-0 mb-sm-2' />
                     }
                 </label>
                 <input type="file" id={ id } accept={ acceptFiles } onChange={() => setFile( multiple ? document.getElementById( id ).files : document.getElementById( id ).files[0]) } multiple={ multiple } />

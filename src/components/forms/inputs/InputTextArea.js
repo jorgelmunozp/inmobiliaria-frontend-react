@@ -1,7 +1,7 @@
 export const InputTextArea = ({ id,placeholder,inputText,onInputChange,rows=1,className }) => {
     return (
         <>
-            <div className="form-floating text-center" data-mdb-input-init>
+            <div className="form-floating text-center text-nowrap text-truncate shadow-sm" data-mdb-input-init>
                 <textarea value={ inputText } onChange={ (target) => onInputChange(target) } 
                     type="search" placeholder={ placeholder } id={ id } 
                     className={ className } autoComplete="off" rows={rows} />

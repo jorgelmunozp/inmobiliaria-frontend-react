@@ -9,7 +9,7 @@ export const Dropdown = ({ placeholder,query,parameters,setQuery,defaultSelect='
   });
 
   return(
-    <div className="dropdown form-floating w-100 min-width-10">
+    <div className="dropdown form-floating w-100 min-width-10 py-sm-0">
       <button className={ className + (query.length === 0 ? class1 : class2) } type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
         { query.length === 0 ? placeholder : query }
       </button>

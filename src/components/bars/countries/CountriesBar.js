@@ -21,10 +21,10 @@ export const CountriesBar = ({ countries, country, setCountry, state, setState, 
         <div className='col'>
           <DropdownCountries placeholder={'País'} defaultSelect={'Colombia'} parameters={ countries } query={ country } setQuery={ setCountry } className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
         </div>
-        <div className='col my-2 my-sm-0'>
+        <div className='col mt-2 mt-md-0 mt-sm-0 mb-1'>
           <DropdownCountries placeholder={'Departamento'} parameters={ states } query={ state } setQuery={ setState } className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
         </div>
-        <div className='col'>
+        <div className='col mt-1 mt-md-0 mt-sm-2'>
           <DropdownCountries placeholder={'Ciudad'} parameters={ cities } query={ city } setQuery={ setCity } className={"input form-control rounded border-muted border-1 text-muted shadow-sm"}/>
         </div>
     </div>
