@@ -10,7 +10,7 @@ export const InputFile = ({ id,placeholder,acceptFiles='*',file,setFile,iconSize
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => { setImageData({ data: reader.result }); };
-        // reader.onerror = (error) => { console.log('Error input file img -> img base 64: ', error); };
+        reader.onerror = (error) => { console.log('Error input file img -> img base 64: ', error); };
     }
     useEffect(() => { 
         if ( file.length > 0 ) {
@@ -19,7 +19,7 @@ export const InputFile = ({ id,placeholder,acceptFiles='*',file,setFile,iconSize
                 const readerMultiple = new FileReader();
                 readerMultiple.readAsDataURL(file[i])
                 readerMultiple.onload = () => { arrayimages[i] = { data: readerMultiple.result }; setImagesData(arrayimages); };
-                // reader.onerror = (error) => { console.log('Error input file img -> img base 64: ', error); };
+                readerMultiple.onerror = (error) => { console.log('Error input file img -> img base 64: ', error); };
             }
         }
     },[file.length]);
@@ -30,7 +30,7 @@ export const InputFile = ({ id,placeholder,acceptFiles='*',file,setFile,iconSize
                 <label htmlFor={ id } style={{"cursor":"pointer"}} >
                     { 
                         ( file.size > 0 ) 
-                            ?   <img src={imageData.data} className='img-thumbnail shadow-sm' style={{"height": size + "rem","width": size + "rem"}}/>
+                            ?   <img src={imageData.data} id={ 'imgXXX-' + id }  className='img-thumbnail shadow-sm' style={{"height": size + "rem","width": size + "rem"}}/>
                             :   ( file.length > 0 )
                                     ?   imagesData.map((image) => { 
                                             return(<img src={image.data} key={image.name} className='img-thumbnail shadow-sm' style={{"height": size + "rem","width": size + "rem"}}/>)

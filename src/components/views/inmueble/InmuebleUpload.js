@@ -31,27 +31,27 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
   const [ country, setCountry ] = useState(""); 
   const [ neighborhood, setNeighborhood ] = useState("");
   const [ stratum, setStratum ] = useState("");
-  const [ images, setImages ] = useState([]); 
   const [ description, setDescription ] = useState("");
   const [ characteristic, setCharacteristic ] = useState("");
+  const [ images, setImages ] = useState([]); 
 
   // Inmueble description
   let descriptionInmueble = myTitle 
-             + ( type.toLocaleLowerCase() === "arriendo" ? " arrienda " : (type.toLocaleLowerCase() === "venta" ? " vende " : "")  )
-             + ( characteristic.toLocaleLowerCase() )
-             + ( category.toLocaleLowerCase() === "apartamento" ? " apartamento en " : (category.toLocaleLowerCase() === "casa" ? " casa en " : "") )
-             + ( name )
-             + ( neighborhood ? ", sector " + neighborhood : "" )
-             + ( (city || state || country) ? (city ? (", en la ciudad de " + city + ", " + state + ", " + country) : ( state ? ", en el departamento de " + state + ", " + country : ", en el país " + country)) + ". " : "" )
-             + ( area ? "Tiene un área de " + area + " m2" : "" )
-             + ( (rooms || bathrooms || garages) ? (" y consta de " 
-                    + ( rooms ? ( rooms === "0" ? "" : ( rooms === "1" ? rooms + " habitación, " : rooms + " habitaciones, " )) : "" ) 
-                    + ( bathrooms ? ( bathrooms === "0" ? "" : ( bathrooms === "1" ? bathrooms + " baño, " : bathrooms + " baños, ")) : "" ) 
-                    + ( garages ? ( garages === "0" ? "" : ( garages === "1" ? garages + " parqueadero " : garages + " parqueaderos ")) : "") 
-                  ) : "")
-             + ( stratum ? "y su estrato es " + stratum + ". " : "" )
-             + ( value ? "Su valor es " + formatterPeso.format(value) + (type.toLocaleLowerCase() === "arriendo" ? " mensual. " : ". ") : "" )
-            ;
+        + ( type.toLocaleLowerCase() === "arriendo" ? " arrienda " : (type.toLocaleLowerCase() === "venta" ? " vende " : "")  )
+        + ( characteristic.toLocaleLowerCase() )
+        + ( category.toLocaleLowerCase() === "apartamento" ? " apartamento en " : (category.toLocaleLowerCase() === "casa" ? " casa en " : "") )
+        + ( name )
+        + ( neighborhood ? ", sector " + neighborhood : "" )
+        + ( (city || state || country) ? (city ? (", en la ciudad de " + city + ", " + state + ", " + country) : ( state ? ", en el departamento de " + state + ", " + country : ", en el país " + country)) + ". " : "" )
+        + ( area ? "Tiene un área de " + area + " m2" : "" )
+        + ( (rooms || bathrooms || garages) ? (" y consta de " 
+              + ( rooms ? ( rooms === "0" ? "" : ( rooms === "1" ? rooms + " habitación, " : rooms + " habitaciones, " )) : "" ) 
+              + ( bathrooms ? ( bathrooms === "0" ? "" : ( bathrooms === "1" ? bathrooms + " baño, " : bathrooms + " baños, ")) : "" ) 
+              + ( garages ? ( garages === "0" ? "" : ( garages === "1" ? garages + " parqueadero " : garages + " parqueaderos ")) : "") 
+            ) : "")
+        + ( stratum ? "y su estrato es " + stratum + ". " : "" )
+        + ( value ? "Su valor es " + formatterPeso.format(value) + (type.toLocaleLowerCase() === "arriendo" ? " mensual. " : ". ") : "" )
+      ;
 
   // Change last character @ from the characteristics
   useEffect(() => {
@@ -80,7 +80,7 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
       data: reader.result
     });
   };
-  // reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
+  reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
 
   // Convert images -> images base 64
   const [imagesData, setImagesData] = useState([{
@@ -100,11 +100,10 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
           };
           setImagesData(arrayImages);
         };
+        readerMultiple.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
       }
     }
   },[images]);
-
-  // readerMultiple.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
 
   // Query body for POST
   const dataInmueble = `{
