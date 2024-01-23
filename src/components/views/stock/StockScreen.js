@@ -1,4 +1,11 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
+import { fetchUpdate } from '../../../helpers/fetchUpdate';
+import { InputNumber} from '../../forms/inputs/InputNumber';
+import { InputText } from '../../forms/inputs/InputText';
+import { getInmuebleById } from '../../../selectors/getInmuebleById';
+import { getInmueblesByName} from '../../../selectors/getInmueblesByName';
+import { PaginationBar } from '../../bars/pagination/PaginationBar';
+import { Arrows } from '../../forms/arrows/Arrows';
 import { Area } from '../../icons/area/Area';
 import { Bath } from '../../icons/bath/Bath';
 import { Bed } from '../../icons/bed/Bed';
@@ -9,25 +16,18 @@ import { HomeWarehouse } from '../../icons/home/HomeWarehouse';
 import { Description } from '../../icons/description/Description';
 import { Home } from '../../icons/home/Home';
 import { HomeDollar } from '../../icons/home/HomeDollar';
-import { LocationArrow } from '../../icons/location/LocationArrow'
+import { LocationArrow } from '../../icons/location/LocationArrow';
 import { MapLocation } from '../../icons/map/MapLocation';
 import { MapPin } from '../../icons/map/MapPin';
 import { Type } from '../../icons/type/Type';
 import { HomeQuestion } from '../../icons/home/HomeQuestion';
 import { Image } from '../../icons/image/Image';
 
-import { fetchUpdate } from '../../../helpers/fetchUpdate';
-import { InputNumber} from '../../forms/inputs/InputNumber';
-import { InputText } from '../../forms/inputs/InputText';
-import { getInmuebleById } from '../../../selectors/getInmuebleById';
-import { getInmueblesByName} from '../../../selectors/getInmueblesByName';
-import { PaginationBar } from '../../bars/pagination/PaginationBar';
-import { Arrows } from '../../forms/arrows/Arrows';
-
 export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   const iconSize = 1.5;
 
   /* Update Stock */
+  let [ id, setId ] = useState('');
   let [ image, setImage ] = useState('');
   let [ name, setName ] = useState("");
   let [ category, setCategory ] = useState("");
@@ -51,13 +51,13 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
     data: ''
   });
 
-  const handleChangeImage = (event) => { 
+  const handleChangeImage = (event) => {
     category = document.getElementById( 'cat-' + event.target.id.split('-')[1] ).value;
-    setCategory(category); 
+    setCategory(category);
     name = document.getElementById( 'name-' + event.target.id.split('-')[1] ).value;
-    setName(name); 
+    setName(name);
     image = document.getElementById( 'input-' + event.target.id.split('-')[1] ).files[0];
-    setImage(image); 
+    setImage(image);
     
     // Convert image -> image base 64
     const reader = new FileReader();
@@ -69,11 +69,21 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
           data: reader.result
         };
         setImageData( imageData );
+        
+        // console.log("event.target.id: ", event.target.id)
+        // console.log("event.target.id.split('-')[1]: ", event.target.id.split('-')[1])
+
+        id = event.target.id;
+        setId(id);
+        console.log("id.split('-')[1]: ", id.split('-')[1])
+        
         handleStock(event.target.id.split('-')[1]);
       }
     };
     reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
   };
+
+  const handleChangeImages = (event) => { };
  
   const handleChangeName = (event) => { setName(event.target.value); handleStock(event.target.id.split('-')[1]); };
   const handleChangeCategory = (event) => { setCategory(event.target.value); handleStock(event.target.id.split('-')[1]); };
@@ -146,7 +156,7 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
 
   const handleStock = ( id ) => {
     
-    console.log("document.getElementById('img-' + id ) !!!!!: ",document.getElementById('img-' + id ).src)
+    console.log("image data: ",document.getElementById('img-' + id ).src)
     
     const contenidoInmueble = `{
       "detalle": {
@@ -284,7 +294,13 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
             <div className='row flex-nowrap' key={inmueble.id}>
               <span className='col-4 col-sm-2 py-1 border text-center'> { inmueble.id } </span>
               <div className='image-upload col-auto px-1 border text-center'>
-                  <label htmlFor={'input-' + inmueble.id }><img src={ inmueble.detalle.imagen.data } id={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /> </label>
+                  {
+                    ( id.length === 0 )
+                      ? <label htmlFor={'input-' + inmueble.id }><img src={ inmueble.detalle.imagen.data } id={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /></label>
+                      : ( inmueble.id === parseInt(id.split('-')[1]) )
+                         ? <label htmlFor={'input-' + inmueble.id }><img src={ imageData.data } id={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /></label>
+                         : <label htmlFor={'input-' + inmueble.id }><img src={ inmueble.detalle.imagen.data } id={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /></label>
+                  }
                   <input type="file" id={'input-' + inmueble.id } onChange={ handleChangeImage } accept="image/*"/>
               </div>
               <input defaultValue={ inmueble.detalle.nombre } id={ 'name-' + inmueble.id } onChange={ handleChangeName } type='text' autoComplete='off' className='col-7 col-md-3 col-sm-5 py-1 border text-center' />
@@ -306,7 +322,7 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
                 inmueble.detalle.images.map((image) => { return(
                   <div key={image.name} className='image-upload col-auto px-1 border text-center'>
                     <label htmlFor={'img-' + inmueble.id }><img src={ image.data } alt ="Foto" title ="Foto" /> </label>
-                    <input type="file" id={'img-' + inmueble.id } accept="image/*" />
+                    <input type="file" id={'img-' + inmueble.id } onChange={ handleChangeImages } accept="image/*" />
                   </div>
                 )})
               }
