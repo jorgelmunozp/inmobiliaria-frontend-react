@@ -17,13 +17,11 @@ export const InmuebleCard = ({ id,detalle,urlBaseFrontend }) => {
                         <div>
                             <div>
                                 <img src={ detalle.imagen.data }  className='card-img' alt={ detalle.nombre } />
-                                <h6 className={ detalle.estado === 'Disponible' ? 'text-white badge bg-dark-transparent-color bg-gradient position-absolute top-0 end-0 fw-bolder lh-base' : ( detalle.estado === 'Vendido' ? 'text-white badge bg-danger position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Arrendado' ? 'text-white badge bg-warning position-absolute top-0 end-0 fw-bolder' : '') ) }><small>{ detalle.estado }</small></h6>
-                                <h6 className='badge bg-dark-transparent-color bg-gradient text-white fw-bolder position-absolute start-0 top-badge ms-0 lh-base'><small>{ detalle.categoria }</small></h6>
-                                <h6 className='badge bg-dark-transparent-color bg-gradient text-white fw-bolder position-absolute end-0 top-badge me-0 lh-base'><small>{ detalle.tipo }</small></h6>
+                                <h6 className={ detalle.estado === 'Disponible' ? 'text-white badge bg-dark-transparent-color bg-gradient position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Vendido' ? 'text-white badge bg-red-transparent-color position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Arrendado' ? 'text-white badge bg-yellow-transparent-color position-absolute top-0 end-0 fw-bolder' : '') ) }><small>{ detalle.estado }</small></h6>
+                                <h6 className='badge bg-dark-transparent-color bg-gradient text-white fw-bolder position-absolute start-0 top-badge ms-0'><small>{ detalle.categoria }</small></h6>
+                                <h6 className='badge bg-dark-transparent-color bg-gradient text-white fw-bolder position-absolute end-0 top-badge me-0'><small>{ detalle.tipo }</small></h6>
                             </div>
                             <div className='card-body px-3 pt-0 pb-2'>
-                                {/* <h6 className='badge bg-main-color bg-gradient text-white fw-bolder position-absolute start-0 ms-3'><small>{ detalle.categoria }</small></h6> */}
-                                {/* <h6 className='badge bg-secondary bg-gradient text-white fw-bolder position-absolute end-0 me-1'><small>{ detalle.tipo }</small></h6> */}
                                 <h6 className='card-title text-truncate mt-1 pt-1'>{ detalle.nombre }</h6>
                                 <h6 className='text-dark fw-bolder text-truncate mb-0'>{ formatterPeso.format(detalle.valor) }&nbsp;<small className='badge text-muted ps-1'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</small></h6>
                             </div>
