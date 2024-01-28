@@ -16,6 +16,7 @@ import { HomeWarehouse } from '../../icons/home/HomeWarehouse';
 import { Description } from '../../icons/description/Description';
 import { Home } from '../../icons/home/Home';
 import { HomeDollar } from '../../icons/home/HomeDollar';
+import { ImageSearch } from '../../icons/image/ImageSearch';
 import { LocationArrow } from '../../icons/location/LocationArrow';
 import { MapLocation } from '../../icons/map/MapLocation';
 import { MapPin } from '../../icons/map/MapPin';
@@ -46,64 +47,22 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   let [ status, setStatus ] = useState("");
   let [ images, setImages ] = useState([]); 
 
-  let [imageData, setImageData] = useState({
+  const [ queryId , setQueryId ] = useState("");                        // Query
+  const [ queryName , setQueryName ] = useState("");
+  const [ sortBy, setSortBy ] = useState(0);                            // Sort By
+  const [ itemPerPage, setItemPerPage ] = useState(10);                 // Pagination - items per page
+  const [ indexPage, setIndexPage ] = useState([0,itemPerPage]);        // Pagination indexes for Slice(x,y) filter that returns a items range from x to y
+
+  let [imageData, setImageData] = useState({                            // Input main image file
     name: '',
     data: ''
   });
-
-  const handleChangeImage = (event) => {
-    category = document.getElementById( 'cat-' + event.target.id.split('-')[1] ).value;
-    setCategory(category);
-    name = document.getElementById( 'name-' + event.target.id.split('-')[1] ).value;
-    setName(name);
-    image = document.getElementById( 'input-' + event.target.id.split('-')[1] ).files[0];
-    setImage(image);
-    
-    // Convert image -> image base 64
-    const reader = new FileReader();
-    if (image) { reader.readAsDataURL(image) }
-    reader.onload = () => {
-      reader.onloadend = () => {
-        imageData = {
-          name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-0." + image.name.split('.')[1],
-          data: reader.result
-        };
-        setImageData( imageData );
-        
-        // console.log("event.target.id: ", event.target.id)
-        // console.log("event.target.id.split('-')[1]: ", event.target.id.split('-')[1])
-
-        id = event.target.id;
-        setId(id);
-        console.log("id.split('-')[1]: ", id.split('-')[1])
-        
-        handleStock(event.target.id.split('-')[1]);
-      }
-    };
-    reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
-  };
-
-  const handleChangeImages = (event) => { };
- 
-  const handleChangeName = (event) => { setName(event.target.value); handleStock(event.target.id.split('-')[1]); };
-  const handleChangeCategory = (event) => { setCategory(event.target.value); handleStock(event.target.id.split('-')[1]); };
-  const handleChangeType = (event) => { setType(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeRooms = (event) => { setRooms(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeBathrooms = (event) => { setBathooms(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeGarage = (event) => { setGarages(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeArea = (event) => { setArea(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeValue = (event) => { setValue(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeDescription = (event) => { setDescription(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeCity = (event) => { setCity(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeState = (event) => { setState(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeCountry = (event) => { setCountry(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeNeighborhood = (event) => { setNeighborhood(event.target.value); handleStock(event.target.id.split('-')[1]); }
-  const handleChangeStratum = (event) => { setStratum(event.target.value); handleStock(event.target.id.split('-')[1]);}
-  const handleChangeStatus = (event) => { setStatus(event.target.value); handleStock(event.target.id.split('-')[1]);}
+  let [imagesData, setImagesData] = useState([{                      // Input secondary images files
+    name: '',
+    data: ''
+  }]);
 
   /* Query */
-  const [ queryId , setQueryId ] = useState("");
-  const [ queryName , setQueryName ] = useState("");
   let inmueblesFiltered = [];
   const inmueblesFilteredById = useMemo( () => getInmuebleById(queryId,inmuebles), [queryId,inmuebles] );
   const inmueblesFilteredByName = useMemo( () => getInmueblesByName(queryName,inmuebles), [queryName,inmuebles] );
@@ -111,8 +70,6 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   else if ( queryName !== "" ) { inmueblesFiltered = inmueblesFilteredByName; }
 
   /* Pagination */
-  const [itemPerPage, setItemPerPage ] = useState(10);                 // Se define el número de items por página
-  const [indexPage, setIndexPage ] = useState([0,itemPerPage]);       // Se calculan los indices de la paginación para el filtro Slice(x,y) que entrega un rango de los items de x a y
   const numPages = ((queryId === '' && queryName === '') ? Math.floor(inmuebles.length/itemPerPage) : Math.floor(inmueblesFiltered.length/itemPerPage));                   // Se calcula la cantidad de páginas = cantidad de items/item por página
   const resPages = ((queryId === '' && queryName === '') ? inmuebles.length%itemPerPage : inmueblesFiltered.length%itemPerPage);                   // Se calcula la cantidad de páginas = cantidad de items/item por página
   let indexPages = [];
@@ -129,64 +86,8 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
     }
   }
   const [activePages, setActivePages] = useState(activePage);         // [true,false,false,false]
-  
-  // Convert images -> images base 64
-  // const [imagesData, setImagesData] = useState([{
-  //   name: '',
-  //   data: ''
-  // }]);
-  // if (images) {
-  //   const arrayImages = [{ name: '', data: '' }];
-  //   for(let i = 0; i < images.length; i++) {
-  //     const readerMultiple = new FileReader();
-  //     readerMultiple.readAsDataURL(images[i]);
-  //     readerMultiple.onload = () => {
-  //       arrayImages[i] = { 
-  //         name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-" + i + "." + images[i].name.split('.')[1],
-  //         data: readerMultiple.result 
-  //       };
-  //       setImagesData(arrayImages);
-  //     };
-  //     readerMultiple.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
-  //   }
-  //   // handleStock(event.target.id.split('-')[1]);
-  // }
-
-// console.log("imagesData: ", imagesData)
-
-  const handleStock = ( id ) => {
-    
-    console.log("image data: ",document.getElementById('img-' + id ).src)
-    
-    const contenidoInmueble = `{
-      "detalle": {
-        "nombre": "${document.getElementById('name-' + id ).value}",
-        "imagen": ${ (imageData.name.length !== 0) ? JSON.stringify(imageData) : JSON.stringify({ name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-0.", data: document.getElementById('img-' + id ).src }) },
-        "categoria": "${document.getElementById('cat-' + id ).value}",
-        "tipo": "${document.getElementById('type-' + id ).value}",
-        "habitaciones": "${document.getElementById('room-' + id ).value}",
-        "baños": "${document.getElementById('bath-' + id ).value}",
-        "parqueaderos": "${document.getElementById('car-' + id ).value}",
-        "area": "${document.getElementById('area-' + id ).value}",
-        "valor": "${document.getElementById('val-' + id ).value}",
-        "descripcion": "${document.getElementById('desc-' + id ).value}",
-        "ciudad": "${document.getElementById('city-' + id ).value}",
-        "departamento": "${document.getElementById('state-' + id ).value}",
-        "pais": "${document.getElementById('country-' + id ).value}",
-        "sector": "${document.getElementById('zone-' + id ).value}",
-        "estrato": "${document.getElementById('stra-' + id ).value}",
-        "estado": "${document.getElementById('stat-' + id ).value}",
-        "images": []
-      },
-      "id": ${id}
-    }`;
-
-    fetchUpdate(urlApiInmuebles,JSON.stringify(contenidoInmueble),id);
-  };
-
 
   /* Sort */
-  const [sortBy, setSortBy] = useState(0);
   function sortByIdUp(a, b) { return a.id - b.id; }
   function sortByIdDown(a, b) { return b.id - a.id; }
   function sortByNameUp(a, b) { return a.detalle.nombre.localeCompare(b.detalle.nombre); }
@@ -215,7 +116,234 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   function sortByStratumDown(a, b) { return b.detalle.estrato.localeCompare(a.detalle.estrato); }
   function sortByStatusUp(a, b) { return a.detalle.estado.localeCompare(b.detalle.estado); }
   function sortByStatusDown(a, b) { return b.detalle.estado.localeCompare(a.detalle.estado); }
-  
+    
+  const handleChangeImage = (event) => {
+    const idInmueble = event.target.id.split('-')[1];
+    image = document.getElementById( 'inputImage-' + event.target.id.split('-')[1] ).files[0];
+    category = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.categoria;
+    name = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.nombre;
+    type = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.tipo;
+    rooms = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.habitaciones;
+    bathrooms = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.baños;
+    garages  = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.parqueaderos;
+    area = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.area;
+    value = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.valor;
+    description = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.descripcion;
+    city = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.ciudad; 
+    state = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.departamento; 
+    country = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.pais; 
+    neighborhood = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.sector;
+    stratum = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.estrato;
+    status = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.estado;
+    imagesData = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.images;
+    setImage(image);
+    setCategory(category);
+    setName(name);
+    setType(type);
+    setRooms(rooms);
+    setBathooms(bathrooms);
+    setGarages(garages);
+    setArea(area);
+    setValue(value);
+    setDescription(description);
+    setCity(city); 
+    setState(state); 
+    setCountry(country); 
+    setNeighborhood(neighborhood);
+    setStratum(stratum);
+    setStatus(status);
+    setImages(images);
+    setImagesData(imagesData);
+
+    // Convert image -> image base 64
+    const reader = new FileReader();
+    if (image) { reader.readAsDataURL(image) }
+    reader.onload = () => {
+      reader.onloadend = () => {
+        id = event.target.id;
+        setId(id);
+
+        imageData = {
+          name: category.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-0." + image.name.split('.')[1],
+          data: reader.result
+        };
+        setImageData( imageData );
+        // handleStock(idInmueble);
+      }
+    };
+    reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
+  };
+
+  const handleChangeImages = (event) => {
+    const idInmueble = event.target.parentElement.parentElement.parentElement.parentNode.firstChild.id;
+    imageData = inmuebles.filter( inmueble => inmueble.id === parseInt(idInmueble) )[0].detalle.imagen;
+    category = inmuebles.filter( inmueble => inmueble.id === parseInt(idInmueble) )[0].detalle.categoria;
+    name = inmuebles.filter( inmueble => inmueble.id === parseInt(idInmueble) )[0].detalle.nombre;
+    type = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.tipo;
+    rooms = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.habitaciones;
+    bathrooms = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.baños;
+    garages  = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.parqueaderos;
+    area = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.area;
+    value = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.valor;
+    description = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.descripcion;
+    city = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.ciudad; 
+    state = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.departamento; 
+    country = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.pais; 
+    neighborhood = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.sector;
+    stratum = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.estrato;
+    status = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.estado;
+    images = document.getElementById( 'inputImages-' + event.target.id.split('-')[1] ).files[0];
+    imagesData = inmuebles.filter(inmueble => inmueble.id === parseInt(idInmueble) )[0].detalle.images;
+    setImageData(imageData);
+    setCategory(category);
+    setName(name);
+    setType(type);
+    setRooms(rooms);
+    setBathooms(bathrooms);
+    setGarages(garages);
+    setArea(area);
+    setValue(value);
+    setDescription(description);
+    setCity(city); 
+    setState(state); 
+    setCountry(country); 
+    setNeighborhood(neighborhood);
+    setStratum(stratum);
+    setStatus(status);
+    setImages(images);
+    setImagesData(imagesData);
+
+    // Convert images -> images base 64
+    const readerMultiple = new FileReader();
+    if (images) { readerMultiple.readAsDataURL(images); }
+    readerMultiple.onload = () => {
+      readerMultiple.onloadend = () => {
+        id = event.target.id.split('-')[1];
+        setId(id);
+
+        imagesData[id-1] = { 
+          name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-" + id + "." + images.name.split('.')[1],
+          data: readerMultiple.result 
+        };
+        setImagesData(imagesData);
+        // handleStock(idInmueble);
+      }
+    };
+    readerMultiple.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
+  };
+
+  const handleChangeImagesAll = (event) => { 
+    const idInmueble = event.target.parentElement.parentElement.parentElement.parentNode.firstChild.id;
+    imageData = inmuebles.filter( inmueble => inmueble.id === parseInt(idInmueble) )[0].detalle.imagen;
+    category = inmuebles.filter( inmueble => inmueble.id === parseInt(idInmueble) )[0].detalle.categoria;
+    name = inmuebles.filter( inmueble => inmueble.id === parseInt(idInmueble) )[0].detalle.nombre;
+    type = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.tipo;
+    rooms = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.habitaciones;
+    bathrooms = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.baños;
+    garages  = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.parqueaderos;
+    area = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.area;
+    value = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.valor;
+    description = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.descripcion;
+    city = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.ciudad; 
+    state = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.departamento; 
+    country = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.pais; 
+    neighborhood = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.sector;
+    stratum = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.estrato;
+    status = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.estado;
+    images = [ document.getElementById( 'inputImagesAll-' + idInmueble ).files ];
+    imagesData = inmuebles.filter(inmueble => inmueble.id === parseInt(idInmueble) )[0].detalle.images;
+    setImageData(imageData);
+    setCategory(category);
+    setName(name);
+    setType(type);
+    setRooms(rooms);
+    setBathooms(bathrooms);
+    setGarages(garages);
+    setArea(area);
+    setValue(value);
+    setDescription(description);
+    setCity(city); 
+    setState(state); 
+    setCountry(country); 
+    setNeighborhood(neighborhood);
+    setStratum(stratum);
+    setStatus(status);
+    setImages(images);
+    setImagesData(imagesData);
+
+    const imagesDataLength = imagesData.length;  
+    let counter = 0;
+    
+    // Convert images -> images base 64
+    if (images) {
+      for(let i = 0; i < images[0].length; i++) {
+        const readerMultipleAll = new FileReader();
+        readerMultipleAll.readAsDataURL(images[0][i]);
+        readerMultipleAll.onload = () => {
+          readerMultipleAll.onloadend = () => {
+            id = event.target.id;
+            setId(id);
+
+            imagesData[ imagesDataLength + i ] = { 
+              name: category.toLocaleLowerCase() + "-" + name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(' ').join('-') + "-" + ( imagesDataLength + 1 + i ) + "." + images[0][i].name.split('.')[1],
+              data: readerMultipleAll.result 
+            };
+            counter ++;
+            if( counter === images[0].length ) {
+              setImagesData(imagesData);
+              // handleStock(idInmueble);
+            }
+          }
+        };
+        readerMultipleAll.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
+
+      }
+    };
+  };
+
+  const handleChangeName = (event) => { setName(event.target.value); handleStock(event.target.id.split('-')[1]); };
+  const handleChangeCategory = (event) => { setCategory(event.target.value); handleStock(event.target.id.split('-')[1]); };
+  const handleChangeType = (event) => { setType(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeRooms = (event) => { setRooms(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeBathrooms = (event) => { setBathooms(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeGarage = (event) => { setGarages(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeArea = (event) => { setArea(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeValue = (event) => { setValue(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeDescription = (event) => { setDescription(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeCity = (event) => { setCity(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeState = (event) => { setState(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeCountry = (event) => { setCountry(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeNeighborhood = (event) => { setNeighborhood(event.target.value); handleStock(event.target.id.split('-')[1]); }
+  const handleChangeStratum = (event) => { setStratum(event.target.value); handleStock(event.target.id.split('-')[1]);}
+  const handleChangeStatus = (event) => { setStatus(event.target.value); handleStock(event.target.id.split('-')[1]);}
+
+  const handleStock = ( id ) => {   
+    const contenidoInmueble = `{
+      "detalle": {
+        "nombre": "${ name }",
+        "imagen": ${ JSON.stringify(imageData) },
+        "categoria": "${ category}",
+        "tipo": "${ type }",
+        "habitaciones": "${ rooms }",
+        "baños": "${ bathrooms }",
+        "parqueaderos": "${ garages }",
+        "area": "${ area }",
+        "valor": "${ value }",
+        "descripcion": "${ description }",
+        "ciudad": "${ city }",
+        "departamento": "${ state }",
+        "pais": "${ country }",
+        "sector": "${ neighborhood }",
+        "estrato": "${stratum }",
+        "estado": "${ status }",
+        "images": ${ JSON.stringify(imagesData) }
+      },
+      "id": ${id}
+    }`;
+
+    fetchUpdate(urlApiInmuebles,JSON.stringify(contenidoInmueble),id);
+  };
+
   return (
     <>
       <hr />
@@ -292,40 +420,48 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
                                                                       : sortByIdUp
           )))))))))))))))))))))))))))).slice(indexPage[0],indexPage[1]).map(inmueble => (
             <div className='row flex-nowrap' key={inmueble.id}>
-              <span className='col-4 col-sm-2 py-1 border text-center'> { inmueble.id } </span>
-              <div className='image-upload col-auto px-1 border text-center'>
+              <span id={ inmueble.id } key={ inmueble.id } className='col-4 col-sm-2 py-1 border text-center'> { inmueble.id } </span>
+              <div key={ 'div-' + inmueble.id } className='image-upload col-auto px-1 border text-center'>
                   {
                     ( id.length === 0 )
-                      ? <label htmlFor={'input-' + inmueble.id }><img src={ inmueble.detalle.imagen.data } id={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /></label>
+                      ? <label htmlFor={ 'inputImage-' + inmueble.id }><img src={ inmueble.detalle.imagen.data } id={ "img-" + inmueble.id } key={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /></label>
                       : ( inmueble.id === parseInt(id.split('-')[1]) )
-                         ? <label htmlFor={'input-' + inmueble.id }><img src={ imageData.data } id={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /></label>
-                         : <label htmlFor={'input-' + inmueble.id }><img src={ inmueble.detalle.imagen.data } id={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /></label>
+                         ? <label htmlFor={ 'inputImage-' + inmueble.id }><img src={ imageData.data } id={ "img-" + inmueble.id } key={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /></label>
+                         : <label htmlFor={ 'inputImage-' + inmueble.id }><img src={ inmueble.detalle.imagen.data } id={ "img-" + inmueble.id } key={ "img-" + inmueble.id } alt ="Foto" title ="Foto" className='rounded my-1 shadow-sm' /></label>
                   }
-                  <input type="file" id={'input-' + inmueble.id } onChange={ handleChangeImage } accept="image/*"/>
+                  <input type="file" id={'inputImage-' + inmueble.id } key={'inputImage-' + inmueble.id } onChange={ handleChangeImage } accept="image/*"/>
               </div>
-              <input defaultValue={ inmueble.detalle.nombre } id={ 'name-' + inmueble.id } onChange={ handleChangeName } type='text' autoComplete='off' className='col-7 col-md-3 col-sm-5 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.categoria } id={ 'cat-' + inmueble.id } onChange={ handleChangeCategory } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.tipo } id={ 'type-' + inmueble.id } onChange={ handleChangeType } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.habitaciones } id={ 'room-' + inmueble.id } onChange={ handleChangeRooms } type='number' className='col-3 col-md-1 col-sm-2 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.baños } id={ 'bath-' + inmueble.id } onChange={ handleChangeBathrooms} type='number' className='col-3 col-md-1 col-sm-2 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.parqueaderos } id={ 'car-' + inmueble.id } onChange={ handleChangeGarage } type='number' className='col-3 col-md-1 col-sm-2 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.area } id={ 'area-' + inmueble.id } onChange={ handleChangeArea } type='number' className='col-4 col-md-1 col-sm-3 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.valor } id={ 'val-' + inmueble.id } onChange={ handleChangeValue } type='number' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.descripcion } id={ 'desc-' + inmueble.id } onChange={ handleChangeDescription } type='textarea' autoComplete='off' className='col-12 col-md-7 col-sm-9 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.ciudad } id={ 'city-' + inmueble.id } onChange={ handleChangeCity } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.departamento } id={ 'state-' + inmueble.id } onChange={ handleChangeState } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.pais } id={ 'country-' + inmueble.id } onChange={ handleChangeCountry } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.sector } id={ 'zone-' + inmueble.id } onChange={ handleChangeNeighborhood } type='text' autoComplete='off' className='col-6 col-md-2 col-sm-4 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.estrato } id={ 'stra-' + inmueble.id } onChange={ handleChangeStratum } type='number' className='col-4 col-md-1 col-sm-2 py-1 border text-center' />
-              <input defaultValue={ inmueble.detalle.estado } id={ 'stat-' + inmueble.id } onChange={ handleChangeStatus } type='text' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
-              {
-                inmueble.detalle.images.map((image) => { return(
-                  <div key={image.name} className='image-upload col-auto px-1 border text-center'>
-                    <label htmlFor={'img-' + inmueble.id }><img src={ image.data } alt ="Foto" title ="Foto" /> </label>
-                    <input type="file" id={'img-' + inmueble.id } onChange={ handleChangeImages } accept="image/*" />
+              <input defaultValue={ inmueble.detalle.nombre } id={ 'name-' + inmueble.id } key={ 'name-' + inmueble.id } onChange={ handleChangeName } type='text' autoComplete='off' className='col-7 col-md-3 col-sm-5 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.categoria } id={ 'cat-' + inmueble.id } key={ 'cat-' + inmueble.id } onChange={ handleChangeCategory } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.tipo } id={ 'type-' + inmueble.id } key={ 'type-' + inmueble.id } onChange={ handleChangeType } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.habitaciones } id={ 'room-' + inmueble.id } key={ 'room-' + inmueble.id } onChange={ handleChangeRooms } type='number' className='col-3 col-md-1 col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.baños } id={ 'bath-' + inmueble.id } key={ 'bath-' + inmueble.id } onChange={ handleChangeBathrooms} type='number' className='col-3 col-md-1 col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.parqueaderos } id={ 'car-' + inmueble.id } key={ 'car-' + inmueble.id } onChange={ handleChangeGarage } type='number' className='col-3 col-md-1 col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.area } id={ 'area-' + inmueble.id } key={ 'area-' + inmueble.id } onChange={ handleChangeArea } type='number' className='col-4 col-md-1 col-sm-3 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.valor } id={ 'val-' + inmueble.id } key={ 'val-' + inmueble.id } onChange={ handleChangeValue } type='number' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.descripcion } id={ 'desc-' + inmueble.id } key={ 'desc-' + inmueble.id } onChange={ handleChangeDescription } type='textarea' autoComplete='off' className='col-12 col-md-7 col-sm-9 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.ciudad } id={ 'city-' + inmueble.id } key={ 'city-' + inmueble.id } onChange={ handleChangeCity } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.departamento } id={ 'state-' + inmueble.id } key={ 'state-' + inmueble.id } onChange={ handleChangeState } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.pais } id={ 'country-' + inmueble.id } key={ 'country-' + inmueble.id } onChange={ handleChangeCountry } type='text' autoComplete='off' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.sector } id={ 'zone-' + inmueble.id } key={ 'zone-' + inmueble.id } onChange={ handleChangeNeighborhood } type='text' autoComplete='off' className='col-6 col-md-2 col-sm-4 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.estrato } id={ 'stra-' + inmueble.id } key={ 'stra-' + inmueble.id } onChange={ handleChangeStratum } type='number' className='col-4 col-md-1 col-sm-2 py-1 border text-center' />
+              <input defaultValue={ inmueble.detalle.estado } id={ 'stat-' + inmueble.id } key={ 'stat-' + inmueble.id } onChange={ handleChangeStatus } type='text' className='col-5 col-md-2 col-sm-3 py-1 border text-center' />
+              <div className='container col-12 col-md-6 col-sm-6'>
+                <div key={image.name} className='row border text-center'>
+                  <div key={image.name} className='image-upload col-auto px-1 text-center'>
+                    <label htmlFor={'inputImagesAll-' + inmueble.id }><ImageSearch color={'#aaaaaa'} strokeWidth={1} height={2} width={2} className='input form-control mt-1 py-0 px-0 text-muted shadow-sm' /> </label>
+                    <input type="file" id={'inputImagesAll-' + inmueble.id } key={'inputImagesAll-' + inmueble.id } onChange={ handleChangeImagesAll } accept="image/*" multiple={true} />
                   </div>
-                )})
-              }
+                  {
+                    inmueble.detalle.images.map((image,index) => { return(
+                      <div key={image.name} className='image-upload col-auto px-1 text-center'>
+                        <label htmlFor={'inputImages-' + (index + 1) }><img src={ image.data } id={ "images-" + (index + 1) } key={ "images-" + (index + 1) } className='rounded my-1 shadow-sm' alt ="Foto" title ="Foto" /> </label>
+                        <input type="file" id={'inputImages-' + (index + 1) } key={'inputImages-' + (index + 1) } onChange={ handleChangeImages } accept="image/*" multiple={false} />
+                      </div>
+                    )})
+                  }
+                </div>
+              </div>
             </div>
           ))
         }
