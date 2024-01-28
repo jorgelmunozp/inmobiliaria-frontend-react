@@ -44,7 +44,7 @@ export const InmuebleList = ({ inmuebles }) => {
     <>
       <SortingBar setSortBy={ setSortBy } />
       <WhiteLine />
-      <div className='row row-cols-1 row-cols-md-4 g-3 animate__animated animate__fadeIn'>
+      <div className='row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 animate__animated animate__fadeIn'>
         { 
           inmuebles.sort(sortBy === 1 ? sortByName : ( sortBy === 2 ? sortByValueUp : ( sortBy === 3 ? sortByValueDown : sortByShuffle ) )).slice(indexPage[0],indexPage[1]).map( 
             inmueble => ( <InmuebleCard key={ inmueble.id } urlBaseFrontend={urlBaseFrontend} { ...inmueble } /> ))

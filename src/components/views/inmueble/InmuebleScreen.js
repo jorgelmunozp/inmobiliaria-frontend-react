@@ -16,29 +16,29 @@ export const InmuebleScreen = ({ inmuebles }) => {
   return (
     <div className='row d-block d-sm-flex mt-3 mt-sm-5'>
       <div id="slider" className="carousel slide w-50 w-sm-100" data-bs-ride="carousel">        {/* <!-- Carousel --> */}
-        <div className="carousel-inner">                                          {/* <!-- The slideshow/carousel --> */}
+        <div className="carousel-inner shadow-sm">                                          {/* <!-- The slideshow/carousel --> */}
           <div className="carousel-item active">
-            <img src={ detalle.imagen.data } alt="Foto" className="img-inmueble d-block shadow img-thumbnail animate__animated animate__fadeIn w-100" />
+            <img src={ detalle.imagen.data } alt="Foto" className="img-inmueble d-block img-thumbnail animate__animated animate__fadeIn w-100" />
           </div>
           {
             detalle.images.map(image => (
               <div className="carousel-item" key={image.name}>
-                <img src={ image.data } id={image.name} key={image.name} alt={image.name} className="img-inmueble d-block img-thumbnail shadow-sm animate__animated animate__fadeIn" />
+                <img src={ image.data } id={image.name} key={image.name} alt={image.name} className="img-inmueble d-block img-thumbnail animate__animated animate__fadeIn w-100" />
               </div>            
             ))
           }
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">      {/* <!-- Left and right controls/icons --> */}
-          <span className="carousel-control-prev-icon"></span>
+          <span className="carousel-control-prev-icon py-5 shadow-sm"></span>
         </button>
         <button className="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
-          <span className="carousel-control-next-icon"></span>
+          <span className="carousel-control-next-icon py-5 shadow-sm"></span>
         </button>
         <div className="carousel-indicators">       {/* <!-- Indicators/dots --> */}
-          <button type="button" data-bs-target="#slider" data-bs-slide-to={0} key={0} className="active"></button>
+          <button type="button" data-bs-target="#slider" data-bs-slide-to={0} key={0} className="active shadow-sm"></button>
           {
             detalle.images.map((image,index) => (
-              <button type="button" data-bs-target="#slider" data-bs-slide-to={index + 1} key={index + 1}></button>
+              <button type="button" data-bs-target="#slider" data-bs-slide-to={index + 1} key={index + 1} className='shadow-sm'></button>
             ))
           }
         </div>
@@ -47,30 +47,19 @@ export const InmuebleScreen = ({ inmuebles }) => {
         <h1 className='mt-2 mt-sm-0'>{ detalle.nombre }</h1>
         <hr></hr>
         <ul className='list-group'>
+          <li className='list-group-item fw-bolder border-white'>Código Inmueble: <span className='text-muted'>{ id }</span></li>
           <li className='list-group-item fw-bolder border-white'>Categoría: <span className='text-muted'>{ detalle.categoria }</span></li>
           <li className='list-group-item fw-bolder border-white'>Tipo: <span className='text-muted'>{ detalle.tipo }</span></li>
-          <li className='list-group-item fw-bolder border-white'>Código Inmueble: <span className='text-muted'>{ id }</span></li>
           <li className='list-group-item fw-bolder border-white'>Estado: <span className='text-muted'>{ detalle.estado }</span></li>
         </ul>
         <h5 className='mt-3'>Valor</h5>
         <ul className='list-group list-group-flush'>
-          <li className='list-group-item fw-bolder'><span className='text-dark'>{ formatterPeso.format(detalle.valor) }</span> <span className='text-muted'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</span></li>
+          <li className='list-group-item fw-bolder'><span className='text-dark fs-4'>{ formatterPeso.format(detalle.valor) }</span> <span className='text-muted'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</span></li>
         </ul>
       </div>
       <p></p>
       <div className='animate__animated animate__fadeIn'>
-        {/* <h1>{ detalle.nombre }</h1> */}
         <hr></hr>
-        {/* <ul className='list-group list-group-horizontal-sm'>
-          <li className='list-group-item fw-bolder border-white'>Categoría: <span className='text-muted'>{ detalle.categoria }</span></li>
-          <li className='list-group-item fw-bolder border-white'>Tipo: <span className='text-muted'>{ detalle.tipo }</span></li>
-          <li className='list-group-item fw-bolder border-white'>Código Inmueble: <span className='text-muted'>{ id }</span></li>
-          <li className='list-group-item fw-bolder border-white'>Estado: <span className='text-muted'>{ detalle.estado }</span></li>
-        </ul> */}
-        {/* <h5 className='mt-3'>Valor</h5>
-        <ul className='list-group list-group-flush'>
-          <li className='list-group-item fw-bolder'><span className='text-dark'>{ formatterPeso.format(detalle.valor) }</span> <span className='text-muted'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</span></li>
-        </ul> */}
         <h5 className='mt-3'>Descripción</h5>
         <ul className='list-group list-group-horizontal-sm list-group-flush'>
           <li className='list-group-item fw-bolder text-justify'><span className='text-muted'>{ detalle.descripcion }</span></li>
@@ -79,7 +68,7 @@ export const InmuebleScreen = ({ inmuebles }) => {
         <ul className='list-group list-group-horizontal-sm'>
           <li className='list-group-item fw-bolder border-white'>Habitaciones: <span className='text-muted'>{ detalle.habitaciones }</span></li>
           <li className='list-group-item fw-bolder border-white'>Baños: <span className='text-muted'>{ detalle.baños }</span></li>
-          <li className='list-group-item fw-bolder border-white'>Parqueadero: <span className='text-muted'>{ detalle.parqueaderos }</span></li>
+          <li className='list-group-item fw-bolder border-white'>Parqueaderos: <span className='text-muted'>{ detalle.parqueaderos }</span></li>
         </ul>
         <h5 className='mt-3'>Localización</h5>
         <ul className='list-group list-group-horizontal-sm'>
