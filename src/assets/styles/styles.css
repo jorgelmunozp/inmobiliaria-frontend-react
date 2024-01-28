@@ -1,6 +1,6 @@
 :root {
     --dark-color: #212529;
-    --dark-transparent-color: rgba(33,37,41, 0.25);
+    --dark-transparent-color: rgba(33,37,41, 0.55);
     --gray-color: #aaaaaa;  
     --lightgray-color: #dddddd;
     --lightgray-transparent-color: rgba(221,221,221, 0.25);
@@ -36,11 +36,15 @@ hr { opacity: 0.1; }
 .bg-main-color:hover { background-color: var(--dark-color) !important; }
 .bg-main-transparent-color { background-color: var(--main-transparent-color)!important; }
 .dark-color-hover:hover { color: var(--dark-color) !important; }
+.bg-dark-transparent-color { background-color: var(--dark-transparent-color) !important; }
 .red-color { color: var(--red-color)!important; }
 
 .text-justify { text-align: justify !important; text-align-last: center; }
 .text-indent { text-indent: 1rem; }
 
+.top-badge { top: 65.8% !important }
+@media (max-width: 576px) { .top-badge { top: 71.5% !important } }
+@media (min-width: 577px) and (max-width: 768px) { .top-badge { top: 61% !important } }
 /************************************************************************/ 
 /****** Header ******/ 
 .header { background: url("../../background.svg") repeat;}
@@ -50,7 +54,6 @@ hr { opacity: 0.1; }
 
 /****** InmuebleCard ******/
 .badge { /* top: 220px; */ }
-.icon { font-size: 8vmin; }
 
 .card-img, .card-img-bottom {
     border-bottom-right-radius: 0;
