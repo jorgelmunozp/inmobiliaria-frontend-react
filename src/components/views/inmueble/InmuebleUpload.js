@@ -180,9 +180,7 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
 
   return (
     <>
-      <hr />
-      <center><h5>Subir Inmueble</h5></center>
-      <hr />
+      <h5 className='my-3 my-lg-4 my-md-4 my-sm-5'><center>Subir Inmueble</center></h5>
       <center><HomeThumbnail color={'#aaaaaa'} height={2} width={2} /></center>
       <div className="container border mt-3 mb-2 pt-1 shadow-sm">
         <div className='row d-block d-sm-flex'>

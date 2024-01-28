@@ -17,9 +17,7 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
 
   return (
     <>
-      <hr />
-      <center><h5>Buscar Inmueble</h5></center> 
-      <hr />
+      <h5 className='my-3 my-lg-4 my-md-4 my-sm-5'><center>Buscar Inmueble</center></h5> 
       <h6>Que tipo de inmueble buscas?</h6>
       <hr />
       <div>

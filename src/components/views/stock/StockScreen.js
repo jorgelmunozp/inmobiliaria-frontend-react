@@ -346,9 +346,7 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
 
   return (
     <>
-      <hr />
-      <center><h5>Inventario Inmuebles</h5></center> 
-      <hr />
+      <h5 className='my-3 my-lg-4 my-md-4 my-sm-5'><center>Inventario Inmuebles</center></h5> 
       <p>
         <a className="form-control border border-muted text-center shadow-sm w-100" data-bs-toggle="collapse" href="#collapseContent" role="button" aria-expanded="false" aria-controls="collapseContent">
           🔎

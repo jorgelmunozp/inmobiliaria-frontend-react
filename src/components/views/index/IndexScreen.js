@@ -14,30 +14,33 @@ export const IndexScreen = ({ inmuebles }) => {
 
   return (
     <>
-      <WhiteLine />
-      <center>
-        <div className='header flex-nowrap'>
+      <div className='header flex-nowrap mt-5 pb-5'>
+        <center>
           <Logo strokeWidth={1} height={6} width={6} /><h1>La Inmobiliaria</h1>
-          <WhiteLine />
-        </div>
-      </center>
-      <hr />
-      <center><h5>Inmuebles</h5></center> 
-      <hr />
+        </center>
+      </div>
+      <h5 className='my-4'><center>Inmuebles</center></h5>
       <div className='row'>
-        <p>
-          <a className="form-control border border-muted text-center shadow-sm w-100" data-bs-toggle="collapse" href="#collapseContent" role="button" aria-expanded="false" aria-controls="collapseContent">
-            🔎
-          </a>
-        </p>
+        <div>
+          <p className='container-fluid'>
+            <center>
+              <a className="form-control border border-muted text-center shadow-sm w-100" data-bs-toggle="collapse" href="#collapseContent" role="button" aria-expanded="false" aria-controls="collapseContent">
+                🔎
+              </a>
+            </center>
+          </p>
+        </div>
         <div className="collapse" id="collapseContent">
-          <div className="card card-body">
-            <div>
-              <InputText id={'buscar-inmueble'} placeholder={'Buscar inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted border-1 text-center shadow-sm' />
+          <div className='container-fluid'>
+            <div className="card card-body">
+              <div>
+                <InputText id={'buscar-inmueble'} placeholder={'Buscar inmueble'} value={queryName} onInputChange={(target) => setQueryName(target.target.value)} className='input form-control rounded border-muted border-1 text-center shadow-sm' />
+              </div>
             </div>
           </div>
         </div>
         <div>
+        <div className='container-fluid'>
           {
             (queryName === '')
               ? <InmuebleList inmuebles={inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible') )} /> 
@@ -50,6 +53,7 @@ export const IndexScreen = ({ inmuebles }) => {
                                                  </div> 
                                                : <InmuebleList inmuebles={inmueblesFiltered} /> 
           }
+        </div>
         </div>
       </div>
     </>
