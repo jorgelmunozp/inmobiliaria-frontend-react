@@ -55,6 +55,8 @@ hr { opacity: 0.1; }
 .card-img, .card-img-bottom {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    filter: saturate(600%);
+    filter: brightness(130%);
 }
 
 /***** Pagination *****/
@@ -94,8 +96,9 @@ hr { opacity: 0.1; }
 
 /****** INMUEBLE SCREEN ******/
 .img-inmueble {
-    width: 100%;
-    height: 90vmin;
+    height: 30rem;
+    filter: saturate(200%);
+    filter: brightness(130%);
 }
 .carousel-control-prev, .carousel-control-next { opacity: 1; }
 .carousel-control-prev:hover, .carousel-control-next:hover { background-color: transparent; }
