@@ -14,13 +14,13 @@ export const IndexScreen = ({ inmuebles }) => {
 
   return (
     <>
-      <div className='header flex-nowrap mt-5 pb-5'>
+      <div className='header flex-nowrap mt-5 shadow-light' >
         <center>
           <Logo strokeWidth={1} height={6} width={6} /><h1>La Inmobiliaria</h1>
-          <WhiteLine/>
+          <WhiteLine />
         </center>
       </div>
-      <h5 className='my-4'><center>Inmuebles</center></h5>
+      <h5 className='my-4 pt-4 pb-2'><center>Inmuebles</center></h5>
       <div className='row'>
         <div>
           <center>

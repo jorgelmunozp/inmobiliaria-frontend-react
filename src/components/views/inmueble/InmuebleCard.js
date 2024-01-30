@@ -18,10 +18,10 @@ export const InmuebleCard = ({ id,detalle,urlBaseFrontend }) => {
                         <div>
                             <div>
                                 <img src={ detalle.imagen.data } className='card-img' alt={ detalle.nombre } />
-                                <h6 className={ detalle.estado === 'Disponible' ? 'text-white badge bg-dark-transparent-color bg-gradient position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Vendido' ? 'text-white badge bg-red-transparent-color position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Arrendado' ? 'text-white badge bg-yellow-transparent-color position-absolute top-0 end-0 fw-bolder' : '') ) }><small>{ detalle.estado }</small></h6>
-                                <div className='badge bg-dark-transparent-color bg-gradient text-white fw-bolder position-absolute end-0 bottom-0 w-100 h-35'>
-                                    <h5 className='badge text-white fw-bolder position-absolute start-0'><small>{ detalle.categoria }</small></h5>
-                                    <h5 className='badge text-white fw-bolder position-absolute end-0'><small>{ detalle.tipo }</small></h5>
+                                <h6 className={ detalle.estado === 'Disponible' ? 'badge text-white bg-dark-transparent-color bg-gradient position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Vendido' ? 'badge text-white bg-red-transparent-color position-absolute top-0 end-0 fw-bolder' : ( detalle.estado === 'Arrendado' ? 'badge text-white bg-yellow-transparent-color position-absolute top-0 end-0 fw-bolder' : '') ) }><small>{ detalle.estado }</small></h6>
+                                <div className='badge bg-dark-transparent-color bg-gradient text-center text-white fw-bolder position-absolute end-0 bottom-0 w-100 h-35'>
+                                    <h4 className='badge text-white fw-bolder position-absolute start-0'><small>{ detalle.categoria }</small></h4>
+                                    <h4 className='badge text-white fw-bolder position-absolute end-0'><small>{ detalle.tipo }</small></h4>
                                     
                                     <div className='card-body px-3 pt-0 pb-2'>
                                         <h6 className='card-title text-white text-truncate mt-2 pt-2'>{ detalle.nombre }</h6>

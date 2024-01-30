@@ -1,8 +1,8 @@
 // White space line dense
-export const WhiteLine = () => {
+export const WhiteLine = ({ className='' }) => {
   return (
     <>
-        <div className='user-select-none py-0 lh-1'>&nbsp;</div>
+        <div className={className + ' user-select-none py-0 lh-1'}>&nbsp;</div>
     </>
   );
 }
