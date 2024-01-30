@@ -22,13 +22,13 @@ export const IndexScreen = ({ inmuebles }) => {
       <h5 className='my-4'><center>Inmuebles</center></h5>
       <div className='row'>
         <div>
-          <p className='container-fluid'>
-            <center>
+          <center>
+            <p className='container-fluid'>
               <a className="form-control border border-muted text-center shadow-sm w-100" data-bs-toggle="collapse" href="#collapseContent" role="button" aria-expanded="false" aria-controls="collapseContent">
                 🔎
               </a>
-            </center>
-          </p>
+            </p>
+          </center>
         </div>
         <div className="collapse" id="collapseContent">
           <div className='container-fluid'>

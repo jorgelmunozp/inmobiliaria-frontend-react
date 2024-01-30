@@ -50,7 +50,7 @@ hr { opacity: 0.1; }
 .text-justify { text-align: justify !important; text-align-last: center; }
 .text-indent { text-indent: 1rem; }
 
-.h-35 { height: 33.5%; }
+.h-35 { height: 100px; }
 /************************************************************************/ 
 /****** Header ******/ 
 .header { background: url("../../background.svg") repeat;}

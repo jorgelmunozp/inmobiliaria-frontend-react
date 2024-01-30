@@ -28,8 +28,8 @@ export const InmuebleCard = ({ id,detalle,urlBaseFrontend }) => {
                                         <h6 className='text-white fw-bolder text-truncate mb-0'>{ formatterPeso.format(detalle.valor) }&nbsp;<small className='badge text-white ps-1'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</small></h6>
                                     </div>
 
-                                    <div className='position-absolute bottom-0 mb-1 w-100'>
-                                        <div className='card-text container'>
+                                    <div className='position-absolute bottom-0 mb-1 w-100 pe-3'>
+                                        <div className='card-text container-fluid px-0'>
                                             <ul className='list-group list-group-horizontal justify-content-between'>
                                                 <li className='list-group-item badge bg-transparent fw-bolder border-0 text-center p-0'><Area strokeWidth={0.75} width={iconSize + 0.45} height={iconSize + 0.45} className={'text-white'} /> <span className='text-white fw-bolder ps-1'>{ detalle.area }&nbsp;<small>m<sup>2</sup></small></span></li>
                                                 <li className='list-group-item badge bg-transparent fw-bolder border-0 text-center p-0'><Bed strokeWidth={40} width={iconSize + 0.25} height={iconSize + 0.25} className={'text-white'} /> <span className='text-white fw-bolder ps-1'>{ detalle.habitaciones }</span></li>
