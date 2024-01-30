@@ -8,7 +8,6 @@ import { Category } from '../../icons/category/Category';
 import { HomeMenu } from '../../icons/home/HomeMenu';
 import { HomePlus } from '../../icons/home/HomePlus';
 import { HomeSimple } from '../../icons/home/HomeSimple';
-import { HomeWarehouse } from '../../icons/home/HomeWarehouse';
 
 export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
 
@@ -21,16 +20,16 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-light bg-white shadow-lg user-select-none">
+        <nav className="navbar navbar-expand-sm navbar-light bg-white py-2 py-md-3 py-sm-4 shadow-lg user-select-none">
             <div className="container-fluid">
                 <NavLink to={"/" + urlBaseFrontend}>
-                    <Logo color={myColor} width={1.6} height={1.6} strokeWidth={1.5} className='navbar-brand ms-3 me-0'/>
+                    <Logo color={myColor} width={1.6} height={1.6} strokeWidth={2.25} className='navbar-brand ms-3 me-0'/>
                 </NavLink>
                 <NavLink className="navbar-brand" to={"/" + urlBaseFrontend}>
-                    <span className='main-color'>{ myTitle }</span>
+                    <span className='main-color fw-bold'>{ myTitle }</span>
                 </NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <HomeMenu color={myColor} height={1.05} width={1.05} strokeWidth={10}/>
+                    <HomeMenu color={myColor} height={1.05} width={1.05} strokeWidth={15}/>
                 </button>
                 <div className="collapse navbar-collapse"  id="navbarContent">
                     <div className="navbar-nav">
@@ -45,11 +44,11 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
                                         to={urlBaseFrontend + "/stock"}><Category strokeWidth={1.9} height={1.2} width={1.2}/></NavLink>
                                 </>
                             :   <>
-                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ' + (isActive ? 'active' : '') }
                                         to={urlBaseFrontend + "/apartamentos"}>Apartamentos</NavLink>
-                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ' + (isActive ? 'active' : '') }
                                         to={urlBaseFrontend + "/casas"}>Casas</NavLink>
-                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ' + (isActive ? 'active' : '') }
                                         to={urlBaseFrontend + "/search"}>Buscar</NavLink>
                                 </>
                         }
@@ -57,7 +56,7 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                         <ul className="navbar-nav ml-auto">
                             <span className='nav-item nav-link main-text'>{user.logged ? user.name : ''}</span>
-                            <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
+                            <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ' + (isActive ? 'active' : '') }
                                 onClick={ handleLogout } to={urlBaseFrontend+"/login"}>{ user.logged ? 'Salir' : 'Ingresar' }</NavLink>
                         </ul>
                     </div>
