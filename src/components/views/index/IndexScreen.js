@@ -14,10 +14,10 @@ export const IndexScreen = ({ inmuebles }) => {
 
   return (
     <>
-      <div className='header flex-nowrap mt-5 shadow-light' >
+      <div className='header flex-nowrap py-5 shadow-light w-100' >
         <center>
           <Logo strokeWidth={1} height={6} width={6} /><h1>La Inmobiliaria</h1>
-          <WhiteLine />
+          {/* <WhiteLine /> */}
         </center>
       </div>
       <h5 className='my-4 pt-4 pb-2'><center>Inmuebles</center></h5>
@@ -41,7 +41,7 @@ export const IndexScreen = ({ inmuebles }) => {
           </div>
         </div>
         <div>
-        <div className='container-fluid'>
+        <div className='container-fluid px-4'>
           {
             (queryName === '')
               ? <InmuebleList inmuebles={inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible') )} /> 

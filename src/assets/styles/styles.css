@@ -51,7 +51,8 @@ hr { opacity: 0.1; }
 .text-indent { text-indent: 1rem; }
 
 .h-35 { height: 100px; }
-.shadow-light { box-shadow: 0 1rem 3rem rgba(200, 200, 200, .175); }
+/* .shadow-light { box-shadow: 0 1rem 3rem rgba(255, 0, 0, .175); } */
+.shadow-light { box-shadow: 0 1rem 3rem rgba(175, 175, 175, .175); }
 /************************************************************************/ 
 /****** Header ******/ 
 .header { background: url("../../background.svg") repeat;}

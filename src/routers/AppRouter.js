@@ -37,7 +37,7 @@ export const AppRouter = () => {
     <BrowserRouter>
       <NavBar urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
 
-      <div className="container-fluid user-select-none">
+      <div className="user-select-none">
         <Routes>
           <Route path={"/" + urlBaseFrontend + "/index"} element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
