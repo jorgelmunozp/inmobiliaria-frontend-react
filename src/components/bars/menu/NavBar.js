@@ -20,7 +20,7 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-light bg-white py-2 py-md-3 py-sm-4 shadow-light user-select-none">
+        <nav className="navbar navbar-expand-sm navbar-light bg-white py-2 py-lg-4 py-md-3 py-sm-4 shadow-light user-select-none">
             <div className="container-fluid">
                 <NavLink to={"/" + urlBaseFrontend}>
                     <Logo color={myColor} width={1.6} height={1.6} strokeWidth={2.25} className='navbar-brand ms-3 me-0'/>
@@ -44,9 +44,9 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
                                         to={urlBaseFrontend + "/stock"}><Category strokeWidth={1.9} height={1.2} width={1.2}/></NavLink>
                                 </>
                             :   <>
-                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ' + (isActive ? 'active' : '') }
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ps-1 ps-md-4 ps-sm-5 ' + (isActive ? 'active' : '') }
                                         to={urlBaseFrontend + "/apartamentos"}>Apartamentos</NavLink>
-                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ' + (isActive ? 'active' : '') }
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold px-1 px-md-4 px-sm-5 ' + (isActive ? 'active' : '') }
                                         to={urlBaseFrontend + "/casas"}>Casas</NavLink>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ' + (isActive ? 'active' : '') }
                                         to={urlBaseFrontend + "/search"}>Buscar</NavLink>
@@ -56,7 +56,7 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                         <ul className="navbar-nav ml-auto">
                             <span className='nav-item nav-link main-text'>{user.logged ? user.name : ''}</span>
-                            <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ' + (isActive ? 'active' : '') }
+                            <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold me-3 ' + (isActive ? 'active' : '') }
                                 onClick={ handleLogout } to={urlBaseFrontend+"/login"}>{ user.logged ? 'Salir' : 'Ingresar' }</NavLink>
                         </ul>
                     </div>
