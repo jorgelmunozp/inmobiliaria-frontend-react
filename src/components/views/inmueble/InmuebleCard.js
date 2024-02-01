@@ -40,21 +40,6 @@ export const InmuebleCard = ({ id,detalle,urlBaseFrontend }) => {
                                     </div>
                                 </div>
                             </div>
-                            {/* <div className='card-body px-3 pt-0 pb-2'>
-                                <h6 className='card-title text-truncate mt-1 pt-1'>{ detalle.nombre }</h6>
-                                <h6 className='text-dark fw-bolder text-truncate mb-0'>{ formatterPeso.format(detalle.valor) }&nbsp;<small className='badge text-muted ps-1'>{detalle.tipo === 'Arriendo' ? 'mensual' : ''}</small></h6>
-                            </div> */}
-
-                            {/* <div class="card-footer text-body-secondary py-2">
-                                <div className='card-text lh-base'>
-                                    <ul className='list-group list-group-horizontal justify-content-between'>
-                                        <li className='list-group-item badge bg-transparent fw-bolder border-0 text-center p-0'><Area strokeWidth={0.75} width={1.45} height={1.45} /> <span className='text-muted fw-bolder ps-1'>{ detalle.area }&nbsp;<small>m<sup>2</sup></small></span></li>
-                                        <li className='list-group-item badge bg-transparent fw-bolder border-0 text-center p-0'><Bed strokeWidth={44} width={1.25} height={1.25} /> <span className='text-muted fw-bolder ps-1'>{ detalle.habitaciones }</span></li>
-                                        <li className='list-group-item badge bg-transparent fw-bolder border-0 text-center p-0'><Bath strokeWidth={0.5} width={1.1} height={1.25} /> <span className='text-muted fw-bolder ps-1'>{ detalle.baños }</span></li>
-                                        <li className='list-group-item badge bg-transparent fw-bolder border-0 text-center p-0'><Car strokeWidth={44} width={1.25} height={1.25} /> <span className='text-muted fw-bolder ps-1'> { detalle.parqueaderos }</span></li>
-                                    </ul>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>

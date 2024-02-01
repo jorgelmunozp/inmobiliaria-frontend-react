@@ -52,7 +52,7 @@ hr { opacity: 0.1; }
 
 .h-35 { height: 100px; }
 /* .shadow-light { box-shadow: 0 1rem 3rem rgba(255, 0, 0, .175); } */
-.shadow-light { box-shadow: 0 1rem 3rem rgba(175, 175, 175, .175); }
+.shadow-light { box-shadow: 0 1rem 3rem rgba(170, 170, 170, .175); }
 /************************************************************************/ 
 /****** Header ******/ 
 .header { background: url("../../background.svg") repeat;}
@@ -99,6 +99,11 @@ hr { opacity: 0.1; }
     border: none !important;
     box-shadow: none !important;
 }
+
+/****** INDEX SCREEN ******/
+.title { font-size: 50px; }
+@media (min-width: 577px) and (max-width: 768px) { .title { font-size: 45px; } }
+@media (max-width: 576px) { .title { font-size: 35px; } }
 
 /****** HOME SCREEN ******/
 .input:focus { border-color: var(--main-color); border-width: 1.25px;}

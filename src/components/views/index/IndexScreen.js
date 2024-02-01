@@ -16,7 +16,7 @@ export const IndexScreen = ({ inmuebles }) => {
     <>
       <div className='header flex-nowrap py-5 shadow-light w-100' >
         <center>
-          <Logo strokeWidth={1} height={6} width={6} /><h1>La Inmobiliaria</h1>
+          <Logo strokeWidth={1} height={7} width={7} /><h1 className='title'>La Inmobiliaria</h1>
           {/* <WhiteLine /> */}
         </center>
       </div>
