@@ -11,7 +11,7 @@ export const HomeScreen = ({ inmuebles }) => {
   return (
     <>
       <h5 className='my-3 my-lg-4 my-md-4 my-sm-5'><center>Todos los Inmuebles</center></h5> 
-      <div className='row'>
+      <div className='row px-4'>
         <p>
           <a className="form-control border border-muted text-center shadow-sm w-100" data-bs-toggle="collapse" href="#collapseContent" role="button" aria-expanded="false" aria-controls="collapseContent">
             🔎

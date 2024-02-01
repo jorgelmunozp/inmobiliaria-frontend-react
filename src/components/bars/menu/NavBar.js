@@ -20,7 +20,7 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-light bg-white py-2 py-lg-4 py-md-3 py-sm-4 shadow-light user-select-none">
+        <nav className="navbar navbar-expand-sm navbar-light bg-white py-3 py-lg-4 py-md-4 py-sm-4 shadow-light user-select-none">
             <div className="container-fluid">
                 <NavLink to={"/" + urlBaseFrontend}>
                     <Logo color={myColor} width={1.6} height={1.6} strokeWidth={2.25} className='navbar-brand ms-3 me-0'/>
@@ -48,7 +48,7 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
                                         to={urlBaseFrontend + "/apartamentos"}>Apartamentos</NavLink>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold px-1 px-md-4 px-sm-5 ' + (isActive ? 'active' : '') }
                                         to={urlBaseFrontend + "/casas"}>Casas</NavLink>
-                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ' + (isActive ? 'active' : '') }
+                                    <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold px-1 px-md-4 px-sm-5 ' + (isActive ? 'active' : '') }
                                         to={urlBaseFrontend + "/search"}>Buscar</NavLink>
                                 </>
                         }

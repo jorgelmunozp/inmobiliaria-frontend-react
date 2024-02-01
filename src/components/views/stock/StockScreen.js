@@ -345,7 +345,7 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   };
 
   return (
-    <>
+    <div className='px-4'>
       <h5 className='my-3 my-lg-4 my-md-4 my-sm-5'><center>Inventario Inmuebles</center></h5> 
       <p>
         <a className="form-control border border-muted text-center shadow-sm w-100" data-bs-toggle="collapse" href="#collapseContent" role="button" aria-expanded="false" aria-controls="collapseContent">
@@ -465,6 +465,6 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
         }
       </div>
       <PaginationBar query={queryId === '' && queryName === ''} array={inmuebles} arrayFiltered={inmueblesFiltered} itemPerPage={itemPerPage} indexPage={indexPage} activePages={activePages} indexPages={indexPages} setIndexPage={setIndexPage} setActivePages={setActivePages} /> 
-    </>
+    </div>
   )
 }

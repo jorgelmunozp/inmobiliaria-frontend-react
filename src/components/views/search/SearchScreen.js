@@ -16,7 +16,7 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
   const inmueblesFiltered = useMemo( () => getInmuebles(queryName,queryCategory,queryType,queryValueMin,queryValueMax,inmuebles,categorias,tipos), [queryName,queryCategory,queryType,queryValueMin,queryValueMax,inmuebles,categorias,tipos] );
 
   return (
-    <>
+    <div className='px-4'>
       <h5 className='my-3 my-lg-4 my-md-4 my-sm-5'><center>Buscar Inmueble</center></h5> 
       <h6>Que tipo de inmueble buscas?</h6>
       <hr />
@@ -46,6 +46,6 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
                                                   : <InmuebleList inmuebles={inmueblesFiltered} /> 
         }
       </div>
-    </>
+    </div>
   )
 }
