@@ -52,7 +52,7 @@ hr { opacity: 0.1; }
 
 .h-35 { height: 100px; }
 /* .shadow-light { box-shadow: 0 1rem 3rem rgba(255, 0, 0, .175); } */
-.shadow-light { box-shadow: 0 1rem 3rem rgba(170, 170, 170, .175); }
+.shadow-light { box-shadow: 0 1rem 3rem rgba(160, 160, 160, .175); }
 /************************************************************************/ 
 /****** Header ******/ 
 .header { background: url("../../background.svg") repeat;}
