@@ -14,11 +14,11 @@ export const IndexScreen = ({ inmuebles }) => {
   return (
     <>
       <div className='header flex-nowrap pt-5 pb-3 shadow-light w-100' >
-        <center className='py-3 py-lg-2'>
+        <center className='py-0 py-lg-2'>
           <Logo strokeWidth={1} height={7} width={7} /><h1 className='title mb-3 mb-lg-3 mb-md-2 mg-sm-3'>La Inmobiliaria</h1>
         </center>
       </div>
-      <h5 className='my-4 pt-4 pb-2'><center>Inmuebles</center></h5>
+      <h5 className='my-2 my-lg-3 pt-2 pt-lg-4 pb-2'><center>Inmuebles</center></h5>
       <div className='row'>
         <div>
           <center>
