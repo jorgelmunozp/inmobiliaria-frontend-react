@@ -37,7 +37,17 @@ export const AppRouter = () => {
 
       <div className="user-select-none">
         <Routes>
+        <Route path={"*"} element={
+            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
+              <IndexScreen inmuebles={inmuebles} />
+            </PublicRoute>
+          } />
           <Route path={"/"} element={
+            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
+              <IndexScreen inmuebles={inmuebles} />
+            </PublicRoute>
+          } />
+          <Route path={"/*"} element={
             <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
@@ -78,6 +88,7 @@ export const AppRouter = () => {
               </PublicRoute>
           } />
 
+          <Route path={"/"} element={ <PrivateRoute><HomeScreen inmuebles={inmuebles} /></PrivateRoute> } />
           <Route path={"/*"} element={ <PrivateRoute><HomeScreen inmuebles={inmuebles} /></PrivateRoute> } />
           <Route path={"/home"} element={ <PrivateRoute><HomeScreen inmuebles={inmuebles} /></PrivateRoute> } />
           <Route path={"/:inmuebleId/*"} element={ <PrivateRoute><InmuebleScreen inmuebles={inmuebles} /></PrivateRoute> } />
@@ -87,8 +98,7 @@ export const AppRouter = () => {
           <Route path={"/*"} element={
               <PrivateRoute>
                   <DashboardRoutes urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/>
-              </PrivateRoute>
-          } />
+              </PrivateRoute> } />
 
         </Routes>
       </div>
