@@ -39,6 +39,12 @@ export const AppRouter = () => {
 
       <div className="user-select-none">
         <Routes>
+        <Route path={"/" + urlBaseFrontend} element={
+            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
+              <IndexScreen inmuebles={inmuebles} />
+            </PublicRoute>
+          } />
+
           <Route path={"/" + urlBaseFrontend + "/index"} element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <IndexScreen inmuebles={inmuebles} />
