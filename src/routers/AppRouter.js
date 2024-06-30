@@ -39,7 +39,7 @@ export const AppRouter = () => {
 
       <div className="user-select-none">
         <Routes>
-        <Route path={"/" + urlBaseFrontend} element={
+          <Route path={"/" + urlBaseFrontend} element={
             <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
@@ -88,9 +88,7 @@ export const AppRouter = () => {
           } />
 
           <Route path='*' element={
-            // <PublicRoute urlBaseFrontend={urlBaseFrontend}>
               <NotFound urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
-            // </PublicRoute>
           }/>
 
           <Route path={urlBaseFrontend + "/home"} element={
@@ -128,12 +126,7 @@ export const AppRouter = () => {
                   <HomeScreen inmuebles={inmuebles}/>
               </PrivateRoute>
           } />
-          {/* <Route path={"/" + urlBaseFrontend} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <HomeScreen inmuebles={inmuebles}/>
-              </PrivateRoute>
-          } /> */}
-                    <Route path={"/" + urlBaseFrontend + "/*"} element={
+          <Route path={"/" + urlBaseFrontend + "/*"} element={
               <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
                   <HomeScreen inmuebles={inmuebles}/>
               </PrivateRoute>
