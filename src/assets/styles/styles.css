@@ -20,7 +20,7 @@
     font-family: "CenturyGothic";
     font-style: normal;
     font-weight: normal;
-    src: url("../fonts/CenturyGothic.ttf") format("truetype");
+    src: url("../fonts/CenturyGothic.woff2") format("truetype");
   }
 
 a { text-decoration: none; }
