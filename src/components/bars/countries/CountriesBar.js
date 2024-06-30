@@ -9,12 +9,12 @@ export const CountriesBar = ({ countries, country, setCountry, state, setState, 
     setState('');
     setCity('');
     setStates( ( countries.length !== 0 ) ? countries.filter(parameter => parameter.name.includes(country))[0].states : [] );
-  },[country,states]);
+  },[country,countries,states,setState,setCity]);
 
   useEffect(() => {
     setCity('');
     setCities( ( states.length !== 0 ) ? states.filter(parameter => parameter.name.includes(state))[0].cities : [] )
-  },[state]);
+  },[state,states,setCity]);
 
   return (
     <div className='row d-sm-flex'>
