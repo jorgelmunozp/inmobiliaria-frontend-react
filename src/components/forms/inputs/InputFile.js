@@ -22,7 +22,7 @@ export const InputFile = ({ id,placeholder,acceptFiles='*',file,setFile,iconSize
                 readerMultiple.onerror = (error) => { console.log('Error input file img -> img base 64: ', error); };
             }
         }
-    },[file.length]);
+    },[file,file.length]);
 
     return (
         <div className="form-floating text-center text-nowrap text-truncate shadow-sm" data-mdb-input-init>
