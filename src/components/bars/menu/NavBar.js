@@ -16,7 +16,7 @@ export const NavBar = ({ myColor, myTitle }) => {
 
     const handleLogout = () => {
         dispatch({ type: types.logout });
-        navigate(('/index'), { replace: true });
+        navigate(('/'), { replace: true });
     }
 
     return (

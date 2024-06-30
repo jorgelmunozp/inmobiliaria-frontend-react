@@ -41,7 +41,7 @@ export const AppRouter = () => {
             </PublicRoute>
           } />
 
-          <Route path={"/index"} element={
+          <Route path={"/inicio"} element={
             <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
@@ -76,10 +76,6 @@ export const AppRouter = () => {
                   <LoginScreen myTitle={myTitle} myColor={myColor} />
               </PublicRoute>
           } />
-
-          {/* <Route path='*' element={
-              <NotFound myColor={myColor} myTitle={myTitle} />
-          }/> */}
 
           <Route path={"/*"} element={
               <PrivateRoute>
