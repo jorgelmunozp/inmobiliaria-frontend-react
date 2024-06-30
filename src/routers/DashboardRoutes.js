@@ -12,10 +12,10 @@ export const DashboardRoutes = ({ urlApiInmuebles, categorias, tipos, estados, c
     <div className="container user-select-none">
       <Routes>
           <Route path={"/home"} element={<HomeScreen inmuebles={inmuebles} />} />
+          <Route path={"/:inmuebleId/*"} element={<InmuebleScreen inmuebles={inmuebles} />} />
           <Route path={"/upload"} element={<InmuebleUpload urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={paises}/>} />
           <Route path={"/stock"} element={<StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} />} />
-          <Route path={"/:inmuebleId"} element={<InmuebleScreen inmuebles={inmuebles} />} />
-          {/* <Route path={"/"} element={<HomeScreen inmuebles={inmuebles} />} /> */}
+          <Route path={"/"} element={<HomeScreen inmuebles={inmuebles} />} />
       </Routes>
     </div>
   )
