@@ -30,10 +30,10 @@ export const InputFile = ({ id,placeholder,acceptFiles='*',file,setFile,iconSize
                 <label htmlFor={ id } style={{"cursor":"pointer"}} >
                     { 
                         ( file.size > 0 ) 
-                            ?   <img src={imageData.data} id={ 'imgXXX-' + id }  className='img-thumbnail shadow-sm' style={{"height": size + "rem","width": size + "rem"}}/>
+                            ?   <img src={imageData.data} id={ 'image-' + id } className='img-thumbnail shadow-sm' style={{"height": size + "rem","width": size + "rem"}} alt={ 'image-' + id }/>
                             :   ( file.length > 0 )
                                     ?   imagesData.map((image) => { 
-                                            return(<img src={image.data} key={image.name} className='img-thumbnail shadow-sm' style={{"height": size + "rem","width": size + "rem"}}/>)
+                                            return(<img src={image.data} key={image.name} className='img-thumbnail shadow-sm' style={{"height": size + "rem","width": size + "rem"}} alt={image.name}/>)
                                         })
                                     :  <ImageSearch color={'#aaaaaa'} strokeWidth={iconStrokeWidth} height={size} width={size} className='mt-1 mt-md-1 mt-sm-5 mb-md-0 mb-sm-2' />
                     }

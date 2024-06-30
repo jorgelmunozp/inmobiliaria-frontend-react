@@ -118,7 +118,6 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   function sortByStatusDown(a, b) { return b.detalle.estado.localeCompare(a.detalle.estado); }
     
   const handleChangeImage = (event) => {
-    const idInmueble = event.target.id.split('-')[1];
     image = document.getElementById( 'inputImage-' + event.target.id.split('-')[1] ).files[0];
     category = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.categoria;
     name = inmuebles.filter(inmueble => inmueble.id === parseInt(event.target.id.split('-')[1]) )[0].detalle.nombre;

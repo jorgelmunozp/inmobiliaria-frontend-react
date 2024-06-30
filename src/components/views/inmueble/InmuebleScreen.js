@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import { useParams, Navigate, useNavigate} from 'react-router-dom'
 import { getInmuebleById } from '../../../selectors/getInmuebleById';
 import { formatterPeso } from '../../../helpers/formatterPeso';

@@ -3,7 +3,6 @@ import { getInmueblesByName } from '../../../selectors/getInmueblesByName';
 import { InmuebleList } from '../inmueble/InmuebleList';
 import { InputText } from '../../forms/inputs/InputText';
 import { Equis } from '../../icons/equis/Equis';
-import { WhiteLine } from '../../forms/whiteline/WhiteLine';
 
 import { Logo } from '../../icons/logo/Logo';
 
