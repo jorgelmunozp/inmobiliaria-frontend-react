@@ -65,7 +65,7 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
       setCharacteristic(characteristics);
     }
     setDescription(descriptionInmueble);
-  });
+  },[characteristics, descriptionInmueble, category]);
 
   // Convert image -> image base 64
   const [imageData, setImageData] = useState({
@@ -103,7 +103,7 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
         readerMultiple.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
       }
     }
-  },[images]);
+  },[images,category,name]);
 
   // Query body for POST
   const dataInmueble = `{
