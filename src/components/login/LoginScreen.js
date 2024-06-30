@@ -26,9 +26,7 @@ export const LoginScreen = ({ myTitle,myColor }) => {
         payload: { name: username }
       }
       dispatch(action);
-  
-      const lastPath = localStorage.getItem('lastPath') || '/';
-      navigate(lastPath, { replace: true });
+      navigate('/', { replace: true });
     } else if( userInput === "" && passwordInput === "" ) {
       setAlertMessage("Ingrese usuario y contraseña");
     } else {

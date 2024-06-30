@@ -9,23 +9,23 @@ import { HomeMenu } from '../../icons/home/HomeMenu';
 import { HomePlus } from '../../icons/home/HomePlus';
 import { HomeSimple } from '../../icons/home/HomeSimple';
 
-export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
+export const NavBar = ({ myColor, myTitle }) => {
 
     const { user, dispatch } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
         dispatch({ type: types.logout });
-        navigate((urlBaseFrontend + '/index'), { replace: true });
+        navigate(('/index'), { replace: true });
     }
 
     return (
         <nav className="navbar navbar-expand-sm navbar-light bg-white py-2 shadow-light user-select-none">
             <div className="container-fluid">
-                <NavLink to={"/" + urlBaseFrontend}>
+                <NavLink to={"/"}>
                     <Logo color={myColor} width={1.6} height={1.6} strokeWidth={2.25} className='navbar-brand ms-3 me-0'/>
                 </NavLink>
-                <NavLink className="navbar-brand" to={"/" + urlBaseFrontend}>
+                <NavLink className="navbar-brand" to={"/"}>
                     <span className='main-color fw-bold'>{ myTitle }</span>
                 </NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,19 +37,19 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
                             (user.logged)
                             ?   <>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                        to={urlBaseFrontend + "/home"}><HomeSimple strokeWidth={0} height={1.2} width={1.2}/></NavLink>
+                                        to={"/home"}><HomeSimple strokeWidth={0} height={1.2} width={1.2}/></NavLink>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                        to={urlBaseFrontend + "/upload"}><HomePlus strokeWidth={0} height={1.2} width={1.2}/></NavLink>
+                                        to={"/upload"}><HomePlus strokeWidth={0} height={1.2} width={1.2}/></NavLink>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                                        to={urlBaseFrontend + "/stock"}><Category strokeWidth={1.9} height={1.2} width={1.2}/></NavLink>
+                                        to={"/stock"}><Category strokeWidth={1.9} height={1.2} width={1.2}/></NavLink>
                                 </>
                             :   <>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold ps-1 ps-md-4 ps-sm-5 ' + (isActive ? 'active' : '') }
-                                        to={urlBaseFrontend + "/apartamentos"}>Apartamentos</NavLink>
+                                        to={"/apartamentos"}>Apartamentos</NavLink>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold px-1 px-md-4 px-sm-5 ' + (isActive ? 'active' : '') }
-                                        to={urlBaseFrontend + "/casas"}>Casas</NavLink>
+                                        to={"/casas"}>Casas</NavLink>
                                     <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold px-1 px-md-4 px-sm-5 ' + (isActive ? 'active' : '') }
-                                        to={urlBaseFrontend + "/search"}>Buscar</NavLink>
+                                        to={"/search"}>Buscar</NavLink>
                                 </>
                         }
                     </div>
@@ -57,7 +57,7 @@ export const NavBar = ({ urlBaseFrontend, myColor, myTitle }) => {
                         <ul className="navbar-nav ml-auto">
                             <span className='nav-item nav-link main-text'>{user.logged ? user.name : ''}</span>
                             <NavLink className={ ({ isActive }) => 'nav-item nav-link fw-bold me-3 ' + (isActive ? 'active' : '') }
-                                onClick={ handleLogout } to={urlBaseFrontend+"/login"}>{ user.logged ? 'Salir' : 'Ingresar' }</NavLink>
+                                onClick={ handleLogout } to={"/login"}>{ user.logged ? 'Salir' : 'Ingresar' }</NavLink>
                         </ul>
                     </div>
                 </div>

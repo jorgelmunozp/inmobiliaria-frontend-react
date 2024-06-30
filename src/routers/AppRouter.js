@@ -10,12 +10,8 @@ import { ApartamentosScreen } from "../components/views/apartamentos/Apartamento
 import { CasasScreen } from "../components/views/casas/CasasScreen";
 import { SearchScreen } from "../components/views/search/SearchScreen";
 import { InmuebleScreen } from "../components/views/inmueble/InmuebleScreen";
-import { InmuebleUpload } from "../components/views/inmueble/InmuebleUpload";
 import { NotFound } from '../components/views/404/NotFound';
 import { myColor, myTitle } from "../global";
-
-import { HomeScreen } from "../components/views/home/HomeScreen";
-import { StockScreen } from "../components/views/stock/StockScreen";
 
 export const AppRouter = () => {
   const urlBaseFrontend = process.env.REACT_APP_URL_BASE_FRONTEND;
@@ -34,112 +30,60 @@ export const AppRouter = () => {
   const countries = useFetch(urlApiCountries).data;
  
   return (
-    <BrowserRouter>
-      <NavBar urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
+    <BrowserRouter basename={"/" + urlBaseFrontend}>
+      <NavBar myColor={myColor} myTitle={myTitle} />
 
       <div className="user-select-none">
         <Routes>
-          <Route path={"/" + urlBaseFrontend} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
+          <Route path={"/"} element={
+            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
           } />
 
-          <Route path={"/" + urlBaseFrontend + "/index"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
+          <Route path={"/index"} element={
+            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
               <IndexScreen inmuebles={inmuebles} />
             </PublicRoute>
           } />
 
-          <Route path={urlBaseFrontend + "/apartamentos"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
+          <Route path={"/apartamentos"} element={
+            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
               <ApartamentosScreen inmuebles={inmuebles} />
               </PublicRoute>
           } />
 
-          <Route path={urlBaseFrontend + "/casas"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
+          <Route path={"/casas"} element={
+            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
               <CasasScreen inmuebles={inmuebles} />
               </PublicRoute>
           } />
 
-          <Route path={urlBaseFrontend + "/search"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
+          <Route path={"/search"} element={
+            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
               <SearchScreen inmuebles={inmuebles} categorias={categorias} tipos={tipos}/>
             </PublicRoute>
           } />
 
-          <Route path={urlBaseFrontend + "/:inmuebleId"} element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
+          <Route path={"/:inmuebleId"} element={
+            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
               <InmuebleScreen inmuebles={inmuebles} />
             </PublicRoute>
           } />
 
-          <Route path={urlBaseFrontend + "/login"} element={
-              <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
+          <Route path={"/login"} element={
+              <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
                   <LoginScreen myTitle={myTitle} myColor={myColor} />
               </PublicRoute>
           } />
 
-          <Route path={"/" + urlBaseFrontend + "/*" } element={
-            <PublicRoute urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles}>
-              <IndexScreen inmuebles={inmuebles} />
-            </PublicRoute>
-          } />
-
-          <Route path='*' element={
-              <NotFound urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
-          }/>
-
-          <Route path={urlBaseFrontend + "/home"} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <HomeScreen inmuebles={inmuebles}/>
-              </PrivateRoute>
-          } />
-
-            <Route path={urlBaseFrontend + "/upload"} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <InmuebleUpload urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/>
-              </PrivateRoute>
-          } />
-
-          <Route path={urlBaseFrontend + "/stock"} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles}/>
-              </PrivateRoute>
-          } />
-
-          <Route path={urlBaseFrontend + "/inventario"} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles}/>
-              </PrivateRoute>
-          } />
-
-          <Route path={urlBaseFrontend + "/:inmuebleId"} element={
-            <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-              <InmuebleScreen inmuebles={inmuebles} />
-            </PrivateRoute>
-          } />
-
-          <Route path={urlBaseFrontend + "/*"} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <HomeScreen inmuebles={inmuebles}/>
-              </PrivateRoute>
-          } />
-          <Route path={"/" + urlBaseFrontend + "/*"} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <HomeScreen inmuebles={inmuebles}/>
-              </PrivateRoute>
-          } />
-          <Route path={"/*"} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <HomeScreen inmuebles={inmuebles}/>
-              </PrivateRoute>
-          } />
+          {/* <Route path='*' element={
+              <NotFound myColor={myColor} myTitle={myTitle} />
+          }/> */}
 
           <Route path={"/*"} element={
-              <PrivateRoute urlBaseFrontend={urlBaseFrontend}>
-                  <DashboardRoutes urlBaseFrontend={urlBaseFrontend} urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/>
+              <PrivateRoute>
+                  <DashboardRoutes urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/>
               </PrivateRoute>
           } />
 

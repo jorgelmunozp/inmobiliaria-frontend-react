@@ -6,13 +6,13 @@ import { Bed } from '../../icons/bed/Bed';
 import { Bath } from '../../icons/bath/Bath';
 import { Area } from '../../icons/area/Area';
 
-export const InmuebleCard = ({ id,detalle,urlBaseFrontend }) => {
+export const InmuebleCard = ({ id,detalle }) => {
     const iconSize = 1.5;
     const linkInmueble = '/' + id + '-' + detalle.categoria.toLowerCase() + '-' + detalle.nombre.split(' ').join('-').toLowerCase() + '/';
     
     return (
         <div className='col'>
-            <Link to={ '/' + urlBaseFrontend + linkInmueble } >
+            <Link to={ linkInmueble } >
                 <div className='card shadow'>
                     <div className='row no-gutters'>
                         <div>
