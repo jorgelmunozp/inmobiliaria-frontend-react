@@ -55,9 +55,9 @@ hr { opacity: 0.1; }
 
 /****** Loader ******/ 
 .loader {
-    border: 6px solid #f3f3f3;
-    border-top: 6px solid var(--main-color);
-    border-bottom: 6px solid var(--main-color);
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--main-color);
+    border-bottom: 5px solid var(--main-color);
     border-radius: 50%;
     width: 70px;
     height: 70px;
@@ -65,6 +65,7 @@ hr { opacity: 0.1; }
     text-align: center;
     margin-top: 20px;
   }
+  @media (min-width: 768px) { .loader { width: 80px; height: 80px; } }
   
   @keyframes spin {
     0% { transform: rotate(0deg); }
