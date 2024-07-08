@@ -134,6 +134,9 @@ hr { opacity: 0.1; }
 .carousel-control-prev, .carousel-control-next { opacity: 1; }
 .carousel-control-prev:hover, .carousel-control-next:hover { background-color: transparent; }
 
+@media (max-width: 576px) { .w-sm-100 { width: 100% !important;} }
+@media (min-width: 577px) and (max-width: 768px) { .w-md-100 { width: 100% !important;} }
+
 .btn-inmueble {
     color: var(--main-color);
     background-color: var(--white-color);
@@ -152,3 +155,4 @@ hr { opacity: 0.1; }
 /***** STOCK SCREEN *****/
 .image-upload > input { display: none; }
 .image-upload img { width: 2rem; cursor: pointer; }
+

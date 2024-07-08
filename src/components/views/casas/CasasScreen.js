@@ -1,7 +1,7 @@
 import { Suspense, lazy } from 'react';
 const InmuebleList = lazy(() => import('../inmueble/InmuebleList'));
 
-export const CasasScreen = ({ inmuebles }) => {
+const CasasScreen = ({ inmuebles }) => {
   const casas = inmuebles.filter(inmueble => inmueble.detalle.categoria.toLowerCase() === 'casa' && inmueble.detalle.estado.toLowerCase().includes('disponible') );
   return (
     <div className='px-4'>
@@ -10,3 +10,4 @@ export const CasasScreen = ({ inmuebles }) => {
     </div>
   )
 }
+export default CasasScreen

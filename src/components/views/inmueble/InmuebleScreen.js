@@ -15,7 +15,8 @@ const InmuebleScreen = ({ inmuebles }) => {
 
   return (
     <div className='row d-block d-sm-flex mt-3 mt-sm-5 px-4'>
-      <div id="slider" className="carousel slide w-50 w-sm-100" data-bs-ride="carousel">        {/* <!-- Carousel --> */}
+      {/* <div id="slider" className="carousel slide w-50 w-sm-100" data-bs-ride="carousel">        <!-- Carousel --> */}
+      <div id="slider" className="carousel slide w-50 w-sm-100" data-bs-ride="carousel">      
         <div className="carousel-inner shadow-sm">                                          {/* <!-- The slideshow/carousel --> */}
           <div className="carousel-item active">
             <img src={ detalle.imagen.data } alt="Foto" className="img-inmueble d-block img-thumbnail animate__animated animate__fadeIn w-100" />

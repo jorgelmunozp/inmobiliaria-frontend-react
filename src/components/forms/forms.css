@@ -11,9 +11,3 @@
     top: 1.625rem;
 }
 .min-width-10 { min-width: 11.5rem; }
-
-.w-sm-100 {}
-@media (max-width: 576px) { .w-sm-100 { width: 100% !important;} }
-
-.w-md-100 {}
-@media (min-width: 577px) and (max-width: 768px) { .w-md-100 { width: 100% !important;} }
