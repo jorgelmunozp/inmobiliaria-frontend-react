@@ -2,7 +2,6 @@ import React, { useMemo, useState } from 'react';
 import { getInmueblesByName } from '../../../selectors/getInmueblesByName';
 import { InputText } from '../../forms/inputs/InputText';
 import { Equis } from '../../icons/equis/Equis';
-
 import { Suspense, lazy } from 'react';
 const InmuebleList = lazy(() => import('../inmueble/InmuebleList'));
 

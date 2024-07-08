@@ -1,10 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
-// import { HomeScreen } from "../components/views/home/HomeScreen";
-// import { InmuebleScreen } from '../components/views/inmueble/InmuebleScreen';
-// import { InmuebleUpload } from '../components/views/inmueble/InmuebleUpload';
-// import { StockScreen } from "../components/views/stock/StockScreen";
-
 import { Suspense, lazy } from "react";
 const HomeScreen = lazy(() => import('../components/views/home/HomeScreen'));
 const InmuebleScreen = lazy(() => import('../components/views/inmueble/InmuebleScreen'));
