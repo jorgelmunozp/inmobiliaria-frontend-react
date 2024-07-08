@@ -1,14 +1,13 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState, Suspense, lazy } from 'react';
 import { getInmueblesByName } from '../../../selectors/getInmueblesByName';
-import { InmuebleList } from '../inmueble/InmuebleList';
 import { InputText } from '../../forms/inputs/InputText';
+import { Logo } from '../../icons/logo/Logo';
 import { Equis } from '../../icons/equis/Equis';
 
-import { Logo } from '../../icons/logo/Logo';
+const InmuebleList = lazy(() => import('../inmueble/InmuebleList'));
 
 export const IndexScreen = ({ inmuebles }) => {
-  let [ queryName, setQueryName ] = useState('');                     // Query
-
+  let [ queryName, setQueryName ] = useState('');
   const inmueblesFiltered = useMemo( () => getInmueblesByName(queryName,inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible'))), [queryName,inmuebles] );
 
   return (
@@ -42,7 +41,7 @@ export const IndexScreen = ({ inmuebles }) => {
         <div className='container-fluid px-4'>
           {
             (queryName === '')
-              ? <InmuebleList inmuebles={inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible') )} /> 
+              ? <Suspense fallback={<center><div className="loader"></div></center>}><InmuebleList inmuebles={inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible') )} /></Suspense>
               : inmueblesFiltered.length === 0 ? <div className="alert alert-danger"> 
                                                     <p>🔎 No hay resultados</p>
                                                     <div className='bg-white rounded pt-3 pb-1 px-3'>

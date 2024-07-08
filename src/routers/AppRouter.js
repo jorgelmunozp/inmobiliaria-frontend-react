@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useFetch } from '../hooks/useFetch';
 import { DashboardRoutes } from "./DashboardRoutes";
@@ -5,15 +6,24 @@ import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 import { NavBar } from "../components/bars/menu/NavBar";
 import { IndexScreen } from '../components/views/index/IndexScreen';
-import { LoginScreen } from "../components/login/LoginScreen";
 import { ApartamentosScreen } from "../components/views/apartamentos/ApartamentosScreen";
 import { CasasScreen } from "../components/views/casas/CasasScreen";
-import { SearchScreen } from "../components/views/search/SearchScreen";
-import { InmuebleScreen } from "../components/views/inmueble/InmuebleScreen";
-import { HomeScreen } from "../components/views/home/HomeScreen";
-import { InmuebleUpload } from '../components/views/inmueble/InmuebleUpload';
-import { StockScreen } from "../components/views/stock/StockScreen";
+// import { SearchScreen } from "../components/views/search/SearchScreen";
+// import { InmuebleScreen } from "../components/views/inmueble/InmuebleScreen";
+// import { LoginScreen } from "../components/login/LoginScreen";
+// import { HomeScreen } from "../components/views/home/HomeScreen";
+// import { InmuebleUpload } from '../components/views/inmueble/InmuebleUpload';
+// import { StockScreen } from "../components/views/stock/StockScreen";
 import { myColor, myTitle } from "../global";
+
+// const ApartamentosScreen = lazy(() => import('../components/views/apartamentos/ApartamentosScreen'));
+// const CasasScreen = lazy(() => import('../components/views/casas/CasasScreen'));
+const SearchScreen = lazy(() => import('../components/views/search/SearchScreen'));
+const InmuebleScreen = lazy(() => import('../components/views/inmueble/InmuebleScreen'));
+const LoginScreen = lazy(() => import('../components/login/LoginScreen'));
+const HomeScreen = lazy(() => import('../components/views/home/HomeScreen'));
+const InmuebleUpload = lazy(() => import('../components/views/inmueble/InmuebleUpload'));
+const StockScreen = lazy(() => import('../components/views/stock/StockScreen'));
 
 export const AppRouter = () => {
   const urlBaseFrontend = process.env.REACT_APP_URL_BASE_FRONTEND;
@@ -37,69 +47,24 @@ export const AppRouter = () => {
 
       <div className="user-select-none">
         <Routes>
-        <Route path={"*"} element={
-            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
-              <IndexScreen inmuebles={inmuebles} />
-            </PublicRoute>
-          } />
-          <Route path={"/"} element={
-            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
-              <IndexScreen inmuebles={inmuebles} />
-            </PublicRoute>
-          } />
-          <Route path={"/*"} element={
-            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
-              <IndexScreen inmuebles={inmuebles} />
-            </PublicRoute>
-          } />
-          <Route path={"/inicio"} element={
-            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
-              <IndexScreen inmuebles={inmuebles} />
-            </PublicRoute>
-          } />
+          <Route path={"*"} element={ <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}><IndexScreen inmuebles={inmuebles} /></PublicRoute> } />
+          <Route path={"/"} element={ <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}><IndexScreen inmuebles={inmuebles} /></PublicRoute> } />
+          <Route path={"/*"} element={ <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}><IndexScreen inmuebles={inmuebles} /></PublicRoute> } />
+          <Route path={"/inicio"} element={ <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}><IndexScreen inmuebles={inmuebles} /></PublicRoute> } />
+          <Route path={"/apartamentos"} element={ <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}><ApartamentosScreen inmuebles={inmuebles} /></PublicRoute> } />
+          <Route path={"/casas"} element={ <Suspense fallback={<div className="loader"></div>}><PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}><CasasScreen inmuebles={inmuebles} /></PublicRoute></Suspense> } />
+          <Route path={"/search"} element={ <Suspense fallback={<div className="loader"></div>}><PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}><SearchScreen inmuebles={inmuebles} categorias={categorias} tipos={tipos}/></PublicRoute></Suspense> } />
+          <Route path={"/:inmuebleId/*"} element={ <Suspense fallback={<div className="loader"></div>}><PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}><InmuebleScreen inmuebles={inmuebles} /></PublicRoute></Suspense> } />
+          <Route path={"/login"} element={ <Suspense fallback={<div className="loader"></div>}><PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}><LoginScreen myTitle={myTitle} myColor={myColor} /></PublicRoute></Suspense> } />
 
-          <Route path={"/apartamentos"} element={
-            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
-              <ApartamentosScreen inmuebles={inmuebles} />
-              </PublicRoute>
-          } />
+          <Route path={"/"} element={ <Suspense fallback={<div className="loader"></div>}><PrivateRoute><HomeScreen inmuebles={inmuebles} /></PrivateRoute></Suspense> } />
+          <Route path={"/*"} element={ <Suspense fallback={<div className="loader"></div>}><PrivateRoute><HomeScreen inmuebles={inmuebles} /></PrivateRoute></Suspense> } />
+          <Route path={"/home"} element={ <Suspense fallback={<div className="loader"></div>}><PrivateRoute><HomeScreen inmuebles={inmuebles} /></PrivateRoute></Suspense> } />
+          <Route path={"/:inmuebleId/*"} element={ <Suspense fallback={<div className="loader"></div>}><PrivateRoute><InmuebleScreen inmuebles={inmuebles} /></PrivateRoute></Suspense> } />
+          <Route path={"/upload"} element={ <Suspense fallback={<div className="loader"></div>}><PrivateRoute><InmuebleUpload urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/></PrivateRoute></Suspense> } />
+          <Route path={"/stock"} element={ <Suspense fallback={<div className="loader"></div>}><PrivateRoute><StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} /></PrivateRoute></Suspense> } />
 
-          <Route path={"/casas"} element={
-            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
-              <CasasScreen inmuebles={inmuebles} />
-              </PublicRoute>
-          } />
-
-          <Route path={"/search"} element={
-            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
-              <SearchScreen inmuebles={inmuebles} categorias={categorias} tipos={tipos}/>
-            </PublicRoute>
-          } />
-
-          <Route path={"/:inmuebleId/*"} element={
-            <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
-              <InmuebleScreen inmuebles={inmuebles} />
-            </PublicRoute>
-          } />
-
-          <Route path={"/login"} element={
-              <PublicRoute urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}>
-                  <LoginScreen myTitle={myTitle} myColor={myColor} />
-              </PublicRoute>
-          } />
-
-          <Route path={"/"} element={ <PrivateRoute><HomeScreen inmuebles={inmuebles} /></PrivateRoute> } />
-          <Route path={"/*"} element={ <PrivateRoute><HomeScreen inmuebles={inmuebles} /></PrivateRoute> } />
-          <Route path={"/home"} element={ <PrivateRoute><HomeScreen inmuebles={inmuebles} /></PrivateRoute> } />
-          <Route path={"/:inmuebleId/*"} element={ <PrivateRoute><InmuebleScreen inmuebles={inmuebles} /></PrivateRoute> } />
-          <Route path={"/upload"} element={ <PrivateRoute><InmuebleUpload urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/></PrivateRoute> } />
-          <Route path={"/stock"} element={ <PrivateRoute><StockScreen inmuebles={inmuebles} urlApiInmuebles={urlApiInmuebles} /></PrivateRoute> } />
-
-          <Route path={"/*"} element={
-              <PrivateRoute>
-                  <DashboardRoutes urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/>
-              </PrivateRoute> } />
-
+          <Route path={"/*"} element={ <Suspense fallback={<div className="loader"></div>}><PrivateRoute><DashboardRoutes urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/></PrivateRoute></Suspense> } />
         </Routes>
       </div>
     </BrowserRouter>

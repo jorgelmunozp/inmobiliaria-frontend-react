@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from 'react';
 import { getInmuebles } from '../../../selectors/getInmuebles';
 import { SearchBar } from './SearchBar';
-import { InmuebleList } from '../inmueble/InmuebleList';
 import { Equis } from '../../icons/equis/Equis';
-
 import { formatterPeso } from '../../../helpers/formatterPeso';
+import { Suspense, lazy } from 'react';
+const InmuebleList = lazy(() => import('../inmueble/InmuebleList'));
 
-export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
+const SearchScreen = ({ inmuebles,categorias,tipos }) => {
   let [ queryName, setQueryName ] = useState('');                               // Query's
   let [ queryCategory, setQueryCategory ] = useState(''); 
   let [ queryType, setQueryType ] = useState('');
@@ -43,9 +43,10 @@ export const SearchScreen = ({ inmuebles,categorias,tipos }) => {
                                                         </div>
                                                         <br></br>
                                                     </div>
-                                                  : <InmuebleList inmuebles={inmueblesFiltered} /> 
+                                                  : <Suspense fallback={<center><div className="loader"></div></center>}><InmuebleList inmuebles={inmueblesFiltered} /></Suspense>
         }
       </div>
     </div>
   )
 }
+export default SearchScreen

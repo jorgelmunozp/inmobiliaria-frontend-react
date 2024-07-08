@@ -11,7 +11,7 @@ import { myTitle, myColor } from '../../../global';
 import { formatterPeso } from '../../../helpers/formatterPeso';
 import Swal from 'sweetalert2';
 
-export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, caracteristicas, paises }) => {
+const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, caracteristicas, paises }) => {
   let createFlag = false;
   const [responseStatus, setResponseStatus] = useState(0);
 
@@ -258,3 +258,4 @@ export const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, ca
     </>
   )
 }
+export default InmuebleUpload

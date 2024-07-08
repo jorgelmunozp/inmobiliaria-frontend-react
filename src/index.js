@@ -4,6 +4,4 @@ import { App } from './App';
 import './assets/styles/styles.css';
 
 const root = createRoot(document.getElementById('root'));
-root.render(
-    <App />
-);
+root.render( <App /> );

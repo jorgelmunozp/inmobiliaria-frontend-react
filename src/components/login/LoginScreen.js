@@ -10,7 +10,7 @@ const superuser = process.env.REACT_APP_SUPERUSER;
 const password = process.env.REACT_APP_PASSWORD;
 const username = process.env.REACT_APP_USERNAME;
 
-export const LoginScreen = ({ myTitle,myColor }) => {
+const LoginScreen = ({ myTitle,myColor }) => {
   const [ userInput,setUserInput ] = useState("");
   const [ passwordInput,setPasswordInput ] = useState("");
   const [ alertMessage,setAlertMessage ] = useState("");
@@ -50,3 +50,4 @@ export const LoginScreen = ({ myTitle,myColor }) => {
     </div>
   )
 }
+export default LoginScreen

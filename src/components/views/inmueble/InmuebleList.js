@@ -4,8 +4,7 @@ import { PaginationBar } from '../../bars/pagination/PaginationBar';
 import { SortingBar } from '../../bars/sort/SortingBar';
 import { WhiteLine } from '../../forms/whiteline/WhiteLine';
 
-export const InmuebleList = ({ inmuebles }) => {
-
+const InmuebleList = ({ inmuebles }) => {
   /* Query */
   let query = '';
   const inmueblesFiltered = [];
@@ -29,7 +28,6 @@ export const InmuebleList = ({ inmuebles }) => {
       if(i < 0) { activePage.push(false); }                           // [true,false,false,false]
     }
   }
-
   const [activePages, setActivePages] = useState(activePage);         // [true,false,false,false]
 
   /* Sort */
@@ -53,3 +51,4 @@ export const InmuebleList = ({ inmuebles }) => {
     </>
   )
 }
+export default InmuebleList

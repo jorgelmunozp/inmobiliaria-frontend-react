@@ -24,7 +24,7 @@ import { Type } from '../../icons/type/Type';
 import { HomeQuestion } from '../../icons/home/HomeQuestion';
 import { Image } from '../../icons/image/Image';
 
-export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
+const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   const iconSize = 1.5;
 
   /* Update Stock */
@@ -53,14 +53,8 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
   const [ itemPerPage, setItemPerPage ] = useState(10);                 // Pagination - items per page
   const [ indexPage, setIndexPage ] = useState([0,itemPerPage]);        // Pagination indexes for Slice(x,y) filter that returns a items range from x to y
 
-  let [imageData, setImageData] = useState({                            // Input main image file
-    name: '',
-    data: ''
-  });
-  let [imagesData, setImagesData] = useState([{                      // Input secondary images files
-    name: '',
-    data: ''
-  }]);
+  let [imageData, setImageData] = useState({ name: '', data: '' });     // Input main image file
+  let [imagesData, setImagesData] = useState([{ name: '', data: '' }]); // Input secondary images files
 
   /* Query */
   let inmueblesFiltered = [];
@@ -167,7 +161,6 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
           data: reader.result
         };
         setImageData( imageData );
-        // handleStock(idInmueble);
       }
     };
     reader.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
@@ -225,7 +218,6 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
           data: readerMultiple.result 
         };
         setImagesData(imagesData);
-        // handleStock(idInmueble);
       }
     };
     readerMultiple.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
@@ -290,12 +282,10 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
             counter ++;
             if( counter === images[0].length ) {
               setImagesData(imagesData);
-              // handleStock(idInmueble);
             }
           }
         };
         readerMultipleAll.onerror = (error) => { console.log('Error img -> img base 64: ', error); };
-
       }
     };
   };
@@ -467,3 +457,4 @@ export const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
     </div>
   )
 }
+export default StockScreen

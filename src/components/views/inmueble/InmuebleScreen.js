@@ -3,7 +3,7 @@ import { useParams, Navigate, useNavigate} from 'react-router-dom'
 import { getInmuebleById } from '../../../selectors/getInmuebleById';
 import { formatterPeso } from '../../../helpers/formatterPeso';
 
-export const InmuebleScreen = ({ inmuebles }) => {
+const InmuebleScreen = ({ inmuebles }) => {
   const { inmuebleId } = useParams();
   const inmueble = useMemo( () => getInmuebleById(inmuebleId,inmuebles),[ inmuebleId,inmuebles ] );
 
@@ -92,3 +92,4 @@ export const InmuebleScreen = ({ inmuebles }) => {
     </div>
   )
 }
+export default InmuebleScreen

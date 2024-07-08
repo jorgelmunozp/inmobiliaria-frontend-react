@@ -1,10 +1,12 @@
 import React, { useMemo, useState } from 'react';
 import { getInmueblesByName } from '../../../selectors/getInmueblesByName';
-import { InmuebleList } from '../inmueble/InmuebleList';
 import { InputText } from '../../forms/inputs/InputText';
 import { Equis } from '../../icons/equis/Equis';
 
-export const HomeScreen = ({ inmuebles }) => {
+import { Suspense, lazy } from 'react';
+const InmuebleList = lazy(() => import('../inmueble/InmuebleList'));
+
+const HomeScreen = ({ inmuebles }) => {
   let [ queryName, setQueryName ] = useState('');                     // Query
   const inmueblesFiltered = useMemo( () => getInmueblesByName(queryName,inmuebles), [queryName,inmuebles] );
   
@@ -27,7 +29,7 @@ export const HomeScreen = ({ inmuebles }) => {
         <div>
           { 
             (queryName === '')
-              ? <InmuebleList inmuebles={inmuebles} /> 
+              ? <Suspense fallback={<center><div className="loader"></div></center>}><InmuebleList inmuebles={inmuebles} /></Suspense>
               : inmueblesFiltered.length === 0 ? <div className="alert alert-danger"> 
                                                     <p>🔎 No hay resultados</p>
                                                     <div className='bg-white rounded pt-3 pb-1 px-3'>
@@ -42,6 +44,4 @@ export const HomeScreen = ({ inmuebles }) => {
     </>
   )
 }
-
-
-
+export default HomeScreen
