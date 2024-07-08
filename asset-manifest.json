@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/inmobiliaria-frontend-react/static/css/main.e87c1183.css",
-    "main.js": "/inmobiliaria-frontend-react/static/js/main.033bcf1a.js",
-    "static/js/123.0c790fa6.chunk.js": "/inmobiliaria-frontend-react/static/js/123.0c790fa6.chunk.js",
+    "main.css": "/inmobiliaria-frontend-react/static/css/main.240323c2.css",
+    "main.js": "/inmobiliaria-frontend-react/static/js/main.93e17fa4.js",
     "static/css/686.09cff3cf.chunk.css": "/inmobiliaria-frontend-react/static/css/686.09cff3cf.chunk.css",
     "static/js/686.44f4eca4.chunk.js": "/inmobiliaria-frontend-react/static/js/686.44f4eca4.chunk.js",
     "static/js/460.d334635e.chunk.js": "/inmobiliaria-frontend-react/static/js/460.d334635e.chunk.js",
@@ -19,9 +18,8 @@
     "static/media/CenturyGothic.woff2": "/inmobiliaria-frontend-react/static/media/CenturyGothic.60d8d47e05f074d33df2.woff2",
     "index.html": "/inmobiliaria-frontend-react/index.html",
     "static/media/background.svg": "/inmobiliaria-frontend-react/static/media/background.2056c7ff94e8825e9b11.svg",
-    "main.e87c1183.css.map": "/inmobiliaria-frontend-react/static/css/main.e87c1183.css.map",
-    "main.033bcf1a.js.map": "/inmobiliaria-frontend-react/static/js/main.033bcf1a.js.map",
-    "123.0c790fa6.chunk.js.map": "/inmobiliaria-frontend-react/static/js/123.0c790fa6.chunk.js.map",
+    "main.240323c2.css.map": "/inmobiliaria-frontend-react/static/css/main.240323c2.css.map",
+    "main.93e17fa4.js.map": "/inmobiliaria-frontend-react/static/js/main.93e17fa4.js.map",
     "686.09cff3cf.chunk.css.map": "/inmobiliaria-frontend-react/static/css/686.09cff3cf.chunk.css.map",
     "686.44f4eca4.chunk.js.map": "/inmobiliaria-frontend-react/static/js/686.44f4eca4.chunk.js.map",
     "460.d334635e.chunk.js.map": "/inmobiliaria-frontend-react/static/js/460.d334635e.chunk.js.map",
@@ -37,7 +35,7 @@
     "948.3b221fa8.chunk.js.map": "/inmobiliaria-frontend-react/static/js/948.3b221fa8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e87c1183.css",
-    "static/js/main.033bcf1a.js"
+    "static/css/main.240323c2.css",
+    "static/js/main.93e17fa4.js"
   ]
 }
