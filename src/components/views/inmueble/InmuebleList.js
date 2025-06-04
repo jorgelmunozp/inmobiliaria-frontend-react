@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { InmuebleCard } from './InmuebleCard';
 import { PaginationBar } from '../../bars/pagination/PaginationBar';
 import { SortingBar } from '../../bars/sort/SortingBar';
