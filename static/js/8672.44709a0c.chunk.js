@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkinmobiliaria_frontend_react=self.webpackChunkinmobiliaria_frontend_react||[]).push([[8672],{8672:(e,r,i)=>{i.r(r),i.d(r,{Arrows:()=>n,default:()=>t});const n=e=>{let{direction:r}=e;return"up"===r?"\u25b4":"down"===r?"\u25be":void 0},t=n}}]);
+//# sourceMappingURL=8672.44709a0c.chunk.js.map

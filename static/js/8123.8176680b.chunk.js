@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkinmobiliaria_frontend_react=self.webpackChunkinmobiliaria_frontend_react||[]).push([[8123],{8123:(e,a,r)=>{r.r(a),r.d(a,{Equis:()=>n,default:()=>i});var s=r(579);const n=e=>{let{className:a="red-color"}=e;return(0,s.jsx)("span",{className:a,children:(0,s.jsx)("b",{children:"\u2717"})})},i=n}}]);
+//# sourceMappingURL=8123.8176680b.chunk.js.map

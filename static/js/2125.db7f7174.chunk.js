@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkinmobiliaria_frontend_react=self.webpackChunkinmobiliaria_frontend_react||[]).push([[2125],{2125:(e,t,r)=>{r.r(t),r.d(t,{PrivateRoute:()=>s,default:()=>c});var n=r(5043),a=r(3216),i=r(4926),o=r(579);const s=e=>{let{children:t}=e;const{user:r}=(0,n.useContext)(i.c);return r.logged?t:(0,o.jsx)(a.C5,{to:"/"})},c=s}}]);
+//# sourceMappingURL=2125.db7f7174.chunk.js.map
