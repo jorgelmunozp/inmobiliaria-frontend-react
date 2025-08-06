@@ -1,11 +1,12 @@
-import { useEffect, useReducer } from 'react'
-import { AuthContext } from './auth/authContext'
+import './assets/styles/styles.css';
+import { useEffect, useReducer } from 'react';
+import { AuthContext } from './auth/authContext';
 import { authReducer } from './auth/authReducer';
-import { AppRouter } from './routers/AppRouter'
+import { AppRouter } from './routers/AppRouter';
 
 const init = () => { return JSON.parse(localStorage.getItem('user') ) || { logged: false} }
 
-export const App = () => {
+export const App = ({ Logo }) => {
   const [ user, dispatch ] = useReducer( authReducer, {}, init );
 
   useEffect( () => {
@@ -19,3 +20,5 @@ export const App = () => {
     </AuthContext.Provider>
   )
 }
+
+export default App;

@@ -1,14 +1,14 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useFetch } from '../hooks/useFetch';
-import { DashboardRoutes } from "./DashboardRoutes";
-import { PrivateRoute } from "./PrivateRoute";
-import { PublicRoute } from "./PublicRoute";
-import { NavBar } from "../components/bars/menu/NavBar";
-import { IndexScreen } from '../components/views/index/IndexScreen';
-import { ApartamentosScreen } from "../components/views/apartamentos/ApartamentosScreen";
-import { CasasScreen } from "../components/views/casas/CasasScreen";
-import { myColor, myTitle } from "../global";
+import { DashboardRoutes } from "./DashboardRoutes.js";
+import { PrivateRoute } from "./PrivateRoute.js";
+import { PublicRoute } from "./PublicRoute.js";
+import { NavBar } from "../components/bars/menu/NavBar.js";
+import { IndexScreen } from '../components/views/index/IndexScreen.js';
+import { ApartamentosScreen } from "../components/views/apartamentos/ApartamentosScreen.js";
+import { CasasScreen } from "../components/views/casas/CasasScreen.js";
+import { myColor, myTitle } from "../global.js";
 
 // const ApartamentosScreen = lazy(() => import('../components/views/apartamentos/ApartamentosScreen'));
 // const CasasScreen = lazy(() => import('../components/views/casas/CasasScreen'));
