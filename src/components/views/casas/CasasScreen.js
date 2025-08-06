@@ -10,3 +10,4 @@ export const CasasScreen = ({ inmuebles }) => {
     </div>
   )
 }
+export default CasasScreen;

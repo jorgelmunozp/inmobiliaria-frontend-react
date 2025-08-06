@@ -49,4 +49,4 @@ const SearchScreen = ({ inmuebles,categorias,tipos }) => {
     </div>
   )
 }
-export default SearchScreen
+export default SearchScreen;

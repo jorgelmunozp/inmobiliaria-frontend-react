@@ -92,4 +92,4 @@ const InmuebleScreen = ({ inmuebles }) => {
     </div>
   )
 }
-export default InmuebleScreen
+export default InmuebleScreen;

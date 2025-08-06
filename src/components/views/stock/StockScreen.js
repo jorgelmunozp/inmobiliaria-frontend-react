@@ -457,4 +457,4 @@ const StockScreen = ({ inmuebles,urlApiInmuebles }) => {
     </div>
   )
 }
-export default StockScreen
+export default StockScreen;
