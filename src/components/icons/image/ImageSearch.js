@@ -9,5 +9,6 @@ export const ImageSearch = ({ className='',color="currentColor", strokeWidth='2'
                 <path d="M20.2 20.2l1.8 1.8"></path>
                 <path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l2 2"></path></svg>
        </span>
-       );
-   }
+    );
+}
+export default ImageSearch;

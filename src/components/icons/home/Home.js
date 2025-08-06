@@ -9,3 +9,4 @@ export const Home = ({ color="currentColor", strokeWidth='0', width='1', height=
         </span>
     );
 }
+export default Home;

@@ -1,16 +1,13 @@
-import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../auth/authContext';
-import { types } from '../../types/types';
-import { Logo } from '../icons/logo/Logo';
-import { LoginForm } from './LoginForm';
 import './login.css';
+import { lazy, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+const LoginForm = lazy(() => import('./LoginForm.js'));
 
 const superuser = process.env.REACT_APP_SUPERUSER;
 const password = process.env.REACT_APP_PASSWORD;
 const username = process.env.REACT_APP_USERNAME;
 
-const LoginScreen = ({ myTitle,myColor }) => {
+const LoginScreen = ({ Logo, AuthContext, types, myTitle, myColor }) => {
   const [ userInput,setUserInput ] = useState("");
   const [ passwordInput,setPasswordInput ] = useState("");
   const [ alertMessage,setAlertMessage ] = useState("");

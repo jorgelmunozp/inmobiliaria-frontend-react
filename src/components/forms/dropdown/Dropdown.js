@@ -25,3 +25,4 @@ export const Dropdown = ({ placeholder,query,parameters,setQuery,defaultSelect='
     </div>
   )
 }
+export default Dropdown;

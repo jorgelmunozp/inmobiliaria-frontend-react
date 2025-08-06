@@ -27,3 +27,4 @@ export const DropdownCountries = ({ placeholder,query,setQuery,parameters,defaul
     </div>
   )
 }
+export default DropdownCountries;

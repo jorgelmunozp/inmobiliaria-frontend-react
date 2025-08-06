@@ -14,3 +14,4 @@ export const InputNumber = ({ prefix='',id,value,name,onInputChange,placeholder,
         </>
     )
 }
+export default InputNumber;

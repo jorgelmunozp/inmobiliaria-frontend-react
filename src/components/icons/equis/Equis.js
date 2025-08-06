@@ -5,3 +5,4 @@ export const Equis = ({ className='red-color' }) => {
         </span> 
     );
 }
+export default Equis;

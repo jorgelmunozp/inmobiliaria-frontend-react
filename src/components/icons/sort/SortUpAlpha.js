@@ -11,3 +11,4 @@ export const SortUpAlpha = ({ color="currentColor", strokeWidth='0', width='1', 
         </span>
     )
 }
+export default SortUpAlpha;

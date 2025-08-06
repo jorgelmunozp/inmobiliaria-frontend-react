@@ -1,10 +1,9 @@
-import React, { useMemo, useState } from 'react';
-import { getInmuebles } from '../../../selectors/getInmuebles';
-import { SearchBar } from './SearchBar';
-import { Equis } from '../../icons/equis/Equis';
-import { formatterPeso } from '../../../helpers/formatterPeso';
-import { Suspense, lazy } from 'react';
-const InmuebleList = lazy(() => import('../inmueble/InmuebleList'));
+import { Suspense, lazy, useMemo, useState } from 'react';
+import { getInmuebles } from '../../../selectors/getInmuebles.js';
+import { formatterPeso } from '../../../helpers/formatterPeso.js';
+const InmuebleList = lazy(() => import('../inmueble/InmuebleList.js'));
+const SearchBar = lazy(() => import('./SearchBar.js'));
+const Equis = lazy(() => import('../../icons/equis/Equis.js'));
 
 const SearchScreen = ({ inmuebles,categorias,tipos }) => {
   let [ queryName, setQueryName ] = useState('');                               // Query's

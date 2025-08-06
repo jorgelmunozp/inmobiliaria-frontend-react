@@ -8,3 +8,4 @@ export const MapPin = ({ color="currentColor", strokeWidth='0', width='1', heigh
         </span>
     );
 }
+export default MapPin;

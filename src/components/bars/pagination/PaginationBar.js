@@ -12,3 +12,4 @@ export const PaginationBar = ({ query,array,arrayFiltered,itemPerPage,indexPage,
     </nav>
   )
 }
+export default PaginationBar;

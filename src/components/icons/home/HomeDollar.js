@@ -11,3 +11,4 @@ export const HomeDollar = ({ className='', color="currentColor", strokeWidth='0'
         </span>
     );
 }
+export default HomeDollar;

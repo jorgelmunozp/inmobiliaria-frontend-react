@@ -1,12 +1,11 @@
-import { useMemo, useState, Suspense, lazy } from 'react';
-import { getInmueblesByName } from '../../../selectors/getInmueblesByName';
-import { InputText } from '../../forms/inputs/InputText';
-import { Logo } from '../../icons/logo/Logo';
-import { Equis } from '../../icons/equis/Equis';
+import { Suspense, lazy, useMemo, useState } from 'react';
+import { getInmueblesByName } from '../../../selectors/getInmueblesByName.js';
 
-const InmuebleList = lazy(() => import('../inmueble/InmuebleList'));
+const InmuebleList = lazy(() => import('../inmueble/InmuebleList.js'));
+const InputText = lazy(() => import('../../forms/inputs/InputText.js'));
+const Equis = lazy(() => import('../../icons/equis/Equis.js'));
 
-export const IndexScreen = ({ inmuebles }) => {
+export const IndexScreen = ({ Logo, inmuebles }) => {
   let [ queryName, setQueryName ] = useState('');
   const inmueblesFiltered = useMemo( () => getInmueblesByName(queryName,inmuebles.filter( inmueble => inmueble.detalle.estado.toLowerCase().includes('disponible'))), [queryName,inmuebles] );
 

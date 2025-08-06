@@ -10,3 +10,4 @@ export const InputTextArea = ({ id,placeholder,inputText,onInputChange,rows=1,cl
         </>
     )
 }
+export default InputTextArea;

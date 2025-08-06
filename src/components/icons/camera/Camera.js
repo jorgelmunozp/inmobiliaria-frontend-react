@@ -9,3 +9,4 @@ export const Camera = ({ color="currentColor", strokeWidth='32', width='1', heig
         </span>
     );
 }
+export default Camera;

@@ -7,3 +7,4 @@ export const HomePlus = ({ color="currentColor", strokeWidth='0', width='1', hei
         </span>
     );
 }
+export default HomePlus;

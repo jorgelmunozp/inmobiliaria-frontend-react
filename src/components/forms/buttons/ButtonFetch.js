@@ -1,8 +1,9 @@
-import React from 'react'
-import { Button } from './Button';
-import { fetchCreate } from '../../../helpers/fetchCreate';
+import { lazy } from 'react';
+// import { fetchCreate } from '../../../helpers/fetchCreate';
 import Swal from 'sweetalert2';
-import {  myColor } from '../../../global';
+import { myColor } from '../../../global.js';
+const fetchCreate = lazy(() => import('../../../helpers/fetchCreate.js'));
+const Button = lazy(() => import('./Button.js'));
 
 export const ButtonFetch = ({ color,icon,title,urlApi,contenidoApi,setResponseStatus,createFlag,className }) => {
   return (
@@ -19,3 +20,4 @@ export const ButtonFetch = ({ color,icon,title,urlApi,contenidoApi,setResponseSt
           } } />
   )
 }
+export default ButtonFetch;

@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { useFetch } from "../hooks/useFetch";
 import { Suspense, lazy } from "react";
+import { useFetch } from "../hooks/useFetch.js";
 const HomeScreen = lazy(() => import('../components/views/home/HomeScreen'));
 const InmuebleScreen = lazy(() => import('../components/views/inmueble/InmuebleScreen'));
 const InmuebleUpload = lazy(() => import('../components/views/inmueble/InmuebleUpload'));
@@ -22,3 +22,4 @@ export const DashboardRoutes = ({ urlApiInmuebles, categorias, tipos, estados, c
     </div>
   )
 }
+export default DashboardRoutes;

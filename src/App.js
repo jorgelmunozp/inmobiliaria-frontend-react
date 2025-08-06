@@ -17,7 +17,7 @@ export const App = ({ Logo }) => {
 
   return (
     <AuthContext.Provider value={{ user,dispatch }}>
-      <AppRouter />
+      <AppRouter Logo={Logo} />
     </AuthContext.Provider>
   )
 }

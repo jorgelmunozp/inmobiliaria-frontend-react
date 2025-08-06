@@ -12,3 +12,4 @@ export const Category = ({ color="currentColor", strokeWidth='2', width='1', hei
         </span>
     );
 }
+export default Category;

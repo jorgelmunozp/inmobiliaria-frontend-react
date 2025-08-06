@@ -11,4 +11,5 @@ export const Button = ({ icon='',title='Button',type,onClick,style,className }) 
         { ( icon && title ) ? <>{icon} {title}</> : (icon ? icon : title) }
       </button>
     );
-  };
+};
+export default Button;

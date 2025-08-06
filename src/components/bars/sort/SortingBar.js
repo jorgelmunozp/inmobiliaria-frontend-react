@@ -1,6 +1,7 @@
-import { SortUpAlpha } from "../../icons/sort/SortUpAlpha";
-import { SortUpNum } from '../../icons/sort/SortUpNum';
-import { SortDownNum } from '../../icons/sort/SortDownNum';
+import { lazy } from 'react';
+const SortUpAlpha = lazy(() => import('../../icons/sort/SortUpAlpha.js'));
+const SortUpNum = lazy(() => import('../../icons/sort/SortUpNum.js'));
+const SortDownNum = lazy(() => import('../../icons/sort/SortDownNum.js'));
 
 export const SortingBar = ({ setSortBy }) => {
   return (
@@ -13,3 +14,4 @@ export const SortingBar = ({ setSortBy }) => {
     </div>
   )
 }
+export default SortingBar;

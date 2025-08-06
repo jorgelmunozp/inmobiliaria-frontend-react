@@ -10,3 +10,4 @@ export const InputPassword = ({ placeholder,inputText,onInputChange,className })
         </>
     )
 }
+export default InputPassword;

@@ -11,3 +11,4 @@ export const SortUpNum = ({ color="currentColor", strokeWidth='0', width='1', he
         </span>
     )
 }
+export default SortUpNum;

@@ -1,6 +1,7 @@
-import { Dropdown } from '../../forms/dropdown/Dropdown';
-import { InputText } from '../../forms/inputs/InputText';
-import { InputNumber } from '../../forms/inputs/InputNumber';
+import { lazy } from 'react';
+const Dropdown = lazy(() => import('../../forms/dropdown/Dropdown.js'));
+const InputText = lazy(() => import('../../forms/inputs/InputText.js'));
+const InputNumber = lazy(() => import('../../forms/inputs/InputNumber.js'));
 
 export const SearchBar = ({ queryName,queryCategory,queryType,queryValueMin,queryValueMax,setQueryName,setQueryCategory,setQueryType,setQueryValueMin,setQueryValueMax,categorias,tipos }) => {
   return (
@@ -23,3 +24,4 @@ export const SearchBar = ({ queryName,queryCategory,queryType,queryValueMin,quer
     </ul> 
   )
 }
+export default SearchBar;

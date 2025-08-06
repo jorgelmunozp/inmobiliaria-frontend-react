@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom'
-import { formatterPeso } from '../../../helpers/formatterPeso';
-
-import { Car } from '../../icons/car/Car';
-import { Bed } from '../../icons/bed/Bed';
-import { Bath } from '../../icons/bath/Bath';
-import { Area } from '../../icons/area/Area';
+import { lazy } from 'react';
+import { Link } from 'react-router-dom';
+import { formatterPeso } from '../../../helpers/formatterPeso.js';
+const Car = lazy(() => import('../../icons/car/Car.js'));
+const Bed = lazy(() => import('../../icons/bed/Bed.js'));
+const Bath = lazy(() => import('../../icons/bath/Bath.js'));
+const Area = lazy(() => import('../../icons/area/Area.js'));
 
 export const InmuebleCard = ({ id,detalle }) => {
     const iconSize = 1.5;
@@ -47,3 +47,4 @@ export const InmuebleCard = ({ id,detalle }) => {
         </div>
     )
 }
+export default InmuebleCard;

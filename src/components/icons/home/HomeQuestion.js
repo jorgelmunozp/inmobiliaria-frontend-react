@@ -11,3 +11,4 @@ export const HomeQuestion = ({ color="currentColor", strokeWidth='2', width='1',
         </span>
     );
 }
+export default HomeQuestion;

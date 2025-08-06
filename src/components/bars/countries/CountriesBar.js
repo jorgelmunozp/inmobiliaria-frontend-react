@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { DropdownCountries } from './DropdownCountries';
+import { lazy, useState, useEffect } from 'react';
+const DropdownCountries = lazy(() => import('./DropdownCountries.js'));
 
 export const CountriesBar = ({ countries, country, setCountry, state, setState, city, setCity }) => {
   const [ states, setStates ] = useState([]);
@@ -30,3 +30,4 @@ export const CountriesBar = ({ countries, country, setCountry, state, setState, 
     </div>
   )
 }
+export default CountriesBar;

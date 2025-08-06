@@ -1,9 +1,9 @@
+import { lazy } from "react";
 import { Link } from "react-router-dom";
-import { Logo } from '../../icons/logo/Logo';
-import { HomeMenu } from '../../icons/home/HomeMenu';
-import { Warning } from "../../icons/warning/Warning";
+const HomeMenu = lazy(() => import('../../icons/home/HomeMenu.js'));
+const Warning = lazy(() => import('../../icons/warning/Warning.js'));
 
-export const NotFound = ({ myColor,myTitle }) => {
+export const NotFound = ({ Logo,myColor,myTitle }) => {
   return (
     <div className="App w-100 user-select-none">
       <header className="fixed-top text-center py-2">

@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { InmuebleCard } from './InmuebleCard';
-import { PaginationBar } from '../../bars/pagination/PaginationBar';
-import { SortingBar } from '../../bars/sort/SortingBar';
-import { WhiteLine } from '../../forms/whiteline/WhiteLine';
+import { lazy, useState } from 'react';
+const InmuebleCard = lazy(() => import('./InmuebleCard.js'));
+const PaginationBar = lazy(() => import('../../bars/pagination/PaginationBar.js'));
+const SortingBar = lazy(() => import('../../bars/sort/SortingBar.js'));
+const WhiteLine = lazy(() => import('../../forms/whiteline/WhiteLine.js'));
 
 const InmuebleList = ({ inmuebles }) => {
   /* Query */
@@ -51,4 +51,4 @@ const InmuebleList = ({ inmuebles }) => {
     </>
   )
 }
-export default InmuebleList
+export default InmuebleList;

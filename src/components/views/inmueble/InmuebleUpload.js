@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react';
-import { CountriesBar } from '../../bars/countries/CountriesBar';
-import { ButtonFetch } from '../../forms/buttons/ButtonFetch';
-import { Dropdown } from '../../forms/dropdown/Dropdown';
-import { InputFile } from '../../forms/inputs/InputFile';
-import { InputNumber } from '../../forms/inputs/InputNumber';
-import { InputText } from '../../forms/inputs/InputText';
-import { InputTextArea } from '../../forms/inputs/InputTextArea';
-import { HomeThumbnail } from '../../icons/home/HomeThumbnail';
-import { myTitle, myColor } from '../../../global';
-import { formatterPeso } from '../../../helpers/formatterPeso';
+import { lazy, useState, useEffect } from 'react';
+import { formatterPeso } from '../../../helpers/formatterPeso.js';
+import { myTitle, myColor } from '../../../global.js';
 import Swal from 'sweetalert2';
+
+const CountriesBar = lazy(() => import('../../bars/countries/CountriesBar.js'));
+const Dropdown = lazy(() => import('../../forms/dropdown/Dropdown.js'));
+const InputFile = lazy(() => import('../../forms/inputs/InputFile.js'));
+const InputNumber = lazy(() => import('../../forms/inputs/InputNumber.js'));
+const InputText = lazy(() => import('../../forms/inputs/InputText.js'));
+const InputTextArea = lazy(() => import('../../forms/inputs/InputTextArea.js'));
+const ButtonFetch = lazy(() => import('../../forms/buttons/ButtonFetch.js'));
+const HomeThumbnail = lazy(() => import('../../icons/home/HomeThumbnail.js'));
 
 const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, caracteristicas, paises }) => {
   let createFlag = false;
@@ -258,4 +259,4 @@ const InmuebleUpload = ({ urlApiInmuebles, categorias, tipos, estados, caracteri
     </>
   )
 }
-export default InmuebleUpload
+export default InmuebleUpload;

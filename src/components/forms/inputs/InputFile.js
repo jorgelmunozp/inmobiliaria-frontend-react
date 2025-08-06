@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { ImageSearch } from '../../icons/image/ImageSearch';
+import { lazy, useState, useEffect } from 'react';
+const ImageSearch = lazy(() => import('../../icons/image/ImageSearch.js'));
 
 export const InputFile = ({ id,placeholder,acceptFiles='*',file,setFile,iconSize=1,iconStrokeWidth=1,multiple=false,className }) => {
     const size = iconSize;
@@ -44,3 +44,4 @@ export const InputFile = ({ id,placeholder,acceptFiles='*',file,setFile,iconSize
         </div>
     )
 }
+export default InputFile;

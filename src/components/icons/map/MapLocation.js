@@ -7,3 +7,4 @@ export const MapLocation = ({ color="currentColor", strokeWidth='2', width='1', 
         </span>
     );
 }
+export default MapLocation;

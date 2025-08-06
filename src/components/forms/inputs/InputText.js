@@ -10,3 +10,4 @@ export const InputText = ({ id,placeholder,inputText,onInputChange,className }) 
         </>
     )
 }
+export default InputText;

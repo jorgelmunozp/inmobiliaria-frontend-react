@@ -6,3 +6,4 @@ export const WhiteLine = ({ className='' }) => {
     </>
   );
 }
+export default WhiteLine;

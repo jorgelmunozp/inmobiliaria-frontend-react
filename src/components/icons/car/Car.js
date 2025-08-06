@@ -9,3 +9,4 @@ export const Car = ({ className='', color="currentColor", strokeWidth='32', widt
         </span>
     );
 }
+export default Car;

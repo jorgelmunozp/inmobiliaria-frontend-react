@@ -1,5 +1,6 @@
-import { InputText } from '../forms/inputs/InputText';
-import { InputPassword } from '../forms/inputs/InputPassword';
+import { lazy } from 'react';
+const InputText = lazy(() => import('../forms/inputs/InputText.js'));
+const InputPassword = lazy(() => import('../forms/inputs/InputPassword.js'));
 
 export const LoginForm = ({ userInput,passwordInput,alertMessage,setUserInput,setPasswordInput,setAlertMessage,handleLogin,placeholderUser,placeholderPassword,buttonTitle }) => {
   return (
@@ -16,3 +17,4 @@ export const LoginForm = ({ userInput,passwordInput,alertMessage,setUserInput,se
     </div>
   )
 }
+export default LoginForm;

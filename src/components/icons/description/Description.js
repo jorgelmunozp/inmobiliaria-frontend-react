@@ -6,3 +6,4 @@ export const Description = ({ color="currentColor", strokeWidth='0', width='1', 
         </span>
     );
 }
+export default Description;

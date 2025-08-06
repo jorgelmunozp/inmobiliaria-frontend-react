@@ -7,3 +7,4 @@ export const Area = ({ className='', color="currentColor", strokeWidth='0', widt
         </span>
     );
 }
+export default Area;

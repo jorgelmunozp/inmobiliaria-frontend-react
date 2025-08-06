@@ -10,3 +10,4 @@ export const HomeWarehouse = ({ color="currentColor", strokeWidth='2', width='1'
         </span>
     );
 }
+export default HomeWarehouse;
