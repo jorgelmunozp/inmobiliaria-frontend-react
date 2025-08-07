@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.js": "/inmobiliaria-frontend-react/static/js/main.177d73c0.js",
-    "static/css/2836.9a4f844d.chunk.css": "/inmobiliaria-frontend-react/static/css/2836.9a4f844d.chunk.css",
-    "static/js/2836.bba1651a.chunk.js": "/inmobiliaria-frontend-react/static/js/2836.bba1651a.chunk.js",
-    "static/js/8116.eb6ea094.chunk.js": "/inmobiliaria-frontend-react/static/js/8116.eb6ea094.chunk.js",
+    "main.js": "/inmobiliaria-frontend-react/static/js/main.b43e12c5.js",
+    "static/css/6387.42708239.chunk.css": "/inmobiliaria-frontend-react/static/css/6387.42708239.chunk.css",
+    "static/js/6387.2fdd12e5.chunk.js": "/inmobiliaria-frontend-react/static/js/6387.2fdd12e5.chunk.js",
+    "static/js/8116.e2e0e0bb.chunk.js": "/inmobiliaria-frontend-react/static/js/8116.e2e0e0bb.chunk.js",
     "static/js/2125.db7f7174.chunk.js": "/inmobiliaria-frontend-react/static/js/2125.db7f7174.chunk.js",
     "static/js/5579.cb7660b7.chunk.js": "/inmobiliaria-frontend-react/static/js/5579.cb7660b7.chunk.js",
     "static/js/7243.70b2f267.chunk.js": "/inmobiliaria-frontend-react/static/js/7243.70b2f267.chunk.js",
@@ -64,10 +64,10 @@
     "static/media/CenturyGothic.woff2": "/inmobiliaria-frontend-react/static/media/CenturyGothic.60d8d47e05f074d33df2.woff2",
     "index.html": "/inmobiliaria-frontend-react/index.html",
     "static/media/background.svg": "/inmobiliaria-frontend-react/static/media/background.2056c7ff94e8825e9b11.svg",
-    "main.177d73c0.js.map": "/inmobiliaria-frontend-react/static/js/main.177d73c0.js.map",
-    "2836.9a4f844d.chunk.css.map": "/inmobiliaria-frontend-react/static/css/2836.9a4f844d.chunk.css.map",
-    "2836.bba1651a.chunk.js.map": "/inmobiliaria-frontend-react/static/js/2836.bba1651a.chunk.js.map",
-    "8116.eb6ea094.chunk.js.map": "/inmobiliaria-frontend-react/static/js/8116.eb6ea094.chunk.js.map",
+    "main.b43e12c5.js.map": "/inmobiliaria-frontend-react/static/js/main.b43e12c5.js.map",
+    "6387.42708239.chunk.css.map": "/inmobiliaria-frontend-react/static/css/6387.42708239.chunk.css.map",
+    "6387.2fdd12e5.chunk.js.map": "/inmobiliaria-frontend-react/static/js/6387.2fdd12e5.chunk.js.map",
+    "8116.e2e0e0bb.chunk.js.map": "/inmobiliaria-frontend-react/static/js/8116.e2e0e0bb.chunk.js.map",
     "2125.db7f7174.chunk.js.map": "/inmobiliaria-frontend-react/static/js/2125.db7f7174.chunk.js.map",
     "5579.cb7660b7.chunk.js.map": "/inmobiliaria-frontend-react/static/js/5579.cb7660b7.chunk.js.map",
     "7243.70b2f267.chunk.js.map": "/inmobiliaria-frontend-react/static/js/7243.70b2f267.chunk.js.map",
@@ -127,6 +127,6 @@
     "9577.561487a6.chunk.js.map": "/inmobiliaria-frontend-react/static/js/9577.561487a6.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.177d73c0.js"
+    "static/js/main.b43e12c5.js"
   ]
 }
