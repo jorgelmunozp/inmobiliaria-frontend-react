@@ -15,7 +15,7 @@ export const NavBar = ({ Logo, AuthContext, types, myColor, myTitle }) => {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-light bg-white py-2 shadow-light user-select-none">
+        <nav id="navbar" className="navbar navbar-expand-sm navbar-light bg-white py-2 shadow-light user-select-none">
             <div className="container-fluid">
                 <NavLink to={"/"}><Logo color={myColor} width={1.6} height={1.6} strokeWidth={2.25} className='navbar-brand ms-3 me-0'/></NavLink>
                 <NavLink className="navbar-brand" to={"/"}><span className='main-color fw-bold'>{ myTitle }</span></NavLink>

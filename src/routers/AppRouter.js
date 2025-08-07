@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { useFetch } from '../hooks/useFetch.js';
 import { AuthContext } from "../auth/authContext.js";
 import { types } from "../types/types.js";
@@ -19,7 +19,7 @@ const HomeScreen = lazy(() => import('../components/views/home/HomeScreen'));
 const InmuebleUpload = lazy(() => import('../components/views/inmueble/InmuebleUpload'));
 const StockScreen = lazy(() => import('../components/views/stock/StockScreen'));
 
-export const AppRouter = ({ Logo }) => {
+export const AppRouter = ({ Logo, theme, handleTheme }) => {
   const urlBaseFrontend = process.env.REACT_APP_URL_BASE_FRONTEND;
 
   const urlApiInmuebles = process.env.REACT_APP_API_INMUEBLES;
@@ -36,7 +36,7 @@ export const AppRouter = ({ Logo }) => {
   const countries = useFetch(urlApiCountries).data;
  
   return (
-    <BrowserRouter basename={"/" + urlBaseFrontend}>
+    <Router basename={"/" + urlBaseFrontend} future={{ v7_relativeSplatPath: true, v7_startTransition: true, }}>
       <NavBar Logo={Logo} AuthContext={AuthContext} types={types} myColor={myColor} myTitle={myTitle} />
 
       <div className="user-select-none">
@@ -61,7 +61,7 @@ export const AppRouter = ({ Logo }) => {
           <Route path={"/*"} element={ <Suspense fallback={<center><div className="loader"></div></center>}><PrivateRoute><DashboardRoutes urlApiInmuebles={urlApiInmuebles} categorias={categorias} tipos={tipos} estados={estados} caracteristicas={caracteristicas} paises={countries}/></PrivateRoute></Suspense> } />
         </Routes>
       </div>
-    </BrowserRouter>
+    </Router>
   )
 }
 export default AppRouter;

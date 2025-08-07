@@ -2,6 +2,7 @@ import './assets/styles/styles.css';
 import { lazy, useEffect, useReducer } from 'react';
 import { AuthContext } from './auth/authContext.js';
 import { authReducer } from './auth/authReducer.js';
+import { useTheme } from './hooks/useTheme.js';
 
 const AppRouter = lazy(() => import('./routers/AppRouter.js'));
 
@@ -9,6 +10,7 @@ const init = () => { return JSON.parse(localStorage.getItem('user') ) || { logge
 
 export const App = ({ Logo }) => {
   const [ user, dispatch ] = useReducer( authReducer, {}, init );
+  const [ theme, handleTheme ] = useTheme();                        // App theme
 
   useEffect( () => {
     if( !user ) return;
@@ -17,7 +19,7 @@ export const App = ({ Logo }) => {
 
   return (
     <AuthContext.Provider value={{ user,dispatch }}>
-      <AppRouter Logo={Logo} />
+      <AppRouter Logo={Logo} theme={theme} handleTheme={handleTheme} />
     </AuthContext.Provider>
   )
 }
