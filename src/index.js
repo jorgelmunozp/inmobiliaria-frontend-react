@@ -10,7 +10,7 @@ const App = lazy(() => preloadApp);
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <Suspense fallback={ <div style={{ display:'flex', height:'100vh', width:'100%', alignItems:'center', justifyContent:'center', animation:'splash 0.75s linear infinite' }}><Logo color={'#5285c5'} height={8.5} width={9.25} strokeWidth={1.25} /></div> }>
+  <Suspense fallback={ <div style={{ display:'flex', height:'100vh', width:'100%', alignItems:'center', justifyContent:'center', animation:'splash 0.75s linear infinite' }}><Logo color={'#5285c5'} height={8.5} width={9.25} strokeWidth={1.125} /></div> }>
     <App Logo={Logo} />
   </Suspense>
 );
